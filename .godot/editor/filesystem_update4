@@ -1,3 +1,6 @@
 res://default_env.tres
 res://character/scenes/main_character.tscn
 res://levels/scenes/level_1.tscn
+res://interaction/interaction_area/interaction_area.tscn
+res://interaction/interaction_manager.gd
+res://interaction/interaction_manager.tscn

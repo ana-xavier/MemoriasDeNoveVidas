@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0rs1ibpeaai1"]
+
+[ext_resource type="Script" path="res://interaction/interaction_manager.gd" id="1_ch7hc"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://ui/fonts/monogram.ttf" id="2_d05da"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_ch7hc")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_right = 76.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_d05da")
+text = "[E] PARA INTERAGIR"
+horizontal_alignment = 1
+vertical_alignment = 1
