@@ -1,5 +1,0 @@
-res://default_env.tres
-res://scripts-extra/main_menu.tscn
-res://MainMenu.gd
-res://levels/scenes/level_1.tscn
-res://character/scenes/main_character.tscn
