@@ -20,7 +20,7 @@ func close_note_popup():
 	closed_note.emit()
 	
 func _input(event):
-	if event.is_action_pressed("interact") && isOpen:
+	if event.is_action_pressed("get") && isOpen:
 		close_note_popup()
 		
 	

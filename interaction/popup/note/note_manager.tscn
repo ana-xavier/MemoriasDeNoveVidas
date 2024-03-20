@@ -40,9 +40,6 @@ offset_bottom = 121.0
 theme_override_colors/font_color = Color(0, 0, 0, 0.705882)
 theme_override_fonts/font = ExtResource("3_yj84h")
 theme_override_font_sizes/font_size = 12
-text = "Diario de um viajante
-dia 1: estou testando
-essa nota."
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -53,6 +50,6 @@ offset_bottom = 146.0
 theme_override_colors/font_color = Color(1, 0, 0, 0.705882)
 theme_override_fonts/font = ExtResource("3_yj84h")
 theme_override_font_sizes/font_size = 12
-text = "[E] PARA GUARDAR"
+text = "[Q] PARA GUARDAR"
 horizontal_alignment = 1
 vertical_alignment = 1
