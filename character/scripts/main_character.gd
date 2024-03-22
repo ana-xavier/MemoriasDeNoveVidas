@@ -16,8 +16,11 @@ func _ready() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
-	_move()
+	if DialogManager.is_dialog_active:
+		return
+		
 	_animate()
+	_move()
 	move_and_slide()
 	
 func _move() -> void:

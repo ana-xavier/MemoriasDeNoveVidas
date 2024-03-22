@@ -38,7 +38,7 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 		
-	global_position.x -= ((size.x / 2) * scale.x)
+	global_position.x -= (size.x / 2) * scale.x
 	global_position.y -= (size.y + 36) * scale.y
 	
 	label.text = character_name

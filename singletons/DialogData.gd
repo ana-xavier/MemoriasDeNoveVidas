@@ -21,7 +21,7 @@ var mrfresh_character = {
 	"character_idle_dialog": [
 		{"character_type": Character.NPC, 
 			"lines": [
-				"Meow!"
+				"Meow!      "
 		]}],
 	"character_dialogs": [
 		{
