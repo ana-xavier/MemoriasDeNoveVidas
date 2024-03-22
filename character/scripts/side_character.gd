@@ -3,6 +3,7 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player_node = get_parent().get_node("MainCharacter")
 
+var character_id: int = 1
 var character_name: String = "Mr. Fresh"
 
 enum Character {
@@ -10,30 +11,19 @@ enum Character {
 	NPC
 }
 
-var dialogues_data = [
-	{"character_type": Character.PLAYER, "lines": [
-		"Oiii Mr.Fresh! Faz tempo que nao te vejo.",
-		"Como voce esta? Estava bem doente da ultima vez em que te vi..."
-	]},
-	{"character_type": Character.NPC, "lines": [
-		"Ola! Estou otimo!",
-		"Melhorei do dia pra noite, como em um piscar de olhos."
-	]},
-	{"character_type": Character.PLAYER, "lines": [
-		"Ei, por acaso voce viu meus donos por ai?.",
-		"Estou preocupado, faz um dia inteiro que nao os vejo."
-	]}
-]
-
 func _ready() -> void:
 	self.scale = Vector2(0.6, 0.6)
 	interaction_area.interact = Callable(self, "_on_interact")
 
+func get_dialog_lines():
+	pass
+	
 func _on_interact():
+	var dialogues_data = DialogData.get_character_dialog(character_id)
 	var curr_position
 	var curr_dialogue
 	var curr_character
-	
+
 	for dialogue in dialogues_data:
 		if dialogue["character_type"] == Character.NPC:
 			curr_position = global_position
@@ -45,3 +35,4 @@ func _on_interact():
 		
 		DialogManager.start_dialog(curr_position, curr_dialogue, curr_character)
 		await DialogManager.dialog_finished
+	DialogData.set_dialog_done(character_id)
