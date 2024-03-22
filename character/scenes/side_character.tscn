@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bknsyv6emufh"]
+[gd_scene load_steps=6 format=3 uid="uid://bknsyv6emufh"]
 
 [ext_resource type="Script" path="res://character/scripts/side_character.gd" id="1_lsmyt"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://character/assets/orange_0.png" id="1_mfpb1"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_eev50"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xv1m8"]
-radius = 27.0185
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbagc"]
+size = Vector2(18, 12)
 
-[node name="SideCharacter" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sef0g"]
+radius = 30.0
+
+[node name="SideCharacter" type="CharacterBody2D"]
 script = ExtResource("1_lsmyt")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qbagc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
@@ -16,11 +23,11 @@ texture = ExtResource("1_mfpb1")
 offset = Vector2(0.5, 0)
 hframes = 24
 vframes = 17
-frame = 50
+frame = 78
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_eev50")]
 action_name = "conversar"
 
 [node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_xv1m8")
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_sef0g")

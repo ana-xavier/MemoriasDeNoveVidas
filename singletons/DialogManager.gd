@@ -2,6 +2,8 @@ extends Node
 
 @onready var text_box_scene = preload("res://ui/textbox/text_box.tscn")
 
+var character_name: String
+
 var dialog_lines = []
 var current_line_index = 0
 
@@ -14,18 +16,20 @@ var can_advance_line = false
 #signal dialog_started()
 signal dialog_finished()
 
-func start_dialog(position: Vector2, lines):
+func start_dialog(position: Vector2, lines, _name):
 	if is_dialog_active:
 		return
 	
 	dialog_lines = lines
 	text_box_position = position
+	character_name = _name
 	_show_text_box()
 	
 	is_dialog_active = true
 	
 func _show_text_box():
 	text_box = text_box_scene.instantiate()
+	text_box.set_character_name(character_name)
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position

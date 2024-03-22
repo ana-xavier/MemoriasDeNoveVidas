@@ -5,6 +5,7 @@ extends MarginContainer
 
 const MAX_WIDTH = 256
 
+var character_name = ""
 var text = ""
 var letter_index = 0
 
@@ -12,11 +13,17 @@ var letter_time = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
 
+var default_color = Color(0, 0, 0, 1.0) # Default Color (black)
+var gray_color = Color(0.5, 0.5, 0.5, 1.0) # Gray
+
 
 signal finished_displaying()
 
 func _ready():
 	self.scale = Vector2(0.5, 0.5)
+	
+func set_character_name(_name: String):
+	character_name = _name
 
 func display_text(text_to_display: String):
 	text = text_to_display
@@ -32,9 +39,11 @@ func display_text(text_to_display: String):
 		custom_minimum_size.y = size.y
 		
 	global_position.x -= ((size.x / 2) * scale.x)
-	global_position.y -= (size.y + 26) * scale.y
+	global_position.y -= (size.y + 36) * scale.y
 	
-	label.text = ""
+	label.text = character_name
+	label.text += ":\n"
+	
 	_display_letter()
 	
 func _display_letter():
