@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=8 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_g0oxc"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://character/scenes/main_character.tscn" id="2_ocy6e"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="3_ch57o"]
 [ext_resource type="PackedScene" uid="uid://dl7ck63ja1k6q" path="res://instances/scenes/notes_instances.tscn" id="3_e48er"]
+[ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://character/scenes/side_character.tscn" id="4_qpro3"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_manager.tscn" id="5_6o2vm"]
 
 [node name="Level" type="Node2D"]
@@ -19,8 +20,11 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="SideCharacter" parent="YSort" instance=ExtResource("4_qpro3")]
+position = Vector2(266, -71)
+
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(57, -370)
+position = Vector2(87, -139)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("3_ch57o")]
 layer_0/tile_data = PackedInt32Array(-196624, 0, 0, -1179664, 0, 0, -458755, 0, 0, -589836, 0, 0, -1572871, 0, 0, -1507339, 1, 0, 65511, 1, 0, 196586, 1, 0, -327687, 1, 0, -917510, 1, 0, -983051, 2, 0, -65546, 2, 0, -1441804, 7, 0, -327699, 7, 0, -196626, 8, 0, -23, 8, 0, -393220, 8, 0, -1507335, 8, 0, -720910, 8, 0, -1572861, 65545, 1, -1572854, 2, 0, -1441796, 10, 0, -1835001, 10, 0, -393198, 1507337, 2, -851946, 1, 0, -917490, 1, 0, -1048566, 2, 0, -851957, 2, 0, -786419, 0, 0, -1114099, 1, 0, -983028, 1, 0, -917487, 1, 0, -851952, 2, 0, -1048556, 0, 0, 458743, 786441, 13, 196565, 786441, 1, -1900549, 11, 0, -1900547, 11, 0, -1900545, 11, 0, -1966079, 11, 0, -1966077, 11, 0, -1966075, 11, 0, -1966073, 11, 0, -1966071, 11, 0, -1966069, 11, 0, -2097140, 11, 0, -2097138, 11, 0, -2097142, 11, 0, -2097144, 11, 0, -2097146, 11, 0, -2097148, 11, 0, -2097150, 11, 0, -2097152, 11, 0, -2031618, 11, 0, -2031620, 11, 0, -1900560, 11, 0, -1900562, 11, 0, -1900564, 11, 0, -1900566, 11, 0, -1900568, 11, 0, -1900570, 11, 0, -1900572, 11, 0, -1900574, 11, 0, -2031633, 11, 0, -2031635, 11, 0, -2031637, 11, 0, -2031639, 11, 0, -2031641, 11, 0, -2031643, 11, 0, -2031645, 11, 0, -458784, 131076, 4, -720930, 4, 0, -720928, 131076, 0, -720929, 65540, 0, -655392, 131076, 1, -655394, 4, 1, -655393, 65540, 1, -589858, 4, 2, -589857, 65540, 2, -589856, 131076, 2, -524322, 4, 3, -524321, 65540, 3, -393250, 4, 5, -393249, 65540, 5, -393248, 131076, 5, -524320, 131076, 3, -458785, 65540, 4, -458786, 4, 4)
