@@ -33,26 +33,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cpemm")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="menu" type="Node2D" parent="."]
 
-[node name="1" type="Sprite2D" parent="Node2D"]
+[node name="1" type="Sprite2D" parent="menu"]
 position = Vector2(160.75, 89)
 scale = Vector2(0.556424, 0.549383)
 texture = ExtResource("2_mgy4n")
 
-[node name="2" type="Sprite2D" parent="Node2D"]
+[node name="2" type="Sprite2D" parent="menu"]
 visible = false
 position = Vector2(174, 96)
 scale = Vector2(0.614583, 0.632716)
 texture = ExtResource("3_rih60")
 
-[node name="5" type="Sprite2D" parent="Node2D"]
+[node name="5" type="Sprite2D" parent="menu"]
 visible = false
 position = Vector2(271, 92)
 scale = Vector2(0.640625, 0.645062)
 texture = ExtResource("3_u34hm")
 
-[node name="6" type="Sprite2D" parent="Node2D"]
+[node name="6" type="Sprite2D" parent="menu"]
 visible = false
 position = Vector2(-112, 87)
 scale = Vector2(0.704861, 0.675926)
