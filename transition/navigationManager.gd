@@ -8,7 +8,6 @@ signal on_trigger_player_spawn
 var spawn_door_tag
 
 func go_to_level(level_tag, destination_tag):
-	print("entrou no navigation")
 	print(level_tag)
 	print(destination_tag)
 	var scene_to_load

@@ -43,7 +43,7 @@ spawn_direction = "up"
 position = Vector2(-0.75, 6.0625)
 
 [node name="Spawn" parent="Doors/Door_S" index="1" groups=["player"]]
-position = Vector2(-47, 39)
+position = Vector2(-0.999996, 15)
 scale = Vector2(20.1387, -3554.56)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

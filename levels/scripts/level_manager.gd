@@ -5,7 +5,6 @@ func _ready():
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

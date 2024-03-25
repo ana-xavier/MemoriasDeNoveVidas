@@ -426,7 +426,7 @@ states/Idle/position = Vector2(408, 125)
 states/Running/node = SubResource("AnimationNodeBlendSpace2D_su5c2")
 states/Running/position = Vector2(583, 125)
 
-[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree")]
+[node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_xxmps")
 _animation_tree = NodePath("AnimationTree")
