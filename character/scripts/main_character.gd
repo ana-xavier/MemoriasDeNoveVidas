@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+class_name MainCharacter
+
 var _state_machine
+
+@onready var animation_player: AnimationPlayer = $Animation
 
 @export_category("Variables")
 @export var _move_speed: float = 54.0
@@ -11,10 +15,11 @@ var _state_machine
 @export var _animation_tree: AnimationTree = null
 
 func _ready() -> void:
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
 	_state_machine = _animation_tree["parameters/playback"]
 	self.scale = Vector2(0.6, 0.6)
 	
-
 func _physics_process(_delta: float) -> void:
 	if DialogManager.is_dialog_active:
 		return
@@ -49,3 +54,6 @@ func _animate() -> void:
 		return
 	
 	_state_machine.travel("Idle")
+	
+func _on_spawn(positioon: Vector2, direction: String):
+	global_position = positioon

@@ -5,7 +5,6 @@ func _on_start_pressed() -> void:
 	
 	Transition.transition_menu()
 
-
 #func _on_controls_pressed() -> void:
 	#get_tree().change_scene_to_file("res://character/scenes/controls.tscn")
 
