@@ -56,7 +56,4 @@ func _animate() -> void:
 	_state_machine.travel("Idle")
 	
 func _on_spawn(positioon: Vector2, direction: String):
-	print("spawn do personagem")
 	global_position = positioon
-	animation_player.play("move_" + direction)
-	animation_player.stop()

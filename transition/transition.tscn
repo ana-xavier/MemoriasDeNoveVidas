@@ -14,6 +14,7 @@ func _ready():
 	
 func _on_animation_finished(name):
 	if(name == \"fade\"):
+		on_transition_finished.emit()
 		animation.play(\"without_fade\")
 	elif(name == \"without_fade\"):
 		color_rect.visible = false
