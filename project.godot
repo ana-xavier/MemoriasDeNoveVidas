@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 InteractionManager="*res://interaction/interaction_manager.tscn"
 DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
+Transition="*res://transition/transition.tscn"
 
 [display]
 
