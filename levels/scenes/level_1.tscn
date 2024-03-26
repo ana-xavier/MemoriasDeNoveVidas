@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=8 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_g0oxc"]
@@ -25,7 +25,7 @@ y_sort_enabled = true
 position = Vector2(266, -71)
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(56, -327)
+position = Vector2(87, -139)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("3_ch57o")]
 scale = Vector2(0.970403, 1.00248)
