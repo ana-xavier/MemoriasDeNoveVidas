@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bgljvnge160or"]
+[gd_scene load_steps=36 format=3 uid="uid://bgljvnge160or"]
 
 [ext_resource type="Texture2D" uid="uid://be2kbcrwfyhk" path="res://character/assets/black_4.png" id="1_a57xr"]
 [ext_resource type="Script" path="res://character/scripts/main_character.gd" id="1_xxmps"]
@@ -338,6 +338,34 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_pdiw7"]
+resource_name = "sitting_up"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [216, 217, 218, 219, 240, 241, 242]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_weba1"]
 _data = {
 "RESET": SubResource("Animation_c5br6"),
@@ -351,11 +379,9 @@ _data = {
 "running_up_right": SubResource("Animation_6wqqs"),
 "sitting_down": SubResource("Animation_thsuj"),
 "sitting_left": SubResource("Animation_d8cxf"),
-"sitting_right": SubResource("Animation_7intp")
+"sitting_right": SubResource("Animation_7intp"),
+"sitting_up": SubResource("Animation_pdiw7")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s3tx0"]
-animation = &"sitting_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbfyq"]
 animation = &"sitting_down"
@@ -366,15 +392,33 @@ animation = &"sitting_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5su2r"]
 animation = &"sitting_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3r1ut"]
+animation = &"sitting_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tw4h4"]
+animation = &"sitting_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8wxsj"]
+animation = &"sitting_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2oods"]
+animation = &"sitting_left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_amdsa"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_s3tx0")
-blend_point_0/pos = Vector2(0, -1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_mbfyq")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_2tghn")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_5su2r")
-blend_point_3/pos = Vector2(1, 0)
+blend_point_0/node = SubResource("AnimationNodeAnimation_mbfyq")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2tghn")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_5su2r")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3r1ut")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_tw4h4")
+blend_point_4/pos = Vector2(0, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_8wxsj")
+blend_point_5/pos = Vector2(0, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_2oods")
+blend_point_6/pos = Vector2(-1, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_njanx"]

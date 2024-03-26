@@ -21,10 +21,11 @@ func _ready() -> void:
 	self.scale = Vector2(0.6, 0.6)
 	
 func _physics_process(_delta: float) -> void:
+	_animate()
+	
 	if DialogManager.is_dialog_active:
 		return
 		
-	_animate()
 	_move()
 	move_and_slide()
 	
@@ -49,7 +50,7 @@ func _move() -> void:
 	#velocity = _direction.normalized() * _move_speed
 
 func _animate() -> void:
-	if(velocity.length()) > 2:
+	if(velocity.length() > 2 && not DialogManager.is_dialog_active):
 		_state_machine.travel("Running")
 		return
 	

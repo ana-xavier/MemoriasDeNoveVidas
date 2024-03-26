@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5qrvosixu1md"]
+[gd_scene load_steps=6 format=3 uid="uid://c56guh7afpq0s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_w2xrs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="2_rnx6i"]
@@ -13,9 +13,9 @@ script = ExtResource("1_w2xrs")
 
 [node name="Door_N" parent="Doors" instance=ExtResource("8_se5eb")]
 position = Vector2(9, 97)
+spawn_direction = "down"
 destination_level_tag = "level_1"
 destination_door_tag = "S"
-spawn_direction = "down"
 
 [node name="CollisionShape2D" parent="Doors/Door_N" index="0"]
 position = Vector2(-1.5, 7.11803)
@@ -34,7 +34,7 @@ layer_0/tile_data = PackedInt32Array(-393222, 589825, 0, -327686, 589825, 1, -26
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_hm66u")]
-position = Vector2(-24, -74)
+position = Vector2(-23, -76)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("6_8d784")]
 position = Vector2(0, -4)
