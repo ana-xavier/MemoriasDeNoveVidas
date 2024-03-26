@@ -15,48 +15,58 @@ var characters_data = []
 # com is_dialog_done: false e is_dialog_ready: true serão priorizados na lista. O primeiro 
 # encontrado com essas condições no Array será escolhido.
 
-var mrfresh_character = {
+var mrpotatoe_character = {
 	"id": 1,
-	"name": "Mr. Fresh",
-	"character_idle_dialog": [
-		{"character_type": Character.NPC, 
-			"lines": [
-				"Meow!      "
-		]}],
+	"name": "Sr. Batata",
+	"character_idle_dialog": {
+			"release_a_quest": false,
+			"dialog": [
+				{"character_type": Character.NPC, 
+					"lines": [
+						"Meow!      "
+				]}]
+		},
 	"character_dialogs": [
 		{
-			"id": 1,
+			"release_a_quest": true,
+			"quest_id": "srpotatoe_item_quest",
 			"is_dialog_done": false,
 			"is_dialog_ready": true,
 			"dialog": [
 				{"character_type": Character.PLAYER, 
 					"lines": [
-					"Oiii Mr.Fresh! Faz tempo que nao te vejo.",
+					"Oiii Sr. Batata! Faz tempo que nao te vejo.",
 					"Como voce esta? Estava bem doente da ultima vez em que te vi..."
 				]},
 				{"character_type": Character.NPC, 
 					"lines": [
 					"Ola! Estou otimo!",
-					"Melhorei do dia pra noite, como em um piscar de olhos."
+					"Bla Bla Bla... voce poderia pegar meu Patinho de Borracha para mim?"
 				]},
 				{"character_type": Character.PLAYER, 
 					"lines": [
-					"Ei, por acaso voce viu meus donos por ai?.",
-					"Estou preocupado, faz um dia inteiro que nao os vejo."
+					"Claro! Vou encontrar para voce!"
 				]}
 			]
 		},
 		{
 			"id": 2,
+			"release_a_quest": false,
 			"is_dialog_done": false,
 			"is_dialog_ready": false,
-			"dialog": []
+			"dialog": [
+				{"character_type": Character.NPC, 
+					"lines": [
+					"Voce encontrou! :)",
+					"Obrigado amigo, voce e um amigo!"
+				]},
+			]
 		}
 	]
 }
 
 func _ready():
-	characters_data.append(mrfresh_character)
+	characters_data.append(mrpotatoe_character)
 	
 func get_character_dialog(character_id: int):
 	var character = get_character(character_id)
@@ -64,11 +74,10 @@ func get_character_dialog(character_id: int):
 	
 	for dialog_data in character_dialogs:
 		if(!dialog_data["is_dialog_done"] && dialog_data["is_dialog_ready"]):
-			return dialog_data["dialog"]
+			return dialog_data
 			
 	return character["character_idle_dialog"]
-	
-		
+
 func get_character(character_id: int):
 	for character in characters_data:
 		if(character["id"] == character_id):
@@ -84,4 +93,14 @@ func set_dialog_done(character_id: int):
 					dialog_data["is_dialog_done"] = true
 					return
 			return	
-	
+
+func set_dialog_ready(character_id: int):
+	for character in characters_data:
+		if character["id"] == character_id:
+			var character_dialogs = character["character_dialogs"]
+			
+			for dialog_data in character_dialogs:
+				if not dialog_data["is_dialog_done"] and not dialog_data["is_dialog_ready"]:
+					dialog_data["is_dialog_ready"] = true
+					return
+			return
