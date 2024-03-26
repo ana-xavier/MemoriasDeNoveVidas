@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gametest Godot"
-run/main_scene="res://character/scenes/cat.tscn"
+run/main_scene="res://mainmenu/main_menu.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
@@ -22,6 +22,8 @@ DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
 QuestManager="*res://singletons/QuestManager.gd"
 PlayerInventory="*res://singletons/PlayerInventory.gd"
+Transition="*res://transition/transition.tscn"
+NavigationManager="*res://transition/navigationManager.gd"
 
 [display]
 
@@ -84,4 +86,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 environment/defaults/default_environment="res://default_env.tres"

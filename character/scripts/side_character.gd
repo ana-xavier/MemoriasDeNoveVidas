@@ -10,6 +10,7 @@ enum Character {
 	PLAYER,
 	NPC
 }
+
 func _ready() -> void:
 	self.scale = Vector2(0.6, 0.6)
 	interaction_area.interact = Callable(self, "_on_interact")
@@ -37,7 +38,7 @@ func manage_dialog():
 		
 		DialogManager.start_dialog(curr_position, curr_dialogue, curr_character)
 		await DialogManager.dialog_finished
-		
+
 	DialogData.set_dialog_done(character_id)
 	
 	search_dialog_quest(dialogue_data)

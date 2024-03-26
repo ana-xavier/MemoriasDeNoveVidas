@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbeeyplal6r2u"]
+[gd_scene load_steps=12 format=3 uid="uid://cbeeyplal6r2u"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_t6lqk"]
-[ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://Clouds/1.png" id="2_e7qsc"]
-[ext_resource type="Texture2D" uid="uid://ulw8q5dorjk2" path="res://Clouds/5.png" id="3_5n3w8"]
-[ext_resource type="FontFile" uid="uid://cyytwcjx00koj" path="res://fonts/PressStart2P.ttf" id="4_jm0kk"]
+[ext_resource type="Script" path="res://mainmenu/MainMenu.gd" id="1_cpemm"]
+[ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://mainmenu/assets/1.png" id="2_mgy4n"]
+[ext_resource type="Texture2D" uid="uid://c0k82223adg0h" path="res://mainmenu/assets/2.png" id="3_rih60"]
+[ext_resource type="Texture2D" uid="uid://ulw8q5dorjk2" path="res://mainmenu/assets/5.png" id="3_u34hm"]
+[ext_resource type="FontFile" uid="uid://cyytwcjx00koj" path="res://fonts/PressStart2P.ttf" id="4_t6sor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -30,24 +31,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t6lqk")
+script = ExtResource("1_cpemm")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="menu" type="Node2D" parent="."]
 
-[node name="1" type="Sprite2D" parent="Node2D"]
+[node name="1" type="Sprite2D" parent="menu"]
 position = Vector2(160.75, 89)
 scale = Vector2(0.556424, 0.549383)
-texture = ExtResource("2_e7qsc")
+texture = ExtResource("2_mgy4n")
 
-[node name="5" type="Sprite2D" parent="Node2D"]
+[node name="2" type="Sprite2D" parent="menu"]
+visible = false
+position = Vector2(174, 96)
+scale = Vector2(0.614583, 0.632716)
+texture = ExtResource("3_rih60")
+
+[node name="5" type="Sprite2D" parent="menu"]
+visible = false
 position = Vector2(271, 92)
 scale = Vector2(0.640625, 0.645062)
-texture = ExtResource("3_5n3w8")
+texture = ExtResource("3_u34hm")
 
-[node name="6" type="Sprite2D" parent="Node2D"]
+[node name="6" type="Sprite2D" parent="menu"]
+visible = false
 position = Vector2(-112, 87)
 scale = Vector2(0.704861, 0.675926)
-texture = ExtResource("3_5n3w8")
+texture = ExtResource("3_u34hm")
 
 [node name="controls" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -69,7 +78,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_pressed_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_jm0kk")
+theme_override_fonts/font = ExtResource("4_t6sor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
@@ -80,7 +89,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_pressed_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_jm0kk")
+theme_override_fonts/font = ExtResource("4_t6sor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
@@ -91,7 +100,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_pressed_color = Color(0.431373, 0, 0.717647, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_jm0kk")
+theme_override_fonts/font = ExtResource("4_t6sor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fe2d3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ub7tm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nnowp")

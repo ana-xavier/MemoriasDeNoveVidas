@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://egv4kctwa5px"]
+
+[sub_resource type="GDScript" id="GDScript_fodup"]
+script/source = "extends CanvasLayer
+
+signal on_transition_finished
+
+@onready var animation = $AnimationPlayer
+@onready var color_rect = $ColorRect
+
+func _ready():
+	color_rect.visible = false
+	animation.animation_finished.connect(_on_animation_finished)
+	
+func _on_animation_finished(name):
+	if(name == \"fade\"):
+		on_transition_finished.emit()
+		animation.play(\"without_fade\")
+	elif(name == \"without_fade\"):
+		color_rect.visible = false
+
+func transition():
+	color_rect.visible = true
+	animation.play(\"fade\")
+	
+func transition_menu():
+	color_rect.visible = true
+	animation.play(\"without_fade\")
+"
+
+[sub_resource type="Animation" id="Animation_7covl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k7kpa"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w05lw"]
+resource_name = "without_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rg53s"]
+_data = {
+"RESET": SubResource("Animation_7covl"),
+"fade": SubResource("Animation_k7kpa"),
+"without_fade": SubResource("Animation_w05lw")
+}
+
+[node name="transition" type="CanvasLayer"]
+layer = 2
+script = SubResource("GDScript_fodup")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rg53s")
+}
