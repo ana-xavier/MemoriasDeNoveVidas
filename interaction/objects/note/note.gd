@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var note_manager = get_tree().get_first_node_in_group("NoteManager")
+@onready var note_popup = get_tree().get_first_node_in_group("NotePopup")
 
 var id
 var note_text
@@ -14,11 +14,11 @@ func init(_id, _note_text, _position):
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
-	note_manager.close_note_popup()
+	note_popup.close_note_popup()
 
 func _on_interact():
 	opened = true
-	note_manager.set_note_text(note_text)
-	note_manager.show_note_popup()
-	await note_manager.closed_note
+	note_popup.set_note_text(note_text)
+	note_popup.show_note_popup()
+	await note_popup.closed_note
 	queue_free()
