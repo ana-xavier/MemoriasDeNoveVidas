@@ -77,6 +77,7 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_S" parent="Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
+y_sort_enabled = true
 position = Vector2(56, -381)
 destination_level_tag = "house"
 destination_door_tag = "N"
