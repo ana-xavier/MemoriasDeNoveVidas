@@ -108,7 +108,7 @@ y_sort_enabled = true
 position = Vector2(266, -71)
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(133, -294)
+position = Vector2(162, -56)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("3_ch57o")]
 scale = Vector2(0.970403, 1.00248)

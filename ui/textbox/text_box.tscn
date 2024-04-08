@@ -1,13 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://brvwbewhs52l2"]
+[gd_scene load_steps=11 format=3 uid="uid://brvwbewhs52l2"]
 
 [ext_resource type="Script" path="res://ui/textbox/text_box.gd" id="1_vwwga"]
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://ui/fonts/monogram.ttf" id="3_64cv6"]
 [ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://ui/textbox/dialogue_box.png" id="3_jner4"]
 [ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://ui/textbox/dialogue_box_pointer.png" id="3_oq6io"]
+[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://ui/textbox/next_indicator.png" id="4_0ljyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi7d7"]
+atlas = ExtResource("4_0ljyt")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgsy8"]
+atlas = ExtResource("4_0ljyt")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j23h"]
+atlas = ExtResource("4_0ljyt")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cajlr"]
+atlas = ExtResource("4_0ljyt")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlov3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi7d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgsy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cajlr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="TextBox" type="MarginContainer"]
 offset_right = 32.0
 offset_bottom = 32.0
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_vwwga")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -34,6 +72,26 @@ grow_vertical = 0
 [node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/Control"]
 position = Vector2(20, 34)
 texture = ExtResource("3_oq6io")
+
+[node name="Control2" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextIndicator" type="AnimatedSprite2D" parent="NinePatchRect/Control2"]
+visible = false
+position = Vector2(35, 31)
+scale = Vector2(0.916667, 0.75)
+sprite_frames = SubResource("SpriteFrames_qlov3")
+autoplay = "default"
+frame_progress = 0.536253
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

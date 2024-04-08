@@ -2,6 +2,7 @@ extends MarginContainer
 
 @onready var label = $MarginContainer/Label
 @onready var timer = $ShowLetterTimer
+@onready var next_indicator = $NinePatchRect/Control2/NextIndicator
 
 const MAX_WIDTH = 256
 
@@ -20,7 +21,7 @@ var gray_color = Color(0.5, 0.5, 0.5, 1.0) # Gray
 signal finished_displaying()
 
 func _ready():
-	self.scale = Vector2(0.5, 0.5)
+	scale = Vector2(0.2, 0.2)
 	
 func set_character_name(_name: String):
 	character_name = _name
@@ -38,11 +39,18 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 		
-	global_position.x -= (size.x / 2) * scale.x
-	global_position.y -= (size.y + 36) * scale.y
+	global_position.x -= (size.x / 2) * 0.5
+	global_position.y -= (size.y + 36) * 0.5
 	
 	label.text = character_name
 	label.text += ":\n"
+	
+	#pivot_offset = Vector2((size.x / 2), size.y)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		self, "scale", Vector2(0.5, 0.5), 0.15
+	).set_trans(Tween.TRANS_BACK)
 	
 	_display_letter()
 	
@@ -52,6 +60,7 @@ func _display_letter():
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()
+		next_indicator.visible = true
 		return
 		
 	match text[letter_index]:
