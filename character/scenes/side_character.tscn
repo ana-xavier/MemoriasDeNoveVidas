@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bknsyv6emufh"]
 
 [ext_resource type="Script" path="res://character/scripts/side_character.gd" id="1_lsmyt"]
-[ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://character/assets/orange_0.png" id="1_mfpb1"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://character/assets/base_cat_character.png" id="2_nqgw4"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_eev50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbagc"]
@@ -14,18 +14,20 @@ radius = 30.0
 script = ExtResource("1_lsmyt")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qbagc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
-texture = ExtResource("1_mfpb1")
+texture = ExtResource("2_nqgw4")
 offset = Vector2(0.5, 0)
 hframes = 24
 vframes = 17
-frame = 78
+frame = 50
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_eev50")]
+visible = false
 action_name = "conversar"
 
 [node name="Collision" type="CollisionShape2D" parent="InteractionArea"]

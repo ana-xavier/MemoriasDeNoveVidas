@@ -15,6 +15,22 @@ var characters_data = []
 # com is_dialog_done: false e is_dialog_ready: true serão priorizados na lista. O primeiro 
 # encontrado com essas condições no Array será escolhido.
 
+var jujubinha_character = {
+	"id": 2,
+	"name": "Jujubinha",
+	"character_idle_dialog": {
+			"release_a_quest": false,
+			"dialog": [
+				{"character_type": Character.NPC, 
+					"lines": [
+						"Meow!      "
+				]}]
+		},
+	"character_dialogs": [
+		
+	]
+}
+
 var mrpotatoe_character = {
 	"id": 1,
 	"name": "Sr. Batata",
@@ -67,6 +83,7 @@ var mrpotatoe_character = {
 
 func _ready():
 	characters_data.append(mrpotatoe_character)
+	characters_data.append(jujubinha_character)
 	
 func get_character_dialog(character_id: int):
 	var character = get_character(character_id)

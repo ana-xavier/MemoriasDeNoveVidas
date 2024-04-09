@@ -1,10 +1,14 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var sprite: Sprite2D = $Sprite 
 @onready var player_node = get_parent().get_node("MainCharacter")
 
-var character_id: int = 1
-var character_name: String = "Sr. Batata"
+@export_category("Character")
+@export var character_id: int = -1
+@export var character_name: String = "Gato"
+@export var texture: Texture2D = null
+@export var frame: int = 50
 
 enum Character {
 	PLAYER,
@@ -14,6 +18,9 @@ enum Character {
 func _ready() -> void:
 	self.scale = Vector2(0.6, 0.6)
 	interaction_area.interact = Callable(self, "_on_interact")
+	if texture != null:
+		sprite.texture = texture
+		sprite.frame = frame
 
 func _on_interact():	
 	await verify_current_quest()
@@ -56,10 +63,6 @@ func verify_current_quest():
 			PlayerInventory.remove_item(required_item_id)
 			QuestManager.complete_quest(current_quest["id"])
 			DialogData.set_dialog_ready(character_id)
-# Verificar se o player concluiu ela (pegou o item necessario)
-# Remover o item do inventario do player
-# Marcar a quest como concluida -> QuestManager.complete_quest(quest["id"])
-# Marcar o próximo diálogo do npc como is_dialog_ready: true
-# Marcar o próximo diálogo do NPC como is_dialog_ready: true
+
 
 	
