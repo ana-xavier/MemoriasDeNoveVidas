@@ -18,12 +18,13 @@ config/icon="res://icon.png"
 [autoload]
 
 InteractionManager="*res://interaction/interaction_manager.tscn"
+InteractionHoldManager="*res://interaction/interaction_hold_manager.tscn"
+NavigationManager="*res://transition/navigationManager.gd"
 DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
 QuestManager="*res://singletons/QuestManager.gd"
 PlayerInventory="*res://singletons/PlayerInventory.gd"
 Transition="*res://transition/transition.tscn"
-NavigationManager="*res://transition/navigationManager.gd"
 
 [display]
 
