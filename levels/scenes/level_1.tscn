@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=18 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_g0oxc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="3_ch57o"]
 [ext_resource type="PackedScene" uid="uid://dl7ck63ja1k6q" path="res://instances/scenes/notes_instances.tscn" id="3_e48er"]
 [ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://character/scenes/side_character.tscn" id="4_qpro3"]
+[ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/objects/dirt/digging_area.tscn" id="6_t4koh"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://character/assets/orange_0.png" id="7_1kca1"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://character/assets/calico_0.png" id="7_ojxkf"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://terrain/house/assets/gray_door.png" id="8_63jcl"]
@@ -76,32 +77,16 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 
 [node name="NotesInstances" parent="." instance=ExtResource("3_e48er")]
 
-[node name="Doors" type="Node" parent="."]
+[node name="DiggingAreas" type="Node2D" parent="."]
 
-[node name="Door_S" parent="Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
-y_sort_enabled = true
-position = Vector2(56, -381)
-destination_level_tag = "house"
-destination_door_tag = "N"
-spawn_direction = "up"
-animation = NodePath("Animation")
+[node name="DiggingArea" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
+position = Vector2(308, -229)
 
-[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
-position = Vector2(-0.75, 6.0625)
+[node name="DiggingArea2" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
+position = Vector2(646, -169)
 
-[node name="Spawn" parent="Doors/Door_S" index="1" groups=["player"]]
-position = Vector2(-1, 19)
-scale = Vector2(20.1387, -3554.56)
-
-[node name="Texture" type="Sprite2D" parent="Doors/Door_S"]
-position = Vector2(-1, -13)
-texture = ExtResource("8_63jcl")
-hframes = 2
-
-[node name="Animation" type="AnimationPlayer" parent="Doors/Door_S"]
-libraries = {
-"": SubResource("AnimationLibrary_at0f8")
-}
+[node name="DiggingArea3" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
+position = Vector2(609, -302)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -120,11 +105,42 @@ texture = ExtResource("7_1kca1")
 frame = 78
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(180, -69)
+position = Vector2(72, -311)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("3_ch57o")]
 scale = Vector2(0.970403, 1.00248)
-layer_0/tile_data = PackedInt32Array(-196624, 0, 0, -1179664, 0, 0, -458755, 0, 0, -589836, 0, 0, -1572871, 0, 0, -1507339, 1, 0, 65511, 1, 0, 196586, 1, 0, -327687, 1, 0, -917510, 1, 0, -983051, 2, 0, -65546, 2, 0, -1441804, 7, 0, -327699, 7, 0, -196626, 8, 0, -23, 8, 0, -393220, 8, 0, -1507335, 8, 0, -720910, 8, 0, -1572861, 65545, 1, -1572854, 2, 0, -1441796, 10, 0, -1835001, 10, 0, -851946, 1, 0, -917490, 1, 0, -1048566, 2, 0, -851957, 2, 0, -786419, 0, 0, -1114099, 1, 0, -983028, 1, 0, -917487, 1, 0, -851952, 2, 0, -1048556, 0, 0, -1900549, 11, 0, -1900547, 11, 0, -1900545, 11, 0, -1966079, 11, 0, -1966077, 11, 0, -1966075, 11, 0, -1966073, 11, 0, -1966071, 11, 0, -1966069, 11, 0, -2097140, 11, 0, -2097138, 11, 0, -2097142, 11, 0, -2097144, 11, 0, -2097146, 11, 0, -2097148, 11, 0, -2097150, 11, 0, -2097152, 11, 0, -2031618, 11, 0, -2031620, 11, 0, -1900560, 11, 0, -1900562, 11, 0, -1900564, 11, 0, -1900566, 11, 0, -1900568, 11, 0, -1900570, 11, 0, -1900572, 11, 0, -1900574, 11, 0, -2031633, 11, 0, -2031635, 11, 0, -2031637, 11, 0, -2031639, 11, 0, -2031641, 11, 0, -2031643, 11, 0, -2031645, 11, 0, -720930, 65540, 0, -720929, 131076, 0, -720931, 4, 0, -655393, 131076, 1, -589857, 131076, 2, -524321, 131076, 3, -458785, 131076, 4, -393249, 131076, 5, -655395, 4, 1, -589859, 4, 2, -524323, 4, 3, -458787, 4, 4, -393251, 4, 5, -655394, 65540, 1, -589858, 65540, 2, -524322, 65540, 3, -458786, 65540, 4, -393250, 65540, 5, 196564, 786441, 1, 458743, 786441, 13, -393198, 1507337, 2)
+layer_0/tile_data = PackedInt32Array(-196624, 0, 0, -1179664, 0, 0, -458755, 0, 0, -589836, 0, 0, -1572871, 0, 0, -1507339, 1, 0, 65511, 1, 0, 196586, 1, 0, -327687, 1, 0, -917510, 1, 0, -983051, 2, 0, -65546, 2, 0, -1441804, 7, 0, -327699, 7, 0, -196626, 8, 0, -23, 8, 0, -393220, 8, 0, -1507335, 8, 0, -720910, 8, 0, -1572861, 65545, 1, -1572854, 2, 0, -1441796, 10, 0, -1835001, 10, 0, -851946, 1, 0, -917490, 1, 0, -1048566, 2, 0, -851957, 2, 0, -786419, 0, 0, -1114099, 1, 0, -983028, 1, 0, -917487, 1, 0, -851952, 2, 0, -1048556, 0, 0, -1900549, 11, 0, -1900547, 11, 0, -1900545, 11, 0, -1966079, 11, 0, -1966077, 11, 0, -1966075, 11, 0, -1966073, 11, 0, -1966071, 11, 0, -1966069, 11, 0, -2097140, 11, 0, -2097138, 11, 0, -2097142, 11, 0, -2097144, 11, 0, -2097146, 11, 0, -2097148, 11, 0, -2097150, 11, 0, -2097152, 11, 0, -2031618, 11, 0, -2031620, 11, 0, -1900560, 11, 0, -1900562, 11, 0, -1900564, 11, 0, -1900566, 11, 0, -1900568, 11, 0, -1900570, 11, 0, -1900572, 11, 0, -1900574, 11, 0, -2031633, 11, 0, -2031635, 11, 0, -2031637, 11, 0, -2031639, 11, 0, -2031641, 11, 0, -2031643, 11, 0, -2031645, 11, 0, -720930, 65540, 0, -720929, 131076, 0, -720931, 4, 0, -655393, 131076, 1, -589857, 131076, 2, -524321, 131076, 3, -458785, 131076, 4, -393249, 131076, 5, -655395, 4, 1, -589859, 4, 2, -524323, 4, 3, -458787, 4, 4, -393251, 4, 5, -655394, 65540, 1, -589858, 65540, 2, -524322, 65540, 3, -458786, 65540, 4, -393250, 65540, 5, 196564, 786441, 1, 458743, 786441, 13, -393198, 1507337, 2, -786392, 0, 0, -1310683, 2, 0, -1114083, 1, 0)
+
+[node name="Doors" type="Node2D" parent="YSort"]
+y_sort_enabled = true
+scale = Vector2(0.970403, 1.00248)
+
+[node name="Door_S" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
+y_sort_enabled = true
+position = Vector2(57.708, -380.057)
+scale = Vector2(1.0305, 0.997526)
+collision_layer = 1
+destination_level_tag = "house"
+destination_door_tag = "N"
+spawn_direction = "up"
+animation = NodePath("Animation")
+
+[node name="CollisionShape2D" parent="YSort/Doors/Door_S" index="0"]
+position = Vector2(-0.75, 6.0625)
+
+[node name="Spawn" parent="YSort/Doors/Door_S" index="1" groups=["player"]]
+position = Vector2(-1, 19)
+scale = Vector2(20.1387, -3554.56)
+
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_S"]
+position = Vector2(-1, -13)
+texture = ExtResource("8_63jcl")
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_S"]
+libraries = {
+"": SubResource("AnimationLibrary_at0f8")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -135,8 +151,8 @@ visible = false
 [node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("10_blscf")]
 visible = false
 
-[connection signal="animation_finished" from="Doors/Door_S/Animation" to="Doors/Door_S" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 
-[editable path="Doors/Door_S"]
+[editable path="YSort/Doors/Door_S"]

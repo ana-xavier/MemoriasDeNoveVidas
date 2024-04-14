@@ -671,6 +671,7 @@ texture = ExtResource("10_jcud7")
 1:1/size_in_atlas = Vector2i(10, 11)
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(-2, 50)
+1:1/0/y_sort_origin = -20
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.311, -80.1625, 58.5863, -78.9026, 58.3539, 19.7111, 15.8135, 19.7111, 16.0362, -1.44771, -15.119, -2.04737, -14.8084, 20.0741, -63.626, 20.3162)
