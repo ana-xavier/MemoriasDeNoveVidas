@@ -59,8 +59,8 @@ func verify_current_quest():
 	var current_quest = QuestManager.get_quest_by_character(character_id)
 	if current_quest:
 		var required_item_id = current_quest["required_item_id"]
-		if PlayerInventory.has_item(required_item_id):
-			PlayerInventory.remove_item(required_item_id)
+		if InventoryManager.has_item(required_item_id):
+			InventoryManager.remove_item(required_item_id)
 			QuestManager.complete_quest(current_quest["id"])
 			DialogData.set_dialog_ready(character_id)
 

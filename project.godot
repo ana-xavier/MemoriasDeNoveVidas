@@ -19,12 +19,13 @@ config/icon="res://icon.png"
 
 InteractionManager="*res://interaction/interaction_manager.tscn"
 InteractionHoldManager="*res://interaction/interaction_hold_manager.tscn"
-NavigationManager="*res://transition/navigationManager.gd"
 DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
 QuestManager="*res://singletons/QuestManager.gd"
-PlayerInventory="*res://singletons/PlayerInventory.gd"
+ItemManager="*res://singletons/ItemManager.gd"
+InventoryManager="*res://singletons/InventoryManager.gd"
 Transition="*res://transition/transition.tscn"
+NavigationManager="*res://transition/navigationManager.gd"
 
 [display]
 
