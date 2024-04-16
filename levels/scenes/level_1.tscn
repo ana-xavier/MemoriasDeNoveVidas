@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=19 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_g0oxc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://character/assets/calico_0.png" id="7_ojxkf"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://terrain/house/assets/gray_door.png" id="8_63jcl"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
+[ext_resource type="PackedScene" uid="uid://bryu40yiylfv1" path="res://character/scenes/human_test.tscn" id="9_xce02"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://ui/notification/notification_box.tscn" id="10_blscf"]
 
@@ -105,7 +106,10 @@ texture = ExtResource("7_1kca1")
 frame = 78
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(72, -311)
+position = Vector2(92, -315)
+
+[node name="HumanTest" parent="YSort" instance=ExtResource("9_xce02")]
+position = Vector2(41, -333)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("3_ch57o")]
 scale = Vector2(0.970403, 1.00248)
