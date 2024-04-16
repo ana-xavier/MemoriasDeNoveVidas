@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bryu40yiylfv1"]
+
+[ext_resource type="Texture2D" uid="uid://dqjhw4scpwwsx" path="res://character/assets/human.png" id="1_r6si6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8u047"]
+size = Vector2(9, 6)
+
+[node name="HumanTest" type="Node2D"]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(-1, -16)
+texture = ExtResource("1_r6si6")
+hframes = 8
+vframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_8u047")
