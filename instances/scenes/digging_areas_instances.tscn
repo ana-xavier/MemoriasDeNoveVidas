@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl4lv6uw35k0k"]
+
+[ext_resource type="Script" path="res://instances/scripts/digging_areas_instances.gd" id="1_tu56c"]
+
+[node name="DiggingAreasInstances" type="Node2D"]
+script = ExtResource("1_tu56c")

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="3_ch57o"]
 [ext_resource type="PackedScene" uid="uid://dl7ck63ja1k6q" path="res://instances/scenes/notes_instances.tscn" id="3_e48er"]
 [ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://character/scenes/side_character.tscn" id="4_qpro3"]
-[ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/objects/dirt/digging_area.tscn" id="6_t4koh"]
+[ext_resource type="PackedScene" uid="uid://bl4lv6uw35k0k" path="res://instances/scenes/digging_areas_instances.tscn" id="4_tqqwu"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://character/assets/orange_0.png" id="7_1kca1"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://character/assets/calico_0.png" id="7_ojxkf"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://terrain/house/assets/gray_door.png" id="8_63jcl"]
@@ -78,16 +78,7 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 
 [node name="NotesInstances" parent="." instance=ExtResource("3_e48er")]
 
-[node name="DiggingAreas" type="Node2D" parent="."]
-
-[node name="DiggingArea" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
-position = Vector2(308, -229)
-
-[node name="DiggingArea2" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
-position = Vector2(646, -169)
-
-[node name="DiggingArea3" parent="DiggingAreas" instance=ExtResource("6_t4koh")]
-position = Vector2(609, -302)
+[node name="DiggingAreasInstances" parent="." instance=ExtResource("4_tqqwu")]
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -106,7 +97,7 @@ texture = ExtResource("7_1kca1")
 frame = 78
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(92, -315)
+position = Vector2(363, -159)
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("9_xce02")]
 position = Vector2(41, -333)
