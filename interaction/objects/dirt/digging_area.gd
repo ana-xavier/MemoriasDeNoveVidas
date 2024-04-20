@@ -1,4 +1,5 @@
 extends Node2D
+class_name DiggingAreaNode
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var dirt_particles: CPUParticles2D = $CPUParticles2D
@@ -44,7 +45,9 @@ func _on_hold_succeed():
 		print(item.name)
 		 
 	already_dug = true
+	DataManager.save_digging_areas_data()
 	queue_free()	
+	
 
 
 func _on_timer_timeout():

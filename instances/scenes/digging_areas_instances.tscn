@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://instances/scripts/digging_areas_instances.gd" id="1_tu56c"]
 
-[node name="DiggingAreasInstances" type="Node2D"]
+[node name="DiggingAreasInstances" type="Node2D" groups=["DiggingAreasInstances"]]
 script = ExtResource("1_tu56c")
