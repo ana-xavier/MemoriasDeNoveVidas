@@ -12,20 +12,20 @@ func instantiate_digging_areas():
 			area_instance.init(area.already_dug, area.can_give_item, area.quest_item_id, area._position)
 			add_child(area_instance)
 
-func load_data():
+func load_data() -> Array[DiggingArea]:
 	if ResourceLoader.exists(data_path):
 		var data = ResourceLoader.load(data_path)
 		if data is DiggingAreasList: # Check that the data is valid
 			var areas = data["digging_areas"]
 			if (areas is Array[DiggingArea]):
 				return areas
+	return []
 
 func _ready():
-	# TODO 
-	# var data: Array[DiggingArea] = SaveDataManager.load_digging_areas_data()
-	# if (not data.is_empty()):
-	#	digging_areas = data
-	#else:
-	digging_areas = load_data()
+	var data: Array[DiggingArea] = DataManager.load_digging_areas_data()
+	if (not data.is_empty()):
+		digging_areas = data
+	else:
+		digging_areas = load_data()
 	
 	instantiate_digging_areas()
