@@ -16,9 +16,7 @@ func load_data() -> Array[DiggingArea]:
 	if ResourceLoader.exists(data_path):
 		var data = ResourceLoader.load(data_path)
 		if data is DiggingAreasList: # Check that the data is valid
-			var areas = data["digging_areas"]
-			if (areas is Array[DiggingArea]):
-				return areas
+			return data.digging_areas
 	return []
 
 func _ready():

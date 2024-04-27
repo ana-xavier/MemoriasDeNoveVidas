@@ -6,15 +6,15 @@ var isOpen: bool = false
 signal opened_note()
 signal closed_note()
 
-func set_note_text(text):
+func set_note_text(text) -> void:
 	label.text = text
 
-func show_note_popup():
+func show_note_popup() -> void:
 	visible = true
 	isOpen = true
 	opened_note.emit()
 
-func close_note_popup():
+func close_note_popup() -> void:
 	visible = false
 	isOpen = false
 	closed_note.emit()
