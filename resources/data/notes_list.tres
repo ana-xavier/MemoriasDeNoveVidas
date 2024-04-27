@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="NotesList" load_steps=8 format=3 uid="uid://bbhx124u7l3hj"]
+
+[ext_resource type="Script" path="res://resources/classes/objects/note.gd" id="1_1ss4i"]
+[ext_resource type="Script" path="res://resources/classes/lists/notes_list.gd" id="1_25qa7"]
+
+[sub_resource type="Resource" id="Resource_1qvak"]
+script = ExtResource("1_1ss4i")
+id = 1
+name = "Nota 1"
+text = "Texto 1"
+position = Vector2(-54, -342)
+
+[sub_resource type="Resource" id="Resource_4hjwn"]
+script = ExtResource("1_1ss4i")
+id = 2
+name = "Nota 2"
+text = "Texto 2"
+position = Vector2(-513, -264)
+
+[sub_resource type="Resource" id="Resource_5fmbm"]
+script = ExtResource("1_1ss4i")
+id = 3
+name = "Nota 3"
+text = "Texto 3"
+position = Vector2(-207, -388)
+
+[sub_resource type="Resource" id="Resource_4ucjk"]
+script = ExtResource("1_1ss4i")
+id = 4
+name = "Nota 4"
+text = "Texto 4"
+position = Vector2(640, -304)
+
+[sub_resource type="Resource" id="Resource_ig7i5"]
+script = ExtResource("1_1ss4i")
+id = 5
+name = "Nota 5"
+text = "Texto 5"
+position = Vector2(475, 315)
+
+[resource]
+script = ExtResource("1_25qa7")
+notes = Array[ExtResource("1_1ss4i")]([SubResource("Resource_1qvak"), SubResource("Resource_4hjwn"), SubResource("Resource_5fmbm"), SubResource("Resource_4ucjk"), SubResource("Resource_ig7i5")])
