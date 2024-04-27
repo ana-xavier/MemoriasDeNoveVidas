@@ -6,8 +6,6 @@ class_name NoteStatesList
 func set_note_state(id: int, already_get: bool) -> void:
 	for note in note_states:
 		if (note.note_id == id):
-			print("Mudou o estado da nota:")
-			print(id)
 			note.already_get = already_get
 			return
 

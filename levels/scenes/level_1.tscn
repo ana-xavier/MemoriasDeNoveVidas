@@ -97,7 +97,7 @@ texture = ExtResource("7_1kca1")
 frame = 78
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(9, -313)
+position = Vector2(323, -193)
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("9_xce02")]
 position = Vector2(41, -333)

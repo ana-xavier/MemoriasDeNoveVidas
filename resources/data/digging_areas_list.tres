@@ -5,24 +5,27 @@
 
 [sub_resource type="Resource" id="Resource_o0fuj"]
 script = ExtResource("1_nywq0")
+id = 1
 already_dug = false
 can_give_item = true
 quest_item_id = "rubber_duck"
-_position = Vector2(309, -228)
+position = Vector2(304, -226)
 
 [sub_resource type="Resource" id="Resource_iglbb"]
 script = ExtResource("1_nywq0")
+id = 2
 already_dug = false
 can_give_item = false
 quest_item_id = ""
-_position = Vector2(605, -292)
+position = Vector2(646, -168)
 
 [sub_resource type="Resource" id="Resource_2n5yy"]
 script = ExtResource("1_nywq0")
+id = 3
 already_dug = false
 can_give_item = false
 quest_item_id = ""
-_position = Vector2(645, -170)
+position = Vector2(606, -294)
 
 [resource]
 script = ExtResource("1_fahkd")

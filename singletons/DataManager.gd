@@ -10,8 +10,10 @@ func create_new_save() -> void:
 	save_data = SaveData.new()
 	save_data.player_inventory = PlayerInventory.new()
 	
+	save_data.digging_areas_list = DiggingAreasList.new()
 	var digging_data: DiggingAreasList = load(DIGGING_DATA_PATH)
-	save_data.digging_areas = digging_data["digging_areas"]
+	if (digging_data is DiggingAreasList):
+		save_data.digging_areas_list.digging_areas = digging_data.digging_areas
 	
 	save_data.note_states_list = NoteStatesList.new()
 	var notes_states_data = load(NOTES_STATES_DATA_PATH)
@@ -26,25 +28,11 @@ func save_player_inventory(inventory: PlayerInventory) -> void:
 	save_data.player_inventory = inventory
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
-func save_digging_areas_data() -> void:
+func save_digging_area_state(area_id: int, already_dug: bool) -> void:
 	if (save_data == null):
 		return
-	
-	var data: Array[DiggingArea] = []
-	var digging_areas_instances = get_tree().get_first_node_in_group("DiggingAreasInstances")
-	if (digging_areas_instances != null):
-		for child in digging_areas_instances.get_children():
-			if child is DiggingAreaNode:
-				var digging_area = DiggingArea.new()
-				digging_area.already_dug = child.already_dug
-				digging_area.can_give_item = child.can_give_item
-				digging_area.quest_item_id = child.quest_item_id
-				digging_area._position = child.position
-				
-				data.append(digging_area)
-				
-		save_data.digging_areas = data
-		ResourceSaver.save(save_data, SAVE_DATA_PATH)
+	save_data.digging_areas_list.set_digging_area_state(area_id, already_dug)
+	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func save_note_state(note_id: int, already_get: bool) -> void:
 	if(save_data == null):
@@ -62,7 +50,7 @@ func load_digging_areas_data() -> Array[DiggingArea]:
 	if (save_data == null):
 		load_save()
 	if (save_data != null):
-		return save_data.digging_areas
+		return save_data.digging_areas_list.digging_areas
 	return []
 
 func load_player_inventory_data() -> PlayerInventory:

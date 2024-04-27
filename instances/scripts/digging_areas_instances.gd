@@ -1,6 +1,6 @@
 extends Node2D
 
-const data_path: String = "res://data/digging_areas_list.tres"
+const data_path: String = "res://resources/data/digging_areas_list.tres"
 
 var digging_area_scene = preload("res://interaction/objects/dirt/digging_area.tscn")
 var digging_areas: Array[DiggingArea] = []
@@ -8,14 +8,15 @@ var digging_areas: Array[DiggingArea] = []
 func instantiate_digging_areas():
 	for area in digging_areas:
 		if(not area.already_dug):
+			print(area.position)
 			var area_instance = digging_area_scene.instantiate()
-			area_instance.init(area.already_dug, area.can_give_item, area.quest_item_id, area._position)
+			area_instance.init(area.id, area.already_dug, area.can_give_item, area.quest_item_id, area.position)
 			add_child(area_instance)
 
 func load_data() -> Array[DiggingArea]:
 	if ResourceLoader.exists(data_path):
 		var data = ResourceLoader.load(data_path)
-		if data is DiggingAreasList: # Check that the data is valid
+		if data is DiggingAreasList:
 			return data.digging_areas
 	return []
 
