@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_DATA_PATH: String = "res://resources/save/save_data.tres"
-const DIGGING_DATA_PATH: String = "res://resources/data/digging_areas_list.tres"
+const DIGGING_DATA_PATH: String = "res://resources/data/digging_areas_dict.tres"
 const NOTES_STATES_DATA_PATH: String = "res://resources/data/note_states_list.tres"
 const DIALOGS_READY_DATA_PATH: String = "res://resources/data/dialog_ready_list.tres"
 
@@ -11,9 +11,9 @@ func create_new_save() -> void:
 	save_data = SaveData.new()
 	save_data.player_inventory = PlayerInventory.new()
 	
-	save_data.digging_areas_list = DiggingAreasList.new()
-	var digging_data: DiggingAreasList = load(DIGGING_DATA_PATH) as DiggingAreasList
-	save_data.digging_areas_list.digging_areas = digging_data.digging_areas
+	save_data.digging_areas_dict = DiggingAreasDict.new()
+	var digging_data: DiggingAreasDict = load(DIGGING_DATA_PATH) as DiggingAreasDict
+	save_data.digging_areas_dict.digging_areas = digging_data.digging_areas
 	
 	save_data.note_states_list = NoteStatesList.new()
 	var notes_states_data = load(NOTES_STATES_DATA_PATH) as NoteStatesList
@@ -31,10 +31,10 @@ func save_player_inventory(inventory: PlayerInventory) -> void:
 	save_data.player_inventory.quest_items = inventory.quest_items
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
-func save_digging_area_state(area_id: int, already_dug: bool) -> void:
+func save_digging_areas_states(digging_areas_dict: DiggingAreasDict) -> void:
 	if (save_data == null):
 		return
-	save_data.digging_areas_list.set_digging_area_state(area_id, already_dug)
+	save_data.digging_areas_dict.digging_areas = digging_areas_dict.digging_areas
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func save_note_state(note_id: int, already_get: bool) -> void:
@@ -55,12 +55,12 @@ func load_save() -> void:
 		if data is SaveData: 
 			save_data = data		
 
-func load_digging_areas_data() -> Array[DiggingArea]:
+func load_digging_areas_data() -> DiggingAreasDict:
 	if (save_data == null):
 		load_save()
 	if (save_data != null):
-		return save_data.digging_areas_list.digging_areas
-	return []
+		return save_data.digging_areas_dict
+	return null
 
 func load_player_inventory_data() -> PlayerInventory:
 	if (save_data == null):

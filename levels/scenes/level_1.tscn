@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="3_ch57o"]
 [ext_resource type="PackedScene" uid="uid://dl7ck63ja1k6q" path="res://instances/scenes/notes_instances.tscn" id="3_e48er"]
 [ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://character/scenes/side_character.tscn" id="4_qpro3"]
-[ext_resource type="PackedScene" uid="uid://bl4lv6uw35k0k" path="res://instances/scenes/digging_areas_instances.tscn" id="4_tqqwu"]
+[ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/objects/dirt/digging_area.tscn" id="4_vkff4"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://character/assets/orange_0.png" id="7_1kca1"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://character/assets/calico_0.png" id="7_ojxkf"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://terrain/house/assets/gray_door.png" id="8_63jcl"]
@@ -126,13 +126,19 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 
 [node name="NotesInstances" parent="." instance=ExtResource("3_e48er")]
 
-[node name="DiggingAreasInstances" parent="." instance=ExtResource("4_tqqwu")]
+[node name="DiggingAreasInstances" type="Node2D" parent="."]
+
+[node name="DiggingArea_E1" parent="DiggingAreasInstances" instance=ExtResource("4_vkff4")]
+position = Vector2(102, -331)
+id = "E_1"
+can_give_item = true
+quest_item_id = "rubber_duck"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(323, -193)
+position = Vector2(128, -321)
 _move_speed = 108.0
 
 [node name="SideCharacter" parent="YSort" instance=ExtResource("4_qpro3")]
