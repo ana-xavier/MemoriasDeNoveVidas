@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=29 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_g0oxc"]
@@ -11,9 +11,57 @@
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://character/assets/calico_0.png" id="7_ojxkf"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://terrain/house/assets/gray_door.png" id="8_63jcl"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="8_n23d6"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="8_vnmv5"]
 [ext_resource type="PackedScene" uid="uid://bryu40yiylfv1" path="res://character/scenes/human_test.tscn" id="9_xce02"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://ui/notification/notification_box.tscn" id="10_blscf"]
+
+[sub_resource type="Resource" id="Resource_ng6f4"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Oiii Sr. Batata! Faz tempo que nao te vejo.", "Como voce esta? Estava bem doente da ultima vez em que te vi..."])
+
+[sub_resource type="Resource" id="Resource_u5t57"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Ola! Estou otimo!", "Bla Bla Bla... voce poderia pegar meu Patinho de Borracha para mim?"])
+
+[sub_resource type="Resource" id="Resource_6c2jp"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Claro! Vou encontrar para voce!"])
+
+[sub_resource type="Resource" id="Resource_wtllw"]
+script = ExtResource("8_vnmv5")
+id = "srpotatoe_greetings"
+release_a_quest = true
+quest_id = "srpotatoe_item_quest"
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_ng6f4"), SubResource("Resource_u5t57"), SubResource("Resource_6c2jp")])
+
+[sub_resource type="Resource" id="Resource_1ch03"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Voce encontrou! :)", "Obrigado amigo, voce e um amigo!"])
+
+[sub_resource type="Resource" id="Resource_a7j8l"]
+script = ExtResource("8_vnmv5")
+id = "srpotatoe_quest_finished"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_1ch03")])
+
+[sub_resource type="Resource" id="Resource_r20sx"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Meow!      "])
+
+[sub_resource type="Resource" id="Resource_pc5wt"]
+script = ExtResource("8_vnmv5")
+id = "idle"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_r20sx")])
 
 [sub_resource type="Animation" id="Animation_71urn"]
 length = 0.001
@@ -83,11 +131,9 @@ layer_1/tile_data = PackedInt32Array(-1507334, 262144, 4, -1441798, 262144, 3, -
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="SideCharacter2" parent="YSort" instance=ExtResource("4_qpro3")]
-position = Vector2(-132, 114)
-character_id = 2
-character_name = "Jujubinha"
-texture = ExtResource("7_ojxkf")
+[node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
+position = Vector2(323, -193)
+_move_speed = 108.0
 
 [node name="SideCharacter" parent="YSort" instance=ExtResource("4_qpro3")]
 position = Vector2(265, -67)
@@ -95,9 +141,14 @@ character_id = 1
 character_name = "Sr. Batata"
 texture = ExtResource("7_1kca1")
 frame = 78
+character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
+character_idle_dialog = SubResource("Resource_pc5wt")
 
-[node name="MainCharacter" parent="YSort" instance=ExtResource("2_ocy6e")]
-position = Vector2(323, -193)
+[node name="SideCharacter2" parent="YSort" instance=ExtResource("4_qpro3")]
+position = Vector2(-132, 114)
+character_id = 2
+character_name = "Jujubinha"
+texture = ExtResource("7_ojxkf")
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("9_xce02")]
 position = Vector2(41, -333)

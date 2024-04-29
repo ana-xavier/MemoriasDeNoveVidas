@@ -8,7 +8,8 @@ var quests = [{
 	"name": "Um velho amigo",
 	"description": "Ajude Sr.Batata a recuperar seu item perdido.",
 	"required_item_name": "Patinho de Borracha",
-	"required_item_id": "rubber_duck"
+	"required_item_id": "rubber_duck",
+	"quest_complete_dialog": "srpotatoe_quest_finished"
 }]
 
 var active_quests = []

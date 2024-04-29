@@ -7,8 +7,7 @@ var digging_areas: Array[DiggingArea] = []
 
 func instantiate_digging_areas():
 	for area in digging_areas:
-		if(not area.already_dug):
-			print(area.position)
+		if (not area.already_dug):
 			var area_instance = digging_area_scene.instantiate()
 			area_instance.init(area.id, area.already_dug, area.can_give_item, area.quest_item_id, area.position)
 			add_child(area_instance)
