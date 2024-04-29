@@ -3,6 +3,7 @@ extends Node
 const SAVE_DATA_PATH: String = "res://resources/save/save_data.tres"
 const DIGGING_DATA_PATH: String = "res://resources/data/digging_areas_list.tres"
 const NOTES_STATES_DATA_PATH: String = "res://resources/data/note_states_list.tres"
+const DIALOGS_READY_DATA_PATH: String = "res://resources/data/dialog_ready_list.tres"
 
 var save_data: SaveData = null
 
@@ -11,21 +12,23 @@ func create_new_save() -> void:
 	save_data.player_inventory = PlayerInventory.new()
 	
 	save_data.digging_areas_list = DiggingAreasList.new()
-	var digging_data: DiggingAreasList = load(DIGGING_DATA_PATH)
-	if (digging_data is DiggingAreasList):
-		save_data.digging_areas_list.digging_areas = digging_data.digging_areas
+	var digging_data: DiggingAreasList = load(DIGGING_DATA_PATH) as DiggingAreasList
+	save_data.digging_areas_list.digging_areas = digging_data.digging_areas
 	
 	save_data.note_states_list = NoteStatesList.new()
-	var notes_states_data = load(NOTES_STATES_DATA_PATH)
-	if (notes_states_data is NoteStatesList):
-		save_data.note_states_list.note_states = notes_states_data.note_states
+	var notes_states_data = load(NOTES_STATES_DATA_PATH) as NoteStatesList
+	save_data.note_states_list.note_states = notes_states_data.note_states
+	
+	save_data.dialog_ready_list = DialogReadyList.new()
+	var dialogs_ready_data = load(DIALOGS_READY_DATA_PATH) as DialogReadyList
+	save_data.dialog_ready_list.dialogs_ready = dialogs_ready_data.dialogs_ready
 	
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func save_player_inventory(inventory: PlayerInventory) -> void:
 	if (save_data == null):
 		return
-	save_data.player_inventory = inventory
+	save_data.player_inventory.quest_items = inventory.quest_items
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func save_digging_area_state(area_id: int, already_dug: bool) -> void:
@@ -35,9 +38,15 @@ func save_digging_area_state(area_id: int, already_dug: bool) -> void:
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func save_note_state(note_id: int, already_get: bool) -> void:
-	if(save_data == null):
+	if (save_data == null):
 		return 
 	save_data.note_states_list.set_note_state(note_id, already_get)	
+	ResourceSaver.save(save_data, SAVE_DATA_PATH)
+
+func save_dialogs_ready(dialogs_ready: Array[DialogReady]) -> void:
+	if (save_data == null):
+		return
+	save_data.dialog_ready_list.dialogs_ready = dialogs_ready
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)
 
 func load_save() -> void: 
@@ -66,3 +75,10 @@ func load_note_states_data() -> Array[NoteState]:
 	if (save_data != null):
 		return save_data.note_states_list.note_states
 	return []
+
+func load_dialogs_ready_data() -> DialogReadyList:
+	if (save_data == null):
+		load_save()
+	if (save_data != null):
+		return save_data.dialog_ready_list
+	return null
