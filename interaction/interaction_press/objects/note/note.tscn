@@ -1,20 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmrgh0autf267"]
+[gd_scene load_steps=5 format=3 uid="uid://dmrgh0autf267"]
 
 [ext_resource type="Script" path="res://interaction/interaction_press/objects/note/note.gd" id="1_hilxn"]
 [ext_resource type="Texture2D" uid="uid://dc6r6f3yhmogo" path="res://interaction/interaction_press/objects/note/note.png" id="2_5f4kv"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_53c5i"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gv72j"]
-blend_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ll7nq"]
 radius = 15.0333
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_hilxn")
-
-[node name="Shadow" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_gv72j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
