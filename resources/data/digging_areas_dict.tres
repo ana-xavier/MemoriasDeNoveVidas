@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DiggingAreasDict" load_steps=2 format=3 uid="uid://cmeuk8y515ng4"]
 
-[ext_resource type="Script" path="res://resources/classes/lists/digging_areas_dict.gd" id="1_y2g4q"]
+[ext_resource type="Script" path="res://resources/classes/dictionaries/digging_areas_dict.gd" id="1_y2g4q"]
 
 [resource]
 script = ExtResource("1_y2g4q")

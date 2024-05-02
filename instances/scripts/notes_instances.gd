@@ -2,7 +2,7 @@ extends Node2D
 
 const data_path: String = "res://resources/data/note_states_list.tres"
 
-var note_scene = preload("res://interaction/objects/note/note.tscn")
+var note_scene = preload("res://interaction/interaction_press/objects/note/note.tscn")
 var note_states: Array[NoteState] = []
 
 func instantiate_notes() -> void:

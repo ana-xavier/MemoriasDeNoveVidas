@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Gametest Godot"
+config/name="Memórias de Nove Vidas"
+config/version="alpha-4.0"
 run/main_scene="res://mainmenu/main_menu.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
@@ -21,8 +22,8 @@ DataManager="*res://singletons/DataManager.gd"
 ItemsData="*res://singletons/ItemsData.gd"
 DiggingAreasData="*res://singletons/DiggingAreasData.gd"
 NotesData="*res://singletons/NotesData.gd"
-InteractionManager="*res://interaction/interaction_manager.tscn"
-InteractionHoldManager="*res://interaction/interaction_hold_manager.tscn"
+InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
+InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
 DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
 QuestManager="*res://singletons/QuestManager.gd"

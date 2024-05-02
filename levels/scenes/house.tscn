@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c56guh7afpq0s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_w2xrs"]
-[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="2_rnx6i"]
-[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://character/scenes/main_character.tscn" id="5_hm66u"]
-[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="6_8d784"]
+[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_rnx6i"]
+[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_hm66u"]
+[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="6_8d784"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_se5eb"]
 
 [node name="House" type="Node2D"]
