@@ -12,7 +12,7 @@ class_name DiggingAreaNode
 var _wait_time: float = 3
 
 func _ready():
-	if (DiggingAreasData.is_area_already_dug(id)):
+	if (InteractiveObjectsData.is_object_already_interacted(id)):
 		queue_free()
 	interaction_area.interact = Callable(self, "_on_interact")
 	dirt_particles.emitting = false
@@ -40,7 +40,7 @@ func _on_hold_succeed():
 		print("Adicionou item ao inventário:")
 		print(item.name)
 		 
-	DiggingAreasData.set_area_already_dug(id)
+	InteractiveObjectsData.set_object_already_interacted(id)
 	queue_free()	
 	
 	

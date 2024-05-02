@@ -20,7 +20,7 @@ config/icon="res://icon.png"
 
 DataManager="*res://singletons/DataManager.gd"
 ItemsData="*res://singletons/ItemsData.gd"
-DiggingAreasData="*res://singletons/DiggingAreasData.gd"
+InteractiveObjectsData="*res://singletons/InteractiveObjectsData.gd"
 NotesData="*res://singletons/NotesData.gd"
 InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
 InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
