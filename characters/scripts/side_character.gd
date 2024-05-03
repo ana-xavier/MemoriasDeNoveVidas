@@ -5,7 +5,7 @@ extends Node2D
 @onready var player_node = get_parent().get_node("MainCharacter")
 
 @export_category("Character")
-@export var character_id: int = -1
+@export var character_id: String = ""
 @export var character_name: String = "???"
 @export var texture: Texture2D = null
 @export var frame: int = 50
@@ -28,18 +28,17 @@ func _ready() -> void:
 
 
 func _on_interact():	
-	await verify_current_quest()
+	await manage_current_quest()
 	await manage_dialog()
 
 
-func verify_current_quest() -> void:
-	var current_quest = QuestManager.get_quest_by_character(character_id)
-	if current_quest:
-		var required_item_id = current_quest["required_item_id"]
+func manage_current_quest() -> void:
+	var curr_quest = QuestManager.get_quest_by_character_id(character_id) as QuestDeliverItem
+	if curr_quest:
+		var required_item_id = curr_quest.required_item_id
 		if InventoryManager.has_item(required_item_id):
 			InventoryManager.remove_item(required_item_id)
-			QuestManager.complete_quest(current_quest["id"])
-			DialogData.add_dialog(character_id, current_quest["quest_complete_dialog"])
+			QuestManager.set_quest_complete(curr_quest.id)
 
 
 func manage_dialog() -> void:
@@ -62,21 +61,35 @@ func manage_dialog() -> void:
 		DialogManager.start_dialog(curr_position, curr_lines, curr_character)
 		await DialogManager.dialog_finished
 
-	DialogData.remove_dialog(dialog_data.id)
+	DialogData.set_dialog_already_done(dialog_data.id)
 	search_dialog_quest(dialog_data)
 
 
 func get_current_dialog() -> Dialog:
 	var dialog_id: String = DialogData.get_curr_dialog_by_character_id(character_id)
+	if (!dialog_id):
+		var new_dialog: Dialog = get_current_dialog_by_quest_complete() 
+		if new_dialog:
+			return new_dialog
+	
 	for dialog in character_dialogs:
 		if dialog.id == dialog_id:
 			return dialog
 	return character_idle_dialog	
 
 
+func get_current_dialog_by_quest_complete() -> Dialog:
+	for dialog in character_dialogs:
+		if (dialog.has_prerequisite 
+			&& QuestManager.is_quest_complete(dialog.prerequisite_quest_id)
+			&& !DialogData.is_dialog_already_done(dialog.id)
+			):
+			return dialog
+	return null
+
+
 func search_dialog_quest(dialogue_data: Dialog) -> void:
 	if dialogue_data.release_a_quest:
 		var quest_id = dialogue_data.quest_id 
-		QuestManager.set_active_quest(quest_id)
-
+		QuestManager.set_quest_active(quest_id) 
 

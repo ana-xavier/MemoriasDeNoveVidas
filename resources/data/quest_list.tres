@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="QuestList" load_steps=5 format=3 uid="uid://xc66njva7qcw"]
+
+[ext_resource type="Script" path="res://resources/classes/objects/quest_deliver_item.gd" id="1_dhua6"]
+[ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
+
+[sub_resource type="Resource" id="Resource_hyyg7"]
+script = ExtResource("1_dhua6")
+required_item_id = "rubber_duck"
+required_item_name = "Patinho de Borracha"
+character_id = "srpotatoe"
+id = "srpotatoe_item_quest"
+name = "Um velho amigo"
+description = "Ajude Sr.Batata a recuperar seu item perdido."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_b7cx5"]
+script = ExtResource("1_dhua6")
+required_item_id = "rubber_duck"
+required_item_name = "Patinho de Borracha"
+character_id = "jujubinha"
+id = "jujubinha_item_quest"
+name = "Quest Teste"
+description = "Pegar o item do jujubinha."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[resource]
+script = ExtResource("1_vjdbq")
+quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_hyyg7"), SubResource("Resource_b7cx5")])

@@ -1,59 +1,46 @@
 extends Node
 
-var notification = null;
+@onready var notification = get_tree().get_first_node_in_group("NotificationBox") ;
+var data = preload("res://resources/data/quest_list.tres")
 
-var quests = [{
-	"id": "srpotatoe_item_quest",
-	"character_id": 1,
-	"name": "Um velho amigo",
-	"description": "Ajude Sr.Batata a recuperar seu item perdido.",
-	"required_item_name": "Patinho de Borracha",
-	"required_item_id": "rubber_duck",
-	"quest_complete_dialog": "srpotatoe_quest_finished"
-}]
+func _ready():
+	var quest_list: QuestList = DataManager.load_quests_status()
+	if (quest_list != null):
+		data = quest_list
 
-var active_quests = []
+func get_quest_by_id(quest_id: String) -> Quest:
+	return data.get_quest_by_id(quest_id)
 
-var completed_quests = []
+func get_quest_by_character_id(character_id: String) -> QuestDeliverItem:
+	return data.get_quest_by_character_id(character_id)
 
-
-func get_quest_by_id(quest_id: String, _quests):
-	for i in range(_quests.size()):
-		if _quests[i]["id"] == quest_id:
-			return {
-				"data": _quests[i],
-				"index": i
-			}
-		return {}
-
-func get_quest_by_character(character_id: int):
-	for quest in active_quests:
-		if quest["character_id"] == character_id:
-			return quest
-	return null
-
-func set_active_quest(quest_id: String):
-	var quest = get_quest_by_id(quest_id, quests)
-	var quest_index = quest["index"]
-	if quest_index >= 0:
-		active_quests.append(quest["data"])
-		quests.remove_at(quest_index)
-		on_active_quest()
+func set_quest_active(quest_id: String) -> void:
+	data.set_quest_active(quest_id)
+	DataManager.save_quests_status(data.quests)
+	on_active_quest()
 	
-func complete_quest(quest_id: String):
-	var quest = get_quest_by_id(quest_id, active_quests)
-	var quest_index = quest["index"]
-	if quest_index >= 0:
-		completed_quests.append(quest["data"])
-		active_quests.remove_at(quest_index)
-		on_complete_quest()
+func set_quest_complete(quest_id: String) -> void:
+	data.set_quest_complete(quest_id)
+	DataManager.save_quests_status(data.quests)
+	on_complete_quest()
+
+func is_quest_complete(quest_id: String) -> bool:
+	return data.is_quest_complete(quest_id)
 
 func on_active_quest():
-	notification = get_tree().get_first_node_in_group("NotificationBox")
 	if notification != null:
 		notification.show_notification_new_objective()
 		
 func on_complete_quest():
-	notification = get_tree().get_first_node_in_group("NotificationBox")
 	if notification != null:
 		notification.show_notification_objective_succeed()
+		
+#var quests = [{
+	#"id": "srpotatoe_item_quest",
+	#"character_id": 1,
+	#"name": "Um velho amigo",
+	#"description": "Ajude Sr.Batata a recuperar seu item perdido.",
+	#"required_item_name": "Patinho de Borracha",
+	#"required_item_id": "rubber_duck",
+	#"quest_complete_dialog": "srpotatoe_quest_finished"
+#}]
