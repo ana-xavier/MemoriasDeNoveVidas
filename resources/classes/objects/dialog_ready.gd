@@ -1,6 +1,7 @@
 extends Resource
 class_name DialogReady
 
-@export var character_id: int = 0
+@export var character_id: String = ""
 @export var dialog_id: String = ""
+@export var is_already_done: bool = false 
  

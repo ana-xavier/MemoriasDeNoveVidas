@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="PlayerInventory" load_steps=2 format=3 uid="uid://ylugcgkqusc2"]
+[gd_resource type="Resource" script_class="PlayerInventory" load_steps=2 format=3 uid="uid://bj0iwtqj480yv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/player_inventory.gd" id="1_dd8pi"]
 
 [resource]
 script = ExtResource("1_dd8pi")
-quest_items = Array[Resource("res://resources/classes/objects/quest_item.gd")]([])
+quest_items = Array[Resource("res://resources/classes/objects/item.gd")]([])
