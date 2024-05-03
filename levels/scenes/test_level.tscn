@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://blqxfg8exjmj5"]
+[gd_scene load_steps=4 format=3 uid="uid://dkw05keg13e8h"]
 
-[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://terrain/scenes/terrain.tscn" id="1_lybqf"]
-[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://character/scenes/main_character.tscn" id="2_0whq6"]
-[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://terrain/scenes/objects_terrain.tscn" id="3_0fup4"]
+[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="1_lybqf"]
+[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="2_0whq6"]
+[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="3_0fup4"]
 
 [node name="Level" type="Node2D"]
 

@@ -5,38 +5,33 @@
 
 [sub_resource type="Resource" id="Resource_1qvak"]
 script = ExtResource("1_1ss4i")
-id = 1
+id = "note_1"
 name = "Nota 1"
 text = "Texto 1"
-position = Vector2(-54, -342)
 
 [sub_resource type="Resource" id="Resource_4hjwn"]
 script = ExtResource("1_1ss4i")
-id = 2
+id = "note_2"
 name = "Nota 2"
 text = "Texto 2"
-position = Vector2(-513, -264)
 
 [sub_resource type="Resource" id="Resource_5fmbm"]
 script = ExtResource("1_1ss4i")
-id = 3
+id = "note_3"
 name = "Nota 3"
 text = "Texto 3"
-position = Vector2(-207, -388)
 
 [sub_resource type="Resource" id="Resource_4ucjk"]
 script = ExtResource("1_1ss4i")
-id = 4
+id = "note_4"
 name = "Nota 4"
 text = "Texto 4"
-position = Vector2(640, -304)
 
 [sub_resource type="Resource" id="Resource_ig7i5"]
 script = ExtResource("1_1ss4i")
-id = 5
+id = "note_5"
 name = "Nota 5"
 text = "Texto 5"
-position = Vector2(475, 315)
 
 [resource]
 script = ExtResource("1_25qa7")
