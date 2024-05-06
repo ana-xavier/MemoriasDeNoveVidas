@@ -11,6 +11,7 @@ size = Vector2(18, 12)
 radius = 30.0
 
 [node name="SideCharacter" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_au76r")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

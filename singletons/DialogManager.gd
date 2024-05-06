@@ -1,6 +1,6 @@
 extends Node
 
-@onready var text_box_scene = preload("res://ui/textbox/text_box.tscn")
+@onready var text_box_scene = preload("res://gui/textbox/text_box.tscn")
 
 var character_name: String
 

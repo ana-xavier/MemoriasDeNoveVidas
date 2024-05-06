@@ -4,14 +4,12 @@ extends MarginContainer
 @onready var timer = $Timer
 @onready var icon = $NinePatchRect/Control/Sprite2D
 
-var succeed_icon: Texture
-var new_objective_icon: Texture
+@export var succeed_icon: Texture = null
+@export var new_objective_icon: Texture = null
 
 var visibility_time = 4 
 
 func _ready():
-	succeed_icon = load("res://ui/icons/confirm_icon.png")
-	new_objective_icon = load("res://ui/icons/new_objective_icon.png")
 	visible = false
 
 func show_notification_new_objective():

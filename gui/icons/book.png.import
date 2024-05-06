@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://me35kqq8655v"
-path="res://.godot/imported/next_indicator.png-9cf75c6a55d759f64e57bcc8e19dc649.ctex"
+uid="uid://cabnn175nnut8"
+path="res://.godot/imported/book.png-70a3c1ffaf7b45ea7faf5744e9177558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/textbox/next_indicator.png"
-dest_files=["res://.godot/imported/next_indicator.png-9cf75c6a55d759f64e57bcc8e19dc649.ctex"]
+source_file="res://gui/icons/book.png"
+dest_files=["res://.godot/imported/book.png-70a3c1ffaf7b45ea7faf5744e9177558.ctex"]
 
 [params]
 

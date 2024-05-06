@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfr1hru5cm05p"
-path="res://.godot/imported/dialogue_box_pointer.png-30060ddb1b786d33b9bbac96dce350ed.ctex"
+uid="uid://b3gygthilc4sh"
+path="res://.godot/imported/objective_hover.png-d74b6687eaa68554d4f87a164add4314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/textbox/dialogue_box_pointer.png"
-dest_files=["res://.godot/imported/dialogue_box_pointer.png-30060ddb1b786d33b9bbac96dce350ed.ctex"]
+source_file="res://gui/icons/objective_hover.png"
+dest_files=["res://.godot/imported/objective_hover.png-d74b6687eaa68554d4f87a164add4314.ctex"]
 
 [params]
 

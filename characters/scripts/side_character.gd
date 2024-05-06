@@ -20,7 +20,6 @@ enum Character {
 }
 
 func _ready() -> void:
-	self.scale = Vector2(0.6, 0.6)
 	interaction_area.interact = Callable(self, "_on_interact")
 	if texture != null:
 		sprite.texture = texture

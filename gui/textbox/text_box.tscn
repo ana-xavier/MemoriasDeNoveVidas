@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://brvwbewhs52l2"]
 
-[ext_resource type="Script" path="res://ui/textbox/text_box.gd" id="1_vwwga"]
-[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://ui/fonts/monogram.ttf" id="3_64cv6"]
-[ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://ui/textbox/dialogue_box.png" id="3_jner4"]
-[ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://ui/textbox/dialogue_box_pointer.png" id="3_oq6io"]
-[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://ui/textbox/next_indicator.png" id="4_0ljyt"]
+[ext_resource type="Script" path="res://gui/textbox/text_box.gd" id="1_vwwga"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="3_64cv6"]
+[ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://gui/textbox/dialogue_box.png" id="3_jner4"]
+[ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://gui/textbox/dialogue_box_pointer.png" id="3_oq6io"]
+[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://gui/textbox/next_indicator.png" id="4_0ljyt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vi7d7"]
 atlas = ExtResource("4_0ljyt")

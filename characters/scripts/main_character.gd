@@ -19,7 +19,6 @@ func _ready() -> void:
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	
 	_state_machine = _animation_tree["parameters/playback"]
-	self.scale = Vector2(0.6, 0.6)
 	
 func _physics_process(_delta: float) -> void:
 	_animate()

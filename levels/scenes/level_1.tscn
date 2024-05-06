@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=39 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -11,11 +11,16 @@
 [ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="8_n23d6"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="8_vnmv5"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
-[ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://ui/notification/notification_box.tscn" id="10_blscf"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="10_xrx1m"]
 [ext_resource type="PackedScene" uid="uid://bryu40yiylfv1" path="res://characters/scenes/human_test.tscn" id="11_tvi2s"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="12_ueh3g"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://environment/buildings/exterior/assets/gray_door.png" id="14_vi2iw"]
+[ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_nsa7h"]
+[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/buttons/tab_button.png" id="16_v1ynb"]
+[ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="17_20po3"]
+[ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="17_egkxv"]
+[ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_u2rkm"]
+[ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/notification_box.tscn" id="18_dt6n4"]
 
 [sub_resource type="Resource" id="Resource_ng6f4"]
 script = ExtResource("8_n23d6")
@@ -248,16 +253,51 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("15_nsa7h")
+
+[node name="InventoryButton" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_right = 40.0
+offset_bottom = 180.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 28.0
+texture_normal = ExtResource("17_20po3")
+texture_hover = ExtResource("17_egkxv")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 32.0
+texture = ExtResource("16_v1ynb")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("9_y8j6t")]
 process_mode = 3
 visible = false
 
-[node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("10_blscf")]
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
+visible = false
+
+[node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("18_dt6n4")]
 visible = false
 
 [connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
+[connection signal="closed" from="CanvasLayer/Inventory" to="." method="_on_inventory_closed"]
+[connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
 
 [editable path="YSort/Doors/Door_S"]
