@@ -970,6 +970,7 @@ states/Running/position = Vector2(583, 125)
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
 script = ExtResource("1_heig3")
+_move_speed = 74.0
 _animation_tree = NodePath("AnimationTree")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -999,7 +1000,3 @@ parameters/Digging/blend_position = Vector2(0, 0)
 parameters/DiggingPrepar/blend_position = Vector2(0, -0.968254)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Running/blend_position = Vector2(-0.114671, 0.978836)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.3, 1.3)
-position_smoothing_enabled = true

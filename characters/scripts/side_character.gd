@@ -42,6 +42,8 @@ func manage_current_quest() -> void:
 
 func manage_dialog() -> void:
 	var dialog_data: Dialog = get_current_dialog()
+	if !dialog_data:
+		return
 	var dialog_boxes: Array[DialogBox] = dialog_data.dialog
 		
 	var curr_character
