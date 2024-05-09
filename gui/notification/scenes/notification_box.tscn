@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://lou1cctl4ij"]
+
+[ext_resource type="Script" path="res://gui/notification/scripts/notification_box.gd" id="1_2neo7"]
+[ext_resource type="Texture2D" uid="uid://cbg2ap8sf54k5" path="res://gui/icons/confirm_icon.png" id="2_0l1gr"]
+[ext_resource type="Texture2D" uid="uid://cpo2mr7xxiypj" path="res://gui/icons/new_objective_icon.png" id="3_ay541"]
+[ext_resource type="Texture2D" uid="uid://cabhepq12dnmk" path="res://gui/notification/assets/notification_box.png" id="4_ptsga"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="5_48ps1"]
+
+[node name="NotificationBox" type="MarginContainer"]
+offset_right = 138.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+script = ExtResource("1_2neo7")
+succeed_icon = ExtResource("2_0l1gr")
+new_objective_icon = ExtResource("3_ay541")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_ptsga")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Icon" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(15, 16)
+texture = ExtResource("3_ay541")
+
+[node name="Info" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.3333
+offset_top = 30.3333
+offset_right = 125.333
+offset_bottom = 53.3333
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Aperte [tab] para ver objetivos."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Title" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_48ps1")
+theme_override_font_sizes/font_size = 18
+text = "Novo Objetivo!"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

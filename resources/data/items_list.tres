@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="ItemsList" load_steps=4 format=3 uid="uid://in5a2rq154km"]
+[gd_resource type="Resource" script_class="ItemsList" load_steps=5 format=3 uid="uid://in5a2rq154km"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/item.gd" id="1_g4cob"]
 [ext_resource type="Script" path="res://resources/classes/lists/items_list.gd" id="2_hu5u6"]
+[ext_resource type="Texture2D" uid="uid://bdea6ndihk0bp" path="res://resources/assets/rubber_duck.png" id="2_xomhd"]
 
 [sub_resource type="Resource" id="Resource_s644s"]
 script = ExtResource("1_g4cob")
 id = "rubber_duck"
 name = "Patinho de Borracha"
+sprite = ExtResource("2_xomhd")
 
 [resource]
 script = ExtResource("2_hu5u6")

@@ -52,3 +52,8 @@ func _on_itens_button_pressed() -> void:
 
 func _on_objectives_button_pressed() -> void:
 	open_tab_objectives()
+
+
+func _on_texture_button_pressed():
+	visible = false
+	is_open = false

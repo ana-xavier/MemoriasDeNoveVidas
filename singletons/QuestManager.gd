@@ -30,17 +30,8 @@ func is_quest_complete(quest_id: String) -> bool:
 func on_active_quest():
 	if notification != null:
 		notification.show_notification_new_objective()
-		
+
 func on_complete_quest():
 	if notification != null:
 		notification.show_notification_objective_succeed()
-		
-#var quests = [{
-	#"id": "srpotatoe_item_quest",
-	#"character_id": 1,
-	#"name": "Um velho amigo",
-	#"description": "Ajude Sr.Batata a recuperar seu item perdido.",
-	#"required_item_name": "Patinho de Borracha",
-	#"required_item_id": "rubber_duck",
-	#"quest_complete_dialog": "srpotatoe_quest_finished"
-#}]
+

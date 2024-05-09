@@ -36,9 +36,6 @@ func _on_hold_succeed():
 	if (can_give_item):
 		var item: QuestItem = ItemsData.get_quest_item_by_id(quest_item_id)
 		InventoryManager.add_item(item)
-		# TODO - Remover prints abaixo
-		print("Adicionou item ao inventário:")
-		print(item.name)
 		 
 	InteractiveObjectsData.set_object_already_interacted(id)
 	queue_free()	
