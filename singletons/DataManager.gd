@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_DATA_PATH: String = "res://resources/save/save_data.tres"
+const SAVE_DATA_PATH: String = "res://save_data.tres"
 const OBJECTS_STATES_DATA_PATH: String = "res://resources/data/interactive_objects_dict.tres"
 const DIALOGS_READY_DATA_PATH: String = "res://resources/data/dialog_ready_list.tres"
 const QUESTS_DATA_PATH: String = "res://resources/data/quest_list.tres" 
@@ -20,7 +20,7 @@ func create_new_save() -> void:
 	save_data.dialog_ready_list.dialogs_ready = dialogs_ready_data.dialogs_ready
 	
 	save_data.quest_list = QuestList.new()
-	var quests_data = load(QUESTS_DATA_PATH) as QuestList
+	var quests_data = ResourceLoader.load(QUESTS_DATA_PATH) as QuestList
 	save_data.quest_list.quests = quests_data.quests
 	
 	ResourceSaver.save(save_data, SAVE_DATA_PATH)

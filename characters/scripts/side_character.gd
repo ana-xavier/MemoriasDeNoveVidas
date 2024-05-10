@@ -34,10 +34,7 @@ func _on_interact():
 func manage_current_quest() -> void:
 	var curr_quest = QuestManager.get_quest_by_character_id(character_id) as QuestDeliverItem
 	if curr_quest:
-		var required_item_id = curr_quest.required_item_id
-		if InventoryManager.has_item(required_item_id):
-			InventoryManager.remove_item(required_item_id)
-			QuestManager.set_quest_complete(curr_quest.id)
+		curr_quest.check_and_complete_quest()
 
 
 func manage_dialog() -> void:

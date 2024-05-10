@@ -27,11 +27,7 @@ func set_quest_complete(quest_id: String) -> void:
 			return
 
 func is_quest_complete(quest_id: String) -> bool:
-	print("quest completa?")
 	for quest in quests:
-		print(quest.id + "==" + quest_id + " ?")
 		if (quest.id == quest_id):
-			print(" -- return:")
-			print(quest.status == Quest.Status.COMPLETE)
 			return quest.status == Quest.Status.COMPLETE
 	return false
