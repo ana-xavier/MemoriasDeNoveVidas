@@ -1,6 +1,6 @@
 extends Node
 
-@onready var notification = get_tree().get_first_node_in_group("NotificationBox") ;
+@onready var objective_notification = get_tree().get_first_node_in_group("NotificationBox") ;
 var data = preload("res://resources/data/quest_list.tres")
 
 func _ready():
@@ -28,10 +28,10 @@ func is_quest_complete(quest_id: String) -> bool:
 	return data.is_quest_complete(quest_id)
 
 func on_active_quest():
-	if notification != null:
-		notification.show_notification_new_objective()
+	if objective_notification != null:
+		objective_notification.show_notification_new_objective()
 
 func on_complete_quest():
-	if notification != null:
-		notification.show_notification_objective_succeed()
+	if objective_notification != null:
+		objective_notification.show_notification_objective_succeed()
 

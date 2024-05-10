@@ -3,6 +3,12 @@ extends Control
 @onready var tab_container: TabContainer = $TabContainer
 @onready var objectives_button: TextureButton = $Buttons/ObjectivesButton
 @onready var items_button: TextureButton = $Buttons/ItensButton
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+
+@export_category("Sounds")
+@export var popup_sound: AudioStreamWAV = null
+@export var popdown_sound: AudioStreamWAV = null
+@export var change_tab_sound: AudioStreamWAV = null
 
 enum Tab {
 	OBJECTIVES = 0,
@@ -15,15 +21,22 @@ var is_open: bool = false
 signal opened
 signal closed
 
+func _ready():
+	visible = false
+
 func open() -> void:
 	open_tab_objectives()
 	visible = true
 	is_open = true
+	audio_player.stream = popup_sound
+	audio_player.play()
 	opened.emit()
 	
 func close() -> void:
 	visible = false
 	is_open = false
+	audio_player.stream = popdown_sound
+	audio_player.play()
 	closed.emit()
 
 func toggle_buttons() -> void:
@@ -48,11 +61,14 @@ func open_tab_itens() -> void:
 	toggle_buttons()
 
 func _on_itens_button_pressed() -> void:
+	audio_player.stream = change_tab_sound
+	audio_player.play()
 	open_tab_itens()
 
 func _on_objectives_button_pressed() -> void:
+	audio_player.stream = change_tab_sound
+	audio_player.play()
 	open_tab_objectives()
-
 
 func _on_texture_button_pressed():
 	visible = false

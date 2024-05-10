@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0mu4e83ym175"]
+[gd_scene load_steps=6 format=3 uid="uid://0mu4e83ym175"]
 
 [ext_resource type="Script" path="res://gui/notification/scripts/item_notification_box.gd" id="1_dngtc"]
 [ext_resource type="Texture2D" uid="uid://cqnvoec8814id" path="res://gui/notification/assets/item_frame.png" id="2_0ty4x"]
 [ext_resource type="Texture2D" uid="uid://cabhepq12dnmk" path="res://gui/notification/assets/notification_box.png" id="2_4jbo4"]
-[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="2_yv4n2"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="4_3ow74"]
+[ext_resource type="AudioStream" uid="uid://daq7q7r265px8" path="res://resources/assets/sfx/pickup_item.wav" id="5_pkund"]
 
 [node name="ItemNotificationBox" type="MarginContainer"]
 anchors_preset = 2
@@ -60,11 +61,14 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_yv4n2")
+theme_override_fonts/font = ExtResource("4_3ow74")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pkund")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

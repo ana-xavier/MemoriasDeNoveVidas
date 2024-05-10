@@ -27,7 +27,7 @@
 
 [sub_resource type="Resource" id="Resource_ng6f4"]
 script = ExtResource("8_n23d6")
-character_type = 0
+character_type = 1
 lines = Array[String](["Oiii Sr. Batata! Faz tempo que nao te vejo.", "Como voce esta? Estava bem doente da ultima vez em que te vi..."])
 
 [sub_resource type="Resource" id="Resource_u5t57"]
@@ -37,7 +37,7 @@ lines = Array[String](["Ola! Estou otimo!", "Bla Bla Bla... voce poderia pegar m
 
 [sub_resource type="Resource" id="Resource_6c2jp"]
 script = ExtResource("8_n23d6")
-character_type = 0
+character_type = 1
 lines = Array[String](["Claro! Vou encontrar para voce!"])
 
 [sub_resource type="Resource" id="Resource_wtllw"]
@@ -84,7 +84,7 @@ lines = Array[String](["Oii!  Voce concluiu a quest do Sr.Batata!", "Parabens!!!
 
 [sub_resource type="Resource" id="Resource_uu6ck"]
 script = ExtResource("8_n23d6")
-character_type = 0
+character_type = 1
 lines = Array[String](["Obrigado!!"])
 
 [sub_resource type="Resource" id="Resource_h7p41"]
@@ -359,16 +359,12 @@ stretch_mode = 5
 
 [node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("9_y8j6t")]
 process_mode = 3
-visible = false
 
 [node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("22_n4vnr")]
-visible = false
 
 [node name="ItemNotificationBox" parent="CanvasLayer" groups=["ItemNotificationBox"] instance=ExtResource("23_cg20t")]
-visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
-visible = false
 
 [connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

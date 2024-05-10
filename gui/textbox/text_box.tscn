@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://brvwbewhs52l2"]
 
 [ext_resource type="Script" path="res://gui/textbox/text_box.gd" id="1_vwwga"]
-[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="3_64cv6"]
 [ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://gui/textbox/dialogue_box.png" id="3_jner4"]
 [ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://gui/textbox/dialogue_box_pointer.png" id="3_oq6io"]
 [ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://gui/textbox/next_indicator.png" id="4_0ljyt"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="5_yphrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vi7d7"]
 atlas = ExtResource("4_0ljyt")
@@ -103,9 +103,7 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_64cv6")
-text = "
-"
+theme_override_fonts/font = ExtResource("5_yphrg")
 vertical_alignment = 1
 
 [node name="ShowLetterTimer" type="Timer" parent="."]

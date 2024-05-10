@@ -3,10 +3,7 @@ extends Node2D
 func _ready():
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-
-func _process(delta):
-	pass
-
+			
 func _on_note_manager_closed_note():
 	get_tree().paused = false
 

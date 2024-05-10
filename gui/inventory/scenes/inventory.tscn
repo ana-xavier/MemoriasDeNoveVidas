@@ -1,11 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=16 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
+[ext_resource type="AudioStream" uid="uid://vcscfpd15ed8" path="res://resources/assets/sfx/paper_slide.wav" id="2_liu5y"]
+[ext_resource type="AudioStream" uid="uid://lw0olgyuq5pa" path="res://resources/assets/sfx/page_turn_single.wav" id="3_gqbhe"]
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="3_jic0x"]
 [ext_resource type="Texture2D" uid="uid://ipaomlq7vjoq" path="res://gui/icons/objective.png" id="4_jjisr"]
+[ext_resource type="AudioStream" uid="uid://fc3mh8itgr0t" path="res://resources/assets/sfx/paper-grab.wav" id="4_tibx7"]
 [ext_resource type="Texture2D" uid="uid://m8507emy2o02" path="res://gui/icons/objective_pressed.png" id="5_vxisn"]
 [ext_resource type="Texture2D" uid="uid://b3gygthilc4sh" path="res://gui/icons/objective_hover.png" id="6_dda7i"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="7_172y3"]
 [ext_resource type="Texture2D" uid="uid://cd5x2y0cy708o" path="res://gui/icons/coin.png" id="7_v5qqb"]
 [ext_resource type="Texture2D" uid="uid://cbfs1hetggmn2" path="res://gui/icons/coin_pressed.png" id="8_bi663"]
 [ext_resource type="Texture2D" uid="uid://p0bmsfcb6t40" path="res://gui/icons/coin_hover.png" id="9_ggodq"]
@@ -20,6 +24,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gdg5o")
+popup_sound = ExtResource("2_liu5y")
+popdown_sound = ExtResource("3_gqbhe")
+change_tab_sound = ExtResource("4_tibx7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -87,7 +94,7 @@ offset_top = 46.0
 offset_right = 144.0
 offset_bottom = 149.0
 theme_override_colors/default_color = Color(0, 0, 0, 0.658824)
-theme_override_fonts/normal_font = ExtResource("3_jic0x")
+theme_override_fonts/normal_font = ExtResource("7_172y3")
 theme_override_font_sizes/normal_font_size = 8
 text = "Notas estranhas:
  - 2/10 notas encontradas.
@@ -178,6 +185,9 @@ offset_top = 25.0
 offset_right = 256.0
 offset_bottom = 41.0
 texture_normal = ExtResource("11_3cae7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 16.0
 
 [connection signal="pressed" from="Buttons/ObjectivesButton" to="." method="_on_objectives_button_pressed"]
 [connection signal="pressed" from="Buttons/ItensButton" to="." method="_on_itens_button_pressed"]

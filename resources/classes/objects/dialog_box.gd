@@ -6,5 +6,5 @@ enum Character {
 	NPC
 }
 
-@export var character_type: Character = 0
+@export var character_type: Character = Character.NPC
 @export var lines: Array[String] = []

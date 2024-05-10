@@ -27,7 +27,7 @@ func _ready() -> void:
 
 
 func _on_interact():	
-	await manage_current_quest()
+	manage_current_quest()
 	await manage_dialog()
 
 
