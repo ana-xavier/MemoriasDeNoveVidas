@@ -10,6 +10,9 @@ extends Node2D
 @export var texture: Texture2D = null
 @export var frame: int = 50
 
+@export_category("External Quests")
+@export var char_interact_quest_id: String = ""
+
 @export_category("Dialogs")
 @export var character_dialogs: Array[Dialog] = []
 @export var character_idle_dialog: Dialog = null
@@ -27,15 +30,20 @@ func _ready() -> void:
 
 
 func _on_interact():	
-	manage_current_quest()
+	manage_deliver_item_quest()
+	manage_characters_interact_quest()
 	await manage_dialog()
 
 
-func manage_current_quest() -> void:
-	var curr_quest = QuestManager.get_quest_by_character_id(character_id) as QuestDeliverItem
-	if curr_quest:
-		curr_quest.check_and_complete_quest()
+func manage_deliver_item_quest() -> void:
+	var quest = QuestManager.get_quest_by_character_id(character_id) as QuestDeliverItem
+	if quest:
+		quest.check_and_complete_quest()
 
+func manage_characters_interact_quest():
+	var quest = QuestManager.get_quest_by_id(char_interact_quest_id) as QuestCharactersInteract
+	if quest:
+		quest.add_character_interacted(character_id)
 
 func manage_dialog() -> void:
 	var dialog_data: Dialog = get_current_dialog()

@@ -4,6 +4,7 @@ extends Node2D
 @onready var note_popup = get_tree().get_first_node_in_group("NotePopup")
 
 @export var id: String = ""
+@export var quest_id: String = ""
 var note_name: String = "" 
 var note_text: String = ""
 
@@ -17,11 +18,17 @@ func _ready():
 		note_text = note_data.text
 		
 	interaction_area.interact = Callable(self, "_on_interact")
-	note_popup.close_note_popup()
 
 func _on_interact():
 	note_popup.set_note_text(note_text)
 	note_popup.show_note_popup()
 	await note_popup.closed_note
 	InteractiveObjectsData.set_object_already_interacted(id)
+	manage_notes_quest()
 	queue_free()
+
+func manage_notes_quest():
+	var quest = QuestManager.get_quest_by_id(quest_id) as QuestNotes
+	if quest:
+		quest.add_note_obtained()
+	

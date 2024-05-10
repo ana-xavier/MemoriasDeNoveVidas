@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=5 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=9 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quest_deliver_item.gd" id="1_dhua6"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
+[ext_resource type="Script" path="res://resources/classes/objects/quest_characters_interact.gd" id="2_78662"]
+[ext_resource type="Script" path="res://resources/classes/objects/quest_notes.gd" id="3_dtae7"]
 
 [sub_resource type="Resource" id="Resource_6qb6v"]
 script = ExtResource("1_dhua6")
@@ -27,6 +29,32 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_usyv1"]
+script = ExtResource("2_78662")
+interacted_count = 0
+to_interact = 2
+characters_already_interacted = {
+"jujubinha": false,
+"srpotatoe": false
+}
+id = "searching_for_answers"
+name = "Buscando por Respostas"
+description = ""
+status = 1
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_es8e0"]
+script = ExtResource("3_dtae7")
+notes_count = 0
+notes_to_get = 3
+id = "level1_notes"
+name = "Notas Estranhas"
+description = ""
+status = 1
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_6qb6v"), SubResource("Resource_i542s")])
+quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_6qb6v"), SubResource("Resource_i542s"), SubResource("Resource_usyv1"), SubResource("Resource_es8e0")])

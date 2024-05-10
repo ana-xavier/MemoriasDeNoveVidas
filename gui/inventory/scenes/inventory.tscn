@@ -104,7 +104,9 @@ Buscando por ajuda:
 
 Um velho amigo:
  - Recupere o item perdido de Sr.Batata.
- - Entregue o item perdido."
+ - Entregue o item perdido.
+
+obs.: O texto de quests acima é apenas um exemplo para teste."
 
 [node name="ItemsView" type="Control" parent="TabContainer"]
 visible = false

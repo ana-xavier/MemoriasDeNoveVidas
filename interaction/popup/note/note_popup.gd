@@ -6,6 +6,9 @@ var is_open: bool = false
 signal opened_note()
 signal closed_note()
 
+func _ready():
+	visible = false
+
 func set_note_text(text) -> void:
 	label.text = text
 

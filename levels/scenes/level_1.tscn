@@ -239,6 +239,17 @@ id = "dig_E6"
 [node name="Note1" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
 position = Vector2(-47, -340)
 id = "note_1"
+quest_id = "level1_notes"
+
+[node name="Note2" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
+position = Vector2(252, -275)
+id = "note_2"
+quest_id = "level1_notes"
+
+[node name="Note3" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
+position = Vector2(387, -364)
+id = "note_3"
+quest_id = "level1_notes"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -261,6 +272,7 @@ character_id = "srpotatoe"
 character_name = "Sr. Batata"
 texture = ExtResource("7_pc8ao")
 frame = 78
+char_interact_quest_id = "searching_for_answers"
 character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
 character_idle_dialog = SubResource("Resource_pc5wt")
 
@@ -269,6 +281,7 @@ position = Vector2(-128, 120)
 character_id = "jujubinha"
 character_name = "Jujubinha"
 texture = ExtResource("10_xrx1m")
+char_interact_quest_id = "searching_for_answers"
 character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_h7p41")])
 character_idle_dialog = SubResource("Resource_0dr8k")
 
