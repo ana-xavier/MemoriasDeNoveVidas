@@ -23,9 +23,10 @@ layer_0/tile_data = PackedInt32Array(-393222, 589825, 0, -327686, 589825, 1, -26
 [node name="InteractableObjects" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Note2" parent="InteractableObjects" instance=ExtResource("3_bogu7")]
+[node name="Note" parent="InteractableObjects" instance=ExtResource("3_bogu7")]
 position = Vector2(70, 21)
-id = "note_2"
+id = "note_1"
+quest_id = "level1_notes"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -62,6 +63,7 @@ position = Vector2(-1, -4)
 scale = Vector2(-14.5545, -8.81597e+07)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("7_tul21")
 
 [node name="InventoryButton" type="Control" parent="CanvasLayer"]
@@ -102,5 +104,9 @@ visible = false
 visible = false
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
+[connection signal="closed" from="CanvasLayer/Inventory" to="." method="_on_inventory_closed"]
+[connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
+[connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
+[connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 
 [editable path="YSort/Doors/Door_N"]

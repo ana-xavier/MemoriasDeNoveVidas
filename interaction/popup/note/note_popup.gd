@@ -1,6 +1,6 @@
 extends Control
 
-@onready var label = $TextureRect/Label
+@onready var label = $NoteTexture/Text
 var is_open: bool = false
 
 signal opened_note()
@@ -21,9 +21,6 @@ func close_note_popup() -> void:
 	visible = false
 	is_open = false
 	closed_note.emit()
-	
-func _input(event):
-	if event.is_action_pressed("get") && is_open:
-		close_note_popup()
 		
-	
+func _on_close_button_pressed():
+	close_note_popup()

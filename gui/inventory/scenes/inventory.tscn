@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=17 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cbfs1hetggmn2" path="res://gui/icons/coin_pressed.png" id="8_bi663"]
 [ext_resource type="Texture2D" uid="uid://p0bmsfcb6t40" path="res://gui/icons/coin_hover.png" id="9_ggodq"]
 [ext_resource type="Texture2D" uid="uid://bbffl3oki18f0" path="res://gui/inventory/assets/ui_book2.png" id="10_4plao"]
-[ext_resource type="Texture2D" uid="uid://viasw6xg4ins" path="res://gui/icons/close_icon.png" id="11_3cae7"]
+[ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="15_kbfd7"]
+[ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="16_amra1"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -180,13 +181,14 @@ texture_disabled = ExtResource("7_v5qqb")
 stretch_mode = 3
 
 [node name="CloseButton" type="TextureButton" parent="Buttons"]
-visible = false
 layout_mode = 0
 offset_left = 240.0
 offset_top = 25.0
 offset_right = 256.0
 offset_bottom = 41.0
-texture_normal = ExtResource("11_3cae7")
+texture_normal = ExtResource("15_kbfd7")
+texture_pressed = ExtResource("15_kbfd7")
+texture_hover = ExtResource("16_amra1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = 16.0

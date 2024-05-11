@@ -11,14 +11,17 @@ var visibility_time = 4
 
 func _ready():
 	visible = false
+	QuestManager.quest_active.connect(self.show_notification_new_quest)
+	QuestManager.quest_complete.connect(self.show_notification_quest_complete)
+	
 
-func show_notification_new_objective():
+func show_notification_new_quest():
 	title.text = "Novo Objetivo!"
 	icon.texture = new_objective_icon
 	visible = true
 	timer.start(visibility_time)
 	
-func show_notification_objective_succeed():
+func show_notification_quest_complete():
 	title.text = "Objetivo Concluido!"
 	icon.texture = succeed_icon
 	visible = true

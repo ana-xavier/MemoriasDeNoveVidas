@@ -1,8 +1,10 @@
 extends Node
 
-@onready var objective_notification = get_tree().get_first_node_in_group("NotificationBox")
 const RESOURCE_PATH = "res://resources/data/quest_list.tres"
 var data: QuestList = null
+
+signal quest_active()
+signal quest_complete()
 
 func _ready():
 	var quest_list: QuestList = DataManager.load_quests_status()
@@ -40,10 +42,7 @@ func is_quest_complete(quest_id: String) -> bool:
 	return data.is_quest_complete(quest_id)
 
 func on_active_quest():
-	if objective_notification != null:
-		objective_notification.show_notification_new_objective()
+	quest_active.emit()
 
 func on_complete_quest():
-	if objective_notification != null:
-		objective_notification.show_notification_objective_succeed()
-
+	quest_complete.emit()

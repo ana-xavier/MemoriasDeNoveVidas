@@ -9,6 +9,7 @@ var visibility_time = 4
 
 func _ready():
 	visible = false
+	InventoryManager.item_added.connect(self.show_notification)
 
 func show_notification(_item_name: String, _item_sprite: Texture):
 	item_name.text = _item_name

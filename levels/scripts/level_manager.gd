@@ -16,7 +16,6 @@ func _on_inventory_closed():
 func _on_inventory_opened():
 	get_tree().paused = true
 
-
 func _on_level_spawn(destination_tag: String):
 	var door_path = "YSort/Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door

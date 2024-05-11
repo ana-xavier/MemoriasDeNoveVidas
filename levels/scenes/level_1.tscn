@@ -236,19 +236,19 @@ id = "dig_E6"
 
 [node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
 
-[node name="Note1" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
-position = Vector2(-47, -340)
-id = "note_1"
-quest_id = "level1_notes"
-
 [node name="Note2" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
-position = Vector2(252, -275)
+position = Vector2(-47, -340)
 id = "note_2"
 quest_id = "level1_notes"
 
 [node name="Note3" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
-position = Vector2(387, -364)
+position = Vector2(252, -275)
 id = "note_3"
+quest_id = "level1_notes"
+
+[node name="Note4" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
+position = Vector2(387, -364)
+id = "note_4"
 quest_id = "level1_notes"
 
 [node name="YSort" type="Node2D" parent="."]
@@ -374,10 +374,10 @@ stretch_mode = 5
 process_mode = 3
 visible = false
 
-[node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("22_n4vnr")]
+[node name="NotificationBox" parent="CanvasLayer" instance=ExtResource("22_n4vnr")]
 visible = false
 
-[node name="ItemNotificationBox" parent="CanvasLayer" groups=["ItemNotificationBox"] instance=ExtResource("23_cg20t")]
+[node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("23_cg20t")]
 visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
