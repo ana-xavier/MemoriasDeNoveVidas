@@ -15,12 +15,12 @@ var player_ref: MainCharacter = null
 
 func _on_body_entered(body):
 	if body is MainCharacter:
-		if(destination_level_tag == "level_1"):
-			NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
-		else:
+		if destination_level_tag == "house":
 			player_ref = body
 			animation.play("door_open")
-
+		else:
+			NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
+			
 
 func _on_animation_finished(anim_name):
 	if anim_name == "door_open":
