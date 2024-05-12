@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd832ctd3f04"
-path="res://.godot/imported/spr_ocean_wave_side_left_backcorner.png-987813e45552c8905508da40ab77cc9c.ctex"
+uid="uid://bcqg74lpk8h4x"
+path="res://.godot/imported/wooden_sign.png-c47df97d84c029a7a0c0d08c9df2d3b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/terrain/assets/animated/ocean/spr_ocean_wave_side_left_backcorner.png"
-dest_files=["res://.godot/imported/spr_ocean_wave_side_left_backcorner.png-987813e45552c8905508da40ab77cc9c.ctex"]
+source_file="res://interaction/interaction_press/objects/sign/wooden_sign.png"
+dest_files=["res://.godot/imported/wooden_sign.png-c47df97d84c029a7a0c0d08c9df2d3b4.ctex"]
 
 [params]
 

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4imf1hgjir0w"]
+
+[ext_resource type="Script" path="res://interaction/interaction_press/objects/sign/sign.gd" id="1_cxoay"]
+[ext_resource type="Texture2D" uid="uid://bcqg74lpk8h4x" path="res://interaction/interaction_press/objects/sign/wooden_sign.png" id="1_nvijo"]
+[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_nmavn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bifms"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qo55d"]
+radius = 15.0
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_cxoay")
+
+[node name="WoodenSign" type="Sprite2D" parent="."]
+position = Vector2(1, -8)
+texture = ExtResource("1_nvijo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodenSign"]
+position = Vector2(-1, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodenSign/StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_bifms")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_nmavn")]
+action_name = "ler"
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_qo55d")
