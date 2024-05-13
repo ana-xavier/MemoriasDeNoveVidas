@@ -8,8 +8,8 @@ func _on_interact():
 	manage_deliver_item_quest()
 	manage_characters_interact_quest()
 	curr_dialog_data = get_current_dialog_by_quest_complete()	
-	super()
-	search_quest_in_dialog()
+	await super()
+	
 	
 	
 func manage_deliver_item_quest() -> void:
@@ -34,7 +34,3 @@ func get_current_dialog_by_quest_complete() -> Dialog:
 	return null
 	
 	
-func search_quest_in_dialog() -> void:
-	if curr_dialog_data.release_a_quest:
-		var quest_id = curr_dialog_data.quest_id
-		QuestManager.set_quest_active(quest_id) 

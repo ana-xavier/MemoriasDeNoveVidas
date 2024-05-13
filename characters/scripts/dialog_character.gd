@@ -36,8 +36,9 @@ func manage_dialog() -> void:
 		DialogManager.start_dialog(curr_position, curr_lines, curr_character)
 		await DialogManager.dialog_finished
 
-	curr_dialog_data = null
 	DialogData.set_dialog_already_done(curr_dialog_data.id)
+	search_quest_in_dialog()
+	curr_dialog_data = null
 
 
 func get_current_dialog() -> Dialog:
@@ -47,3 +48,9 @@ func get_current_dialog() -> Dialog:
 		if dialog.id == dialog_id:
 			return dialog
 	return character_idle_dialog	
+
+
+func search_quest_in_dialog() -> void:
+	if curr_dialog_data.release_a_quest:
+		var quest_id = curr_dialog_data.quest_id
+		QuestManager.set_quest_active(quest_id) 
