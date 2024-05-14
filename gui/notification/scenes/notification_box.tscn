@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://lou1cctl4ij"]
+[gd_scene load_steps=7 format=3 uid="uid://lou1cctl4ij"]
 
 [ext_resource type="Script" path="res://gui/notification/scripts/notification_box.gd" id="1_2neo7"]
 [ext_resource type="Texture2D" uid="uid://cbg2ap8sf54k5" path="res://gui/icons/confirm_icon.png" id="2_0l1gr"]
 [ext_resource type="Texture2D" uid="uid://cpo2mr7xxiypj" path="res://gui/icons/new_objective_icon.png" id="3_ay541"]
-[ext_resource type="Texture2D" uid="uid://cabhepq12dnmk" path="res://gui/notification/assets/notification_box.png" id="4_ptsga"]
+[ext_resource type="Texture2D" uid="uid://e7daui0mdg6e" path="res://gui/notification/assets/box.png" id="4_q3kpl"]
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="5_48ps1"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="5_e5vvo"]
 
 [node name="NotificationBox" type="MarginContainer"]
 offset_right = 138.0
@@ -19,7 +20,7 @@ new_objective_icon = ExtResource("3_ay541")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("4_ptsga")
+texture = ExtResource("4_q3kpl")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -30,14 +31,19 @@ position = Vector2(15, 16)
 texture = ExtResource("3_ay541")
 
 [node name="Info" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 5.3333
-offset_top = 30.3333
-offset_right = 125.333
-offset_bottom = 53.3333
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 148.0
+offset_bottom = 19.0
+grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("5_e5vvo")
+theme_override_font_sizes/font_size = 12
 text = "Aperte [tab] para ver objetivos."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,7 +60,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_48ps1")
 theme_override_font_sizes/font_size = 18
-text = "Novo Objetivo!"
+text = "Novo Objetivo! "
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]

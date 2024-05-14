@@ -44,8 +44,8 @@ func dialog_animation():
 		player_was_left = false
 		player_was_right = true
 		
-	if current_state != MOVING:
-		_animation.seek(0.8)
+	#if current_state != MOVING:
+		#_animation.seek(0.8)
 		
 	current_state = IDLE
 		

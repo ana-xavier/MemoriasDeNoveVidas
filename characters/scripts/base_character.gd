@@ -20,7 +20,7 @@ class_name BaseCharacter
 const IDLE_TO_NEW_DIR_PROB: float = 0.5
 const NEW_DIR_TO_MOVING_PROB: float = 0.7
 const MOVING_TO_IDLE_PROB: float = 0.5
-const NEW_DIR_ANIM_PROB: float = 0.2
+const NEW_DIR_ANIM_PROB: float = 0.4
 
 enum {
 	IDLE, 
@@ -62,16 +62,17 @@ func _process(delta):
 func _animate():
 	# Idle animation
 	if current_state == IDLE && !already_in_idle:
+		already_in_idle = true
 		if direction == Vector2.UP || direction == Vector2.DOWN:
 			_animation.play("sitting_down")
 		if direction == Vector2.LEFT:
 			_animation.play("sitting_left")
 		if direction == Vector2.RIGHT:
 			_animation.play("sitting_right")
-		already_in_idle = true
 		
 	# New direction animation
 	elif current_state == NEW_DIR && !already_in_new_dir:
+		already_in_new_dir = true
 		if randf() < NEW_DIR_ANIM_PROB:
 			if direction == Vector2.UP || direction == Vector2.DOWN:
 				_animation.play("idle_down")
@@ -79,7 +80,6 @@ func _animate():
 				_animation.play("idle_left")
 			if direction == Vector2.RIGHT:
 				_animation.play("idle_right")
-			already_in_new_dir = true
 			
 	# Moving animation
 	elif  current_state == MOVING:

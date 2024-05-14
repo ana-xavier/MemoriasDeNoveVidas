@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://ev2a0j2getnn"]
 
 [ext_resource type="Script" path="res://characters/scripts/dialog_character.gd" id="1_bcixa"]
-[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_41jd3"]
+[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_1qt2j"]
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="2_sbiy7"]
-[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://shaders/entity_shadow.png" id="3_bfbdk"]
+[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_tieeq"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_u5kqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbagc"]
 size = Vector2(18, 12)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s2pna"]
-shader = ExtResource("2_41jd3")
+shader = ExtResource("2_1qt2j")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sef0g"]
 radius = 23.3928
@@ -486,7 +486,7 @@ shape = SubResource("RectangleShape2D_qbagc")
 [node name="Shadow" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_s2pna")
 position = Vector2(0, -3.33333)
-texture = ExtResource("3_bfbdk")
+texture = ExtResource("3_tieeq")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8.33333)

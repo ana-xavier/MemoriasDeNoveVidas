@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://besgvwbcau452"]
 
 [ext_resource type="Script" path="res://characters/scripts/base_character.gd" id="1_tw6cy"]
-[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_ds61t"]
+[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_0wc67"]
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="2_e0bv8"]
-[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://shaders/entity_shadow.png" id="3_ds48u"]
+[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_ds48u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbagc"]
 size = Vector2(18, 12)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10e5b"]
-shader = ExtResource("2_ds61t")
+shader = ExtResource("2_0wc67")
 
 [sub_resource type="Animation" id="Animation_k2uii"]
 length = 0.001

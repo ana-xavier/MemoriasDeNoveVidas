@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c1p8ha6x2pgo4" path="res://environment/terrain/assets/terrain_tileset.png" id="11_lqp8d"]
 [ext_resource type="Texture2D" uid="uid://ckchpvcofn3lm" path="res://environment/terrain/assets/objects/barrels_and_crates/spr_crate3.png" id="12_tmxoy"]
 [ext_resource type="Texture2D" uid="uid://pksb27s5780" path="res://environment/terrain/assets/rocks/spr_boulder2.png" id="13_0g42o"]
-[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="14_kdomw"]
+[ext_resource type="Shader" path="res://environment/shaders/shadow.gdshader" id="14_kdomw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhr71"]
 resource_name = "tree_1"
