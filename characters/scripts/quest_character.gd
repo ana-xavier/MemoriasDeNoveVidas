@@ -11,7 +11,6 @@ func _on_interact():
 	await super()
 	
 	
-	
 func manage_deliver_item_quest() -> void:
 	var quest = QuestManager.get_quest_by_character_id(character_id) as QuestDeliverItem
 	if quest:
@@ -32,5 +31,4 @@ func get_current_dialog_by_quest_complete() -> Dialog:
 			):
 			return dialog
 	return null
-	
-	
+

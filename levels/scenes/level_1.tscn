@@ -117,7 +117,7 @@ dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_nhwl4"), SubResour
 
 [sub_resource type="Resource" id="Resource_xhdev"]
 script = ExtResource("8_n23d6")
-character_type = 0
+character_type = 1
 lines = Array[String](["Meow!     "])
 
 [sub_resource type="Resource" id="Resource_0dr8k"]
@@ -290,7 +290,7 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="SrBatata" parent="YSort" instance=ExtResource("6_mhy7d")]
-position = Vector2(256, -64)
+position = Vector2(283, -32)
 char_interact_quest_id = "searching_for_answers"
 character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
 character_idle_dialog = SubResource("Resource_pc5wt")
@@ -315,6 +315,7 @@ character_id = "elio"
 character_name = "Élio"
 texture = ExtResource("11_w667j")
 frame = 173
+is_character_static = true
 
 [node name="NpcCat2" parent="YSort" instance=ExtResource("13_gkt0y")]
 position = Vector2(-559, -261)
@@ -323,6 +324,7 @@ character_id = "esmeralda"
 character_name = "Esmeralda"
 texture = ExtResource("12_d8hv7")
 frame = 223
+is_character_static = true
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("11_tvi2s")]
 position = Vector2(-58, -434)

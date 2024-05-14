@@ -1,10 +1,15 @@
-[gd_scene load_steps=53 format=3 uid="uid://bgljvnge160or"]
+[gd_scene load_steps=56 format=3 uid="uid://bgljvnge160or"]
 
 [ext_resource type="Script" path="res://characters/scripts/main_character.gd" id="1_heig3"]
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_5dvqo"]
 [ext_resource type="Texture2D" uid="uid://be2kbcrwfyhk" path="res://characters/assets/black_4.png" id="2_v4pev"]
+[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://shaders/entity_shadow.png" id="3_5q53j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jt0rh"]
 size = Vector2(15, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_avdy6"]
+shader = ExtResource("2_5dvqo")
 
 [sub_resource type="Animation" id="Animation_c5br6"]
 resource_name = "RESET"
@@ -976,6 +981,11 @@ _animation_tree = NodePath("AnimationTree")
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jt0rh")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_avdy6")
+position = Vector2(0, -3.33333)
+texture = ExtResource("3_5q53j")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(1, -10)
