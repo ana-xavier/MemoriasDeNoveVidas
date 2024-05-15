@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=53 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_u2rkm"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -338,7 +339,7 @@ y_sort_enabled = true
 
 [node name="Sign" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(410, -132)
-text = "Uma Localização Aqui"
+text = "Montanha dos Sonhos"
 
 [node name="Sign2" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(-554, -84)
@@ -429,6 +430,8 @@ visible = false
 
 [node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("23_cg20t")]
 visible = false
+
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("27_io8a4")]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
 visible = false

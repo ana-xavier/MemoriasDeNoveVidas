@@ -60,7 +60,8 @@ theme_override_constants/margin_bottom = 8
 [node name="ItemName" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
 theme_override_fonts/font = ExtResource("4_3ow74")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1

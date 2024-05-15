@@ -95,6 +95,9 @@ stretch_mode = 5
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_bi86e")]
 visible = false
+popup_sound = null
+popdown_sound = null
+change_tab_sound = null
 
 [node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("7_k4jhh")]
 process_mode = 3
