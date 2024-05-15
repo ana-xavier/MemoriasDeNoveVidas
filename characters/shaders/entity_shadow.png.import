@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyaux2m21py2a"
-path="res://.godot/imported/dialogue.png-a41aeecf95b65ac81948c300abb27f3f.ctex"
+uid="uid://cj54225gjvxlu"
+path="res://.godot/imported/entity_shadow.png-ef477ac0b288bb59c2564964c17d665b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/textbox/dialogue.png"
-dest_files=["res://.godot/imported/dialogue.png-a41aeecf95b65ac81948c300abb27f3f.ctex"]
+source_file="res://characters/shaders/entity_shadow.png"
+dest_files=["res://.godot/imported/entity_shadow.png-ef477ac0b288bb59c2564964c17d665b.ctex"]
 
 [params]
 

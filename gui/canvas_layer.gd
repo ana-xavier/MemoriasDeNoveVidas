@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var inventory: Control = $Inventory
 @onready var note_popup: Control = $NotePopup
+@onready var content_container: Control = $ContentContainer
 
 func _input(event):
 	if event.is_action_pressed("inventory_toggle"):
@@ -13,7 +14,7 @@ func _input(event):
 			inventory.open()
 
 func is_another_component_open() -> bool:
-	if note_popup.is_open:
+	if note_popup.is_open ||  content_container.is_open:
 		return true
 	return false
 

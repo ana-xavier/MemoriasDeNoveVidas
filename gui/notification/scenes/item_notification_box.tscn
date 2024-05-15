@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gui/notification/scripts/item_notification_box.gd" id="1_dngtc"]
 [ext_resource type="Texture2D" uid="uid://cqnvoec8814id" path="res://gui/notification/assets/item_frame.png" id="2_0ty4x"]
-[ext_resource type="Texture2D" uid="uid://cabhepq12dnmk" path="res://gui/notification/assets/notification_box.png" id="2_4jbo4"]
+[ext_resource type="Texture2D" uid="uid://e7daui0mdg6e" path="res://gui/notification/assets/box.png" id="2_7fsn3"]
 [ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="4_3ow74"]
 [ext_resource type="AudioStream" uid="uid://daq7q7r265px8" path="res://resources/assets/sfx/pickup_item.wav" id="5_pkund"]
 
@@ -14,14 +14,14 @@ offset_top = -60.0
 offset_right = 137.0
 offset_bottom = -20.0
 grow_vertical = 0
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 0
 theme_override_constants/margin_left = 12
 script = ExtResource("1_dngtc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_4jbo4")
+texture = ExtResource("2_7fsn3")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -60,7 +60,8 @@ theme_override_constants/margin_bottom = 8
 [node name="ItemName" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
 theme_override_fonts/font = ExtResource("4_3ow74")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1

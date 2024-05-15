@@ -13,5 +13,5 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-	print("Leu a Placa")
-	print("text")
+	SignalBus.open_content_container.emit(text)
+	await SignalBus.closed_content_container

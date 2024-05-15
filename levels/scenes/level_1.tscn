@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=53 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/interaction_hold/objects/dirt/digging_area.tscn" id="4_0v4bx"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_5sdho"]
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
+[ext_resource type="PackedScene" uid="uid://dauc13t56axwx" path="res://characters/scenes/quest_character.tscn" id="6_mhy7d"]
 [ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://characters/scenes/side_character.tscn" id="6_xwxdq"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="11_w667j"]
 [ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/white_grey_0.png" id="12_d8hv7"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="12_ueh3g"]
+[ext_resource type="PackedScene" uid="uid://ev2a0j2getnn" path="res://characters/scenes/dialog_character.tscn" id="13_gkt0y"]
 [ext_resource type="Texture2D" uid="uid://u4fyajirtvyg" path="res://environment/buildings/exterior/assets/gray_door.png" id="14_vi2iw"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_nsa7h"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/buttons/tab_button.png" id="16_v1ynb"]
@@ -25,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_u2rkm"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -115,7 +118,7 @@ dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_nhwl4"), SubResour
 
 [sub_resource type="Resource" id="Resource_xhdev"]
 script = ExtResource("8_n23d6")
-character_type = 0
+character_type = 1
 lines = Array[String](["Meow!     "])
 
 [sub_resource type="Resource" id="Resource_0dr8k"]
@@ -140,20 +143,6 @@ prerequisite_quest_id = ""
 release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_dp7u2")])
-
-[sub_resource type="Resource" id="Resource_slau2"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Meow! <3 "])
-
-[sub_resource type="Resource" id="Resource_grph0"]
-script = ExtResource("8_vnmv5")
-id = ""
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_slau2")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2m6"]
 size = Vector2(18, 5)
@@ -290,7 +279,7 @@ quest_id = "level1_notes"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(368, -109)
+position = Vector2(384, -112)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -301,15 +290,15 @@ limit_bottom = 544
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="SrBatata" parent="YSort" instance=ExtResource("6_xwxdq")]
-position = Vector2(260, -64)
+[node name="SrBatata" parent="YSort" instance=ExtResource("6_mhy7d")]
+position = Vector2(283, -32)
+char_interact_quest_id = "searching_for_answers"
+character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
+character_idle_dialog = SubResource("Resource_pc5wt")
 character_id = "srpotatoe"
 character_name = "Sr. Batata"
 texture = ExtResource("7_pc8ao")
 frame = 78
-char_interact_quest_id = "searching_for_answers"
-character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
-character_idle_dialog = SubResource("Resource_pc5wt")
 
 [node name="Jujubinha" parent="YSort" instance=ExtResource("6_xwxdq")]
 position = Vector2(-128, 120)
@@ -320,21 +309,23 @@ char_interact_quest_id = "searching_for_answers"
 character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_h7p41")])
 character_idle_dialog = SubResource("Resource_0dr8k")
 
-[node name="NpcCat1" parent="YSort" instance=ExtResource("6_xwxdq")]
-position = Vector2(-549, -260)
-character_id = "edgar"
-character_name = "Edgar"
+[node name="NpcCat1" parent="YSort" instance=ExtResource("13_gkt0y")]
+position = Vector2(-549, -261)
+character_idle_dialog = SubResource("Resource_d0hrg")
+character_id = "elio"
+character_name = "Élio"
 texture = ExtResource("11_w667j")
 frame = 173
-character_idle_dialog = SubResource("Resource_d0hrg")
+is_character_static = true
 
-[node name="NpcCat2" parent="YSort" instance=ExtResource("6_xwxdq")]
+[node name="NpcCat2" parent="YSort" instance=ExtResource("13_gkt0y")]
 position = Vector2(-559, -261)
+character_idle_dialog = SubResource("Resource_d0hrg")
 character_id = "esmeralda"
 character_name = "Esmeralda"
 texture = ExtResource("12_d8hv7")
 frame = 223
-character_idle_dialog = SubResource("Resource_grph0")
+is_character_static = true
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("11_tvi2s")]
 position = Vector2(-58, -434)
@@ -348,7 +339,7 @@ y_sort_enabled = true
 
 [node name="Sign" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(410, -132)
-text = "Uma Localização Aqui"
+text = "Montanha dos Sonhos"
 
 [node name="Sign2" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(-554, -84)
@@ -439,6 +430,8 @@ visible = false
 
 [node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("23_cg20t")]
 visible = false
+
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("27_io8a4")]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
 visible = false

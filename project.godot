@@ -18,16 +18,17 @@ config/icon="res://icon.png"
 
 [autoload]
 
+SignalBus="*res://singletons/SignalBus.gd"
 DataManager="*res://singletons/DataManager.gd"
 ItemsData="*res://singletons/ItemsData.gd"
 InteractiveObjectsData="*res://singletons/InteractiveObjectsData.gd"
 NotesData="*res://singletons/NotesData.gd"
-InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
-InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
-DialogManager="*res://singletons/DialogManager.gd"
 DialogData="*res://singletons/DialogData.gd"
 QuestManager="*res://singletons/QuestManager.gd"
 InventoryManager="*res://singletons/InventoryManager.gd"
+DialogManager="*res://singletons/DialogManager.gd"
+InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
+InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
 Transition="*res://transition/transition.tscn"
 NavigationManager="*res://transition/navigationManager.gd"
 
@@ -35,6 +36,7 @@ NavigationManager="*res://transition/navigationManager.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

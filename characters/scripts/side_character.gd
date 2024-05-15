@@ -1,3 +1,6 @@
+# ATENÇÂO!!! REMOVER SIDE CHARACTER FUTURAMENTE. SIDE_CHARACTER FOI DISSOLVIDO EM 
+# BASE_CHARACTER, DIALOG_CHARACTER E QUEST_CHARACTER
+
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea

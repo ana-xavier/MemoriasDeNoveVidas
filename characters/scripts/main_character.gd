@@ -14,16 +14,22 @@ var _state_machine
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
 
+var is_player_locked: bool = false
 
 func _ready() -> void:
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	SignalBus.opened_content_container.connect(lock_player_movement)
+	SignalBus.closed_content_container.connect(unlock_player_movement)
 	
 	_state_machine = _animation_tree["parameters/playback"]
 	
 func _physics_process(_delta: float) -> void:
 	_animate()
 	
-	if DialogManager.is_dialog_active or InteractionHoldManager.is_holding:
+	if (DialogManager.is_dialog_active 
+		|| InteractionHoldManager.is_holding
+		|| is_player_locked
+		):
 		return
 		
 	_move()
@@ -51,7 +57,11 @@ func _move() -> void:
 	
 
 func _animate() -> void:
-	if(velocity.length() > 2 && not DialogManager.is_dialog_active && not InteractionHoldManager.is_holding):
+	if(velocity.length() > 2
+		 && !DialogManager.is_dialog_active
+		 && !InteractionHoldManager.is_holding
+		 && !is_player_locked
+		):
 		_state_machine.travel("Running")
 		return
 		
@@ -66,5 +76,11 @@ func _animate() -> void:
 			
 	_state_machine.travel("Idle")
 	
-func _on_spawn(positioon: Vector2, direction: String):
-	global_position = positioon
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
+
+func lock_player_movement():
+	is_player_locked = true
+	
+func unlock_player_movement():
+	is_player_locked = false
