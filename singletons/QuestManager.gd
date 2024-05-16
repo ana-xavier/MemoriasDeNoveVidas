@@ -7,19 +7,13 @@ signal quest_active()
 signal quest_complete()
 
 func _ready():
-	var quest_list: QuestList = DataManager.load_quests_status()
-	if (quest_list != null):
-		data = quest_list
-	else:
-		load_resource()
+	pass
 
-func load_resource() -> void: 
+func load_quests_resource() -> Array[Quest]: 
 	if ResourceLoader.exists(RESOURCE_PATH):
 		var resource = ResourceLoader.load(RESOURCE_PATH) as QuestList
-		data = resource
-
-func save_quests_status() -> void:
-	DataManager.save_quests_status(data.quests)
+		return resource.quests
+	return []
 
 func get_quest_by_id(quest_id: String) -> Quest:
 	return data.get_quest_by_id(quest_id)
@@ -29,7 +23,6 @@ func get_quest_by_character_id(character_id: String) -> QuestDeliverItem:
 	
 func set_quest_active(quest_id: String) -> void:
 	data.set_quest_active(quest_id)
-	DataManager.save_quests_status(data.quests)
 	on_active_quest()
 	
 # TODO - Remover futuramente esta função

@@ -17,4 +17,3 @@ enum Status {
 func check_and_complete_quest() -> void:
 	status = Quest.Status.COMPLETE
 	QuestManager.on_complete_quest()
-	QuestManager.save_quests_status()
