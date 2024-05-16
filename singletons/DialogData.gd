@@ -2,9 +2,6 @@ extends Node
 
 var data: DialogReadyList = null
 
-func _ready():
-	pass
-
 func get_curr_dialog_by_character_id(character_id: String ) -> String:
 	return data.get_curr_dialog_by_character_id(character_id)
 

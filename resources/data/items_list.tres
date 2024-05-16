@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://resources/classes/objects/item.gd" id="1_g4cob"]
 [ext_resource type="Script" path="res://resources/classes/lists/items_list.gd" id="2_hu5u6"]
-[ext_resource type="Texture2D" uid="uid://bdea6ndihk0bp" path="res://resources/assets/rubber_duck.png" id="2_xomhd"]
+[ext_resource type="Texture2D" uid="uid://bdea6ndihk0bp" path="res://resources/assets/sprites/rubber_duck.png" id="2_lrgc6"]
 
-[sub_resource type="Resource" id="Resource_s644s"]
+[sub_resource type="Resource" id="Resource_8ffbd"]
 script = ExtResource("1_g4cob")
 id = "rubber_duck"
 name = "Patinho de Borracha"
-sprite = ExtResource("2_xomhd")
+sprite = ExtResource("2_lrgc6")
 
 [resource]
 script = ExtResource("2_hu5u6")
-quest_items = Array[ExtResource("1_g4cob")]([SubResource("Resource_s644s")])
+items = Array[ExtResource("1_g4cob")]([SubResource("Resource_8ffbd")])

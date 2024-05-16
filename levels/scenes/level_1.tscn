@@ -235,13 +235,13 @@ texture = SubResource("GradientTexture2D_74rl7")
 position = Vector2(311, -374)
 id = "dig_E1"
 can_give_item = true
-quest_item_id = "rubber_duck"
+item_id = "rubber_duck"
 
 [node name="DiggingArea_E2" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(647, -167)
 id = "dig_E2"
 can_give_item = true
-quest_item_id = "rubber_duck"
+item_id = "rubber_duck"
 
 [node name="DiggingArea_E3" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(391, -438)
@@ -433,6 +433,7 @@ visible = false
 visible = false
 
 [node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("27_io8a4")]
+visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
 visible = false

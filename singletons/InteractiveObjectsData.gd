@@ -2,9 +2,6 @@ extends Node
 
 var data: InteractiveObjectsDict = null
 
-func _ready():
-	pass
-
 func is_object_already_interacted(object_id: String) -> bool:
 	return data.is_object_already_interacted(object_id)
 	
