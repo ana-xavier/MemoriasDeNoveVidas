@@ -18,19 +18,19 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SignalBus="*res://singletons/SignalBus.gd"
-DataManager="*res://singletons/DataManager.gd"
-ItemsData="*res://singletons/ItemsData.gd"
-InteractiveObjectsData="*res://singletons/InteractiveObjectsData.gd"
-NotesData="*res://singletons/NotesData.gd"
-DialogData="*res://singletons/DialogData.gd"
-QuestManager="*res://singletons/QuestManager.gd"
-InventoryManager="*res://singletons/InventoryManager.gd"
-DialogManager="*res://singletons/DialogManager.gd"
+SaveManager="*res://singletons/save_management/SaveManager.gd"
+InventoryManager="*res://singletons/save_management/data_management/InventoryData.gd"
+DialogData="*res://singletons/save_management/data_management/DialogManager.gd"
+InteractiveObjectsData="*res://singletons/save_management/data_management/InteractiveObjectsData.gd"
+QuestManager="*res://singletons/save_management/data_management/QuestManager.gd"
+ItemsData="*res://singletons/read_only_data/ItemsData.gd"
+NotesData="*res://singletons/read_only_data/NotesData.gd"
+DialogManager="*res://singletons/mechanics/DialogManager.gd"
 InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
 InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
 Transition="*res://transition/transition.tscn"
 NavigationManager="*res://transition/navigationManager.gd"
+SignalBus="*res://singletons/mechanics/SignalBus.gd"
 
 [display]
 

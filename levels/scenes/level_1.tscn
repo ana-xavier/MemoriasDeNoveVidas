@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=54 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
+[ext_resource type="PackedScene" uid="uid://c67ny78pij4t7" path="res://debug/save_debug.tscn" id="29_ykv58"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -234,13 +235,13 @@ texture = SubResource("GradientTexture2D_74rl7")
 position = Vector2(311, -374)
 id = "dig_E1"
 can_give_item = true
-quest_item_id = "rubber_duck"
+item_id = "rubber_duck"
 
 [node name="DiggingArea_E2" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(647, -167)
 id = "dig_E2"
 can_give_item = true
-quest_item_id = "rubber_duck"
+item_id = "rubber_duck"
 
 [node name="DiggingArea_E3" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(391, -438)
@@ -432,9 +433,12 @@ visible = false
 visible = false
 
 [node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("27_io8a4")]
+visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
 visible = false
+
+[node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
 
 [connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

@@ -7,7 +7,7 @@ class_name DiggingAreaNode
 
 @export var id: String = ""
 @export var can_give_item: bool = false
-@export var quest_item_id: String = ""
+@export var item_id: String = ""
 
 var _wait_time: float = 3
 
@@ -34,8 +34,7 @@ func _on_interact():
 	
 func _on_hold_succeed():
 	if (can_give_item):
-		var item: QuestItem = ItemsData.get_quest_item_by_id(quest_item_id)
-		InventoryManager.add_item(item)
+		InventoryManager.add_item(item_id)
 		 
 	InteractiveObjectsData.set_object_already_interacted(id)
 	queue_free()	

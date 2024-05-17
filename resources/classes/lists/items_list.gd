@@ -1,10 +1,10 @@
 extends Resource
 class_name ItemsList
 
-@export var quest_items: Array[QuestItem] = []
+@export var items: Array[Item] = []
 
-func get_quest_item_by_id(item_id: String) -> QuestItem:
-	for item in quest_items:
+func get_item_data_by_id(item_id: String) -> Item:
+	for item in items:
 		if item.id == item_id:
 			return item
 	return null
