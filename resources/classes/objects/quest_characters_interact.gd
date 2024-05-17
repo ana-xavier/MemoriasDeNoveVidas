@@ -15,3 +15,11 @@ func add_character_interacted(character_id: String) -> void:
 			characters_already_interacted[character_id] = true
 			interacted_count += 1
 			check_and_complete_quest()
+
+func on_going_quest_tostring() -> String:
+	var result: String = ""
+	result += name + ":\n"
+	
+	var objective: String = str(interacted_count) + "/" + str(to_interact) + " " + objective_display + "\n"
+	result += set_checkbox(objective) + "\n"
+	return result

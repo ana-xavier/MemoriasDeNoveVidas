@@ -5,27 +5,15 @@
 [ext_resource type="Script" path="res://resources/classes/objects/quest_characters_interact.gd" id="2_78662"]
 [ext_resource type="Script" path="res://resources/classes/objects/quest_notes.gd" id="3_dtae7"]
 
-[sub_resource type="Resource" id="Resource_6qb6v"]
-script = ExtResource("1_dhua6")
-required_item_id = "rubber_duck"
-required_item_name = "Patinho de Borracha"
-character_id = "srpotatoe"
-id = "srpotatoe_item_quest"
-name = "Um Velho Amigo"
-description = "Ajude Sr.Batata a recuperar seu item perdido."
-status = 0
-has_prerequisite = false
-prerequisite_quest_id = ""
-
-[sub_resource type="Resource" id="Resource_i542s"]
-script = ExtResource("1_dhua6")
-required_item_id = "rubber_duck"
-required_item_name = "Patinho de Borracha"
-character_id = "jujubinha"
-id = "jujubinha_item_quest"
-name = "Jujubinha Quest"
-description = "Ajude jujubinha"
-status = 0
+[sub_resource type="Resource" id="Resource_es8e0"]
+script = ExtResource("3_dtae7")
+notes_count = 0
+notes_to_get = 3
+id = "level1_notes"
+name = "Notas Estranhas"
+description = ""
+objective_display = "notas encontradas."
+status = 1
 has_prerequisite = false
 prerequisite_quest_id = ""
 
@@ -40,21 +28,37 @@ characters_already_interacted = {
 id = "searching_for_answers"
 name = "Buscando por Respostas"
 description = ""
+objective_display = "vizinhos interagidos."
 status = 1
 has_prerequisite = false
 prerequisite_quest_id = ""
 
-[sub_resource type="Resource" id="Resource_es8e0"]
-script = ExtResource("3_dtae7")
-notes_count = 0
-notes_to_get = 3
-id = "level1_notes"
-name = "Notas Estranhas"
-description = ""
-status = 1
+[sub_resource type="Resource" id="Resource_6qb6v"]
+script = ExtResource("1_dhua6")
+required_item_id = "rubber_duck"
+character_id = "srpotatoe"
+finish_objective_display = "Entregue o item perdido."
+id = "srpotatoe_item_quest"
+name = "Um Velho Amigo"
+description = "Ajude Sr.Batata a recuperar seu item perdido."
+objective_display = "Recupere o item perdido de Sr. Batata."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_i542s"]
+script = ExtResource("1_dhua6")
+required_item_id = "rubber_duck"
+character_id = "jujubinha"
+finish_objective_display = ""
+id = "jujubinha_item_quest"
+name = "Jujubinha Quest"
+description = "Ajude jujubinha"
+objective_display = ""
+status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_6qb6v"), SubResource("Resource_i542s"), SubResource("Resource_usyv1"), SubResource("Resource_es8e0")])
+quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_i542s")])

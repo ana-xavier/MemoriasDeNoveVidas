@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c56guh7afpq0s"]
+[gd_scene load_steps=16 format=3 uid="uid://c56guh7afpq0s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_w2xrs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_rnx6i"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/buttons/tab_button.png" id="8_xl8ut"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="9_breeg"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="9_tx6et"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_2vd4p"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="13_ydo2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du7o2"]
@@ -93,22 +94,18 @@ texture = ExtResource("8_xl8ut")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_bi86e")]
-visible = false
-popup_sound = null
-popdown_sound = null
-change_tab_sound = null
-
 [node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("7_k4jhh")]
 process_mode = 3
 visible = false
 
-[node name="NotificationBox" parent="CanvasLayer" groups=["NotificationBox"] instance=ExtResource("13_ydo2w")]
+[node name="NotificationBox" parent="CanvasLayer" instance=ExtResource("13_ydo2w")]
 visible = false
 
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("13_2vd4p")]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_bi86e")]
+
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
-[connection signal="closed" from="CanvasLayer/Inventory" to="." method="_on_inventory_closed"]
-[connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 

@@ -1,5 +1,7 @@
 extends Control
 
+@onready var objectives_view: Control = $TabContainer/ObjectivesView
+
 @onready var tab_container: TabContainer = $TabContainer
 @onready var objectives_button: TextureButton = $Buttons/ObjectivesButton
 @onready var items_button: TextureButton = $Buttons/ItensButton
@@ -51,6 +53,7 @@ func toggle_buttons() -> void:
 				
 
 func open_tab_objectives() -> void:
+	objectives_view.update_displayed_objectives()
 	current_tab = Tab.OBJECTIVES
 	tab_container.current_tab = current_tab
 	toggle_buttons()

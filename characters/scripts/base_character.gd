@@ -14,12 +14,12 @@ class_name BaseCharacter
 @export var is_character_static: bool = false
 @export var _animation: AnimationPlayer = null
 @export var speed: int = 20
-@export var max_distance_from_start: float = 30.0
+@export var max_distance_from_start: float = 35.0
 
 # Probabilities
-const IDLE_TO_NEW_DIR_PROB: float = 0.5
-const NEW_DIR_TO_MOVING_PROB: float = 0.7
-const MOVING_TO_IDLE_PROB: float = 0.5
+const IDLE_TO_NEW_DIR_PROB: float = 0.7
+const NEW_DIR_TO_MOVING_PROB: float = 0.8
+const MOVING_TO_IDLE_PROB: float = 0.6
 const NEW_DIR_ANIM_PROB: float = 0.4
 
 enum {
