@@ -68,6 +68,5 @@ theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
 theme_override_fonts/font = ExtResource("4_3jwds")
 theme_override_font_sizes/font_size = 12
-text = "A porta foi destrancada..."
 
 [connection signal="pressed" from="MarginContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
