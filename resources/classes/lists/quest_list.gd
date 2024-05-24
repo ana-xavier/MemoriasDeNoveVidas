@@ -27,6 +27,12 @@ func set_quest_complete(quest_id: String) -> void:
 			quest.status = Quest.Status.COMPLETE
 			return
 
+func is_quest_inactive(quest_id: String) -> bool:
+	for quest in quests:
+		if (quest.id == quest_id):
+			return quest.status == Quest.Status.INACTIVE
+	return false
+
 func is_quest_complete(quest_id: String) -> bool:
 	for quest in quests:
 		if (quest.id == quest_id):

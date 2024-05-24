@@ -13,7 +13,7 @@ id = "level1_notes"
 name = "Notas Estranhas"
 description = ""
 objective_display = "notas encontradas."
-status = 1
+status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
@@ -29,7 +29,7 @@ id = "searching_for_answers"
 name = "Buscando por Respostas"
 description = ""
 objective_display = "vizinhos interagidos."
-status = 1
+status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 

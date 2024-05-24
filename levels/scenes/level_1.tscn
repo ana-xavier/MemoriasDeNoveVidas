@@ -1,9 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=57 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
+[ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="3_050gc"]
 [ext_resource type="PackedScene" uid="uid://dmrgh0autf267" path="res://interaction/interaction_press/objects/note/note.tscn" id="3_itqjh"]
 [ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/interaction_hold/objects/dirt/digging_area.tscn" id="4_0v4bx"]
+[ext_resource type="Script" path="res://action_scripts/scripts/set_active_searching_for_help.gd" id="4_pe7vx"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_5sdho"]
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
 [ext_resource type="PackedScene" uid="uid://dauc13t56axwx" path="res://characters/scenes/quest_character.tscn" id="6_mhy7d"]
@@ -45,6 +47,9 @@ gradient = SubResource("Gradient_wtvub")
 fill = 1
 fill_from = Vector2(0.507123, 0.492877)
 fill_to = Vector2(0.928775, 0.139601)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32i4p"]
+size = Vector2(59, 33)
 
 [sub_resource type="Resource" id="Resource_ng6f4"]
 script = ExtResource("8_n23d6")
@@ -226,6 +231,16 @@ position = Vector2(-359, 551)
 rotation = 1.5708
 scale = Vector2(0.520002, 0.888516)
 texture = SubResource("GradientTexture2D_74rl7")
+
+[node name="ActionScripts" type="Node2D" parent="."]
+
+[node name="SetQuestActive" parent="ActionScripts" instance=ExtResource("3_050gc")]
+action_script = ExtResource("4_pe7vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionScripts/SetQuestActive"]
+position = Vector2(69.5, -360.5)
+shape = SubResource("RectangleShape2D_32i4p")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="InteractableObjects" type="Node2D" parent="."]
 
