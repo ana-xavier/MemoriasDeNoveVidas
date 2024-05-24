@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u4fyajirtvyg"
-path="res://.godot/imported/gray_door.png-854521ab34cce70d9458329bc18b2f98.ctex"
+uid="uid://cfwbwk516dp18"
+path="res://.godot/imported/main_house.png-27581aeedcd47cc8ee9998926cc985db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/buildings/exterior/assets/gray_door.png"
-dest_files=["res://.godot/imported/gray_door.png-854521ab34cce70d9458329bc18b2f98.ctex"]
+source_file="res://environment/buildings/exterior/assets/main_house.png"
+dest_files=["res://.godot/imported/main_house.png-27581aeedcd47cc8ee9998926cc985db.ctex"]
 
 [params]
 
