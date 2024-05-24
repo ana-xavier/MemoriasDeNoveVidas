@@ -28,7 +28,11 @@ func _on_interact():
 	queue_free()
 
 func manage_notes_quest():
+	if QuestManager.is_quest_inactive(quest_id):
+		QuestManager.set_quest_active(quest_id)
+		
 	var quest = QuestManager.get_quest_by_id(quest_id) as QuestNotes
 	if quest:
 		quest.add_note_obtained()
+		
 	
