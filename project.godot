@@ -19,10 +19,11 @@ config/icon="res://icon.png"
 [autoload]
 
 SaveManager="*res://singletons/save_management/SaveManager.gd"
-InventoryManager="*res://singletons/save_management/dt_management/InventoryData.gd"
-DialogData="*res://singletons/save_management/dt_management/DialogManager.gd"
+InventoryManager="*res://singletons/save_management/dt_management/InventoryManager.gd"
+DialogData="*res://singletons/save_management/dt_management/DialogData.gd"
 InteractiveObjectsData="*res://singletons/save_management/dt_management/InteractiveObjectsData.gd"
 QuestManager="*res://singletons/save_management/dt_management/QuestManager.gd"
+GlobalData="*res://singletons/save_management/dt_management/GlobalData.gd"
 ItemsData="*res://singletons/read_only_data/ItemsData.gd"
 NotesData="*res://singletons/read_only_data/NotesData.gd"
 DialogManager="*res://singletons/mechanics/DialogManager.gd"

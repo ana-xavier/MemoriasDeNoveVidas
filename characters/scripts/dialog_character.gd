@@ -44,9 +44,6 @@ func dialog_animation():
 		player_was_left = false
 		player_was_right = true
 		
-	#if current_state != MOVING:
-		#_animation.seek(0.8)
-		
 	current_state = IDLE
 		
 func _on_interact():	
@@ -59,7 +56,7 @@ func manage_dialog() -> void:
 	var dialog_boxes: Array[DialogBox] = curr_dialog_data.dialog
 
 	for dialog in dialog_boxes:
-		var curr_character = character_name if dialog.character_type == Character.NPC else "Gatinho"
+		var curr_character = character_name if dialog.character_type == Character.NPC else GlobalData.main_character_name
 		var curr_position =  global_position if dialog.character_type == Character.NPC else player_body.global_position
 		var curr_lines: Array[String] =  dialog.lines
 		

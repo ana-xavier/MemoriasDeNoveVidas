@@ -9,7 +9,7 @@ func _ready():
 	if action_script:
 		id = action_script.get_path().get_file().get_basename()
 	else:
-		push_error("Add a ActionScript to execute")
+		push_error("Add an ActionScript to execute")
 	if InteractiveObjectsData.is_object_already_interacted(id):
 		queue_free()
 
