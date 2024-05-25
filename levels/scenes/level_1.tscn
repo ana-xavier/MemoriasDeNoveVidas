@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=50 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -9,13 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_5sdho"]
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
 [ext_resource type="PackedScene" uid="uid://dauc13t56axwx" path="res://characters/scenes/quest_character.tscn" id="6_mhy7d"]
-[ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://characters/scenes/side_character.tscn" id="6_xwxdq"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="8_n23d6"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="8_vnmv5"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
-[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="10_xrx1m"]
 [ext_resource type="PackedScene" uid="uid://bryu40yiylfv1" path="res://characters/scenes/human_test.tscn" id="11_tvi2s"]
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="11_w667j"]
 [ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/white_grey_0.png" id="12_d8hv7"]
@@ -102,39 +100,6 @@ prerequisite_quest_id = ""
 release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_r20sx")])
-
-[sub_resource type="Resource" id="Resource_nhwl4"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Oii!  Voce concluiu a quest do Sr.Batata!", "Parabens!!!"])
-
-[sub_resource type="Resource" id="Resource_uu6ck"]
-script = ExtResource("8_n23d6")
-character_type = 0
-lines = Array[String](["Obrigado!!"])
-
-[sub_resource type="Resource" id="Resource_h7p41"]
-script = ExtResource("8_vnmv5")
-id = "jujubinha_greetings"
-has_prerequisite = true
-prerequisite_quest_id = "srpotatoe_item_quest"
-release_a_quest = true
-quest_id = "jujubinha_item_quest"
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_nhwl4"), SubResource("Resource_uu6ck")])
-
-[sub_resource type="Resource" id="Resource_xhdev"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Meow!     "])
-
-[sub_resource type="Resource" id="Resource_0dr8k"]
-script = ExtResource("8_vnmv5")
-id = ""
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_xhdev")])
 
 [sub_resource type="Resource" id="Resource_dp7u2"]
 script = ExtResource("8_n23d6")
@@ -315,15 +280,6 @@ character_id = "srpotatoe"
 character_name = "Sr. Batata"
 texture = ExtResource("7_pc8ao")
 frame = 78
-
-[node name="Jujubinha" parent="YSort" instance=ExtResource("6_xwxdq")]
-position = Vector2(-128, 120)
-character_id = "jujubinha"
-character_name = "Jujubinha"
-texture = ExtResource("10_xrx1m")
-char_interact_quest_id = "searching_for_answers"
-character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_h7p41")])
-character_idle_dialog = SubResource("Resource_0dr8k")
 
 [node name="NpcCat1" parent="YSort" instance=ExtResource("13_gkt0y")]
 position = Vector2(-549, -261)
