@@ -21,7 +21,6 @@ class_name CatSideCharacter
 @onready var fsm: FiniteStateMachine = $FiniteStateMachine
 @onready var interaction_area: InteractionArea = $InteractionArea
 
-var wait_times: Array[float] = [1.0, 1.5, 2.0]
 var direction: Vector2 = Vector2.RIGHT
 var start_position: Vector2
 var player_body
@@ -40,12 +39,6 @@ func _on_interact():
 	quest_component.manage_characters_interact_quest()
 	dialog_component.curr_dialog_data = quest_component.get_current_dialog_by_quest_complete()	
 	await dialog_component.manage_dialog(player_body)
-
-
-func _on_timer_timeout():
-	wait_times.shuffle()
-	timer.wait_time = wait_times.front()
-	fsm.current_state.transition()
 	
 func _on_interaction_area_body_entered(body):
 	if body is MainCharacter:
@@ -54,4 +47,4 @@ func _on_interaction_area_body_entered(body):
 
 func _on_interaction_area_body_exited(body):
 	if body is MainCharacter:
-		fsm.change_state(player_near_state, "idle_state")
+		fsm.change_state(player_near_state, "new_dir_state")

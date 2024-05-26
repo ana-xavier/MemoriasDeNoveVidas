@@ -7,8 +7,13 @@ extends State
 
 var directions: Array[Vector2] = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
 var last_direction: Vector2
+var wait_time: float
 
+func randomize_wait_time():
+	wait_time = randf_range(1.0, 2.0)
+	
 func enter():
+	randomize_wait_time()
 	directions.shuffle()
 	var direction: Vector2 = directions.front()
 	
@@ -25,9 +30,15 @@ func enter():
 		if direction == Vector2.RIGHT:
 			animation_player.play("idle_right")
 
+func update(_delta: float):
+	if wait_time > 0:
+		wait_time -= _delta	
+	elif randf() < change_state_probability:
+		state_transition.emit(self, "moving_state")
+	else:
+		randomize_wait_time()
+
 func exit():
 	last_direction = body.direction
 	
-func transition():
-	if randf() < change_state_probability:
-		state_transition.emit(self, "moving_state")
+

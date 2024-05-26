@@ -12,6 +12,4 @@ func exit():
 	
 func update(_delta: float):
 	pass
-	
-func transition():
-	pass
+
