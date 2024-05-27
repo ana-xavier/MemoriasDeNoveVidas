@@ -17,6 +17,7 @@ var punctuation_time = 0.2
 var default_color = Color(0, 0, 0, 1.0) # Default Color (black)
 var gray_color = Color(0.5, 0.5, 0.5, 1.0) # Gray
 
+var advance_dialog: bool = false
 
 signal finished_displaying()
 
@@ -58,6 +59,12 @@ func _display_letter():
 	label.text += text[letter_index]
 	
 	letter_index += 1
+	
+	if advance_dialog:
+		label.text += text.substr(letter_index, text.length() -1)
+		advance_dialog = false
+		letter_index = text.length()
+		
 	if letter_index >= text.length():
 		finished_displaying.emit()
 		next_indicator.visible = true
@@ -71,7 +78,9 @@ func _display_letter():
 		_:
 			timer.start(letter_time)
 	
-
-
 func _on_show_letter_timer_timeout():
 	_display_letter()
+
+func _input(event):
+	if event.is_action_pressed("advance_dialog"):
+		advance_dialog = true
