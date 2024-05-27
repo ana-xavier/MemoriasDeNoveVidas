@@ -31,5 +31,8 @@ func fade_out():
 	
 func change_scene():
 	get_tree().change_scene_to_packed(scene_house)
-	
+
+func _input(event):
+	if event.is_action_pressed("advance_dialog"):
+		change_scene()
 	
