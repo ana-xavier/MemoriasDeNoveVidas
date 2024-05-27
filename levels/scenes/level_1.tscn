@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=50 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -8,21 +8,19 @@
 [ext_resource type="Script" path="res://action_scripts/scripts/set_active_searching_for_help.gd" id="4_pe7vx"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_5sdho"]
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
-[ext_resource type="PackedScene" uid="uid://dauc13t56axwx" path="res://characters/scenes/quest_character.tscn" id="6_mhy7d"]
-[ext_resource type="PackedScene" uid="uid://bknsyv6emufh" path="res://characters/scenes/side_character.tscn" id="6_xwxdq"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
+[ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="8_55c6a"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="8_n23d6"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="8_vnmv5"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
-[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="10_xrx1m"]
 [ext_resource type="PackedScene" uid="uid://bryu40yiylfv1" path="res://characters/scenes/human_test.tscn" id="11_tvi2s"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="11_w667j"]
-[ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/white_grey_0.png" id="12_d8hv7"]
+[ext_resource type="PackedScene" uid="uid://ev2a0j2getnn" path="res://characters/scenes/dialog_character.tscn" id="12_fc5l1"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="12_ueh3g"]
-[ext_resource type="PackedScene" uid="uid://ev2a0j2getnn" path="res://characters/scenes/dialog_character.tscn" id="13_gkt0y"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="13_vwdcm"]
+[ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/white_grey_0.png" id="14_r80g1"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_nsa7h"]
-[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/buttons/tab_button.png" id="16_v1ynb"]
+[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="16_v1ynb"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="17_20po3"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="17_egkxv"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_u2rkm"]
@@ -50,6 +48,20 @@ fill_to = Vector2(0.928775, 0.139601)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32i4p"]
 size = Vector2(59, 33)
+
+[sub_resource type="Resource" id="Resource_r20sx"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Meow!      "])
+
+[sub_resource type="Resource" id="Resource_pc5wt"]
+script = ExtResource("8_vnmv5")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_r20sx")])
 
 [sub_resource type="Resource" id="Resource_ng6f4"]
 script = ExtResource("8_n23d6")
@@ -89,66 +101,19 @@ release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_1ch03")])
 
-[sub_resource type="Resource" id="Resource_r20sx"]
+[sub_resource type="Resource" id="Resource_ii6ib"]
 script = ExtResource("8_n23d6")
 character_type = 1
-lines = Array[String](["Meow!      "])
+lines = Array[String](["Meow! <3"])
 
-[sub_resource type="Resource" id="Resource_pc5wt"]
+[sub_resource type="Resource" id="Resource_dhou8"]
 script = ExtResource("8_vnmv5")
 id = "idle"
 has_prerequisite = false
 prerequisite_quest_id = ""
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_r20sx")])
-
-[sub_resource type="Resource" id="Resource_nhwl4"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Oii!  Voce concluiu a quest do Sr.Batata!", "Parabens!!!"])
-
-[sub_resource type="Resource" id="Resource_uu6ck"]
-script = ExtResource("8_n23d6")
-character_type = 0
-lines = Array[String](["Obrigado!!"])
-
-[sub_resource type="Resource" id="Resource_h7p41"]
-script = ExtResource("8_vnmv5")
-id = "jujubinha_greetings"
-has_prerequisite = true
-prerequisite_quest_id = "srpotatoe_item_quest"
-release_a_quest = true
-quest_id = "jujubinha_item_quest"
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_nhwl4"), SubResource("Resource_uu6ck")])
-
-[sub_resource type="Resource" id="Resource_xhdev"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Meow!     "])
-
-[sub_resource type="Resource" id="Resource_0dr8k"]
-script = ExtResource("8_vnmv5")
-id = ""
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_xhdev")])
-
-[sub_resource type="Resource" id="Resource_dp7u2"]
-script = ExtResource("8_n23d6")
-character_type = 1
-lines = Array[String](["Meow! <3 "])
-
-[sub_resource type="Resource" id="Resource_d0hrg"]
-script = ExtResource("8_vnmv5")
-id = ""
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_dp7u2")])
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_ii6ib")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2m6"]
 size = Vector2(20, 5)
@@ -306,42 +271,31 @@ limit_bottom = 544
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="SrBatata" parent="YSort" instance=ExtResource("6_mhy7d")]
+[node name="SrBatata" parent="YSort" instance=ExtResource("8_55c6a")]
 position = Vector2(283, -32)
-char_interact_quest_id = "searching_for_answers"
-character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
 character_idle_dialog = SubResource("Resource_pc5wt")
+character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
+char_interact_quest_id = "searching_for_answers"
 character_id = "srpotatoe"
 character_name = "Sr. Batata"
 texture = ExtResource("7_pc8ao")
 frame = 78
 
-[node name="Jujubinha" parent="YSort" instance=ExtResource("6_xwxdq")]
-position = Vector2(-128, 120)
-character_id = "jujubinha"
-character_name = "Jujubinha"
-texture = ExtResource("10_xrx1m")
-char_interact_quest_id = "searching_for_answers"
-character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_h7p41")])
-character_idle_dialog = SubResource("Resource_0dr8k")
-
-[node name="NpcCat1" parent="YSort" instance=ExtResource("13_gkt0y")]
+[node name="NpcCat1" parent="YSort" instance=ExtResource("12_fc5l1")]
 position = Vector2(-549, -261)
-character_idle_dialog = SubResource("Resource_d0hrg")
+character_idle_dialog = SubResource("Resource_dhou8")
 character_id = "elio"
 character_name = "Élio"
-texture = ExtResource("11_w667j")
+texture = ExtResource("13_vwdcm")
 frame = 173
-is_character_static = true
 
-[node name="NpcCat2" parent="YSort" instance=ExtResource("13_gkt0y")]
+[node name="NpcCat2" parent="YSort" instance=ExtResource("12_fc5l1")]
 position = Vector2(-559, -261)
-character_idle_dialog = SubResource("Resource_d0hrg")
+character_idle_dialog = SubResource("Resource_dhou8")
 character_id = "esmeralda"
 character_name = "Esmeralda"
-texture = ExtResource("12_d8hv7")
+texture = ExtResource("14_r80g1")
 frame = 223
-is_character_static = true
 
 [node name="HumanTest" parent="YSort" instance=ExtResource("11_tvi2s")]
 position = Vector2(-58, -434)

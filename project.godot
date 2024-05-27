@@ -41,6 +41,17 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://characters/": "yellow",
+"res://environment/": "green",
+"res://gui/": "pink",
+"res://levels/": "teal",
+"res://resources/": "red",
+"res://singletons/": "gray"
+}
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

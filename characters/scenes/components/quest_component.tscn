@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy661najyo0mw"]
+
+[ext_resource type="Script" path="res://characters/scripts/components/quest_component.gd" id="1_03tso"]
+
+[node name="QuestComponent" type="Node2D"]
+script = ExtResource("1_03tso")
