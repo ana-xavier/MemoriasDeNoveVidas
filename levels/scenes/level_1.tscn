@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=69 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -64,43 +64,123 @@ release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_r20sx")])
 
-[sub_resource type="Resource" id="Resource_ng6f4"]
+[sub_resource type="Resource" id="Resource_og3p2"]
 script = ExtResource("8_n23d6")
 character_type = 0
-lines = Array[String](["Oiii Sr. Batata! Faz tempo que nao te vejo.", "Como voce esta? Estava bem doente da ultima vez em que te vi..."])
+lines = Array[String](["Sr. Batata? Não acredito! É você mesmo?"])
 
-[sub_resource type="Resource" id="Resource_u5t57"]
+[sub_resource type="Resource" id="Resource_xxvbo"]
 script = ExtResource("8_n23d6")
 character_type = 1
-lines = Array[String](["Ola! Estou otimo!", "Bla Bla Bla... voce poderia pegar meu Patinho de Borracha para mim?"])
+lines = Array[String](["Sim, pequena! Faz tanto tempo. Você parece bem."])
 
-[sub_resource type="Resource" id="Resource_6c2jp"]
+[sub_resource type="Resource" id="Resource_54nky"]
 script = ExtResource("8_n23d6")
 character_type = 0
-lines = Array[String](["Claro! Vou encontrar para voce!"])
+lines = Array[String](["A última vez que te vi, você estava bem doente. Como está agora?"])
 
-[sub_resource type="Resource" id="Resource_wtllw"]
+[sub_resource type="Resource" id="Resource_y2sma"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Estou ótimo! Melhorei em um piscar de olhos..."])
+
+[sub_resource type="Resource" id="Resource_5thuj"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Que bom ouvir isso! Mas... eu tenho um problema.", "Meus pais desapareceram. Eu não sei onde eles estão, e estou tentando encontrá-los."])
+
+[sub_resource type="Resource" id="Resource_kifb2"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Isso é terrível! Você já procurou por todo nosso bairro?"])
+
+[sub_resource type="Resource" id="Resource_sgmtu"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Ainda estou procurando, e se não achá-los, vou até a cidade! A mamãe trabalha lá."])
+
+[sub_resource type="Resource" id="Resource_8x8mo"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Ótima ideia. Mas a ponte para a cidade está bloqueada. Você não conseguirá sair agora. "])
+
+[sub_resource type="Resource" id="Resource_ue0ya"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Bloqueada? Então, o que eu devo fazer? Eu preciso encontrá-los!"])
+
+[sub_resource type="Resource" id="Resource_e1c5u"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Talvez eu possa te ajudar. Mas antes, eu preciso de um favor seu.", "Perdi um item muito importante para mim, um Patinho de Borracha.", "Se você puder encontrá-lo e trazê-lo de volta para mim, eu lhe darei mais informações que podem te ajudar."])
+
+[sub_resource type="Resource" id="Resource_oycya"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Claro, Sr. Batata! Eu vou encontrar para você"])
+
+[sub_resource type="Resource" id="Resource_78lw2"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Você pode encontrar na Montanha dos Sonhos, a entrada fica à direita de minha casa.", "Tome cuidado, pequena. E volte assim que encontrar."])
+
+[sub_resource type="Resource" id="Resource_7dicy"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Obrigada, Sr. Batata. Voltarei Logo!"])
+
+[sub_resource type="Resource" id="Resource_e5774"]
 script = ExtResource("8_vnmv5")
 id = "srpotatoe_greetings"
 has_prerequisite = false
 prerequisite_quest_id = ""
 release_a_quest = true
 quest_id = "srpotatoe_item_quest"
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_ng6f4"), SubResource("Resource_u5t57"), SubResource("Resource_6c2jp")])
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_og3p2"), SubResource("Resource_xxvbo"), SubResource("Resource_54nky"), SubResource("Resource_y2sma"), SubResource("Resource_5thuj"), SubResource("Resource_kifb2"), SubResource("Resource_sgmtu"), SubResource("Resource_8x8mo"), SubResource("Resource_ue0ya"), SubResource("Resource_e1c5u"), SubResource("Resource_oycya"), SubResource("Resource_78lw2"), SubResource("Resource_7dicy")])
 
-[sub_resource type="Resource" id="Resource_1ch03"]
+[sub_resource type="Resource" id="Resource_vinx3"]
 script = ExtResource("8_n23d6")
 character_type = 1
-lines = Array[String](["Voce encontrou! :)", "Obrigado amigo, voce e um amigo!"])
+lines = Array[String](["Você encontrou, não acredito! Muito obrigado, pequena."])
 
-[sub_resource type="Resource" id="Resource_a7j8l"]
+[sub_resource type="Resource" id="Resource_c8xtm"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Eu disse que encontraria!"])
+
+[sub_resource type="Resource" id="Resource_cpaah"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Agora, pequena.. Há coisas estranhas acontecendo por aqui.", "Eu acho que você deveria se encontrar com o Jujubinha, ele é o gato mais sábio do nosso bairro, e vai te oferecer informações importantes."])
+
+[sub_resource type="Resource" id="Resource_2frwo"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Jujubinha? Mas.. Ele nunca está em sua casa."])
+
+[sub_resource type="Resource" id="Resource_kp7ml"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Esta é minha informação que tenho a te oferecer: Jujubinha sempre está em casa, mas ele não gosta muito de sair. "])
+
+[sub_resource type="Resource" id="Resource_sk237"]
+script = ExtResource("8_n23d6")
+character_type = 0
+lines = Array[String](["Muito obrigada, Sr. Batata!"])
+
+[sub_resource type="Resource" id="Resource_bqrim"]
+script = ExtResource("8_n23d6")
+character_type = 1
+lines = Array[String](["Ah, e não esqueça de ser cautelosa, Jujubinha é muito assustado."])
+
+[sub_resource type="Resource" id="Resource_1inx0"]
 script = ExtResource("8_vnmv5")
 id = "srpotatoe_quest_finished"
 has_prerequisite = true
 prerequisite_quest_id = "srpotatoe_item_quest"
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_1ch03")])
+dialog = Array[ExtResource("8_n23d6")]([SubResource("Resource_vinx3"), SubResource("Resource_c8xtm"), SubResource("Resource_cpaah"), SubResource("Resource_2frwo"), SubResource("Resource_kp7ml"), SubResource("Resource_sk237"), SubResource("Resource_bqrim")])
 
 [sub_resource type="Resource" id="Resource_ii6ib"]
 script = ExtResource("8_n23d6")
@@ -281,7 +361,7 @@ editor_draw_limits = true
 [node name="SrBatata" parent="YSort" instance=ExtResource("8_55c6a")]
 position = Vector2(283, -32)
 character_idle_dialog = SubResource("Resource_pc5wt")
-character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_wtllw"), SubResource("Resource_a7j8l")])
+character_dialogs = Array[ExtResource("8_vnmv5")]([SubResource("Resource_e5774"), SubResource("Resource_1inx0")])
 char_interact_quest_id = "searching_for_answers"
 character_id = "srpotatoe"
 character_name = "Sr. Batata"

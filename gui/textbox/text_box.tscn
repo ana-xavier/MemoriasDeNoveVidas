@@ -1,41 +1,41 @@
 [gd_scene load_steps=11 format=3 uid="uid://brvwbewhs52l2"]
 
 [ext_resource type="Script" path="res://gui/textbox/text_box.gd" id="1_vwwga"]
-[ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://gui/textbox/assets/dialogue_box.png" id="3_jner4"]
-[ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://gui/textbox/assets/dialogue_box_pointer.png" id="3_oq6io"]
-[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://gui/textbox/assets/next_indicator.png" id="4_0ljyt"]
-[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="5_yphrg"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="2_5endh"]
+[ext_resource type="Texture2D" uid="uid://b0qmhebfdhyxf" path="res://gui/textbox/assets/dialogue_box.png" id="2_qv743"]
+[ext_resource type="Texture2D" uid="uid://bfr1hru5cm05p" path="res://gui/textbox/assets/dialogue_box_pointer.png" id="3_clf0v"]
+[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://gui/textbox/assets/next_indicator.png" id="4_2ua3a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vi7d7"]
-atlas = ExtResource("4_0ljyt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppdhi"]
+atlas = ExtResource("4_2ua3a")
 region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgsy8"]
-atlas = ExtResource("4_0ljyt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8udf8"]
+atlas = ExtResource("4_2ua3a")
 region = Rect2(12, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j23h"]
-atlas = ExtResource("4_0ljyt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gadr4"]
+atlas = ExtResource("4_2ua3a")
 region = Rect2(24, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cajlr"]
-atlas = ExtResource("4_0ljyt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbsw6"]
+atlas = ExtResource("4_2ua3a")
 region = Rect2(36, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlov3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vi7d7")
+"texture": SubResource("AtlasTexture_ppdhi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgsy8")
+"texture": SubResource("AtlasTexture_8udf8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5j23h")
+"texture": SubResource("AtlasTexture_gadr4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cajlr")
+"texture": SubResource("AtlasTexture_tbsw6")
 }],
 "loop": true,
 "name": &"default",
@@ -50,7 +50,7 @@ script = ExtResource("1_vwwga")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_jner4")
+texture = ExtResource("2_qv743")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -71,7 +71,7 @@ grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/Control"]
 position = Vector2(20, 34)
-texture = ExtResource("3_oq6io")
+texture = ExtResource("3_clf0v")
 
 [node name="Control2" type="Control" parent="NinePatchRect"]
 layout_mode = 1
@@ -103,7 +103,7 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_yphrg")
+theme_override_fonts/font = ExtResource("2_5endh")
 vertical_alignment = 1
 
 [node name="ShowLetterTimer" type="Timer" parent="."]
