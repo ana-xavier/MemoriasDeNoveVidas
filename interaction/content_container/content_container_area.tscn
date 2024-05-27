@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6dq45vbl78hj"]
+
+[ext_resource type="Script" path="res://interaction/content_container/content_container_area.gd" id="1_lo5rm"]
+
+[node name="ContentContainerArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lo5rm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

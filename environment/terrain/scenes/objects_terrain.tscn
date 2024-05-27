@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://rggrvhlodlv7"]
+[gd_scene load_steps=56 format=3 uid="uid://rggrvhlodlv7"]
 
 [ext_resource type="Texture2D" uid="uid://bsjdivmtk738x" path="res://environment/terrain/assets/vegetation/spr_tree1.png" id="1_h3vsw"]
 [ext_resource type="Texture2D" uid="uid://b5nlurjuqmy4y" path="res://environment/terrain/assets/vegetation/spr_tree2.png" id="2_wrp48"]
@@ -19,10 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://d15uc1xqlls78" path="res://environment/buildings/exterior/assets/houses_tiles.png" id="10_jcud7"]
 [ext_resource type="Texture2D" uid="uid://cfwbwk516dp18" path="res://environment/buildings/exterior/assets/main_house.png" id="10_t56ef"]
 [ext_resource type="Texture2D" uid="uid://c1p8ha6x2pgo4" path="res://environment/terrain/assets/terrain_tileset.png" id="11_lqp8d"]
-[ext_resource type="Texture2D" uid="uid://cuye16kerolv4" path="res://environment/buildings/exterior/assets/srpotatoe_house.png" id="12_0wtgy"]
+[ext_resource type="Texture2D" uid="uid://cuye16kerolv4" path="res://environment/buildings/exterior/assets/house_2.png" id="12_oyg6a"]
 [ext_resource type="Texture2D" uid="uid://ckchpvcofn3lm" path="res://environment/terrain/assets/objects/barrels_and_crates/spr_crate3.png" id="12_tmxoy"]
 [ext_resource type="Texture2D" uid="uid://pksb27s5780" path="res://environment/terrain/assets/rocks/spr_boulder2.png" id="13_0g42o"]
 [ext_resource type="Shader" path="res://environment/shaders/shadow.gdshader" id="14_kdomw"]
+[ext_resource type="Texture2D" uid="uid://c1o6mbsontany" path="res://environment/buildings/exterior/assets/house_3.png" id="15_rnhpd"]
+[ext_resource type="Texture2D" uid="uid://1agxlub31x4p" path="res://environment/buildings/exterior/assets/house_4.png" id="18_sthxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhr71"]
 resource_name = "tree_1"
@@ -495,7 +497,7 @@ texture = ExtResource("10_t56ef")
 shader = ExtResource("14_kdomw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qr26n"]
-texture = ExtResource("12_0wtgy")
+texture = ExtResource("12_oyg6a")
 0:1/size_in_atlas = Vector2i(10, 11)
 0:1/0 = 0
 0:1/0/material = SubResource("ShaderMaterial_atefp")
@@ -520,6 +522,20 @@ texture = ExtResource("3_2i3ww")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c47o6"]
+shader = ExtResource("14_kdomw")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wujt"]
+texture = ExtResource("15_rnhpd")
+0:1/size_in_atlas = Vector2i(14, 11)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(4, 0)
+0:1/0/material = SubResource("ShaderMaterial_c47o6")
+0:1/0/y_sort_origin = 50
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -26, 96, -26, 96, 72, -96, 72)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq0br"]
 texture = ExtResource("12_tmxoy")
 0:0/size_in_atlas = Vector2i(2, 2)
@@ -535,6 +551,20 @@ texture = ExtResource("13_0g42o")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.375, -8.0625, 12.375, -8.0625, 12.375, 7.8125, -12.5, 7.8125)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3x5q8"]
+shader = ExtResource("14_kdomw")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wiup8"]
+texture = ExtResource("18_sthxf")
+0:0/size_in_atlas = Vector2i(12, 14)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 4)
+0:0/0/material = SubResource("ShaderMaterial_3x5q8")
+0:0/0/y_sort_origin = 80
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -8, 80, -8, 80, 96, -80, 96)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_51dbq"]
 shader = ExtResource("14_kdomw")
@@ -982,6 +1012,8 @@ sources/21 = SubResource("TileSetAtlasSource_yq0br")
 sources/22 = SubResource("TileSetAtlasSource_eg6r3")
 sources/17 = SubResource("TileSetAtlasSource_ccq3v")
 sources/18 = SubResource("TileSetAtlasSource_qr26n")
+sources/20 = SubResource("TileSetAtlasSource_3wujt")
+sources/23 = SubResource("TileSetAtlasSource_wiup8")
 
 [node name="ObjectsTerrain" type="TileMap"]
 y_sort_enabled = true
