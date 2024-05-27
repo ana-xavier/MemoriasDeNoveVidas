@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://1qicqst5s48n"]
+[gd_scene load_steps=9 format=3 uid="uid://1qicqst5s48n"]
 
 [ext_resource type="Script" path="res://transition/text_scene/text_scene.gd" id="1_k7t8c"]
 [ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="2_b65oa"]
+[ext_resource type="Texture2D" uid="uid://me35kqq8655v" path="res://gui/textbox/assets/next_indicator.png" id="3_hd5o2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy2wp"]
+atlas = ExtResource("3_hd5o2")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eob5"]
+atlas = ExtResource("3_hd5o2")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waqhh"]
+atlas = ExtResource("3_hd5o2")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_almlq"]
+atlas = ExtResource("3_hd5o2")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2whq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy2wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eob5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waqhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_almlq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="TextScene" type="Control"]
 layout_mode = 3
@@ -41,6 +78,22 @@ text = "Um pequeno gatinho acordou e percebeu que seus pais não estavam mais em
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 168.0
+offset_right = 316.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("2_b65oa")
+theme_override_font_sizes/font_size = 9
+text = "Pressione espaço para pular"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(220, 172)
+scale = Vector2(0.416667, 0.416667)
+sprite_frames = SubResource("SpriteFrames_2whq3")
+autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
