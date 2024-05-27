@@ -111,7 +111,7 @@ To get a local copy up and running follow these simple example steps.-->
 ### Pre-requisitos:
 
 This is an example of how to list things you need to use the software and how to install them.
-* Godot Engine - 4.2.2
+* Godot Engine - 4.2.1
 
 <!--
 ### Installation
