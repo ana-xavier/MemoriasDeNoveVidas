@@ -5,6 +5,7 @@ class_name MainCharacter
 var _state_machine
 
 @onready var animation_player: AnimationPlayer = $Animation
+@onready var front_collision: Area2D = $FrontCollision
 
 @export_category("Variables")
 @export var _move_speed: float = 54.0
@@ -14,6 +15,7 @@ var _state_machine
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
 
+var is_jumping: bool = false
 var is_player_locked: bool = false
 
 func _ready() -> void:
@@ -29,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 	if (DialogManager.is_dialog_active 
 		|| InteractionHoldManager.is_holding
 		|| is_player_locked
+		|| is_jumping
 		):
 		return
 		
@@ -41,7 +44,6 @@ func _move() -> void:
 		Input.get_axis("move_up", "move_down")
 	)
 	
-	
 	if _direction != Vector2.ZERO:
 		_animation_tree["parameters/Idle/blend_position"] = _direction
 		_animation_tree["parameters/Running/blend_position"] = _direction
@@ -50,13 +52,18 @@ func _move() -> void:
 		
 		velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _acceleration)
 		velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _acceleration)
+		front_collision.rotation = _direction.angle()
 		return
+		
 	
 	velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _friction)
 	velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _friction)
 	
 
 func _animate() -> void:
+	if is_jumping:
+		return
+	
 	if(velocity.length() > 2
 		 && !DialogManager.is_dialog_active
 		 && !InteractionHoldManager.is_holding
@@ -75,6 +82,21 @@ func _animate() -> void:
 			return
 			
 	_state_machine.travel("Idle")
+
+func _on_jump(destination: Marker2D):
+	is_jumping = true
+	
+	if destination.global_position.x > global_position.x:
+		_state_machine.travel("jumping_right")
+	else:
+		_state_machine.travel("jumping_left")
+	#
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		self, "position", destination.global_position, 0.4
+	)
+	await tween.finished
+	is_jumping = false
 	
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position

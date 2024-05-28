@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://kn5rbt66qe5y"]
+
+[ext_resource type="Script" path="res://interaction/jump_area/jump_area.gd" id="1_v51tf"]
+[ext_resource type="PackedScene" uid="uid://67ckwptfi0j1" path="res://interaction/jump_area/interaction_jump_area.tscn" id="2_7cjf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dahji"]
+size = Vector2(13, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bs2k"]
+size = Vector2(13, 13)
+
+[node name="JumpArea" type="Node2D"]
+z_index = 10
+script = ExtResource("1_v51tf")
+
+[node name="FromSurface" parent="." instance=ExtResource("2_7cjf5")]
+action_name = "descer"
+
+[node name="Collision" type="CollisionShape2D" parent="FromSurface"]
+position = Vector2(-8, 4)
+shape = SubResource("RectangleShape2D_dahji")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Source" type="Marker2D" parent="FromSurface"]
+position = Vector2(-8, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="FromSurface/Source"]
+
+[node name="ToSurface" parent="." instance=ExtResource("2_7cjf5")]
+action_name = "subir"
+
+[node name="Collision" type="CollisionShape2D" parent="ToSurface"]
+position = Vector2(8, 20)
+shape = SubResource("RectangleShape2D_8bs2k")
+debug_color = Color(0, 0, 1, 0.419608)
+
+[node name="Destination" type="Marker2D" parent="ToSurface"]
+position = Vector2(8, 4)
