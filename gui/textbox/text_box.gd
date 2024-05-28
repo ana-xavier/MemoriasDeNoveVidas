@@ -1,10 +1,13 @@
 extends MarginContainer
 
-@onready var label = $MarginContainer/Label
+@onready var label = $MarginContainer/RichTextLabel
 @onready var timer = $ShowLetterTimer
 @onready var next_indicator = $NinePatchRect/Control2/NextIndicator
 
 const MAX_WIDTH = 256
+const DISPLAY_NAME_COLOR = "[color=purple]"
+
+var initial_scale: Vector2 
 
 var character_name = ""
 var text = ""
@@ -22,6 +25,7 @@ var advance_dialog: bool = false
 signal finished_displaying()
 
 func _ready():
+	initial_scale = scale
 	scale = Vector2(0.2, 0.2)
 	
 func set_character_name(_name: String):
@@ -40,24 +44,34 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 		
-	global_position.x -= (size.x / 2) * 0.5
-	global_position.y -= (size.y + 36) * 0.5
+	global_position.x -= (size.x / 2) * initial_scale.x
+	global_position.y -= (size.y + 36) * initial_scale.y
 	
-	label.text = character_name
+	label.text = DISPLAY_NAME_COLOR + character_name + "[/color]"
 	label.text += ":\n"
 	
-	#pivot_offset = Vector2((size.x / 2), size.y)
+	#pivot_offset = Vector2((size.x / 2) * 0.5, size.y * 0.5)
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(
-		self, "scale", Vector2(0.5, 0.5), 0.15
+		self, "scale", initial_scale, 0.15
 	).set_trans(Tween.TRANS_BACK)
 	
 	_display_letter()
+
+
+func add_bb_code():
+	var closed_bracket_index: int = text.find("]", letter_index)
+	if closed_bracket_index != -1:
+		var length = closed_bracket_index - letter_index + 1
+		label.text += text.substr(letter_index, length)
+		letter_index = closed_bracket_index
 	
 func _display_letter():
-	label.text += text[letter_index]
-	
+	if text[letter_index] == "[":
+		await add_bb_code()
+	else:	
+		label.text += text[letter_index]
 	letter_index += 1
 	
 	if advance_dialog:
