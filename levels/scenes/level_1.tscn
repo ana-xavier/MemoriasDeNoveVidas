@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://y6wqhaq4wtee" path="res://environment/buildings/exterior/assets/main_house_door.png" id="19_53t7f"]
 [ext_resource type="PackedScene" uid="uid://kn5rbt66qe5y" path="res://interaction/jump_area/jump_area.tscn" id="21_61t6c"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
-[ext_resource type="Texture2D" uid="uid://7lldyyjf8dgj" path="res://environment/buildings/exterior/assets/dirt_paws.png" id="22_q6ims"]
+[ext_resource type="PackedScene" uid="uid://cunrbeghm3g3h" path="res://transition/door_press.tscn" id="22_nh6x3"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 [ext_resource type="PackedScene" uid="uid://c67ny78pij4t7" path="res://debug/save_debug.tscn" id="29_ykv58"]
@@ -429,19 +429,6 @@ position = Vector2(-227, 25)
 to_collision_mask = 3
 to_z_index = 1
 
-[node name="PawsUp" type="Sprite2D" parent="YSort/JumpAreas/JumpArea"]
-position = Vector2(-8, 20)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("22_q6ims")
-
-[node name="PawsDown" type="Sprite2D" parent="YSort/JumpAreas/JumpArea"]
-z_index = 1
-position = Vector2(8, 3)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("22_q6ims")
-flip_h = true
-flip_v = true
-
 [node name="Signs" type="Node2D" parent="YSort"]
 y_sort_enabled = true
 
@@ -498,6 +485,11 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
+
+[node name="DoorPress" parent="YSort/Doors" instance=ExtResource("22_nh6x3")]
+position = Vector2(-82.44, 64.8392)
+destination_level_tag = "house"
+destination_door_tag = "N"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

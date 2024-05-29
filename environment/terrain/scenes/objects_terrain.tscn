@@ -1344,4 +1344,3 @@ y_sort_enabled = true
 tile_set = SubResource("TileSet_wvphk")
 format = 2
 layer_0/y_sort_enabled = true
-layer_1/tile_data = PackedInt32Array()
