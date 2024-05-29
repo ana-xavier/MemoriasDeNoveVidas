@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		go_to_level()
 
 func go_to_level():			
+	player_ref.is_player_locked = true
 	if destination_level_tag == "house" && animation != null:
 		animation.play("door_open")
 	else:

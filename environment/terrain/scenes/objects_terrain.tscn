@@ -723,7 +723,7 @@ texture = ExtResource("15_rnhpd")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-102, -26, 96, -26, 96, 72, -102, 72)
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
-0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-70, -44, 66, -44, 64, 6, -70, 6)
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-72, -44, 72, -44, 72, 6, -72, 6)
 0:1/0/physics_layer_1/polygon_1/points = PackedVector2Array(-96, 32, 92, 32, 92, -44, -102, -44, -102, -52, 100, -52, 100, 40, -102, 38, -102, -44, -96, -44)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq0br"]

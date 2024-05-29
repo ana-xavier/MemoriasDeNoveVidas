@@ -9,6 +9,8 @@ size = Vector2(20, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxrq4"]
 
 [node name="DoorPress" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_55tdi")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_w6rac")]
@@ -22,3 +24,5 @@ debug_color = Color(0, 1, 0, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lxrq4")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

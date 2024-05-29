@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=72 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
 [ext_resource type="PackedScene" uid="uid://cunrbeghm3g3h" path="res://transition/door_press.tscn" id="22_nh6x3"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
+[ext_resource type="Texture2D" uid="uid://bbvd7rfosca6g" path="res://environment/buildings/exterior/assets/house_3_window.png" id="23_r8b2l"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 [ext_resource type="PackedScene" uid="uid://c67ny78pij4t7" path="res://debug/save_debug.tscn" id="29_ykv58"]
 
@@ -486,10 +487,26 @@ libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
 
-[node name="DoorPress" parent="YSort/Doors" instance=ExtResource("22_nh6x3")]
-position = Vector2(-82.44, 64.8392)
+[node name="DoorPress" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("22_nh6x3")]
+position = Vector2(-90.684, 61.8466)
 destination_level_tag = "house"
 destination_door_tag = "N"
+animation = NodePath("Animation")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/DoorPress"]
+position = Vector2(2.5034e-06, 12.9678)
+
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/DoorPress"]
+position = Vector2(1.0305, -11.9703)
+scale = Vector2(0.998961, 1.00592)
+texture = ExtResource("23_r8b2l")
+offset = Vector2(-0.3, 0.1)
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/DoorPress"]
+libraries = {
+"": SubResource("AnimationLibrary_at0f8")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -541,6 +558,7 @@ visible = false
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
 
 [connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/DoorPress/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
