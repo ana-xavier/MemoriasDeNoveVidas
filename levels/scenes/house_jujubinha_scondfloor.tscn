@@ -61,18 +61,18 @@ layer_1/tile_data = PackedInt32Array(0, 327696, 6, -458753, 16, 1)
 
 [node name="Doors" type="Node" parent="YSort"]
 
-[node name="Door_N" parent="YSort/Doors" instance=ExtResource("6_8hft2")]
+[node name="jjstair_N" parent="YSort/Doors" instance=ExtResource("6_8hft2")]
 position = Vector2(-51, 64)
 destination_level_tag = "house_jujubinha_firstfloor"
-destination_door_tag = "S"
+destination_door_tag = "jjstair_S"
 spawn_direction = "down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/Door_N"]
-position = Vector2(-4.25, -9)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/jjstair_N"]
+position = Vector2(3, -7)
 shape = SubResource("RectangleShape2D_du7o2")
 
-[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_N"]
-position = Vector2(0, -11)
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/jjstair_N"]
+position = Vector2(0, -44)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -123,4 +123,4 @@ visible = false
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 
-[editable path="YSort/Doors/Door_N"]
+[editable path="YSort/Doors/jjstair_N"]

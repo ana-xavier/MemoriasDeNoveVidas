@@ -475,6 +475,34 @@ libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
 
+[node name="jjhouse_S" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
+y_sort_enabled = true
+position = Vector2(-91.7145, 126.686)
+scale = Vector2(1.0305, 0.997526)
+collision_layer = 1
+destination_level_tag = "house_jujubinha_firstfloor"
+destination_door_tag = "jjhouse_N"
+spawn_direction = "up"
+animation = NodePath("../Door_S/Animation")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/jjhouse_S"]
+position = Vector2(38, 7.99998)
+shape = SubResource("RectangleShape2D_7b2m6")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/jjhouse_S"]
+position = Vector2(7.62939e-06, 14)
+
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/jjhouse_S"]
+position = Vector2(1.14441e-05, -15)
+scale = Vector2(0.96875, 1.01563)
+texture = ExtResource("19_53t7f")
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/jjhouse_S"]
+libraries = {
+"": SubResource("AnimationLibrary_at0f8")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("15_nsa7h")
@@ -525,6 +553,7 @@ visible = false
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
 
 [connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/jjhouse_S/Animation" to="YSort/Doors/jjhouse_S" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
@@ -532,3 +561,4 @@ visible = false
 [connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
 
 [editable path="YSort/Doors/Door_S"]
+[editable path="YSort/Doors/jjhouse_S"]
