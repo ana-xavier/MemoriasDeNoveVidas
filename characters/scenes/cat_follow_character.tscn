@@ -1,25 +1,21 @@
-[gd_scene load_steps=30 format=3 uid="uid://div4dnbux4t4w"]
+[gd_scene load_steps=27 format=3 uid="uid://cr8x3nvrj27ky"]
 
-[ext_resource type="Script" path="res://characters/scripts/cat_side_character.gd" id="1_6sycb"]
-[ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="2_0i1ib"]
-[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_ml6wn"]
-[ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="3_j10n0"]
-[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_ljtsp"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_xfc7n"]
-[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="5_ggjir"]
-[ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="7_kv6n4"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_state.gd" id="8_1k4q6"]
-[ext_resource type="Script" path="res://characters/scripts/states/new_dir_state.gd" id="9_1iw40"]
-[ext_resource type="Script" path="res://characters/scripts/states/moving_state.gd" id="10_k3iw5"]
-[ext_resource type="Script" path="res://characters/scripts/states/player_near_state.gd" id="11_ees34"]
+[ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
+[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
+[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_4n0gm"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_ueksp"]
+[ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="5_8ygnk"]
+[ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
+[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
+[ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5aogw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6rut"]
 size = Vector2(18, 12)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3m5ga"]
-shader = ExtResource("2_ml6wn")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv286"]
+shader = ExtResource("2_mk2nk")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cdrrt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_i45yb"]
 radius = 25.0555
 
 [sub_resource type="Animation" id="Animation_k2uii"]
@@ -587,71 +583,62 @@ _data = {
 "walking_up": SubResource("Animation_ypxo2")
 }
 
-[node name="CatSideCharacter" type="CharacterBody2D" node_paths=PackedStringArray("player_near_state")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6ob"]
+size = Vector2(28.5, 66.5)
+
+[node name="CatFollowCharacter" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_6sycb")
-player_near_state = NodePath("FiniteStateMachine/player_near_state")
+script = ExtResource("1_hsehu")
+animation = NodePath("Animation")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_5aogw")
+shape = SubResource("RectangleShape2D_v6rut")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_3m5ga")
+material = SubResource("ShaderMaterial_nv286")
 position = Vector2(0, -3.33333)
-texture = ExtResource("3_ljtsp")
+texture = ExtResource("3_4n0gm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -9)
-texture = ExtResource("4_xfc7n")
+position = Vector2(-0.5, -9)
+texture = ExtResource("4_ueksp")
 offset = Vector2(0.5, 0)
 hframes = 24
 vframes = 17
 frame = 50
 
-[node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("2_0i1ib")]
+[node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_8ygnk")]
 character = NodePath("..")
-
-[node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("3_j10n0")]
-character = NodePath("..")
-dialog_component = NodePath("../DialogComponent")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("7_kv6n4")
-initial_state = NodePath("idle_state")
+script = ExtResource("6_vw5yf")
+initial_state = NodePath("follow_player_state")
 
-[node name="idle_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_1k4q6")
-animation_player = NodePath("../../Animation")
-change_state_probability = 0.7
-
-[node name="new_dir_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("9_1iw40")
-animation_player = NodePath("../../Animation")
-animation_probability = 0.4
-change_state_probability = 0.8
-
-[node name="moving_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_k3iw5")
-animation_player = NodePath("../../Animation")
-change_state_probability = 0.6
-
-[node name="player_near_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("11_ees34")
+[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("7_4it5e")
 animation_player = NodePath("../../Animation")
 
-[node name="InteractionArea" parent="." instance=ExtResource("5_ggjir")]
+[node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
 action_name = "conversar"
 
 [node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_cdrrt")
+shape = SubResource("CircleShape2D_i45yb")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_fg5q1")
 }
 
-[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
-[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.25, 12.75)
+shape = SubResource("RectangleShape2D_ua6ob")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
