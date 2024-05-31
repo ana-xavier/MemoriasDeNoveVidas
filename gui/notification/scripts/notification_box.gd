@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var title = $MarginContainer/Title
 @onready var timer = $Timer
 @onready var icon = $NinePatchRect/Icon
+@onready var audio_player = $AudioStreamPlayer
 
 @export var succeed_icon: Texture = null
 @export var new_objective_icon: Texture = null
@@ -22,6 +23,7 @@ func show_notification_new_quest():
 	icon.texture = new_objective_icon
 	visible = true
 	_animate()
+	audio_player.play()
 	timer.start(visibility_time)
 	
 func show_notification_quest_complete():
@@ -29,6 +31,7 @@ func show_notification_quest_complete():
 	icon.texture = succeed_icon
 	visible = true
 	_animate()
+	audio_player.play()
 	timer.start(visibility_time)
 
 func _animate() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=74 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://bbvd7rfosca6g" path="res://environment/buildings/exterior/assets/house_3_window.png" id="23_r8b2l"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 [ext_resource type="PackedScene" uid="uid://c67ny78pij4t7" path="res://debug/save_debug.tscn" id="29_ykv58"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="34_gmc8r"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="35_hwvyl"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -350,7 +352,7 @@ quest_id = "level1_notes"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(-253, 39)
+position = Vector2(-184, 149)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -507,6 +509,10 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
+
+[node name="CatFollowCharacter" parent="YSort" instance=ExtResource("34_gmc8r")]
+position = Vector2(-237, 114)
+texture = ExtResource("35_hwvyl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
