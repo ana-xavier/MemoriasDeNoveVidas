@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lou1cctl4ij"]
+[gd_scene load_steps=8 format=3 uid="uid://lou1cctl4ij"]
 
 [ext_resource type="Script" path="res://gui/notification/scripts/notification_box.gd" id="1_2neo7"]
 [ext_resource type="Texture2D" uid="uid://cbg2ap8sf54k5" path="res://gui/icons/confirm_icon.png" id="2_0l1gr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e7daui0mdg6e" path="res://gui/notification/assets/box.png" id="4_q3kpl"]
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="5_48ps1"]
 [ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="5_e5vvo"]
+[ext_resource type="AudioStream" uid="uid://cee6ym3e1xmyj" path="res://resources/assets/sfx/quest_sound.ogg" id="7_qm5rd"]
 
 [node name="NotificationBox" type="MarginContainer"]
 offset_right = 138.0
@@ -65,5 +66,8 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qm5rd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -194,7 +194,6 @@ texture_pressed = ExtResource("15_kbfd7")
 texture_hover = ExtResource("16_amra1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 16.0
 
 [connection signal="pressed" from="Buttons/ObjectivesButton" to="." method="_on_objectives_button_pressed"]
 [connection signal="pressed" from="Buttons/ItensButton" to="." method="_on_itens_button_pressed"]
