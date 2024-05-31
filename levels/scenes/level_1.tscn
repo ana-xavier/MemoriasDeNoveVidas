@@ -208,7 +208,7 @@ size = Vector2(21, 10.9438)
 size = Vector2(22, 9.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2m6"]
-size = Vector2(20, 5)
+size = Vector2(28, 9)
 
 [sub_resource type="Animation" id="Animation_71urn"]
 length = 0.001
@@ -264,6 +264,9 @@ _data = {
 "door_open": SubResource("Animation_i8fff")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbo3p"]
+size = Vector2(52, 20)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2o1h2")
 
@@ -295,7 +298,7 @@ texture = SubResource("GradientTexture2D_74rl7")
 action_script = ExtResource("4_pe7vx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionScripts/SetQuestActive"]
-position = Vector2(69.5, -360.5)
+position = Vector2(70, -361)
 shape = SubResource("RectangleShape2D_32i4p")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -461,30 +464,53 @@ to_left = true
 y_sort_enabled = true
 scale = Vector2(0.970403, 1.00248)
 
-[node name="Door_S" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
+[node name="Door_MAIN_HOUSE_OUT" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
 y_sort_enabled = true
 position = Vector2(72.135, -376.067)
 scale = Vector2(1.0305, 0.997526)
 collision_layer = 1
 destination_level_tag = "house"
-destination_door_tag = "N"
+destination_door_tag = "INSIDE"
 spawn_direction = "up"
 animation = NodePath("Animation")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/Door_S"]
-position = Vector2(0, 3.00003)
+[node name="Collision" type="CollisionShape2D" parent="YSort/Doors/Door_MAIN_HOUSE_OUT"]
+position = Vector2(-2.28882e-05, -0.500366)
 shape = SubResource("RectangleShape2D_7b2m6")
 
-[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_S"]
-position = Vector2(2.5034e-06, 11)
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_MAIN_HOUSE_OUT"]
+position = Vector2(-2.03848e-05, 12.9996)
 
-[node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_S"]
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_MAIN_HOUSE_OUT"]
 position = Vector2(-2.0206e-05, -16.0004)
 scale = Vector2(0.96875, 0.968751)
 texture = ExtResource("19_53t7f")
 hframes = 2
 
-[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_S"]
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_MAIN_HOUSE_OUT"]
+libraries = {
+"": SubResource("AnimationLibrary_at0f8")
+}
+
+[node name="Door_HOUSE_3_OUT" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
+y_sort_enabled = true
+position = Vector2(-91.7145, 126.686)
+scale = Vector2(1.0305, 0.997526)
+destination_level_tag = "house_3_firstfloor"
+destination_door_tag = "INSIDE"
+spawn_direction = "up"
+animation = NodePath("../Door_MAIN_HOUSE_OUT/Animation")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_HOUSE_3_OUT"]
+position = Vector2(3.05176e-05, 12.9998)
+
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_HOUSE_3_OUT"]
+position = Vector2(1.14441e-05, -15)
+scale = Vector2(0.96875, 1.01563)
+texture = ExtResource("19_53t7f")
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_HOUSE_3_OUT"]
 libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
@@ -563,12 +589,14 @@ visible = false
 
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
 
-[connection signal="animation_finished" from="YSort/Doors/Door_S/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
 [connection signal="animation_finished" from="YSort/Doors/DoorPress/Animation" to="YSort/Doors/Door_S" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/Door_MAIN_HOUSE_OUT/Animation" to="YSort/Doors/Door_MAIN_HOUSE_OUT" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/Door_HOUSE_3_OUT/Animation" to="YSort/Doors/Door_HOUSE_3_OUT" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 [connection signal="closed" from="CanvasLayer/Inventory" to="." method="_on_inventory_closed"]
 [connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
 
-[editable path="YSort/Doors/Door_S"]
+[editable path="YSort/Doors/Door_MAIN_HOUSE_OUT"]
+[editable path="YSort/Doors/Door_HOUSE_3_OUT"]
