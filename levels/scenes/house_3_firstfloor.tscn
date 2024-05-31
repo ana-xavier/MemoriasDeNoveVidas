@@ -47,7 +47,7 @@ layer_0/tile_data = PackedInt32Array(-524291, 393228, 3, -589818, 393228, 3, -39
 layer_1/name = "on_floor"
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -131070, 15, 16, -65532, 65552, 3, -458746, 196624, 7)
+layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -131070, 15, 16, -458746, 196624, 7)
 
 [node name="Doors" type="Node" parent="YSort"]
 
