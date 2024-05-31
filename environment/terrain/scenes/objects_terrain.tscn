@@ -862,14 +862,16 @@ shader = ExtResource("14_kdomw")
 texture = ExtResource("15_rnhpd")
 0:1/size_in_atlas = Vector2i(14, 11)
 0:1/0 = 0
-0:1/0/texture_origin = Vector2i(4, 0)
+0:1/0/texture_origin = Vector2i(2, 0)
 0:1/0/material = SubResource("ShaderMaterial_c47o6")
 0:1/0/y_sort_origin = 50
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -26, 96, -26, 96, 72, -96, 72)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -24, 96, -24, 96, 72, -100, 72)
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-76, 8, 72, 8, 72, -44, -76, -44)
+0:1/0/physics_layer_1/polygon_1/points = PackedVector2Array(-96, -44, -104, -52, 100, -52, 100, 40, -104, 40, -104, -52, -96, -44, -96, 28, 92, 28, 92, -44)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq0br"]
 texture = ExtResource("12_tmxoy")
@@ -14153,6 +14155,7 @@ texture = ExtResource("10_jcud7")
 
 [sub_resource type="TileSet" id="TileSet_wvphk"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
 physics_layer_1/collision_layer = 4
 physics_layer_1/collision_mask = 2
 terrain_set_0/mode = 0

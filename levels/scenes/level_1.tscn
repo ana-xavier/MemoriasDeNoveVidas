@@ -294,42 +294,12 @@ texture = SubResource("GradientTexture2D_74rl7")
 [node name="SetQuestActive" parent="ActionScripts" instance=ExtResource("3_050gc")]
 action_script = ExtResource("4_pe7vx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionScripts/SetQuestActive"]
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/SetQuestActive"]
 position = Vector2(70, -361)
 shape = SubResource("RectangleShape2D_32i4p")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="InteractableObjects" type="Node2D" parent="."]
-
-[node name="DiggingAreasInstances" type="Node2D" parent="InteractableObjects"]
-
-[node name="DiggingArea_E1" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(311, -374)
-id = "dig_E1"
-can_give_item = true
-item_id = "rubber_duck"
-
-[node name="DiggingArea_E2" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(647, -167)
-id = "dig_E2"
-can_give_item = true
-item_id = "rubber_duck"
-
-[node name="DiggingArea_E3" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(391, -438)
-id = "dig_E3"
-
-[node name="DiggingArea_E4" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(557, -456)
-id = "dig_E4"
-
-[node name="DiggingArea_E5" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(646, -295)
-id = "dig_E5"
-
-[node name="DiggingArea_E6" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
-position = Vector2(441, -254)
-id = "dig_E6"
 
 [node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
 
@@ -347,6 +317,36 @@ quest_id = "level1_notes"
 position = Vector2(387, -364)
 id = "note_4"
 quest_id = "level1_notes"
+
+[node name="DiggingAreasInstances" type="Node2D" parent="."]
+
+[node name="DiggingArea_E1" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(311, -374)
+id = "dig_E1"
+can_give_item = true
+item_id = "rubber_duck"
+
+[node name="DiggingArea_E2" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(647, -167)
+id = "dig_E2"
+can_give_item = true
+item_id = "rubber_duck"
+
+[node name="DiggingArea_E3" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(391, -438)
+id = "dig_E3"
+
+[node name="DiggingArea_E4" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(557, -456)
+id = "dig_E4"
+
+[node name="DiggingArea_E5" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(646, -295)
+id = "dig_E5"
+
+[node name="DiggingArea_E6" parent="DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(441, -254)
+id = "dig_E6"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -512,24 +512,24 @@ libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
 
-[node name="DoorPress" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("22_nh6x3")]
+[node name="Door_HOUSE_3_WINDOW" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("22_nh6x3")]
 z_index = 1
 position = Vector2(-90.684, 61.8466)
-destination_level_tag = "house"
-destination_door_tag = "INSIDE"
+destination_level_tag = "house_3_secondfloor"
+destination_door_tag = "INSIDE_2"
 animation = NodePath("Animation")
 
-[node name="Spawn" type="Marker2D" parent="YSort/Doors/DoorPress"]
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_HOUSE_3_WINDOW"]
 position = Vector2(2.5034e-06, 12.9678)
 
-[node name="Texture" type="Sprite2D" parent="YSort/Doors/DoorPress"]
-position = Vector2(-1.03048, -11.9703)
+[node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_HOUSE_3_WINDOW"]
+position = Vector2(1.03052, -11.9703)
 scale = Vector2(0.998961, 1.00592)
 texture = ExtResource("23_r8b2l")
 offset = Vector2(-0.3, 0.1)
 hframes = 2
 
-[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/DoorPress"]
+[node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_HOUSE_3_WINDOW"]
 libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
@@ -589,7 +589,7 @@ visible = false
 
 [connection signal="animation_finished" from="YSort/Doors/Door_MAIN_HOUSE_OUT/Animation" to="YSort/Doors/Door_MAIN_HOUSE_OUT" method="_on_animation_finished"]
 [connection signal="animation_finished" from="YSort/Doors/Door_HOUSE_3_OUT/Animation" to="YSort/Doors/Door_HOUSE_3_OUT" method="_on_animation_finished"]
-[connection signal="animation_finished" from="YSort/Doors/DoorPress/Animation" to="YSort/Doors/DoorPress" method="_on_animation_finished"]
+[connection signal="animation_finished" from="YSort/Doors/Door_HOUSE_3_WINDOW/Animation" to="YSort/Doors/Door_HOUSE_3_WINDOW" method="_on_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
