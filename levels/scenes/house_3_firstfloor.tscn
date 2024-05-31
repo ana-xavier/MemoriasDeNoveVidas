@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=18 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_qk2v7"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="4_6gr4v"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4yqkw"]
+[ext_resource type="PackedScene" uid="uid://c6dq45vbl78hj" path="res://interaction/content_container/content_container_area.tscn" id="5_ugfqn"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_7uyo7"]
@@ -14,10 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_rja68"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_5yt50"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
+size = Vector2(10.5, 13.0847)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35hr1"]
-size = Vector2(27, 25)
+size = Vector2(24.5, 25)
 
 [node name="House3" type="Node2D"]
 script = ExtResource("1_m73c2")
@@ -49,6 +53,36 @@ layer_1/y_sort_origin = 1
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -131070, 15, 16, -458746, 196624, 7)
 
+[node name="ContentFood" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
+position = Vector2(104.675, -103.984)
+scale = Vector2(1.0305, 0.997526)
+text = "Há quanto tempo essa comida está aqui?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentFood"]
+position = Vector2(4.55976e-06, 37.0639)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentToy" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
+position = Vector2(-122.294, 25.4184)
+scale = Vector2(1.0305, 0.997526)
+text = "Essa bolinha de brinquedo parece bem gasta"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentToy"]
+position = Vector2(3.01713, -4.76837e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentBoxes" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
+position = Vector2(-122.294, 25.4184)
+scale = Vector2(1.0305, 0.997526)
+text = "Será que o Jujubinha está de mudança?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentBoxes"]
+position = Vector2(83.4742, -104.242)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ksr4")
+
 [node name="Doors" type="Node" parent="YSort"]
 
 [node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
@@ -64,7 +98,7 @@ position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_arrsv")
 
 [node name="Door_STAIRS_1" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
-position = Vector2(-115, -90)
+position = Vector2(-115, -96)
 destination_level_tag = "house_3_secondfloor"
 destination_door_tag = "STAIRS_2"
 spawn_direction = "up"
