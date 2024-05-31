@@ -15,7 +15,6 @@ class_name CatSideCharacter
 @export_subgroup("States")
 @export var player_near_state: State = null
 
-@onready var timer: Timer = $Timer
 @onready var dialog_component: DialogComponent = $DialogComponent
 @onready var quest_component: QuestComponent = $QuestComponent
 @onready var fsm: FiniteStateMachine = $FiniteStateMachine
