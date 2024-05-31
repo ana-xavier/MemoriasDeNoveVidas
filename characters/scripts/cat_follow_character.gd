@@ -11,10 +11,13 @@ class_name CatFollowCharacter
 @onready var interaction_area: InteractionArea = $InteractionArea
 
 var player_body
+var animation_state
+var direction: Vector2
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
+	animation_state = $AnimationTree["parameters/playback"]
 	dialog_component.character_idle_dialog = character_idle_dialog
 	dialog_component.character_dialogs = character_dialogs
 	super()
