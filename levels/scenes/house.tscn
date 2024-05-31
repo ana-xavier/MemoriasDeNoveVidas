@@ -64,17 +64,17 @@ layer_0/tile_data = PackedInt32Array(-131075, 14, 12, -1, 65550, 10, 65539, 5898
 
 [node name="Doors" type="Node" parent="YSort"]
 
-[node name="Door_N" parent="YSort/Doors" instance=ExtResource("8_se5eb")]
+[node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("8_se5eb")]
 position = Vector2(9, 97)
 destination_level_tag = "level_1"
-destination_door_tag = "S"
+destination_door_tag = "MAIN_HOUSE_OUT"
 spawn_direction = "down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/Door_N"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/Door_INSIDE"]
 position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_du7o2")
 
-[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_N"]
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_INSIDE"]
 position = Vector2(-1, -10)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -126,4 +126,4 @@ visible = false
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]
 
-[editable path="YSort/Doors/Door_N"]
+[editable path="YSort/Doors/Door_INSIDE"]
