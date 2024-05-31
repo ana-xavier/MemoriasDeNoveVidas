@@ -11,3 +11,4 @@ func _on_interact():
 func _on_body_entered(body):
 	if body is MainCharacter:
 		player_ref = body
+
