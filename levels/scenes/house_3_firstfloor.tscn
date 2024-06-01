@@ -1,9 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=23 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_qk2v7"]
+[ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="3_t1exf"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="4_6gr4v"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="4_hs03d"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_surprised.gd" id="4_mpvld"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4yqkw"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="5_nxmat"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_7uyo7"]
@@ -13,11 +17,24 @@
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="12_ageal"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_rja68"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_5yt50"]
+[ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="18_fu7pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oje4"]
+size = Vector2(152, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35hr1"]
 size = Vector2(27, 25)
+
+[sub_resource type="Environment" id="Environment_drij1"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.1
+glow_blend_mode = 0
 
 [node name="House3" type="Node2D"]
 script = ExtResource("1_m73c2")
@@ -27,6 +44,17 @@ layer_0/tile_data = PackedInt32Array(-196611, 655361, 6, -131075, 720897, 6, -19
 
 [node name="InteractableObjects" type="Node2D" parent="."]
 z_index = 1
+
+[node name="ActionScripts" type="Node2D" parent="."]
+
+[node name="JujubinhaSurprised" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+action_script = ExtResource("4_mpvld")
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaSurprised"]
+visible = false
+position = Vector2(68, -9)
+shape = SubResource("RectangleShape2D_8oje4")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -38,6 +66,12 @@ position = Vector2(-101, -62)
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Jujubinha" parent="YSort" instance=ExtResource("4_hs03d")]
+position = Vector2(72, 3)
+character_id = "jujubinha"
+character_name = "Jujubinha"
+texture = ExtResource("5_nxmat")
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("5_4yqkw")]
 position = Vector2(3, -22)
@@ -119,6 +153,25 @@ visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("14_5yt50")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_drij1")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="DarkBackground" type="DirectionalLight2D" parent="Light"]
+color = Color(0.301961, 0.301961, 0.54902, 1)
+blend_mode = 2
+
+[node name="Lampshade" type="PointLight2D" parent="Light"]
+position = Vector2(41, -31)
+rotation = 1.5708
+scale = Vector2(0.38898, 0.523086)
+color = Color(1, 1, 0.54902, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.521569)
+shadow_filter = 1
+texture = ExtResource("18_fu7pu")
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]

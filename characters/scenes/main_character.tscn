@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bgljvnge160or"]
+[gd_scene load_steps=68 format=3 uid="uid://bgljvnge160or"]
 
 [ext_resource type="Script" path="res://characters/scripts/main_character.gd" id="1_heig3"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_n3e5k"]
@@ -1067,6 +1067,12 @@ states/jumping_right/position = Vector2(625, 202)
 [sub_resource type="CircleShape2D" id="CircleShape2D_slcpb"]
 radius = 1.66667
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kpv4f"]
+blend_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0vmxc"]
+polygon = PackedVector2Array(3.33333, 0, -3.33333, 0, -6.66667, -1.66667, -6.66667, -6.66667, -3.33333, -8.33333, 3.33333, -8.33333, 6.66667, -6.66667, 6.66667, -1.66667)
+
 [node name="MainCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree") groups=["player"]]
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
@@ -1075,6 +1081,7 @@ _move_speed = 74.0
 _animation_tree = NodePath("AnimationTree")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jt0rh")
 
@@ -1119,3 +1126,7 @@ collision_mask = 0
 position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_slcpb")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_kpv4f")
+occluder = SubResource("OccluderPolygon2D_0vmxc")
