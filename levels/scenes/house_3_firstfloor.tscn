@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_5yt50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
-size = Vector2(10.5, 13.0847)
+size = Vector2(14.3017, 10.0169)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
@@ -31,6 +31,34 @@ layer_0/tile_data = PackedInt32Array(-196611, 655361, 6, -131075, 720897, 6, -19
 
 [node name="InteractableObjects" type="Node2D" parent="."]
 z_index = 1
+
+[node name="ContentFood" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(104, -112)
+scale = Vector2(0.994319, 0.863374)
+text = "Há quanto tempo essa comida está aqui?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentFood"]
+position = Vector2(4.55976e-06, 37.0639)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentToy" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(-115, 5.72205e-06)
+scale = Vector2(0.994319, 0.863374)
+text = "Essa bolinha de brinquedo parece bem gasta"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentToy"]
+position = Vector2(3.01713, -4.76837e-07)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentBoxes" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(-115, 5.72205e-06)
+scale = Vector2(0.994319, 0.863374)
+text = "Será que o Jujubinha está de mudança?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentBoxes"]
+position = Vector2(85.375, -105.776)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ksr4")
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -52,36 +80,6 @@ layer_1/name = "on_floor"
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -131070, 15, 16, -458746, 196624, 7)
-
-[node name="ContentFood" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
-position = Vector2(104.675, -103.984)
-scale = Vector2(1.0305, 0.997526)
-text = "Há quanto tempo essa comida está aqui?"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentFood"]
-position = Vector2(4.55976e-06, 37.0639)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_8ksr4")
-
-[node name="ContentToy" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
-position = Vector2(-122.294, 25.4184)
-scale = Vector2(1.0305, 0.997526)
-text = "Essa bolinha de brinquedo parece bem gasta"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentToy"]
-position = Vector2(3.01713, -4.76837e-07)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_8ksr4")
-
-[node name="ContentBoxes" parent="YSort/ObjectsTerrain" instance=ExtResource("5_ugfqn")]
-position = Vector2(-122.294, 25.4184)
-scale = Vector2(1.0305, 0.997526)
-text = "Será que o Jujubinha está de mudança?"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentBoxes"]
-position = Vector2(83.4742, -104.242)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_8ksr4")
 
 [node name="Doors" type="Node" parent="YSort"]
 
