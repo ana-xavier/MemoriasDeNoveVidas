@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds6rsoir5vp80"]
+[gd_scene load_steps=18 format=3 uid="uid://ds6rsoir5vp80"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_igjaw"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_tm3hx"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="4_axkum"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4oh7r"]
+[ext_resource type="PackedScene" uid="uid://c6dq45vbl78hj" path="res://interaction/content_container/content_container_area.tscn" id="5_fe0bt"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_8hft2"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_ah38i"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_2us4r"]
@@ -13,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="12_bb6ik"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_qa370"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_fwijn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fq8g"]
+size = Vector2(21, 15.2749)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du7o2"]
 size = Vector2(24.25, 30)
@@ -46,6 +50,45 @@ layer_1/name = "on_floor"
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(0, 327696, 6, -458753, 16, 1)
+
+[node name="ContentBooks" parent="YSort/ObjectsTerrain" instance=ExtResource("5_fe0bt")]
+position = Vector2(-24.0147, -79.2715)
+scale = Vector2(1.0305, 0.997526)
+text = "Há muitos livros aqui..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentBooks"]
+position = Vector2(3.8147e-06, 7.94681)
+shape = SubResource("RectangleShape2D_0fq8g")
+
+[node name="ContentBed" parent="YSort/ObjectsTerrain" instance=ExtResource("5_fe0bt")]
+position = Vector2(39.6765, -63.4172)
+scale = Vector2(1.0305, 0.997526)
+text = "Essa cama definitivamente é bem quentinha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentBed"]
+position = Vector2(-11.1454, -2.73595)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0fq8g")
+
+[node name="ContentMirror" parent="YSort/ObjectsTerrain" instance=ExtResource("5_fe0bt")]
+position = Vector2(86.6617, -71.3443)
+scale = Vector2(1.0305, 0.997526)
+text = "Eu não deveria me enxergar?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentMirror"]
+position = Vector2(-6.07929, -1.36797)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0fq8g")
+
+[node name="ContentJujubinhaBed" parent="YSort/ObjectsTerrain" instance=ExtResource("5_fe0bt")]
+position = Vector2(77.2647, 20.8088)
+scale = Vector2(1.0305, 0.997526)
+text = "A caminha do Jujubinha é macia como a minha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentJujubinhaBed"]
+position = Vector2(0, 3.28941)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0fq8g")
 
 [node name="Doors" type="Node" parent="YSort"]
 
