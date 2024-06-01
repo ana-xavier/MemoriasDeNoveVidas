@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://debug/save_debug.gd" id="1_343of"]
 
 [node name="SaveDebug" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
