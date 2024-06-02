@@ -28,6 +28,7 @@ func create_save() -> void:
 func dispatch_data() -> void:
 	# After creating or loading a save resource, dispatch its data to all singletons
 	# that neet it.
+	GlobalData.data = _save.global_variables
 	InventoryManager.data = _save.player_inventory
 	InteractiveObjectsData.data = _save.interactive_objects_dict
 	DialogData.data = _save.dialog_ready_list

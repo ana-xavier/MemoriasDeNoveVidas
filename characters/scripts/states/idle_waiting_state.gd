@@ -5,4 +5,5 @@ extends State
 func enter():
 	animation.play("sitting_down")
 	
-
+func exit():
+	animation.stop()

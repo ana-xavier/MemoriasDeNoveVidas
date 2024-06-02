@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c56guh7afpq0s"]
+[gd_scene load_steps=27 format=3 uid="uid://c56guh7afpq0s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_w2xrs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_rnx6i"]
@@ -9,15 +9,47 @@
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="6_8d784"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="7_k4jhh"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_tul21"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="7_wvo63"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="8_bi86e"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="8_c0qsk"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_se5eb"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="8_xl8ut"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="9_b0ikv"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="9_breeg"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="9_tx6et"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="10_jyb72"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_2vd4p"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="13_ydo2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hif"]
+
+[sub_resource type="Resource" id="Resource_x040f"]
+script = ExtResource("8_c0qsk")
+character_type = 1
+lines = Array[String](["M-meow! "])
+
+[sub_resource type="Resource" id="Resource_w0kx7"]
+script = ExtResource("9_b0ikv")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("8_c0qsk")]([SubResource("Resource_x040f")])
+
+[sub_resource type="Resource" id="Resource_874pn"]
+script = ExtResource("8_c0qsk")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_rmjpq"]
+script = ExtResource("9_b0ikv")
+id = "jujubinha_greetings"
+has_prerequisite = true
+prerequisite_quest_id = "srpotatoe_item_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_1_quest"
+dialog = Array[ExtResource("8_c0qsk")]([SubResource("Resource_874pn")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du7o2"]
 size = Vector2(46, 12)
@@ -56,6 +88,16 @@ position = Vector2(-23, -72)
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Jujubinha" parent="YSort" instance=ExtResource("7_wvo63")]
+visible = false
+position = Vector2(-51, -148)
+character_idle_dialog = SubResource("Resource_w0kx7")
+character_dialogs = Array[ExtResource("9_b0ikv")]([SubResource("Resource_rmjpq")])
+char_interact_quest_id = "searching_for_answers"
+character_id = "jujubinha"
+character_name = "Jujubinha"
+texture = ExtResource("10_jyb72")
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("6_8d784")]
 position = Vector2(0, -4)

@@ -34,7 +34,7 @@ func _ready() -> void:
 	super()
 
 func _on_interact():	
-	quest_component.manage_deliver_item_quest()
+	quest_component.manage_character_quest()
 	quest_component.manage_characters_interact_quest()
 	dialog_component.curr_dialog_data = quest_component.get_current_dialog_by_quest_complete()	
 	await dialog_component.manage_dialog(player_body)

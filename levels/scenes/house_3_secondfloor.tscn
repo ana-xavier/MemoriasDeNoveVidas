@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds6rsoir5vp80"]
+[gd_scene load_steps=27 format=3 uid="uid://ds6rsoir5vp80"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_igjaw"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_tm3hx"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="4_axkum"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="4_lca0f"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4oh7r"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="5_h3uch"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_8hft2"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="6_441br"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="7_4jyvk"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_ah38i"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_2us4r"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="9_oymc0"]
@@ -14,11 +18,53 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_qa370"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_fwijn"]
 
+[sub_resource type="Resource" id="Resource_x040f"]
+script = ExtResource("5_h3uch")
+character_type = 1
+lines = Array[String](["M-meow! "])
+
+[sub_resource type="Resource" id="Resource_nf6ed"]
+script = ExtResource("6_441br")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_h3uch")]([SubResource("Resource_x040f")])
+
+[sub_resource type="Resource" id="Resource_874pn"]
+script = ExtResource("5_h3uch")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_rmjpq"]
+script = ExtResource("6_441br")
+id = "jujubinha_greetings"
+has_prerequisite = true
+prerequisite_quest_id = "srpotatoe_item_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_1_quest"
+dialog = Array[ExtResource("5_h3uch")]([SubResource("Resource_874pn")])
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du7o2"]
 size = Vector2(24.25, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23s2a"]
 size = Vector2(34, 11)
+
+[sub_resource type="Environment" id="Environment_ho5wh"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.1
+glow_blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_k2quk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wq3vb"]
+gradient = SubResource("Gradient_k2quk")
 
 [node name="House3" type="Node2D"]
 script = ExtResource("1_igjaw")
@@ -36,6 +82,16 @@ position = Vector2(-23, -72)
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Jujubinha" parent="YSort" instance=ExtResource("4_lca0f")]
+visible = false
+position = Vector2(-29, -198)
+character_idle_dialog = SubResource("Resource_nf6ed")
+character_dialogs = Array[ExtResource("6_441br")]([SubResource("Resource_rmjpq")])
+char_interact_quest_id = "searching_for_answers"
+character_id = "jujubinha"
+character_name = "Jujubinha"
+texture = ExtResource("7_4jyvk")
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("5_4oh7r")]
 position = Vector2(5, -16)
@@ -119,6 +175,23 @@ visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("14_fwijn")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ho5wh")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="DarkBackground" type="DirectionalLight2D" parent="Light"]
+color = Color(0.47451, 0.482353, 0.756863, 1)
+blend_mode = 2
+
+[node name="StairsLight" type="PointLight2D" parent="Light"]
+position = Vector2(-49.8597, 31.4923)
+rotation = 1.5708
+scale = Vector2(0.98057, 0.426223)
+color = Color(1, 1, 1, 0.603922)
+energy = 1.5
+texture = SubResource("GradientTexture2D_wq3vb")
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]

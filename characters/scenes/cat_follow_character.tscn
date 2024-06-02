@@ -1,31 +1,16 @@
-[gd_scene load_steps=76 format=3 uid="uid://cr8x3nvrj27ky"]
+[gd_scene load_steps=73 format=3 uid="uid://cr8x3nvrj27ky"]
 
 [ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
-[ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="2_yah8c"]
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_4n0gm"]
-[ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="3_jocad"]
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_ueksp"]
 [ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="5_8ygnk"]
+[ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="6_5t41u"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
 [ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_follow_player_state.gd" id="8_307yq"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
-
-[sub_resource type="Resource" id="Resource_x040f"]
-script = ExtResource("2_yah8c")
-character_type = 1
-lines = Array[String](["M-meow! "])
-
-[sub_resource type="Resource" id="Resource_gbjyg"]
-script = ExtResource("3_jocad")
-id = "idle"
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("2_yah8c")]([SubResource("Resource_x040f")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6rut"]
 size = Vector2(18, 12)
@@ -1017,11 +1002,9 @@ blend_mode = 1
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r352e"]
 polygon = PackedVector2Array(3.33333, 0, -3.33333, 0, -6.66667, -1.66667, -6.66667, -6.66667, -3.33333, -8.33333, 3.33333, -8.33333, 6.66667, -6.66667, 6.66667, -1.66667)
 
-[node name="CatFollowCharacter" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="CatFollowCharacter" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_hsehu")
-character_idle_dialog = SubResource("Resource_gbjyg")
-animation = NodePath("Animation")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -1044,6 +1027,17 @@ frame = 50
 [node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_8ygnk")]
 character = NodePath("..")
 
+[node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("6_5t41u")]
+character = NodePath("..")
+dialog_component = NodePath("../DialogComponent")
+
+[node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
+action_name = "conversar"
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_i45yb")
+
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_vw5yf")
 initial_state = NodePath("idle_waiting_state")
@@ -1059,14 +1053,6 @@ interaction_area = NodePath("../../InteractionArea")
 
 [node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("8_307yq")
-
-[node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
-visible = false
-action_name = "conversar"
-
-[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_i45yb")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

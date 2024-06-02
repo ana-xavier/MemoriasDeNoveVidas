@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=33 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_qk2v7"]
@@ -8,9 +8,12 @@
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_surprised.gd" id="4_mpvld"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4yqkw"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="5_nxmat"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow1.gd" id="5_vfqms"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="7_yrwnf"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_7uyo7"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="8_yp1w8"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="9_tfetb"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="10_qnkp3"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="11_c2h7k"]
@@ -21,6 +24,37 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oje4"]
 size = Vector2(152, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0a3"]
+size = Vector2(47, 39)
+
+[sub_resource type="Resource" id="Resource_x040f"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["M-meow! "])
+
+[sub_resource type="Resource" id="Resource_gbjyg"]
+script = ExtResource("8_yp1w8")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_x040f")])
+
+[sub_resource type="Resource" id="Resource_874pn"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_rmjpq"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_greetings"
+has_prerequisite = true
+prerequisite_quest_id = "srpotatoe_item_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_1_quest"
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
@@ -35,6 +69,11 @@ glow_normalized = true
 glow_intensity = 1.0
 glow_bloom = 0.1
 glow_blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_x817n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7yml"]
+gradient = SubResource("Gradient_x817n")
 
 [node name="House3" type="Node2D"]
 script = ExtResource("1_m73c2")
@@ -56,6 +95,15 @@ position = Vector2(68, -9)
 shape = SubResource("RectangleShape2D_8oje4")
 debug_color = Color(1, 0, 0, 0.419608)
 
+[node name="JujubinhaFollow" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+action_script = ExtResource("5_vfqms")
+trigger_type = 2
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaFollow"]
+position = Vector2(73.5, 3.5)
+shape = SubResource("RectangleShape2D_lm0a3")
+debug_color = Color(1, 0, 0, 0.419608)
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -69,6 +117,9 @@ editor_draw_limits = true
 
 [node name="Jujubinha" parent="YSort" instance=ExtResource("4_hs03d")]
 position = Vector2(72, 3)
+character_idle_dialog = SubResource("Resource_gbjyg")
+character_dialogs = Array[ExtResource("8_yp1w8")]([SubResource("Resource_rmjpq")])
+char_interact_quest_id = "searching_for_answers"
 character_id = "jujubinha"
 character_name = "Jujubinha"
 texture = ExtResource("5_nxmat")
@@ -98,7 +149,7 @@ position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_arrsv")
 
 [node name="Door_STAIRS_1" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
-position = Vector2(-115, -90)
+position = Vector2(-114, -98)
 destination_level_tag = "house_3_secondfloor"
 destination_door_tag = "STAIRS_2"
 spawn_direction = "up"
@@ -172,6 +223,13 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.521569)
 shadow_filter = 1
 texture = ExtResource("18_fu7pu")
+
+[node name="StairsLight" type="PointLight2D" parent="Light"]
+position = Vector2(-114, -107)
+rotation = 4.71239
+scale = Vector2(0.870955, 0.421838)
+energy = 1.5
+texture = SubResource("GradientTexture2D_d7yml")
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
