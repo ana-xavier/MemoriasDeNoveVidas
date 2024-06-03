@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4yqkw"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="5_nxmat"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow1.gd" id="5_vfqms"]
+[ext_resource type="PackedScene" uid="uid://c6dq45vbl78hj" path="res://interaction/content_container/content_container_area.tscn" id="5_ugfqn"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived2.gd" id="6_giwse"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
@@ -88,10 +89,13 @@ release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_vmhp2")])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
+size = Vector2(14.3017, 10.0169)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35hr1"]
-size = Vector2(27, 25)
+size = Vector2(24.5, 25)
 
 [sub_resource type="Environment" id="Environment_drij1"]
 background_mode = 3
@@ -145,6 +149,34 @@ action_script = ExtResource("6_giwse")
 position = Vector2(522, 244)
 shape = SubResource("RectangleShape2D_w6q5d")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="ContentFood" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(104, -112)
+scale = Vector2(0.994319, 0.863374)
+text = "Há quanto tempo essa comida está aqui?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentFood"]
+position = Vector2(4.55976e-06, 37.0639)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentToy" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(-115, 5.72205e-06)
+scale = Vector2(0.994319, 0.863374)
+text = "Essa bolinha de brinquedo parece bem gasta"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentToy"]
+position = Vector2(3.01713, -4.76837e-07)
+shape = SubResource("RectangleShape2D_8ksr4")
+
+[node name="ContentBoxes" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
+position = Vector2(-115, 5.72205e-06)
+scale = Vector2(0.994319, 0.863374)
+text = "Será que o Jujubinha está de mudança?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableObjects/ContentBoxes"]
+position = Vector2(85.375, -105.776)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8ksr4")
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
