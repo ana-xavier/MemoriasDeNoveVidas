@@ -1,6 +1,12 @@
 extends Node2D
 
+@export var level_id: String = ""
+
 func _ready():
+	var global_data = GlobalData.get_global_var() as GlobalVariables
+	if global_data:
+		global_data.current_level = level_id
+	
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 			

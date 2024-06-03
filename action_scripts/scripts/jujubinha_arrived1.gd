@@ -8,9 +8,9 @@ func run(trigger_node: Node2D, body: CharacterBody2D) -> bool:
 	if character:
 		if (QuestManager.is_quest_active(quest_id)
 			&& GlobalData.data.player_followed_by == character_id):
-			print("está ativo")
 			character.fsm.force_change_state("idle_waiting_state")
 			GlobalData.data.remove_character_follower()
+			GlobalData.data.set_character_pos(character_id, "level_1", Vector2(-493, -228))
 			
 			var quest = QuestManager.get_quest_by_id(quest_id) as QuestGoToLocation
 			quest.arrived_at_location = true

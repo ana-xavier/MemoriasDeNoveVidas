@@ -41,3 +41,14 @@ func _on_spawn(position: Vector2, direction):
 		global_position.x += 10
 		visible = true
 		fsm.force_change_state("follow_player_state")
+		return
+	
+	var current_level: String = GlobalData.data.current_level
+	var char_pos = GlobalData.data.get_character_pos(character_id)
+	if !char_pos.is_empty() && current_level:
+		if char_pos.get("level") == current_level:
+			global_position = char_pos.get("position")
+			visible = true
+		else:
+			queue_free()	
+	

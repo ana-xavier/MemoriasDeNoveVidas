@@ -1,9 +1,12 @@
 extends State
 
+@onready var body = $"../.."
 @export var animation: AnimationPlayer = null
+@export var animation_tree: AnimationTree = null
 
 func enter():
-	animation.play("sitting_down")
+	if body.animation_state:
+		body.animation_state.travel("sitting_down")
 	
 func exit():
 	animation.stop()
