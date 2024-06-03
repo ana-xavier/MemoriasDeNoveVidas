@@ -1,19 +1,93 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=39 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_qk2v7"]
+[ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="3_t1exf"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="4_6gr4v"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="4_hs03d"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_surprised.gd" id="4_mpvld"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="5_4yqkw"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="5_nxmat"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow1.gd" id="5_vfqms"]
 [ext_resource type="PackedScene" uid="uid://c6dq45vbl78hj" path="res://interaction/content_container/content_container_area.tscn" id="5_ugfqn"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived2.gd" id="6_giwse"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="7_yrwnf"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_7uyo7"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="8_yp1w8"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="9_tfetb"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="10_qnkp3"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="11_c2h7k"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="12_ageal"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="13_rja68"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="14_5yt50"]
+[ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="18_fu7pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oje4"]
+size = Vector2(152, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0a3"]
+size = Vector2(47, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6q5d"]
+size = Vector2(238, 46.5)
+
+[sub_resource type="Resource" id="Resource_x040f"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["M-meow! "])
+
+[sub_resource type="Resource" id="Resource_gbjyg"]
+script = ExtResource("8_yp1w8")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_x040f")])
+
+[sub_resource type="Resource" id="Resource_874pn"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_rmjpq"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_greetings"
+has_prerequisite = true
+prerequisite_quest_id = "srpotatoe_item_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_1_quest"
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn")])
+
+[sub_resource type="Resource" id="Resource_txar6"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 2"])
+
+[sub_resource type="Resource" id="Resource_jo8n8"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_arrives_at_lake"
+has_prerequisite = true
+prerequisite_quest_id = "jujubinha_location_1_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_2_quest"
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_txar6")])
+
+[sub_resource type="Resource" id="Resource_vmhp2"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 3"])
+
+[sub_resource type="Resource" id="Resource_wja71"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_arrives_at_home"
+has_prerequisite = true
+prerequisite_quest_id = "jujubinha_location_2_quest"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_vmhp2")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
 size = Vector2(14.3017, 10.0169)
@@ -23,14 +97,58 @@ size = Vector2(14.3017, 10.0169)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35hr1"]
 size = Vector2(24.5, 25)
 
+[sub_resource type="Environment" id="Environment_drij1"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.1
+glow_blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_x817n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7yml"]
+gradient = SubResource("Gradient_x817n")
+
 [node name="House3" type="Node2D"]
 script = ExtResource("1_m73c2")
+level_id = "house_3_firstfloor"
 
 [node name="Terrain" parent="." instance=ExtResource("2_qk2v7")]
 layer_0/tile_data = PackedInt32Array(-196611, 655361, 6, -131075, 720897, 6, -196610, 720897, 6, -131074, 720897, 6, -196609, 655361, 6, -131073, 655361, 6, -262144, 720897, 6, -196608, 720897, 6, -262143, 720897, 6, -196607, 655361, 6, -262142, 655361, 6, -196606, 720897, 6, -262141, 720897, 6, -196605, 655361, 6, -262140, 655361, 6, -196604, 720897, 6, -262139, 655361, 6, -196603, 655361, 6, -262138, 720897, 6, -196602, 720897, 6, -65539, 720897, 6, -3, 720897, 6, -65538, 720897, 6, -2, 720897, 6, -65537, 655361, 6, -1, 720897, 6, -131072, 720897, 6, -65536, 655361, 6, -131071, 655361, 6, -65535, 655361, 6, -131070, 720897, 6, -65534, 720897, 6, -131069, 655361, 6, -131068, 720897, 6, -65533, 655361, 6, -65532, 720897, 6, -131067, 655361, 6, -65531, 655361, 6, -131066, 655361, 6, -65530, 655361, 6, 65533, 655361, 6, 65534, 720897, 6, 131070, 655361, 6, 65535, 655361, 6, 131071, 655361, 6, 0, 720897, 6, 65536, 720897, 6, 1, 655361, 6, 65537, 655361, 6, 2, 655361, 6, 65538, 655361, 6, 3, 720897, 6, 65539, 720897, 6, 4, 655361, 6, 65540, 655361, 6, 5, 720897, 6, 65541, 720897, 6, 6, 655361, 6, 65542, 655361, 6, -327681, 720897, 5, -262145, 720897, 6, -393216, 655361, 5, -327680, 720897, 6, -393215, 720897, 5, -327679, 720897, 6, -393214, 655361, 5, -327678, 655361, 6, -393213, 720897, 5, -327677, 720897, 6, -393212, 655361, 5, -327676, 655361, 6, -327682, 655361, 5, -262146, 655361, 6, -327675, 720897, 6, -327683, 720897, 5, -262147, 720897, 6, -327674, 720897, 6, -393211, 720897, 5, -393210, 720897, 5, -393217, 196609, 4, -458752, 196609, 4, -458751, 131073, 4, -458750, 196609, 4, -458749, 196609, 4, -458748, 196609, 4, -458747, 131073, 4, -393218, 196609, 4, -458746, 196609, 4, -393219, 196609, 4, -524291, 131073, 2, -458755, 131073, 3, -524290, 196609, 2, -458754, 196609, 3, -524289, 131073, 2, -458753, 131073, 3, -589824, 196609, 2, -524288, 196609, 3, -589823, 131073, 2, -524287, 131073, 3, -589822, 131073, 2, -524286, 131073, 3, -589821, 196609, 2, -524285, 196609, 3, -589820, 131073, 2, -524284, 131073, 3, -589819, 131073, 2, -524283, 131073, 3, -589818, 131073, 2, -524282, 131073, 3, -720891, 196609, 1, -655355, 131073, 3, -720890, 131073, 1, -655354, 131073, 3, -720893, 131073, 1, -655357, 196609, 3, -720892, 131073, 1, -655356, 196609, 3, -720894, 131073, 1, -655358, 196609, 3, -720895, 131073, 1, -655359, 131073, 3, -655361, 131073, 1, -589825, 131073, 3, -720896, 196609, 1, -655360, 196609, 3, -655363, 196609, 1, -589827, 131073, 3, -655362, 131073, 1, -589826, 196609, 3, 131069, 655361, 6, -327685, 720897, 5, -327684, 720897, 5, -262149, 655361, 6, -262148, 720897, 6, -196613, 655361, 6, -196612, 720897, 6, -131077, 655361, 6, -131076, 720897, 6, -65541, 655361, 6, -65540, 720897, 6, -5, 655361, 6, -4, 720897, 6, 65531, 655361, 6, 65532, 720897, 6, 131067, 655361, 6, 131068, 720897, 6, -393209, 720897, 5, -393208, 786433, 5, -327673, 655361, 6, -327672, 786433, 6, -196601, 655361, 6, -196600, 786433, 6, -131065, 655361, 6, -131064, 786433, 6, -262137, 655361, 6, -262136, 786433, 6, -65529, 655361, 6, -65528, 786433, 6, 7, 655361, 6, 8, 786433, 6, 65543, 655361, 6, 65544, 786433, 7, -327687, 655361, 6, -327686, 720897, 5, -262150, 720897, 6, -196614, 720897, 6, -131078, 720897, 6, -65542, 720897, 6, -6, 720897, 6, 65530, 720897, 6, 131065, 655361, 6, 131066, 720897, 6, 196602, 655361, 7, 196603, 655361, 7, 196604, 720897, 7, 196605, 655361, 7, 196606, 720897, 7, 196607, 655361, 7, 131072, 655361, 7, 131073, 720897, 7, 131074, 655361, 7, 131075, 655361, 7, 131076, 720897, 7, 131077, 655361, 7, 131078, 720897, 7, 131079, 786433, 7, -393220, 131073, 4, -393222, 131073, 4, -458745, 196609, 4, -524293, 196609, 2, -458757, 196609, 3, -524292, 196609, 2, -458756, 196609, 3, -524294, 131073, 2, -655365, 196609, 1, -589829, 196609, 3, -655364, 131073, 1, -589828, 196609, 3, -655366, 131073, 1, -589830, 131073, 3, -655353, 196609, 3, -589817, 196609, 2, -524281, 196609, 3, -589816, 262145, 3, -524280, 262145, 3, -655352, 262145, 1, -458744, 262145, 4, -655367, 65537, 1, -589831, 131073, 3, -524295, 131073, 4, -458759, 131073, 3, -327688, 65537, 3, -262152, 720897, 6, -196616, 720897, 6, -131080, 589825, 6, -65544, 589825, 6, -8, 589825, 6, 65528, 589825, 6, 131064, 589825, 7, 196601, 589825, 7, -524296, 65537, 2, -458760, 131073, 3, -589832, 65537, 1, -393224, 65537, 3, -720889, 262145, 1, -393223, 131073, 3, -458758, 131073, 3, 65529, 720897, 6, -7, 720897, 6, -65543, 720897, 6, -131079, 720897, 6, -196615, 720897, 6, -262151, 720897, 6, -393221, 196609, 4)
 
 [node name="InteractableObjects" type="Node2D" parent="."]
 z_index = 1
+
+[node name="ActionScripts" type="Node2D" parent="."]
+
+[node name="JujubinhaSurprised" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+action_script = ExtResource("4_mpvld")
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaSurprised"]
+visible = false
+position = Vector2(68, -9)
+shape = SubResource("RectangleShape2D_8oje4")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="JujubinhaFollow" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+action_script = ExtResource("5_vfqms")
+trigger_type = 2
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaFollow"]
+position = Vector2(73.5, 3.5)
+shape = SubResource("RectangleShape2D_lm0a3")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="JujubinhaDestination" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+position = Vector2(-513, -221)
+action_script = ExtResource("6_giwse")
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaDestination"]
+position = Vector2(522, 244)
+shape = SubResource("RectangleShape2D_w6q5d")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="ContentFood" parent="InteractableObjects" instance=ExtResource("5_ugfqn")]
 position = Vector2(104, -112)
@@ -71,6 +189,15 @@ zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 editor_draw_limits = true
 
+[node name="Jujubinha" parent="YSort" instance=ExtResource("4_hs03d")]
+position = Vector2(72, 3)
+character_idle_dialog = SubResource("Resource_gbjyg")
+character_dialogs = Array[ExtResource("8_yp1w8")]([SubResource("Resource_rmjpq"), SubResource("Resource_jo8n8"), SubResource("Resource_wja71")])
+char_interact_quest_id = "searching_for_answers"
+character_id = "jujubinha"
+character_name = "Jujubinha"
+texture = ExtResource("5_nxmat")
+
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("5_4yqkw")]
 position = Vector2(3, -22)
 scale = Vector2(0.96489, 0.865515)
@@ -85,6 +212,7 @@ layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -
 
 [node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
 position = Vector2(-20, 48)
+door_id = "house_3_door"
 destination_level_tag = "level_1"
 destination_door_tag = "HOUSE_3_OUT"
 spawn_direction = "down"
@@ -96,7 +224,7 @@ position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_arrsv")
 
 [node name="Door_STAIRS_1" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
-position = Vector2(-115, -96)
+position = Vector2(-114, -98)
 destination_level_tag = "house_3_secondfloor"
 destination_door_tag = "STAIRS_2"
 spawn_direction = "up"
@@ -151,6 +279,32 @@ visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("14_5yt50")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_drij1")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="DarkBackground" type="DirectionalLight2D" parent="Light"]
+color = Color(0.301961, 0.301961, 0.54902, 1)
+blend_mode = 2
+
+[node name="Lampshade" type="PointLight2D" parent="Light"]
+position = Vector2(41, -31)
+rotation = 1.5708
+scale = Vector2(0.38898, 0.523086)
+color = Color(1, 1, 0.54902, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.521569)
+shadow_filter = 1
+texture = ExtResource("18_fu7pu")
+
+[node name="StairsLight" type="PointLight2D" parent="Light"]
+position = Vector2(-114, -107)
+rotation = 4.71239
+scale = Vector2(0.870955, 0.421838)
+energy = 1.5
+texture = SubResource("GradientTexture2D_d7yml")
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]

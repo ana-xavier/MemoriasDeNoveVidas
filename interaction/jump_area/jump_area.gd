@@ -29,6 +29,7 @@ func _from_surface_jump():
 		player_body.set_collision_mask_value(from_collision_mask, 1)
 		await player_body._on_jump(source)
 		player_body.z_index = from_z_index
+		teleport_follower()
 
 func _to_surface_jump():
 	if player_body:
@@ -36,5 +37,17 @@ func _to_surface_jump():
 		player_body.set_collision_mask_value(to_collision_mask, 1)
 		player_body.z_index = to_z_index
 		await player_body._on_jump(destination)
+		teleport_follower()
 
+func teleport_follower():
+	if GlobalData.data.player_has_follower:
+		var node_name: String = GlobalData.data.player_follower_node
+		var ysort = get_parent().get_parent()
+		if ysort.has_node(node_name):
+			var character = ysort.get_node(node_name) as CatFollowCharacter
+			character.global_position = player_body.global_position
+			character.fsm.force_change_state("idle_follow_player_state")
+			character.z_index = player_body.z_index
+			for i in range(3): 
+				character.set_collision_mask_value(i, player_body.get_collision_mask_value(i))
 
