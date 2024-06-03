@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=39 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_qk2v7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="5_nxmat"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow1.gd" id="5_vfqms"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="6_81c5x"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived2.gd" id="6_giwse"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="7_h4800"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="7_yrwnf"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="8_7uyo7"]
@@ -27,6 +28,9 @@ size = Vector2(152, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0a3"]
 size = Vector2(47, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6q5d"]
+size = Vector2(238, 46.5)
 
 [sub_resource type="Resource" id="Resource_x040f"]
 script = ExtResource("7_yrwnf")
@@ -55,6 +59,34 @@ prerequisite_quest_id = "srpotatoe_item_quest"
 release_a_quest = true
 quest_id = "jujubinha_location_1_quest"
 dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn")])
+
+[sub_resource type="Resource" id="Resource_txar6"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 2"])
+
+[sub_resource type="Resource" id="Resource_jo8n8"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_arrives_at_lake"
+has_prerequisite = true
+prerequisite_quest_id = "jujubinha_location_1_quest"
+release_a_quest = true
+quest_id = "jujubinha_location_2_quest"
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_txar6")])
+
+[sub_resource type="Resource" id="Resource_vmhp2"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Diálogo 3"])
+
+[sub_resource type="Resource" id="Resource_wja71"]
+script = ExtResource("8_yp1w8")
+id = "jujubinha_arrives_at_home"
+has_prerequisite = true
+prerequisite_quest_id = "jujubinha_location_2_quest"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_vmhp2")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrsv"]
 
@@ -104,6 +136,15 @@ position = Vector2(73.5, 3.5)
 shape = SubResource("RectangleShape2D_lm0a3")
 debug_color = Color(1, 0, 0, 0.419608)
 
+[node name="JujubinhaDestination" parent="ActionScripts" instance=ExtResource("3_t1exf")]
+position = Vector2(-513, -221)
+action_script = ExtResource("6_giwse")
+
+[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaDestination"]
+position = Vector2(522, 244)
+shape = SubResource("RectangleShape2D_w6q5d")
+debug_color = Color(1, 0, 0, 0.419608)
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -118,7 +159,7 @@ editor_draw_limits = true
 [node name="Jujubinha" parent="YSort" instance=ExtResource("4_hs03d")]
 position = Vector2(72, 3)
 character_idle_dialog = SubResource("Resource_gbjyg")
-character_dialogs = Array[ExtResource("8_yp1w8")]([SubResource("Resource_rmjpq")])
+character_dialogs = Array[ExtResource("8_yp1w8")]([SubResource("Resource_rmjpq"), SubResource("Resource_jo8n8"), SubResource("Resource_wja71")])
 char_interact_quest_id = "searching_for_answers"
 character_id = "jujubinha"
 character_name = "Jujubinha"

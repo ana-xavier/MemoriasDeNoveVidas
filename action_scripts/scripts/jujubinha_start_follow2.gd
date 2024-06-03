@@ -1,6 +1,6 @@
 extends ActionScript
 
-const quest_id: String = "jujubinha_location_1_quest"
+const quest_id: String = "jujubinha_location_2_quest"
 const character_id: String = "jujubinha"
 
 func run(trigger_node: Node2D, body: CharacterBody2D) -> bool:

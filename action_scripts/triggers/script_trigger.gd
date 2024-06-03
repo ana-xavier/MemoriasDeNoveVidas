@@ -1,4 +1,5 @@
 extends Area2D
+class_name ScriptTrigger
 
 enum TriggerType {
 	BODY_ENTERED,

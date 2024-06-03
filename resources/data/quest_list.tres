@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=10 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=11 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
@@ -60,6 +60,19 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_op3le"]
+script = ExtResource("4_4lpbj")
+character_id = "jujubinha"
+finish_objective_display = "Converse com Jujubinha."
+arrived_at_location = false
+id = "jujubinha_location_2_quest"
+name = "Caminho da Coragem - Parte 2"
+description = "Acompanhe Jujubinha de volta à sua casa"
+objective_display = "Acompanhe Jujubinha de volta à sua casa"
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le")])
