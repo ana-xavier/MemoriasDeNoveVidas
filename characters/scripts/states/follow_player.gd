@@ -26,13 +26,14 @@ func move():
 	
 	if direction != Vector2.ZERO:
 		animation_tree["parameters/Running/blend_position"] = direction
-		animation_tree["parameters/Sitting/blend_position"] = direction
 	
 	body.velocity = direction.normalized() * speed
 	
 	if direction.length() < 20:
 		state_transition.emit(self, "idle_follow_player_state")
-			
+	elif direction.length() > 100:
+		body.global_position = player.global_position
+		
 	
 func exit():
 	#body.set_collision_layer_value(1, true)

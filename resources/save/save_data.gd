@@ -3,6 +3,7 @@ class_name SaveData
 
 const SAVE_DATA_PATH: String = "user://save_data"
 
+@export var global_variables: GlobalVariables = GlobalVariables.new()
 @export var player_inventory: PlayerInventory = PlayerInventory.new()
 @export var interactive_objects_dict: InteractiveObjectsDict = InteractiveObjectsDict.new()
 @export var dialog_ready_list: DialogReadyList = DialogReadyList.new()

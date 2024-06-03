@@ -1,43 +1,26 @@
-[gd_scene load_steps=75 format=3 uid="uid://cr8x3nvrj27ky"]
+[gd_scene load_steps=61 format=3 uid="uid://cr8x3nvrj27ky"]
 
 [ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
-[ext_resource type="Script" path="res://resources/classes/objects/dialog_box.gd" id="2_yah8c"]
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_4n0gm"]
-[ext_resource type="Script" path="res://resources/classes/objects/dialog.gd" id="3_jocad"]
 [ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_ueksp"]
 [ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="5_8ygnk"]
+[ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="6_5t41u"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
 [ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_follow_player_state.gd" id="8_307yq"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
-
-[sub_resource type="Resource" id="Resource_x040f"]
-script = ExtResource("2_yah8c")
-character_type = 1
-lines = Array[String](["M-meow! "])
-
-[sub_resource type="Resource" id="Resource_gbjyg"]
-script = ExtResource("3_jocad")
-id = "idle"
-has_prerequisite = false
-prerequisite_quest_id = ""
-release_a_quest = false
-quest_id = ""
-dialog = Array[ExtResource("2_yah8c")]([SubResource("Resource_x040f")])
+[ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="12_14xh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6rut"]
-size = Vector2(18, 12)
+size = Vector2(11.1111, 7.77778)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nv286"]
 shader = ExtResource("2_mk2nk")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i45yb"]
 radius = 25.0555
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6ob"]
-size = Vector2(28.5, 66.5)
 
 [sub_resource type="Animation" id="Animation_k2uii"]
 length = 0.001
@@ -892,77 +875,6 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_xmh5l")
 blend_point_7/pos = Vector2(1, 1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjf0t"]
-animation = &"running_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fobom"]
-animation = &"running_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cg0ov"]
-animation = &"running_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mku26"]
-animation = &"running_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6smsp"]
-animation = &"running_up_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynhap"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mtvjh"]
-animation = &"running_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_klipf"]
-animation = &"running_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ned8"]
-animation = &"running_up_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xllb4"]
-animation = &"running_down_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6sib6"]
-animation = &"running_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n75cc"]
-animation = &"running_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjcld"]
-animation = &"running_down_right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_yjx0u"]
-auto_triangles = false
-blend_point_0/node = SubResource("AnimationNodeAnimation_tjf0t")
-blend_point_0/pos = Vector2(0.5, -1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fobom")
-blend_point_1/pos = Vector2(-0.5, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_ynhap")
-blend_point_2/pos = Vector2(0, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_mtvjh")
-blend_point_3/pos = Vector2(-1, 0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_klipf")
-blend_point_4/pos = Vector2(-1, -0.5)
-blend_point_5/node = SubResource("AnimationNodeAnimation_1ned8")
-blend_point_5/pos = Vector2(-1, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_xllb4")
-blend_point_6/pos = Vector2(-1, 1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_6sib6")
-blend_point_7/pos = Vector2(-0.5, 1)
-blend_point_8/node = SubResource("AnimationNodeAnimation_n75cc")
-blend_point_8/pos = Vector2(0.5, 1)
-blend_point_9/node = SubResource("AnimationNodeAnimation_qjcld")
-blend_point_9/pos = Vector2(1, 1)
-blend_point_10/node = SubResource("AnimationNodeAnimation_cg0ov")
-blend_point_10/pos = Vector2(1, 0.5)
-blend_point_11/node = SubResource("AnimationNodeAnimation_mku26")
-blend_point_11/pos = Vector2(1, -0.5)
-blend_point_12/node = SubResource("AnimationNodeAnimation_6smsp")
-blend_point_12/pos = Vector2(1, -1)
-triangles = PackedInt32Array(0, 1, 2, 1, 2, 4, 2, 3, 4, 1, 4, 5, 2, 3, 7, 3, 6, 7, 2, 7, 8, 2, 8, 10, 8, 9, 10, 0, 2, 11, 2, 10, 11, 0, 11, 12)
-snap = Vector2(0.5, 0.5)
-blend_mode = 1
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2m5qe"]
 animation = &"sitting_up"
 
@@ -1006,22 +918,29 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_ocx0e")
 blend_point_7/pos = Vector2(1, 1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cfkt6"]
+animation = &"sitting_down"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0b213"]
 states/Running/node = SubResource("AnimationNodeBlendSpace2D_5me1i")
 states/Running/position = Vector2(327, 102)
-states/Running2/node = SubResource("AnimationNodeBlendSpace2D_yjx0u")
-states/Running2/position = Vector2(327, 171)
 states/Sitting/node = SubResource("AnimationNodeBlendSpace2D_ir1t0")
 states/Sitting/position = Vector2(494, 103)
+states/sitting_down/node = SubResource("AnimationNodeAnimation_cfkt6")
+states/sitting_down/position = Vector2(402, 161)
 
-[node name="CatFollowCharacter" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s1gvs"]
+blend_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r352e"]
+polygon = PackedVector2Array(3.33333, 0, -3.33333, 0, -6.66667, -1.66667, -6.66667, -6.66667, -3.33333, -8.33333, 3.33333, -8.33333, 6.66667, -6.66667, 6.66667, -1.66667)
+
+[node name="CatFollowCharacter" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_hsehu")
-character_idle_dialog = SubResource("Resource_gbjyg")
-animation = NodePath("Animation")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -4.16667)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_v6rut")
 
@@ -1041,39 +960,38 @@ frame = 50
 [node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_8ygnk")]
 character = NodePath("..")
 
-[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_vw5yf")
-initial_state = NodePath("idle_waiting_state")
-
-[node name="idle_waiting_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation")]
-script = ExtResource("9_ehf7f")
-animation = NodePath("../../Animation")
-
-[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "interaction_area")]
-script = ExtResource("7_4it5e")
-animation_tree = NodePath("../../AnimationTree")
-interaction_area = NodePath("../../InteractionArea")
-
-[node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("8_307yq")
+[node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("6_5t41u")]
+character = NodePath("..")
+dialog_component = NodePath("../DialogComponent")
 
 [node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
-visible = false
 action_name = "conversar"
 
 [node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_i45yb")
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-collision_mask = 2
-monitoring = false
-monitorable = false
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_vw5yf")
+initial_state = NodePath("idle_waiting_state")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.25, 12.75)
-shape = SubResource("RectangleShape2D_ua6ob")
+[node name="idle_waiting_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation", "animation_tree")]
+script = ExtResource("9_ehf7f")
+animation = NodePath("../../Animation")
+animation_tree = NodePath("../../AnimationTree")
+
+[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "interaction_area")]
+script = ExtResource("7_4it5e")
+animation_tree = NodePath("../../AnimationTree")
+interaction_area = NodePath("../../InteractionArea")
+
+[node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("8_307yq")
+animation_tree = NodePath("../../AnimationTree")
+
+[node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("12_14xh2")
+animation_tree = NodePath("../../AnimationTree")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1088,7 +1006,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_0b213")
 anim_player = NodePath("../Animation")
 parameters/Running/blend_position = Vector2(-0.00547647, -0.00529099)
-parameters/Running2/blend_position = Vector2(0, 0)
 parameters/Sitting/blend_position = Vector2(0, 0)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_s1gvs")
+occluder = SubResource("OccluderPolygon2D_r352e")

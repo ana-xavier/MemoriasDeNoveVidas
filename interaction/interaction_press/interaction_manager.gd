@@ -29,9 +29,12 @@ func _process(delta):
 		
 		
 func _sort_by_distance_to_player(area1, area2):
-	var area1_to_player	= player.global_position.distance_to(area1.global_position)
-	var area2_to_player	= player.global_position.distance_to(area2.global_position)
-	return area1_to_player < area2_to_player
+	if is_instance_valid(player):
+		var player_pos: Vector2 = player.global_position
+		var area1_to_player	= player_pos.distance_to(area1.global_position)
+		var area2_to_player	= player_pos.distance_to(area2.global_position)
+		return area1_to_player < area2_to_player
+	return Vector2.ZERO
 	
 	
 func _input(event):

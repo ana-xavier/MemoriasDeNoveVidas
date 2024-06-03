@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=9 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=11 format=3 uid="uid://bk2kg3ybjr0uv"]
 
-[ext_resource type="Script" path="res://resources/classes/objects/quest_deliver_item.gd" id="1_dhua6"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
-[ext_resource type="Script" path="res://resources/classes/objects/quest_characters_interact.gd" id="2_78662"]
-[ext_resource type="Script" path="res://resources/classes/objects/quest_notes.gd" id="3_dtae7"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_characters_interact.gd" id="2_1reer"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_deliver_item.gd" id="3_4fqly"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_go_to_location.gd" id="4_4lpbj"]
 
 [sub_resource type="Resource" id="Resource_es8e0"]
-script = ExtResource("3_dtae7")
+script = ExtResource("1_dixrk")
 notes_count = 0
 notes_to_get = 3
 id = "level1_notes"
@@ -18,7 +19,7 @@ has_prerequisite = false
 prerequisite_quest_id = ""
 
 [sub_resource type="Resource" id="Resource_usyv1"]
-script = ExtResource("2_78662")
+script = ExtResource("2_1reer")
 interacted_count = 0
 to_interact = 2
 characters_already_interacted = {
@@ -34,7 +35,7 @@ has_prerequisite = false
 prerequisite_quest_id = ""
 
 [sub_resource type="Resource" id="Resource_6qb6v"]
-script = ExtResource("1_dhua6")
+script = ExtResource("3_4fqly")
 required_item_id = "rubber_duck"
 character_id = "srpotatoe"
 finish_objective_display = "Entregue o item perdido."
@@ -46,19 +47,32 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
-[sub_resource type="Resource" id="Resource_i542s"]
-script = ExtResource("1_dhua6")
-required_item_id = "rubber_duck"
+[sub_resource type="Resource" id="Resource_0ow7q"]
+script = ExtResource("4_4lpbj")
 character_id = "jujubinha"
-finish_objective_display = ""
-id = "jujubinha_item_quest"
-name = "Jujubinha Quest"
-description = "Ajude jujubinha"
-objective_display = ""
+finish_objective_display = "Converse com Jujubinha."
+arrived_at_location = false
+id = "jujubinha_location_1_quest"
+name = "Caminho da Coragem - Parte 1"
+description = "Ajude Jujubinha a perder seu medo levando ele para dar uma volta."
+objective_display = "Leve Jujubinha até o Lago da Colina."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_op3le"]
+script = ExtResource("4_4lpbj")
+character_id = "jujubinha"
+finish_objective_display = "Converse com Jujubinha."
+arrived_at_location = false
+id = "jujubinha_location_2_quest"
+name = "Caminho da Coragem - Parte 2"
+description = "Acompanhe Jujubinha de volta à sua casa"
+objective_display = "Acompanhe Jujubinha de volta à sua casa"
 status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_i542s")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le")])

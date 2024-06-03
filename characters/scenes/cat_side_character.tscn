@@ -617,6 +617,13 @@ character = NodePath("..")
 character = NodePath("..")
 dialog_component = NodePath("../DialogComponent")
 
+[node name="InteractionArea" parent="." instance=ExtResource("5_ggjir")]
+action_name = "conversar"
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_cdrrt")
+
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_kv6n4")
 initial_state = NodePath("idle_state")
@@ -640,13 +647,6 @@ change_state_probability = 0.6
 [node name="player_near_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("11_ees34")
 animation_player = NodePath("../../Animation")
-
-[node name="InteractionArea" parent="." instance=ExtResource("5_ggjir")]
-action_name = "conversar"
-
-[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_cdrrt")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
