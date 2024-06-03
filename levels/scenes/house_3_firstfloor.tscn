@@ -179,6 +179,7 @@ layer_1/tile_data = PackedInt32Array(-589824, 1572888, 20, -458750, 327696, 4, -
 
 [node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("6_81c5x")]
 position = Vector2(-20, 48)
+door_id = "house_3_door"
 destination_level_tag = "level_1"
 destination_door_tag = "HOUSE_3_OUT"
 spawn_direction = "down"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=92 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived1.gd" id="5_vnoi0"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow2.gd" id="6_825sc"]
+[ext_resource type="Script" path="res://action_scripts/scripts/open_house_3_window.gd" id="7_n65ct"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
 [ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="8_55c6a"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
@@ -62,6 +63,9 @@ size = Vector2(50, 46.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4otp"]
 size = Vector2(73.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0qvh"]
+size = Vector2(20.5, 22)
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("9_unws2")
@@ -328,6 +332,46 @@ _data = {
 "door_open": SubResource("Animation_i8fff")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrv2k"]
+size = Vector2(25.5, 8.5)
+
+[sub_resource type="Animation" id="Animation_xuvp4"]
+resource_name = "door_open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_je5qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1iinv"]
+_data = {
+"RESET": SubResource("Animation_je5qf"),
+"door_open": SubResource("Animation_xuvp4")
+}
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2o1h2")
 
@@ -379,6 +423,15 @@ trigger_type = 2
 z_index = 1
 position = Vector2(-1.75, -2.5)
 shape = SubResource("RectangleShape2D_j4otp")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="OpenHouse3Window" parent="ActionScripts" instance=ExtResource("3_050gc")]
+action_script = ExtResource("7_n65ct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionScripts/OpenHouse3Window"]
+z_index = 1
+position = Vector2(-117, 75)
+shape = SubResource("RectangleShape2D_w0qvh")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="InteractableObjects" type="Node2D" parent="."]
@@ -434,7 +487,7 @@ id = "dig_E6"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(-530, -151)
+position = Vector2(-55, 176)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -495,15 +548,6 @@ text = "A porta está bloqueada."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentHouse2Blocked"]
 position = Vector2(5.8898, -4.52808)
-shape = SubResource("RectangleShape2D_a4cri")
-
-[node name="ContentHouse3Blocked" parent="YSort/ObjectsTerrain" instance=ExtResource("17_u1ylr")]
-position = Vector2(273.711, -75.756)
-scale = Vector2(1.0305, 0.997526)
-text = "A porta está bloqueada. Tente entrar de outra maneira."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/ObjectsTerrain/ContentHouse3Blocked"]
-position = Vector2(-354.11, 202.944)
 shape = SubResource("RectangleShape2D_a4cri")
 
 [node name="ContentHouse4Blocked" parent="YSort/ObjectsTerrain" instance=ExtResource("17_u1ylr")]
@@ -582,31 +626,40 @@ libraries = {
 }
 
 [node name="Door_HOUSE_3_OUT" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("8_lm17c")]
-y_sort_enabled = true
-position = Vector2(-91.7145, 126.686)
-scale = Vector2(1.0305, 0.997526)
+position = Vector2(-89.6535, 126.686)
+scale = Vector2(1, 1)
+door_id = "house_3_door"
+door_locked_message = "A porta está bloqueada. Tente entrar de outra maneira."
 destination_level_tag = "house_3_firstfloor"
 destination_door_tag = "INSIDE"
 spawn_direction = "up"
-animation = NodePath("../Door_MAIN_HOUSE_OUT/Animation")
+animation = NodePath("Animation")
 
 [node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_HOUSE_3_OUT"]
-position = Vector2(3.05176e-05, 12.9998)
+position = Vector2(0.257614, 13.5289)
+scale = Vector2(1.0305, 0.997526)
 
 [node name="Texture" type="Sprite2D" parent="YSort/Doors/Door_HOUSE_3_OUT"]
-position = Vector2(1.14441e-05, -15)
-scale = Vector2(0.96875, 1.01563)
+position = Vector2(0.257614, -14.4018)
+scale = Vector2(0.982195, 0.970251)
 texture = ExtResource("19_53t7f")
 hframes = 2
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Doors/Door_HOUSE_3_OUT"]
+position = Vector2(0.257614, 0.311722)
+scale = Vector2(1.0305, 0.997526)
+shape = SubResource("RectangleShape2D_xrv2k")
+
 [node name="Animation" type="AnimationPlayer" parent="YSort/Doors/Door_HOUSE_3_OUT"]
 libraries = {
-"": SubResource("AnimationLibrary_at0f8")
+"": SubResource("AnimationLibrary_1iinv")
 }
 
 [node name="Door_HOUSE_3_WINDOW" parent="YSort/Doors" node_paths=PackedStringArray("animation") instance=ExtResource("22_nh6x3")]
 z_index = 1
 position = Vector2(-90.684, 61.8466)
+door_id = "house_3_window"
+door_locked_message = "A janela está trancada. Volte depois."
 destination_level_tag = "house_3_secondfloor"
 destination_door_tag = "INSIDE_2"
 animation = NodePath("Animation")
@@ -685,4 +738,3 @@ visible = false
 [connection signal="opened" from="CanvasLayer/Inventory" to="." method="_on_inventory_opened"]
 
 [editable path="YSort/Doors/Door_MAIN_HOUSE_OUT"]
-[editable path="YSort/Doors/Door_HOUSE_3_OUT"]
