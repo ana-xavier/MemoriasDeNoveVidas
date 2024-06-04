@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbeeyplal6r2u"]
+[gd_scene load_steps=12 format=3 uid="uid://cbeeyplal6r2u"]
 
 [ext_resource type="Script" path="res://mainmenu/MainMenu.gd" id="1_cpemm"]
 [ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://mainmenu/assets/1.png" id="2_mgy4n"]
 [ext_resource type="Texture2D" uid="uid://c0k82223adg0h" path="res://mainmenu/assets/2.png" id="3_rih60"]
 [ext_resource type="Texture2D" uid="uid://ulw8q5dorjk2" path="res://mainmenu/assets/5.png" id="3_u34hm"]
 [ext_resource type="FontFile" uid="uid://cyytwcjx00koj" path="res://gui/fonts/PressStart2P.ttf" id="4_t6sor"]
-[ext_resource type="FontFile" uid="uid://i7giboeio0b1" path="res://gui/fonts/Hefty Me.ttf" id="5_m5tua"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -66,7 +65,6 @@ offset_left = 74.0
 offset_top = 33.0
 offset_right = 243.0
 offset_bottom = 100.0
-theme_override_fonts/font = ExtResource("5_m5tua")
 text = "Memórias de
 9 vidas"
 horizontal_alignment = 1
