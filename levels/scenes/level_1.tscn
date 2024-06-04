@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=91 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -45,15 +45,6 @@ colors = PackedColorArray(0, 0, 0, 1, 0.976077, 0.976077, 0.976077, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8pex3"]
 gradient = SubResource("Gradient_dsey4")
-
-[sub_resource type="Gradient" id="Gradient_jo5tu"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_74rl7"]
-gradient = SubResource("Gradient_jo5tu")
-fill = 1
-fill_from = Vector2(0.507123, 0.492877)
-fill_to = Vector2(0.928775, 0.139601)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32i4p"]
 size = Vector2(59, 33)
@@ -372,6 +363,9 @@ _data = {
 "door_open": SubResource("Animation_xuvp4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr75n"]
+size = Vector2(74, 20)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2o1h2")
 level_id = "level_1"
@@ -390,13 +384,6 @@ scale = Vector2(2.25871, 24.7862)
 blend_mode = 1
 shadow_color = Color(1, 0.992157, 1, 1)
 texture = SubResource("GradientTexture2D_8pex3")
-
-[node name="ForestEntrance" type="PointLight2D" parent="Terrain"]
-visible = false
-position = Vector2(-359, 551)
-rotation = 1.5708
-scale = Vector2(0.520002, 0.888516)
-texture = SubResource("GradientTexture2D_74rl7")
 
 [node name="ActionScripts" type="Node2D" parent="."]
 
@@ -582,9 +569,11 @@ text = "Lago da Colina"
 
 [node name="Sign3" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(-401, 355)
+text = "Floresta das Sombras Eternas"
 
 [node name="Sign4" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(351, 96)
+text = "Rio da Prata"
 
 [node name="Sign5" parent="YSort/Signs" instance=ExtResource("5_ume07")]
 position = Vector2(8, 130)
@@ -678,6 +667,20 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_at0f8")
 }
+
+[node name="Door_FOREST_OUT" parent="YSort/Doors" instance=ExtResource("8_lm17c")]
+position = Vector2(-369.949, 541.657)
+door_id = "forest_entrance"
+door_locked_message = "O caminho está bloqueado."
+destination_level_tag = "forest"
+destination_door_tag = "INSIDE"
+spawn_direction = "up"
+
+[node name="Collision" type="CollisionShape2D" parent="YSort/Doors/Door_FOREST_OUT"]
+shape = SubResource("RectangleShape2D_hr75n")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_FOREST_OUT"]
+position = Vector2(0, -23.9406)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
