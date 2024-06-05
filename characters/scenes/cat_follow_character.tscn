@@ -980,8 +980,9 @@ script = ExtResource("9_ehf7f")
 animation = NodePath("../../Animation")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "interaction_area")]
+[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("navigation", "animation_tree", "interaction_area")]
 script = ExtResource("7_4it5e")
+navigation = NodePath("../../NavigationAgent2D")
 animation_tree = NodePath("../../AnimationTree")
 interaction_area = NodePath("../../InteractionArea")
 
@@ -1011,3 +1012,14 @@ parameters/Sitting/blend_position = Vector2(0, 0)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 material = SubResource("CanvasItemMaterial_s1gvs")
 occluder = SubResource("OccluderPolygon2D_r352e")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="FiniteStateMachine/follow_player_state" method="_on_timer_timeout"]
