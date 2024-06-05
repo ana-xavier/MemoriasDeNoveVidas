@@ -112,4 +112,6 @@ autowrap_mode = 0
 [node name="ShowLetterTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DisplayTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShowLetterTimer" to="." method="_on_show_letter_timer_timeout"]

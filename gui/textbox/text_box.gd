@@ -2,9 +2,11 @@ extends MarginContainer
 
 @onready var label = $MarginContainer/RichTextLabel
 @onready var timer = $ShowLetterTimer
+@onready var display_timer = $DisplayTimer
 @onready var next_indicator = $NinePatchRect/Control2/NextIndicator
 
 const MAX_WIDTH = 256
+const TIME_PER_CHARACTER = 0.02
 const DISPLAY_NAME_COLOR = "[color=purple]"
 
 var initial_scale: Vector2 
@@ -47,8 +49,11 @@ func display_text(text_to_display: String):
 	global_position.x -= (size.x / 2) * initial_scale.x
 	global_position.y -= (size.y + 36) * initial_scale.y
 	
-	label.text = DISPLAY_NAME_COLOR + character_name + "[/color]"
-	label.text += ":\n"
+	if DialogManager.is_name_hided:
+		label.text = ""
+	else:
+		label.text = DISPLAY_NAME_COLOR + character_name + "[/color]"
+		label.text += ":\n"
 	
 	#pivot_offset = Vector2((size.x / 2) * 0.5, size.y * 0.5)
 	
@@ -80,8 +85,14 @@ func _display_letter():
 		letter_index = text.length()
 		
 	if letter_index >= text.length():
+		if DialogManager.is_dialog_automatic:
+			display_timer.wait_time = calculate_display_time()
+			display_timer.start()
+			await display_timer.timeout
+		else:
+			next_indicator.visible = true
+			
 		finished_displaying.emit()
-		next_indicator.visible = true
 		return
 		
 	match text[letter_index]:
@@ -96,5 +107,9 @@ func _on_show_letter_timer_timeout():
 	_display_letter()
 
 func _input(event):
-	if event.is_action_pressed("advance_dialog"):
+	if event.is_action_pressed("advance_dialog") && !DialogManager.is_dialog_automatic:
 		advance_dialog = true
+
+func calculate_display_time():
+	var num_characters = text.length()
+	return num_characters * TIME_PER_CHARACTER
