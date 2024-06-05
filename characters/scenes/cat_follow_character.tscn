@@ -13,8 +13,8 @@
 [ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
 [ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="12_14xh2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6rut"]
-size = Vector2(11.1111, 7.77778)
+[sub_resource type="CircleShape2D" id="CircleShape2D_53yte"]
+radius = 4.47903
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nv286"]
 shader = ExtResource("2_mk2nk")
@@ -942,7 +942,7 @@ script = ExtResource("1_hsehu")
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.16667)
 scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_v6rut")
+shape = SubResource("CircleShape2D_53yte")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nv286")
@@ -986,6 +986,10 @@ navigation = NodePath("../../NavigationAgent2D")
 animation_tree = NodePath("../../AnimationTree")
 interaction_area = NodePath("../../InteractionArea")
 
+[node name="Timer" type="Timer" parent="FiniteStateMachine/follow_player_state"]
+wait_time = 0.1
+autostart = true
+
 [node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("8_307yq")
 animation_tree = NodePath("../../AnimationTree")
@@ -993,6 +997,9 @@ animation_tree = NodePath("../../AnimationTree")
 [node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("12_14xh2")
 animation_tree = NodePath("../../AnimationTree")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1013,13 +1020,4 @@ parameters/Sitting/blend_position = Vector2(0, 0)
 material = SubResource("CanvasItemMaterial_s1gvs")
 occluder = SubResource("OccluderPolygon2D_r352e")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
-avoidance_enabled = true
-debug_enabled = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
-[connection signal="timeout" from="Timer" to="FiniteStateMachine/follow_player_state" method="_on_timer_timeout"]
+[connection signal="timeout" from="FiniteStateMachine/follow_player_state/Timer" to="FiniteStateMachine/follow_player_state" method="_on_timer_timeout"]

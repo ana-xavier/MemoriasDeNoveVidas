@@ -22,6 +22,7 @@ func animate():
 	body.animation_state.travel("Running")
 	
 func move():
+	var to_player_dir = player.global_position - body.global_position
 	var direction = navigation.get_next_path_position() - body.global_position
 	body.direction = direction
 	
@@ -30,9 +31,9 @@ func move():
 	
 	body.velocity = direction.normalized() * speed
 	
-	if direction.length() < 20:
+	if to_player_dir.length() < 25:
 		state_transition.emit(self, "idle_follow_player_state")
-	elif direction.length() > 100:
+	elif to_player_dir.length() > 150:
 		body.global_position = player.global_position
 		
 	

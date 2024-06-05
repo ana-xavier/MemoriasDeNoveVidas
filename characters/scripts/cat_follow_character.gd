@@ -40,7 +40,7 @@ func _on_spawn(position: Vector2, direction):
 		global_position = position
 		global_position.x += 10
 		visible = true
-		fsm.force_change_state("follow_player_state")
+		fsm.force_change_state("idle_follow_player_state")
 		return
 	
 	var current_level: String = GlobalData.data.current_level
