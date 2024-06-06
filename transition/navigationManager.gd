@@ -4,8 +4,8 @@ const scene_level1 = preload("res://levels/scenes/level_1.tscn")
 const scene_house = preload("res://levels/scenes/house.tscn")
 const scene_house_3_firstfloor = preload("res://levels/scenes/house_3_firstfloor.tscn")
 const scene_house_3_secondfloor = preload("res://levels/scenes/house_3_secondfloor.tscn")
-const scene_forest = preload("res://levels/scenes/forest.tscn")
-const scene_forest_house = preload("res://levels/scenes/forest_house.tscn")
+const scene_forest = preload("res://levels/scenes/_forest.tscn")
+const scene_forest_house = preload("res://levels/scenes/_forest_house.tscn")
 
 signal on_trigger_player_spawn
 
