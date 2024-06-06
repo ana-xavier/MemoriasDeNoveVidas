@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=94 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_so6ul"]
@@ -59,19 +59,29 @@ size = Vector2(73.5, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0qvh"]
 size = Vector2(20.5, 22)
 
-[sub_resource type="Resource" id="Resource_r20sx"]
+[sub_resource type="Resource" id="Resource_qhbfc"]
 script = ExtResource("9_unws2")
 character_type = 1
-lines = Array[String](["Meow!      "])
+lines = Array[String](["Eu sabia que você conseguiria, Misty!"])
+
+[sub_resource type="Resource" id="Resource_n4h5r"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Sempre dou o meu melhor! Agora finalmente vou poder ir até a cidade!"])
+
+[sub_resource type="Resource" id="Resource_tlkv6"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Eu estou torcendo por você, Misty! Eu tenho certeza que tudo dará certo!"])
 
 [sub_resource type="Resource" id="Resource_pc5wt"]
 script = ExtResource("10_x2nvm")
-id = "idle"
-has_prerequisite = false
-prerequisite_quest_id = ""
+id = "pedrita_finishing"
+has_prerequisite = true
+prerequisite_quest_id = "pedrita_get_wood"
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_r20sx")])
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_qhbfc"), SubResource("Resource_n4h5r"), SubResource("Resource_tlkv6")])
 
 [sub_resource type="Resource" id="Resource_og3p2"]
 script = ExtResource("9_unws2")
@@ -507,6 +517,7 @@ frame = 78
 [node name="Pedrita" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("11_dajyb")]
 position = Vector2(-646, 104)
 character_idle_dialog = SubResource("Resource_pc5wt")
+character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_pc5wt"), SubResource("Resource_pc5wt")])
 char_interact_quest_id = "searching_for_answers"
 player_near_state = NodePath("../SrBatata/FiniteStateMachine/player_near_state")
 character_id = "pedrita"
