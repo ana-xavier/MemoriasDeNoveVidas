@@ -7,6 +7,4 @@ extends State
 func enter():
 	if body.animation_state:
 		body.animation_state.travel("sitting_down")
-	
-func exit():
-	animation.stop()
+

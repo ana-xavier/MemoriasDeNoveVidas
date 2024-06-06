@@ -8,10 +8,9 @@ class_name CatFollowCharacter
 @export_category("Quest Component")
 @export var char_interact_quest_id: String = ""
 
-@export var animation: AnimationPlayer = null
-
 @onready var dialog_component: DialogComponent = $DialogComponent
 @onready var quest_component: QuestComponent = $QuestComponent
+@onready var path_finder_component: PathFinderComponent = $PathFinderComponent
 @onready var fsm: FiniteStateMachine = $FiniteStateMachine
 @onready var interaction_area: InteractionArea = $InteractionArea
 
@@ -40,7 +39,7 @@ func _on_spawn(position: Vector2, direction):
 		global_position = position
 		global_position.x += 10
 		visible = true
-		fsm.force_change_state("follow_player_state")
+		fsm.force_change_state("idle_follow_player_state")
 		return
 	
 	var current_level: String = GlobalData.data.current_level

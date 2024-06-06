@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="3_nmavn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bifms"]
-size = Vector2(16, 8)
+size = Vector2(10, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo55d"]
 radius = 15.0
@@ -21,7 +21,7 @@ texture = ExtResource("1_nvijo")
 position = Vector2(-1, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WoodenSign/StaticBody2D"]
-position = Vector2(1, -2)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_bifms")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_nmavn")]
