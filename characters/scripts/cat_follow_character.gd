@@ -8,10 +8,9 @@ class_name CatFollowCharacter
 @export_category("Quest Component")
 @export var char_interact_quest_id: String = ""
 
-@export var animation: AnimationPlayer = null
-
 @onready var dialog_component: DialogComponent = $DialogComponent
 @onready var quest_component: QuestComponent = $QuestComponent
+@onready var path_finder_component: PathFinderComponent = $PathFinderComponent
 @onready var fsm: FiniteStateMachine = $FiniteStateMachine
 @onready var interaction_area: InteractionArea = $InteractionArea
 

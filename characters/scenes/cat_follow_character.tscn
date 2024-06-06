@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cr8x3nvrj27ky"]
+[gd_scene load_steps=62 format=3 uid="uid://cr8x3nvrj27ky"]
 
 [ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
 [ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
+[ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="7_ipqy7"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_follow_player_state.gd" id="8_307yq"]
 [ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
 [ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="12_14xh2"]
@@ -964,6 +965,11 @@ character = NodePath("..")
 character = NodePath("..")
 dialog_component = NodePath("../DialogComponent")
 
+[node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("7_ipqy7")]
+character = NodePath("..")
+navigation_agent = NodePath("../NavigationAgent2D")
+move_speed = 40.0
+
 [node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
 action_name = "conversar"
 
@@ -986,20 +992,19 @@ navigation = NodePath("../../NavigationAgent2D")
 animation_tree = NodePath("../../AnimationTree")
 interaction_area = NodePath("../../InteractionArea")
 
-[node name="Timer" type="Timer" parent="FiniteStateMachine/follow_player_state"]
-wait_time = 0.1
-autostart = true
-
 [node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("8_307yq")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
+[node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "path_finder_component")]
 script = ExtResource("12_14xh2")
 animation_tree = NodePath("../../AnimationTree")
+path_finder_component = NodePath("../../PathFinderComponent")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
 path_postprocessing = 1
+debug_enabled = true
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1019,5 +1024,3 @@ parameters/Sitting/blend_position = Vector2(0, 0)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 material = SubResource("CanvasItemMaterial_s1gvs")
 occluder = SubResource("OccluderPolygon2D_r352e")
-
-[connection signal="timeout" from="FiniteStateMachine/follow_player_state/Timer" to="FiniteStateMachine/follow_player_state" method="_on_timer_timeout"]

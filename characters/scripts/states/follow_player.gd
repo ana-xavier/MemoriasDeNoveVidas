@@ -22,6 +22,9 @@ func animate():
 	body.animation_state.travel("Running")
 	
 func move():
+	if player:
+		navigation.target_position = player.global_position
+	
 	var to_player_dir = player.global_position - body.global_position
 	var direction = navigation.get_next_path_position() - body.global_position
 	body.direction = direction
@@ -41,9 +44,3 @@ func exit():
 	#body.set_collision_layer_value(1, true)
 	interaction_area.monitoring = true
 
-func makepath() -> void:
-	if player:
-		navigation.target_position = player.global_position
-
-func _on_timer_timeout():
-	makepath()
