@@ -32,6 +32,7 @@ InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_man
 Transition="*res://transition/transition.tscn"
 NavigationManager="*res://transition/navigationManager.gd"
 SignalBus="*res://singletons/mechanics/SignalBus.gd"
+CursorManager="*res://gui/cursor/cursor_manager.tscn"
 
 [display]
 

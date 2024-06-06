@@ -1,0 +1,14 @@
+extends CanvasLayer
+
+@export var empty_cursor: Texture = null
+@export var default_cursor: Texture = null
+
+@onready var cursor: Sprite2D = $Cursor
+
+func _ready():
+	Input.set_custom_mouse_cursor(empty_cursor, Input.CURSOR_ARROW)
+
+func _process(delta):
+	cursor.global_position = cursor.get_global_mouse_position()
+
+	
