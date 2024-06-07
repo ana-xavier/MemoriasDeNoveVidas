@@ -13,6 +13,7 @@ class_name CatFollowCharacter
 @onready var path_finder_component: PathFinderComponent = $PathFinderComponent
 @onready var fsm: FiniteStateMachine = $FiniteStateMachine
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var animation: AnimationPlayer = $Animation
 
 var player_body
 var animation_state

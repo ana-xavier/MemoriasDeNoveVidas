@@ -33,7 +33,7 @@ Transition="*res://transition/transition.tscn"
 NavigationManager="*res://transition/navigationManager.gd"
 SignalBus="*res://singletons/mechanics/SignalBus.gd"
 CursorManager="*res://gui/cursor/cursor_manager.tscn"
-CutsceneManager="*res://cutscene/manager/cutscene_manager.tscn"
+CutsceneManager="*res://cutscene/scenes/cutscene_manager.tscn"
 
 [display]
 
