@@ -1,27 +1,20 @@
-[gd_scene load_steps=62 format=3 uid="uid://cr8x3nvrj27ky"]
+[gd_scene load_steps=55 format=3 uid="uid://b6wo6j058enc8"]
 
-[ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
-[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
-[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_4n0gm"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_ueksp"]
-[ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="5_8ygnk"]
-[ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="6_5t41u"]
-[ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
-[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
-[ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
-[ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="7_ipqy7"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_follow_player_state.gd" id="8_307yq"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
-[ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="12_14xh2"]
+[ext_resource type="Script" path="res://characters/scripts/ghost_cat.gd" id="1_ovg8n"]
+[ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/ghost_0.png" id="2_u6q5w"]
+[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="3_oa4m5"]
+[ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="4_hyefw"]
+[ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="5_1wb1t"]
+[ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="5_6kyrx"]
+[ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_y8dly"]
+[ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="7_oj8d4"]
+[ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="8_4j5o1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_53yte"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixs7k"]
 radius = 4.47903
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv286"]
-shader = ExtResource("2_mk2nk")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i45yb"]
-radius = 25.0555
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckium"]
+shader = ExtResource("3_oa4m5")
 
 [sub_resource type="Animation" id="Animation_k2uii"]
 length = 0.001
@@ -922,7 +915,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cfkt6"]
 animation = &"sitting_down"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0b213"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xofn3"]
 states/Running/node = SubResource("AnimationNodeBlendSpace2D_5me1i")
 states/Running/position = Vector2(327, 102)
 states/Sitting/node = SubResource("AnimationNodeBlendSpace2D_ir1t0")
@@ -930,74 +923,54 @@ states/Sitting/position = Vector2(494, 103)
 states/sitting_down/node = SubResource("AnimationNodeAnimation_cfkt6")
 states/sitting_down/position = Vector2(402, 161)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s1gvs"]
-blend_mode = 1
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r352e"]
-polygon = PackedVector2Array(3.33333, 0, -3.33333, 0, -6.66667, -1.66667, -6.66667, -6.66667, -3.33333, -8.33333, 3.33333, -8.33333, 6.66667, -6.66667, 6.66667, -1.66667)
-
-[node name="CatFollowCharacter" type="CharacterBody2D"]
+[node name="GhostCat" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_hsehu")
+script = ExtResource("1_ovg8n")
+character_id = "ghost_cat"
+character_name = "???"
+texture = ExtResource("2_u6q5w")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -4.16667)
 scale = Vector2(1.5, 1.5)
-shape = SubResource("CircleShape2D_53yte")
+shape = SubResource("CircleShape2D_ixs7k")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_nv286")
+visible = false
+material = SubResource("ShaderMaterial_ckium")
 position = Vector2(0, -3.33333)
-texture = ExtResource("3_4n0gm")
+texture = ExtResource("4_hyefw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -3.33333)
+scale = Vector2(0.0872396, 0.0631511)
+texture = ExtResource("5_1wb1t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
-texture = ExtResource("4_ueksp")
+texture = ExtResource("2_u6q5w")
 offset = Vector2(0.5, 0)
 hframes = 24
 vframes = 17
 frame = 50
 
-[node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("5_8ygnk")]
-character = NodePath("..")
-
-[node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("6_5t41u")]
-character = NodePath("..")
-dialog_component = NodePath("../DialogComponent")
-
-[node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("7_ipqy7")]
+[node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("5_6kyrx")]
 character = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
-move_speed = 40.0
-
-[node name="InteractionArea" parent="." instance=ExtResource("7_3pdch")]
-action_name = "conversar"
-
-[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_i45yb")
+move_speed = 50.0
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_vw5yf")
+script = ExtResource("6_y8dly")
 initial_state = NodePath("idle_waiting_state")
 
 [node name="idle_waiting_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation", "animation_tree")]
-script = ExtResource("9_ehf7f")
+script = ExtResource("7_oj8d4")
 animation = NodePath("../../Animation")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("navigation", "animation_tree", "interaction_area")]
-script = ExtResource("7_4it5e")
-navigation = NodePath("../../NavigationAgent2D")
-animation_tree = NodePath("../../AnimationTree")
-interaction_area = NodePath("../../InteractionArea")
-
-[node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
-script = ExtResource("8_307yq")
-animation_tree = NodePath("../../AnimationTree")
-
 [node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "path_finder_component")]
-script = ExtResource("12_14xh2")
+script = ExtResource("8_4j5o1")
 animation_tree = NodePath("../../AnimationTree")
 path_finder_component = NodePath("../../PathFinderComponent")
 
@@ -1015,11 +988,7 @@ deterministic = false
 libraries = {
 "": SubResource("AnimationLibrary_fg5q1")
 }
-tree_root = SubResource("AnimationNodeStateMachine_0b213")
+tree_root = SubResource("AnimationNodeStateMachine_xofn3")
 anim_player = NodePath("../Animation")
 parameters/Running/blend_position = Vector2(-0.00547647, -0.00529099)
 parameters/Sitting/blend_position = Vector2(0, 0)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-material = SubResource("CanvasItemMaterial_s1gvs")
-occluder = SubResource("OccluderPolygon2D_r352e")

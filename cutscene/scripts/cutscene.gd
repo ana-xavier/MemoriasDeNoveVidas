@@ -1,3 +1,4 @@
+@icon("res://gui/icons/editor/cutscene_icon.png")
 extends Node2D
 class_name Cutscene
 
