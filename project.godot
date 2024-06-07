@@ -33,6 +33,8 @@ Transition="*res://transition/transition.tscn"
 NavigationManager="*res://transition/navigationManager.gd"
 SignalBus="*res://singletons/mechanics/SignalBus.gd"
 CursorManager="*res://gui/cursor/cursor_manager.tscn"
+CutsceneManager="*res://cutscene/scenes/cutscene_manager.tscn"
+CameraTransition="*res://cutscene/camera/camera_transition.tscn"
 
 [display]
 
@@ -47,6 +49,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://characters/": "yellow",
+"res://cutscene/": "orange",
 "res://environment/": "green",
 "res://gui/": "pink",
 "res://levels/": "teal",
