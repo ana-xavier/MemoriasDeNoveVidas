@@ -1004,6 +1004,7 @@ path_finder_component = NodePath("../../PathFinderComponent")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
 path_postprocessing = 1
+debug_enabled = true
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
