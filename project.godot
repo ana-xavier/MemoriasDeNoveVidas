@@ -34,6 +34,7 @@ NavigationManager="*res://transition/navigationManager.gd"
 SignalBus="*res://singletons/mechanics/SignalBus.gd"
 CursorManager="*res://gui/cursor/cursor_manager.tscn"
 CutsceneManager="*res://cutscene/scenes/cutscene_manager.tscn"
+CameraTransition="*res://cutscene/camera/camera_transition.tscn"
 
 [display]
 

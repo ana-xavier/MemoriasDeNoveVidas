@@ -4,4 +4,3 @@ extends ScriptTrigger
 
 func _ready():
 	pass
-

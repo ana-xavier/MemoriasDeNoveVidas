@@ -427,10 +427,15 @@ debug_color = Color(1, 0, 0, 0.419608)
 position = Vector2(-519.556, -92.4853)
 cutscene = NodePath("Cutscene")
 
-[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtLake" node_paths=PackedStringArray("cutscene_trigger")]
+[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtLake" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
 script = ExtResource("9_wbuyn")
+destination_camera = NodePath("Camera2D")
 id = "jujubinha_arrives_at_lake"
 cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/JujubinhaArrivesAtLake/Cutscene"]
+position = Vector2(25.556, -130.515)
+enabled = false
 
 [node name="Area2D" type="Area2D" parent="Cutscenes/JujubinhaArrivesAtLake"]
 collision_layer = 0

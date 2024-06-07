@@ -31,4 +31,8 @@ func get_character_node(node_name: String) -> CharacterBody2D:
 		return level_node.get_node(node_path)
 	return null
 
+func get_player_camera() -> Camera2D:
+	if player && player.has_node("Camera2D"):
+		return player.get_node("Camera2D")
+	return null
 
