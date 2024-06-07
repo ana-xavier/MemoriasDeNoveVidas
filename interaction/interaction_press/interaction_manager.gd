@@ -8,6 +8,10 @@ const base_text = "[E] para "
 var active_areas = []
 var can_interact = true
 
+func _ready():
+	CutsceneManager.cutscene_started.connect(lock_interaction)
+	CutsceneManager.cutscene_ended.connect(unlock_interaction)
+	
 func register_area(area: InteractionArea): 
 	active_areas.push_back(area)
 
@@ -47,3 +51,8 @@ func _input(event):
 			
 			can_interact = true
 
+func lock_interaction():
+	can_interact = false
+	
+func unlock_interaction():
+	can_interact = true

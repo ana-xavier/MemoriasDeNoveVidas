@@ -2,15 +2,21 @@
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_so6ul"]
-[ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="3_6gy68"]
-[ext_resource type="Script" path="res://action_scripts/scripts/set_active_searching_for_help.gd" id="4_yejl0"]
-[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived1.gd" id="5_gjmrt"]
-[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow2.gd" id="6_dvcwa"]
-[ext_resource type="Script" path="res://action_scripts/scripts/open_house_3_window.gd" id="7_p52xe"]
-[ext_resource type="PackedScene" uid="uid://dmrgh0autf267" path="res://interaction/interaction_press/objects/note/note.tscn" id="8_gmqim"]
-[ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/interaction_hold/objects/dirt/digging_area.tscn" id="9_fdbc8"]
+[ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="3_050gc"]
+[ext_resource type="Script" path="res://action_scripts/scripts/set_active_searching_for_help.gd" id="4_pe7vx"]
+[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow2.gd" id="6_825sc"]
+[ext_resource type="Script" path="res://action_scripts/scripts/open_house_3_window.gd" id="7_n65ct"]
+[ext_resource type="PackedScene" uid="uid://dmrgh0autf267" path="res://interaction/interaction_press/objects/note/note.tscn" id="3_itqjh"]
+[ext_resource type="PackedScene" uid="uid://bqsb7b7k0ecvh" path="res://interaction/interaction_hold/objects/dirt/digging_area.tscn" id="4_0v4bx"]
+[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="5_5sdho"]
+[ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
+[ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
+[ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="8_55c6a"]
+[ext_resource type="PackedScene" uid="uid://bk53vgxrj0sj7" path="res://cutscene/scenes/cutscene_trigger.tscn" id="8_hm0xn"]
+[ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="8_lm17c"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="9_unws2"]
-[ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="10_dw65v"]
+[ext_resource type="Script" path="res://cutscene/levels/level_1/jujubinha_arrives_at_lake.gd" id="9_wbuyn"]
+[ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="10_x2nvm"]
 [ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="11_dajyb"]
 [ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="14_u0dfk"]
@@ -50,16 +56,16 @@ gradient = SubResource("Gradient_dsey4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32i4p"]
 size = Vector2(59, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gam4"]
-size = Vector2(55, 42.25)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4otp"]
 size = Vector2(73.5, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0qvh"]
 size = Vector2(20.5, 22)
 
-[sub_resource type="Resource" id="Resource_qhbfc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57wp6"]
+size = Vector2(47.5, 32.7574)
+
+[sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("9_unws2")
 character_type = 1
 lines = Array[String](["Eu sabia que você conseguiria, Misty!"])
@@ -403,26 +409,17 @@ texture = SubResource("GradientTexture2D_8pex3")
 
 [node name="ActionScripts" type="Node2D" parent="."]
 
-[node name="SetQuestActive" parent="ActionScripts" instance=ExtResource("3_6gy68")]
-action_script = ExtResource("4_yejl0")
+[node name="SetQuestActive" parent="ActionScripts" instance=ExtResource("3_050gc")]
+action_script = ExtResource("4_pe7vx")
 
 [node name="Collision" type="CollisionShape2D" parent="ActionScripts/SetQuestActive"]
 position = Vector2(70, -361)
 shape = SubResource("RectangleShape2D_32i4p")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="JujubinhaDestination" parent="ActionScripts" instance=ExtResource("3_6gy68")]
-position = Vector2(-508, -249)
-action_script = ExtResource("5_gjmrt")
-
-[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaDestination"]
-position = Vector2(-12, 157)
-shape = SubResource("RectangleShape2D_3gam4")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="JujubinhaFollow" parent="ActionScripts" instance=ExtResource("3_6gy68")]
+[node name="JujubinhaFollow" parent="ActionScripts" instance=ExtResource("3_050gc")]
 position = Vector2(-518, -184)
-action_script = ExtResource("6_dvcwa")
+action_script = ExtResource("6_825sc")
 trigger_type = 2
 
 [node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaFollow"]
@@ -431,8 +428,8 @@ position = Vector2(-1, -23)
 shape = SubResource("RectangleShape2D_j4otp")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="OpenHouse3Window" parent="ActionScripts" instance=ExtResource("3_6gy68")]
-action_script = ExtResource("7_p52xe")
+[node name="OpenHouse3Window" parent="ActionScripts" instance=ExtResource("3_050gc")]
+action_script = ExtResource("7_n65ct")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionScripts/OpenHouse3Window"]
 z_index = 1
@@ -440,59 +437,85 @@ position = Vector2(-117, 75)
 shape = SubResource("RectangleShape2D_w0qvh")
 debug_color = Color(1, 0, 0, 0.419608)
 
+[node name="Cutscenes" type="Node2D" parent="."]
+
+[node name="JujubinhaArrivesAtLake" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_hm0xn")]
+position = Vector2(-519.556, -92.4853)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtLake" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("9_wbuyn")
+destination_camera = NodePath("Camera2D")
+id = "jujubinha_arrives_at_lake"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/JujubinhaArrivesAtLake/Cutscene"]
+position = Vector2(25.556, -130.515)
+enabled = false
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/JujubinhaArrivesAtLake"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/JujubinhaArrivesAtLake/Area2D"]
+z_index = 1
+position = Vector2(-0.193604, -0.893379)
+shape = SubResource("RectangleShape2D_57wp6")
+debug_color = Color(1, 1, 0, 0.419608)
+
 [node name="InteractableObjects" type="Node2D" parent="."]
 
 [node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
 
-[node name="Note2" parent="InteractableObjects/NotesInstances" instance=ExtResource("8_gmqim")]
+[node name="Note2" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
 position = Vector2(-25, -329)
 id = "note_2"
 quest_id = "level1_notes"
 
-[node name="Note3" parent="InteractableObjects/NotesInstances" instance=ExtResource("8_gmqim")]
+[node name="Note3" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
 position = Vector2(252, -275)
 id = "note_3"
 quest_id = "level1_notes"
 
-[node name="Note4" parent="InteractableObjects/NotesInstances" instance=ExtResource("8_gmqim")]
+[node name="Note4" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
 position = Vector2(387, -364)
 id = "note_4"
 quest_id = "level1_notes"
 
-[node name="DiggingAreasInstances" type="Node2D" parent="."]
+[node name="DiggingAreasInstances" type="Node2D" parent="InteractableObjects"]
 
-[node name="DiggingArea_E1" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E1" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(311, -374)
 id = "dig_E1"
 can_give_item = true
 item_id = "rubber_duck"
 
-[node name="DiggingArea_E2" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E2" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(647, -167)
 id = "dig_E2"
 can_give_item = true
 item_id = "rubber_duck"
 
-[node name="DiggingArea_E3" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E3" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(391, -438)
 id = "dig_E3"
 
-[node name="DiggingArea_E4" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E4" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(557, -456)
 id = "dig_E4"
 
-[node name="DiggingArea_E5" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E5" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(646, -295)
 id = "dig_E5"
 
-[node name="DiggingArea_E6" parent="DiggingAreasInstances" instance=ExtResource("9_fdbc8")]
+[node name="DiggingArea_E6" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(441, -254)
 id = "dig_E6"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="MainCharacter" parent="YSort" instance=ExtResource("10_dw65v")]
+[node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
 position = Vector2(-55, 176)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
@@ -758,6 +781,7 @@ visible = false
 
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("39_ukwx2")]
 
+[connection signal="body_entered" from="Cutscenes/JujubinhaArrivesAtLake/Area2D" to="Cutscenes/JujubinhaArrivesAtLake" method="_on_trigger_area_entered"]
 [connection signal="animation_finished" from="YSort/Doors/Door_MAIN_HOUSE_OUT/Animation" to="YSort/Doors/Door_MAIN_HOUSE_OUT" method="_on_animation_finished"]
 [connection signal="animation_finished" from="YSort/Doors/Door_HOUSE_3_OUT/Animation" to="YSort/Doors/Door_HOUSE_3_OUT" method="_on_animation_finished"]
 [connection signal="animation_finished" from="YSort/Doors/Door_HOUSE_3_WINDOW/Animation" to="YSort/Doors/Door_HOUSE_3_WINDOW" method="_on_animation_finished"]
