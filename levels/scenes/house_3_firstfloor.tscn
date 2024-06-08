@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=42 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_xyj3p"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bigu2os3aq8k1" path="res://action_scripts/scenes/script_trigger.tscn" id="4_n7o1y"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_surprised.gd" id="5_bvq5p"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow1.gd" id="6_ecopa"]
-[ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_arrived2.gd" id="7_nhaeg"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="7_yrwnf"]
+[ext_resource type="Script" path="res://cutscene/scripts/cutscene_trigger.gd" id="8_lxupt"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="8_vth8r"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="8_yp1w8"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="9_hhy6s"]
+[ext_resource type="Script" path="res://cutscene/levels/level_1/house_3/jujubinha_arrives_at_home.gd" id="9_th80l"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="12_o2h4c"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="13_6rcye"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="14_hrynm"]
@@ -33,8 +34,8 @@ size = Vector2(152, 114)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0a3"]
 size = Vector2(47, 39)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6q5d"]
-size = Vector2(238, 46.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rytvj"]
+size = Vector2(147, 65)
 
 [sub_resource type="Resource" id="Resource_x040f"]
 script = ExtResource("7_yrwnf")
@@ -169,20 +170,38 @@ position = Vector2(73.5, 3.5)
 shape = SubResource("RectangleShape2D_lm0a3")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="JujubinhaDestination" parent="ActionScripts" instance=ExtResource("4_n7o1y")]
-position = Vector2(-513, -221)
-action_script = ExtResource("7_nhaeg")
+[node name="Cutscenes" type="Node2D" parent="."]
 
-[node name="Collision" type="CollisionShape2D" parent="ActionScripts/JujubinhaDestination"]
-position = Vector2(522, 244)
-shape = SubResource("RectangleShape2D_w6q5d")
-debug_color = Color(1, 0, 0, 0.419608)
+[node name="JujubinhaArrivesAtHome" type="Node2D" parent="Cutscenes" node_paths=PackedStringArray("cutscene")]
+position = Vector2(-56.6703, 14.6965)
+script = ExtResource("8_lxupt")
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtHome" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("9_th80l")
+destination_camera = NodePath("Camera2D")
+id = "jujubinha_arrives_at_home"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/JujubinhaArrivesAtHome/Cutscene"]
+position = Vector2(-57.3297, -86.6965)
+enabled = false
+zoom = Vector2(1.5, 1.5)
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/JujubinhaArrivesAtHome"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/JujubinhaArrivesAtHome/Area2D"]
+position = Vector2(6.67033, 1.30351)
+shape = SubResource("RectangleShape2D_rytvj")
+debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("8_vth8r")]
-position = Vector2(-114, -48)
+position = Vector2(-24, 35)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -305,6 +324,7 @@ scale = Vector2(0.870955, 0.421838)
 energy = 1.5
 texture = SubResource("GradientTexture2D_d7yml")
 
+[connection signal="body_entered" from="Cutscenes/JujubinhaArrivesAtHome/Area2D" to="Cutscenes/JujubinhaArrivesAtHome" method="_on_trigger_area_entered"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
 [connection signal="closed_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_closed_note"]
 [connection signal="opened_note" from="CanvasLayer/NotePopup" to="." method="_on_note_manager_opened_note"]

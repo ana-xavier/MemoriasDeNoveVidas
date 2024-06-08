@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var top_bar: ColorRect = $TopBar
 @onready var bottom_bar: ColorRect = $BottomBar
+@onready var full_screen_fade: ColorRect = $FullScreenFade
 
 const BAR_SIZE = Vector2(320, 22.5)
 const DEFAULT_BAR_SIZE = Vector2(320, 0)
@@ -15,6 +16,7 @@ signal cutscene_ended
 
 func _ready():
 	visible = false
+	full_screen_fade.visible = false
 	top_bar.size.y = 0
 	bottom_bar.size.y = 0
 
@@ -53,3 +55,18 @@ func end_cutscene() -> void:
 	is_cutscene_running = false
 	cutscene_ended.emit()
 	
+func full_screen_fade_in() -> void:
+	var tween = create_tween()
+	tween.tween_property(
+		full_screen_fade, "color:a", 0, ANIMATION_DURATION
+	).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
+	full_screen_fade.visible = false
+	
+func full_screen_fade_out() -> void:
+	full_screen_fade.visible = true
+	var tween = create_tween()
+	tween.tween_property(
+		full_screen_fade, "color:a", 1, ANIMATION_DURATION
+	).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished

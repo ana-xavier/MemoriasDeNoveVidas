@@ -36,3 +36,7 @@ func get_player_camera() -> Camera2D:
 	if player && player.has_node("Camera2D"):
 		return player.get_node("Camera2D")
 	return null
+
+func set_character_target_path(character: CharacterBody2D, target: Vector2) -> void:
+	await character.fsm.force_change_state("follow_path_state")	
+	character.path_finder_component.find_and_follow_path(target)

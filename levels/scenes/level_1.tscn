@@ -564,7 +564,7 @@ id = "dig_E6"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(-95.1832, 158.944)
+position = Vector2(462.936, -384.941)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -831,6 +831,7 @@ visible = false
 visible = false
 
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
+visible = true
 
 [connection signal="body_entered" from="Cutscenes/JujubinhaArrivesAtLake/Area2D" to="Cutscenes/JujubinhaArrivesAtLake" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="Cutscenes/GhostApparition1/Area2D" to="Cutscenes/GhostApparition1" method="_on_trigger_area_entered"]
