@@ -36,4 +36,3 @@ func get_player_camera() -> Camera2D:
 	if player && player.has_node("Camera2D"):
 		return player.get_node("Camera2D")
 	return null
-

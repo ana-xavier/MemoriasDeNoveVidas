@@ -937,7 +937,6 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_ixs7k")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_ckium")
 position = Vector2(0, -3.33333)
 texture = ExtResource("4_hyefw")
@@ -958,7 +957,6 @@ frame = 50
 [node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("5_6kyrx")]
 character = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
-move_speed = 50.0
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_y8dly")
