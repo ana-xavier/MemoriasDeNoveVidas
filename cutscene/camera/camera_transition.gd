@@ -26,7 +26,7 @@ func transition_camera2D(from: Camera2D, to: Camera2D, duration: float = 1.0) ->
 	camera2D.enabled = true
 	transitioning = true
 	
-	var tween: Tween = get_tree().create_tween()
+	var tween: Tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property(
 		camera2D, "global_position", to.global_position, duration
 		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)

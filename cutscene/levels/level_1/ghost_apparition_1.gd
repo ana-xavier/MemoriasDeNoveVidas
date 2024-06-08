@@ -17,12 +17,12 @@ func run() -> void:
 	character.modulate.a = 0
 	character.visible = true
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(character, "modulate:a", 1, 2.0)
-	
 	CutsceneManager.start_cutscene()
 	
-	CameraTransition.transition_camera2D(player_cam, destination_camera)
+	var tween = get_tree().create_tween()
+	tween.tween_property(character, "modulate:a", 1, 2.0).set_trans(Tween.TRANS_QUART).set_delay(1)
+	
+	CameraTransition.transition_camera2D(player_cam, destination_camera, 3)
 	await tween.finished
 	
 	character.fsm.force_change_state("follow_path_state")	
@@ -45,7 +45,7 @@ func run() -> void:
 	character.global_position = initial_ghost_pos
 	character.visible = false
 	
-	CameraTransition.transition_camera2D(destination_camera, player_cam, 0.5)
+	CameraTransition.transition_camera2D(destination_camera, player_cam, 1.5)
 	await CameraTransition.transitioning_complete
 	
 	DialogManager.start_dialog(player.global_position, lines, "", true, true)

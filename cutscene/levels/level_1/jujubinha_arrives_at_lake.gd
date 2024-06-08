@@ -21,7 +21,7 @@ func run() -> void:
 	await character.path_finder_component.arrived_at_target	
 	
 	CutsceneManager.start_cutscene()
-	CameraTransition.transition_camera2D(player_cam, destination_camera, 2.0)
+	CameraTransition.transition_camera2D(player_cam, destination_camera, 6.0)
 	character.path_finder_component.find_and_follow_path(Vector2(-493, -228))
 	await character.path_finder_component.arrived_at_target	
 	character.fsm.force_change_state("idle_waiting_state")
@@ -31,7 +31,7 @@ func run() -> void:
 	character.animation.play("surprised")
 	DialogManager.start_dialog(character.global_position, lines, "", true, true)
 	await DialogManager.dialog_finished
-	CameraTransition.transition_camera2D(destination_camera, player_cam, 0.5)
+	CameraTransition.transition_camera2D(destination_camera, player_cam, 1.5)
 	await CameraTransition.transitioning_complete
 	CutsceneManager.end_cutscene()
 	
