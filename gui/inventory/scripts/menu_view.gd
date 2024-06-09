@@ -1,5 +1,7 @@
 extends Control
 
+@onready var save_view: Control = $TabContainer/SaveView
+
 @onready var tab_container: TabContainer = $TabContainer
 @onready var save_button: TextureButton = $MenuButtons/SaveButton
 @onready var load_button: TextureButton = $MenuButtons/LoadButton
@@ -27,7 +29,7 @@ func toggle_buttons() -> void:
 		Tab.SAVE:
 			save_button.disabled = true
 		Tab.LOAD:
-			save_button.disabled = true
+			load_button.disabled = true
 		Tab.OPTIONS:
 			options_button.disabled = true
 				
@@ -35,15 +37,16 @@ func toggle_buttons() -> void:
 func open_tab_empty() -> void:
 	current_tab = Tab.EMPTY
 	tab_container.current_tab = current_tab
+	toggle_buttons()
 
 func open_tab_save() -> void:
-	# MOSTRAR SAVES
+	save_view.search_saved_data()
 	current_tab = Tab.SAVE
 	tab_container.current_tab = current_tab
 	toggle_buttons()
 
 func open_tab_load() -> void:
-	# MOSTRAR SAVES
+	
 	current_tab = Tab.LOAD
 	tab_container.current_tab = current_tab
 	toggle_buttons()
@@ -58,15 +61,14 @@ func open_tab_options() -> void:
 func _on_save_button_pressed():
 	open_tab_save()
 
-
 func _on_load_button_pressed():
 	open_tab_load()
-
 
 func _on_options_button_pressed():
 	open_tab_options()
 
-
 func _on_quit_button_pressed():
 	# quit
 	pass
+
+

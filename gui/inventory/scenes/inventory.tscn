@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=30 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
@@ -17,10 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://bbffl3oki18f0" path="res://gui/inventory/assets/ui_book2.png" id="10_4plao"]
 [ext_resource type="Texture2D" uid="uid://dhawf4g7xp488" path="res://gui/inventory/assets/ui_book3.png" id="10_breu0"]
 [ext_resource type="Script" path="res://gui/inventory/scripts/menu_view.gd" id="10_mlfei"]
-[ext_resource type="Texture2D" uid="uid://bgn0entdjwpd3" path="res://gui/inventory/assets/menu_button2.png" id="11_6vugl"]
+[ext_resource type="Script" path="res://gui/inventory/scripts/save_view.gd" id="13_c1wvs"]
+[ext_resource type="Texture2D" uid="uid://dkywe13kanqxw" path="res://gui/inventory/assets/save_container.png" id="13_c08pe"]
+[ext_resource type="Texture2D" uid="uid://lvaaeh1gg3ri" path="res://gui/inventory/assets/menu_button3.png" id="13_tf4e1"]
 [ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="15_kbfd7"]
 [ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="16_amra1"]
+[ext_resource type="PackedScene" uid="uid://dkuxrcu77r7ea" path="res://gui/components/scenes/data_button.tscn" id="17_7nj2x"]
 [ext_resource type="Texture2D" uid="uid://cq4qrxy4qkenj" path="res://gui/icons/menu.png" id="17_rv3qr"]
+[ext_resource type="PackedScene" uid="uid://do1py0iult3ee" path="res://gui/inventory/scenes/menu_button.tscn" id="17_wt6uw"]
+[ext_resource type="Texture2D" uid="uid://c2pr8exvxey2r" path="res://gui/inventory/assets/menu_button4.png" id="18_3y338"]
 [ext_resource type="Texture2D" uid="uid://c2hbf546svt58" path="res://gui/icons/menu_pressed.png" id="18_s4n1o"]
 [ext_resource type="Texture2D" uid="uid://l68wnwb0nuy7" path="res://gui/icons/menu_hover.png" id="19_4sp11"]
 
@@ -203,10 +208,10 @@ offset_right = 145.0
 offset_bottom = 151.0
 theme_override_constants/separation = 2
 
-[node name="SaveButton" type="TextureButton" parent="TabContainer/MenuView/MenuButtons"]
+[node name="SaveButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("11_6vugl")
+texture_disabled = ExtResource("13_tf4e1")
 
 [node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/SaveButton"]
 layout_mode = 1
@@ -215,23 +220,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -24.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 24.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_172y3")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Salvar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LoadButton" type="TextureButton" parent="TabContainer/MenuView/MenuButtons"]
+[node name="LoadButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("11_6vugl")
+texture_disabled = ExtResource("13_tf4e1")
 
 [node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/LoadButton"]
 layout_mode = 1
@@ -240,23 +244,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -24.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 24.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_172y3")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Carregar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionsButton" type="TextureButton" parent="TabContainer/MenuView/MenuButtons"]
+[node name="OptionsButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("11_6vugl")
+texture_disabled = ExtResource("13_tf4e1")
 
 [node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/OptionsButton"]
 layout_mode = 1
@@ -265,14 +268,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -24.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 24.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_172y3")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Opções"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -283,13 +286,89 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/margin_top = 28
 
-[node name="QuitButton" type="TextureButton" parent="TabContainer/MenuView/MenuButtons/MarginContainer"]
+[node name="QuitButton" parent="TabContainer/MenuView/MenuButtons/MarginContainer" instance=ExtResource("17_wt6uw")]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("11_6vugl")
+texture_disabled = ExtResource("13_tf4e1")
 
 [node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/MarginContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Sair do Jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/MenuView"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 44.0
+offset_right = 250.0
+offset_bottom = 145.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_othad")
+current_tab = 2
+tabs_visible = false
+
+[node name="EmptyView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SaveView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_c1wvs")
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/MenuView/TabContainer/SaveView"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -63.5
+offset_right = 39.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_c08pe")
+
+[node name="SaveContent" type="RichTextLabel" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 69.0
+offset_bottom = 101.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_172y3")
+theme_override_font_sizes/normal_font_size = 6
+text = "Dados salvos em Slot 1
+Local: Floresta das Sombras
+Data: 09/06/2024
+Hora: 13:17 
+Progresso: 14%
+Itens Secretos: 0/23
+"
+
+[node name="SaveDataButton" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect" instance=ExtResource("17_wt6uw")]
+layout_mode = 0
+offset_top = 99.0
+offset_bottom = 115.0
+texture_normal = ExtResource("18_3y338")
+texture_pressed = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect/SaveDataButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -304,52 +383,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_172y3")
 theme_override_font_sizes/font_size = 8
-text = "Sair
-"
+text = "Salvar Progresso"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="TabContainer/MenuView"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 44.0
-offset_right = 250.0
-offset_bottom = 145.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_othad")
-tabs_visible = false
-
-[node name="EmptyView" type="Control" parent="TabContainer/MenuView/TabContainer"]
-layout_mode = 2
-
-[node name="SaveView" type="Control" parent="TabContainer/MenuView/TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/MenuView/TabContainer/SaveView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Save"
-
 [node name="LoadView" type="Control" parent="TabContainer/MenuView/TabContainer"]
-visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/MenuView/TabContainer/LoadView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Load"
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MenuView/TabContainer/LoadView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadDataButton" parent="TabContainer/MenuView/TabContainer/LoadView/VBoxContainer" instance=ExtResource("17_7nj2x")]
+layout_mode = 2
 
 [node name="OptionsView" type="Control" parent="TabContainer/MenuView/TabContainer"]
 visible = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/MenuView/TabContainer/OptionsView"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Options"
 
 [node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
@@ -409,6 +463,7 @@ texture_hover = ExtResource("16_amra1")
 [connection signal="pressed" from="TabContainer/MenuView/MenuButtons/LoadButton" to="TabContainer/MenuView" method="_on_load_button_pressed"]
 [connection signal="pressed" from="TabContainer/MenuView/MenuButtons/OptionsButton" to="TabContainer/MenuView" method="_on_options_button_pressed"]
 [connection signal="pressed" from="TabContainer/MenuView/MenuButtons/MarginContainer/QuitButton" to="TabContainer/MenuView" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TabContainer/MenuView/TabContainer/SaveView/TextureRect/SaveDataButton" to="TabContainer/MenuView/TabContainer/SaveView" method="_on_save_data_button_pressed"]
 [connection signal="pressed" from="Buttons/ObjectivesButton" to="." method="_on_objectives_button_pressed"]
 [connection signal="pressed" from="Buttons/ItensButton" to="." method="_on_itens_button_pressed"]
 [connection signal="pressed" from="Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
