@@ -831,7 +831,6 @@ visible = false
 visible = false
 
 [node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
-visible = true
 
 [connection signal="body_entered" from="Cutscenes/JujubinhaArrivesAtLake/Area2D" to="Cutscenes/JujubinhaArrivesAtLake" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="Cutscenes/GhostApparition1/Area2D" to="Cutscenes/GhostApparition1" method="_on_trigger_area_entered"]
