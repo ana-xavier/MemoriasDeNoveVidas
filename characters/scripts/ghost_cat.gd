@@ -13,7 +13,7 @@ func _ready() -> void:
 	animation_state = $AnimationTree["parameters/playback"]
 	super()
 
-func _on_spawn(position: Vector2, direction):
+func _on_spawn(_position: Vector2, _direction):
 	var current_level: String = GlobalData.data.current_level
 	var char_pos = GlobalData.data.get_character_pos(character_id)
 	if !char_pos.is_empty() && current_level:

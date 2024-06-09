@@ -5,9 +5,9 @@ class_name InteractionJumpArea
 
 var collision_mask_layer: int = 1
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	if not player_body.get_collision_mask_value(collision_mask_layer):
 		InteractionManager.register_area(self)
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	InteractionManager.unregister_area(self)
