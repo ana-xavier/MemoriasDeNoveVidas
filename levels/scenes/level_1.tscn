@@ -39,9 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
 [ext_resource type="Texture2D" uid="uid://bbvd7rfosca6g" path="res://environment/buildings/exterior/assets/house_3_window.png" id="23_r8b2l"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
-[ext_resource type="PackedScene" uid="uid://c67ny78pij4t7" path="res://debug/save_debug.tscn" id="29_ykv58"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="34_gmc8r"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="35_hwvyl"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="42_i7svl"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -831,7 +831,7 @@ visible = false
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_u2rkm")]
 visible = false
 
-[node name="SaveDebug" parent="CanvasLayer" instance=ExtResource("29_ykv58")]
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("42_i7svl")]
 
 [connection signal="body_entered" from="Cutscenes/JujubinhaArrivesAtLake/Area2D" to="Cutscenes/JujubinhaArrivesAtLake" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="Cutscenes/GhostApparition1/Area2D" to="Cutscenes/GhostApparition1" method="_on_trigger_area_entered"]

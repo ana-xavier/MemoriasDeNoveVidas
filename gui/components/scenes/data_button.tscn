@@ -2,7 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="1_sy2o0"]
 [ext_resource type="Texture2D" uid="uid://b0kjeroao5wlp" path="res://gui/components/assets/data_button.png" id="1_y7oks"]
-[ext_resource type="Script" path="res://gui/components/scriptsdata_button.gd" id="2_6tfhq"]
+[ext_resource type="Script" path="res://gui/components/scripts/data_button.gd" id="2_6tfhq"]
+
 
 [node name="LoadDataButton" type="TextureButton"]
 offset_right = 80.0

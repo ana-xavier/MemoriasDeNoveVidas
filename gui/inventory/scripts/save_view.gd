@@ -19,5 +19,7 @@ func save_progress():
 	SaveManager.save_game_data()	
 	
 func _on_save_data_button_pressed():
+	SignalBus.open_feedback_container.emit("O progresso foi salvo com sucesso!", false, true)
+	
 	save_progress()
 	search_saved_data()

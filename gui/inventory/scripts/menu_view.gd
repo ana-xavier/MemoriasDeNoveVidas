@@ -68,7 +68,8 @@ func _on_options_button_pressed():
 	open_tab_options()
 
 func _on_quit_button_pressed():
-	# quit
-	pass
-
+	SignalBus.open_feedback_container.emit("Você deseja sair do jogo? Dados não\nsalvos serão perdidos!", true, true)
+	var message = await SignalBus.feedback_returned
+	if message == "confirm":
+		get_tree().quit()
 
