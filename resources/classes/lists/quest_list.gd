@@ -11,7 +11,7 @@ func get_quest_by_id(quest_id: String) -> Quest:
 
 func get_quest_by_character_id(character_id: String) -> Quest:
 	for quest in quests:
-		if quest is QuestDeliverItem or quest is QuestGoToLocation:
+		if quest is QuestDeliverItem or quest is QuestGoToLocation or quest is QuestFindingItem:
 			if (quest.character_id == character_id && quest.status == Quest.Status.ACTIVE):
 				return quest
 	return null
