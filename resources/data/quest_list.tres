@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=11 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=13 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_characters_interact.gd" id="2_1reer"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_deliver_item.gd" id="3_4fqly"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_go_to_location.gd" id="4_4lpbj"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/finding_item_quest.gd" id="5_xove3"]
 
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("1_dixrk")
@@ -21,7 +22,7 @@ prerequisite_quest_id = ""
 [sub_resource type="Resource" id="Resource_usyv1"]
 script = ExtResource("2_1reer")
 interacted_count = 0
-to_interact = 2
+to_interact = 3
 characters_already_interacted = {
 "jujubinha": false,
 "srpotatoe": false
@@ -73,6 +74,20 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_go1c1"]
+script = ExtResource("5_xove3")
+required_item_id = "new_plank"
+quantity = 3
+character_id = "pedrita"
+finish_objective_display = "Fale com Pedrita após encontrar as tábuas."
+id = "pedrita_get_wood"
+name = "Em busca de uma passarela."
+description = ""
+objective_display = "madeiras encontradas."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1")])

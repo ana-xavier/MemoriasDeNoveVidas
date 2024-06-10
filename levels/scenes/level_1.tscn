@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=103 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="34_gmc8r"]
 [ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="35_hwvyl"]
-[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="42_i7svl"]
+[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="42_i7svl"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
 offsets = PackedFloat32Array(0, 0.851675)
@@ -276,6 +276,20 @@ prerequisite_quest_id = "pedrita_get_wood"
 release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_qhbfc"), SubResource("Resource_n4h5r"), SubResource("Resource_tlkv6")])
+
+[sub_resource type="Resource" id="Resource_2rl8h"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["oie"])
+
+[sub_resource type="Resource" id="Resource_gtf50"]
+script = ExtResource("10_x2nvm")
+id = "pedrita_greetings"
+has_prerequisite = true
+prerequisite_quest_id = "jujubinha_location_2_quest"
+release_a_quest = true
+quest_id = "pedrita_get_wood"
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_2rl8h")])
 
 [sub_resource type="Resource" id="Resource_v8711"]
 script = ExtResource("10_x2nvm")
@@ -598,7 +612,7 @@ texture = ExtResource("35_hwvyl")
 [node name="Pedrita" parent="YSort" instance=ExtResource("8_55c6a")]
 position = Vector2(-646, 104)
 character_idle_dialog = SubResource("Resource_k5mip")
-character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_v8711"), SubResource("Resource_v8711")])
+character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_gtf50"), SubResource("Resource_v8711")])
 char_interact_quest_id = "searching_for_answers"
 character_id = "pedrita"
 character_name = "Pedrita"
