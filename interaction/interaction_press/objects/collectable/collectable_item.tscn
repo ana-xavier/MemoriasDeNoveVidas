@@ -11,6 +11,7 @@ script = ExtResource("1_70xgn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_eydya")]
+action_name = "pegar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("RectangleShape2D_l05jf")

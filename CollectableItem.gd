@@ -10,6 +10,8 @@ extends Node2D
 func _ready():
 	if (InteractiveObjectsData.is_object_already_interacted(id)):
 		queue_free()
+	if sprite_item != null:
+		sprite_node.texture = sprite_item
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact():

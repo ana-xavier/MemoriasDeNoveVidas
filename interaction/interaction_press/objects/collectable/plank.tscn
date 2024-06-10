@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpraqyl448wtq"]
+
+[ext_resource type="PackedScene" uid="uid://brml2ylxiua0n" path="res://interaction/interaction_press/objects/collectable/collectable_item.tscn" id="1_4mbgj"]
+[ext_resource type="Texture2D" uid="uid://fp82mu5g5mp1" path="res://resources/assets/sprites/spr_wood.png" id="2_y536v"]
+[ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="3_wa4ne"]
+
+[node name="Plank" instance=ExtResource("1_4mbgj")]
+id_item = "new_plank"
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="0"]
+position = Vector2(1, 0)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("3_wa4ne")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_y536v")
