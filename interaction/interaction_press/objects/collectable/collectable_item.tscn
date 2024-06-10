@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brml2ylxiua0n"]
+
+[ext_resource type="Script" path="res://CollectableItem.gd" id="1_70xgn"]
+[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="2_eydya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l05jf"]
+
+[node name="CollectableItem" type="Node2D"]
+script = ExtResource("1_70xgn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_eydya")]
+action_name = "pegar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_l05jf")
