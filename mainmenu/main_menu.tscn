@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbeeyplal6r2u"]
+[gd_scene load_steps=14 format=3 uid="uid://cbeeyplal6r2u"]
 
 [ext_resource type="Script" path="res://mainmenu/MainMenu.gd" id="1_cpemm"]
 [ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://mainmenu/assets/1.png" id="2_mgy4n"]
 [ext_resource type="Texture2D" uid="uid://c0k82223adg0h" path="res://mainmenu/assets/2.png" id="3_rih60"]
 [ext_resource type="Texture2D" uid="uid://ulw8q5dorjk2" path="res://mainmenu/assets/5.png" id="3_u34hm"]
 [ext_resource type="FontFile" uid="uid://cyytwcjx00koj" path="res://gui/fonts/PressStart2P.ttf" id="4_t6sor"]
+[ext_resource type="Texture2D" uid="uid://bvfyqk0rcuf26" path="res://gui/container/container_box.png" id="6_vk46h"]
+[ext_resource type="PackedScene" uid="uid://dkuxrcu77r7ea" path="res://gui/components/scenes/data_button.tscn" id="7_ufrab"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -77,13 +79,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.0
+offset_left = -35.0
 offset_top = 12.0
-offset_right = 100.0
+offset_right = 109.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="continue" type="Button" parent="controls"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.431373, 0, 0.717647, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0, 0.717647, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_t6sor")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
+text = "Continuar"
 
 [node name="start" type="Button" parent="controls"]
 layout_mode = 2
@@ -94,7 +109,7 @@ theme_override_fonts/font = ExtResource("4_t6sor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
-text = "Iniciar"
+text = "Novo Jogo"
 
 [node name="controls" type="Button" parent="controls"]
 layout_mode = 2
@@ -117,6 +132,75 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fe2d3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ub7tm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nnowp")
 text = "Sair"
+
+[node name="LoadContainer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoadContainer"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -85.0
+offset_right = 143.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.368627)
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadContainer"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LoadContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_vk46h")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LoadDataButton" parent="LoadContainer/MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_ufrab")]
+layout_mode = 2
+
+[node name="LoadDataButton2" parent="LoadContainer/MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_ufrab")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="controls/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="controls/controls" to="." method="_on_controls_pressed"]
