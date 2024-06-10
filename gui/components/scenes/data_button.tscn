@@ -30,3 +30,6 @@ theme_override_font_sizes/font_size = 7
 text = "Floresta das Sombras
 09/06/2024 - 17:33
 87%"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

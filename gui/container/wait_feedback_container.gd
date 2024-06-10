@@ -21,12 +21,12 @@ func open(text: String, show_cancel: bool, show_confirm: bool) -> void:
 	label.text = text
 	visible = true
 	is_open = true
-	#_animate()
+	_animate()
 	
 func _animate() -> void:
 	final_scale = container.scale
 	container.scale = Vector2.ZERO
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(
 		container, "scale", final_scale, anim_duration
 	).set_trans(Tween.TRANS_BACK)
