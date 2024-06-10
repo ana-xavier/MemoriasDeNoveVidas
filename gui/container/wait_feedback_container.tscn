@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpjsffmqikpi2"]
+
+[ext_resource type="Texture2D" uid="uid://bvfyqk0rcuf26" path="res://gui/container/container_box.png" id="1_cvi7x"]
+[ext_resource type="Script" path="res://gui/container/wait_feedback_container.gd" id="1_xbxf0"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="2_537so"]
+[ext_resource type="PackedScene" uid="uid://do1py0iult3ee" path="res://gui/inventory/scenes/menu_button.tscn" id="2_tdi8o"]
+[ext_resource type="Texture2D" uid="uid://bcn76cr3st8l7" path="res://gui/container/feedback_button.png" id="3_cs561"]
+[ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="4_xpkuk"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="5_ws7ax"]
+[ext_resource type="Texture2D" uid="uid://cbg2ap8sf54k5" path="res://gui/icons/confirm_icon.png" id="6_cfxrh"]
+
+[node name="WaitFeedbackContainer" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 80.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+script = ExtResource("1_xbxf0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -17.0
+offset_right = 18.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.368627)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -23.5
+offset_right = 15.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvi7x")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Buttons" type="Control" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_right = 87.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CancelButton" parent="MarginContainer/Buttons/HBoxContainer" instance=ExtResource("2_tdi8o")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("3_cs561")
+
+[node name="Cancel" type="Sprite2D" parent="MarginContainer/Buttons/HBoxContainer/CancelButton"]
+position = Vector2(10.75, 8.24999)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_xpkuk")
+
+[node name="Label" type="Label" parent="MarginContainer/Buttons/HBoxContainer/CancelButton"]
+layout_mode = 0
+offset_left = 23.25
+offset_top = 1.99999
+offset_right = 63.25
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
+theme_override_fonts/font = ExtResource("5_ws7ax")
+theme_override_font_sizes/font_size = 12
+text = "Cancelar"
+
+[node name="ConfirmButton" parent="MarginContainer/Buttons/HBoxContainer" instance=ExtResource("2_tdi8o")]
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("3_cs561")
+
+[node name="Confirm" type="Sprite2D" parent="MarginContainer/Buttons/HBoxContainer/ConfirmButton"]
+position = Vector2(11.75, 8.24998)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_cfxrh")
+
+[node name="Label" type="Label" parent="MarginContainer/Buttons/HBoxContainer/ConfirmButton"]
+layout_mode = 0
+offset_left = 23.25
+offset_top = 1.99999
+offset_right = 63.25
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
+theme_override_fonts/font = ExtResource("5_ws7ax")
+theme_override_font_sizes/font_size = 12
+text = "Confirmar"
+
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Text" type="Label" parent="MarginContainer/TextContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.239216, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
+theme_override_fonts/font = ExtResource("2_537so")
+theme_override_font_sizes/font_size = 12
+
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

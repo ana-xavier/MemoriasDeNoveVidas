@@ -98,8 +98,8 @@ func _on_jump(destination: Marker2D):
 	await tween.finished
 	is_jumping = false
 	
-func _on_spawn(position: Vector2, direction: String):
-	global_position = position
+func _on_spawn(_position: Vector2, _direction: String):
+	global_position = _position
 
 func lock_player_movement():
 	is_player_locked = true

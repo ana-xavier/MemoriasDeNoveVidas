@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://do1py0iult3ee"]
+
+[ext_resource type="Texture2D" uid="uid://bgn0entdjwpd3" path="res://gui/inventory/assets/menu_button2.png" id="1_ja36y"]
+[ext_resource type="Script" path="res://gui/inventory/scripts/menu_button.gd" id="2_y1skb"]
+[ext_resource type="AudioStream" uid="uid://rpi72w2igscc" path="res://resources/assets/menu_buttons/menu_20.wav" id="4_4r5t8"]
+[ext_resource type="AudioStream" uid="uid://bn8jr5su5xxk" path="res://resources/assets/menu_buttons/menu_7.wav" id="4_06ccd"]
+
+[node name="MenuButton" type="TextureButton"]
+offset_right = 80.0
+offset_bottom = 16.0
+texture_normal = ExtResource("1_ja36y")
+script = ExtResource("2_y1skb")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_06ccd")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4r5t8")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

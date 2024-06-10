@@ -1,10 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbeeyplal6r2u"]
+[gd_scene load_steps=23 format=3 uid="uid://cbeeyplal6r2u"]
 
 [ext_resource type="Script" path="res://mainmenu/MainMenu.gd" id="1_cpemm"]
 [ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://mainmenu/assets/1.png" id="2_mgy4n"]
 [ext_resource type="Texture2D" uid="uid://c0k82223adg0h" path="res://mainmenu/assets/2.png" id="3_rih60"]
 [ext_resource type="Texture2D" uid="uid://ulw8q5dorjk2" path="res://mainmenu/assets/5.png" id="3_u34hm"]
 [ext_resource type="FontFile" uid="uid://cyytwcjx00koj" path="res://gui/fonts/PressStart2P.ttf" id="4_t6sor"]
+[ext_resource type="Script" path="res://mainmenu/DataContainer.gd" id="6_cak8c"]
+[ext_resource type="Texture2D" uid="uid://bvfyqk0rcuf26" path="res://gui/container/container_box.png" id="6_vk46h"]
+[ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="7_bi42u"]
+[ext_resource type="Script" path="res://mainmenu/NewGameList.gd" id="7_npjgn"]
+[ext_resource type="PackedScene" uid="uid://dkuxrcu77r7ea" path="res://gui/components/scenes/data_button.tscn" id="7_ufrab"]
+[ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="8_xt070"]
+[ext_resource type="Texture2D" uid="uid://c75lnufapalul" path="res://gui/container/title_container.png" id="11_02wsg"]
+[ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://mainmenu/load_game_list.tscn" id="12_qw8rd"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="13_d386x"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="14_dxmxj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -23,6 +33,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnowp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op68d"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -77,13 +89,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.0
+offset_left = -35.0
 offset_top = 12.0
-offset_right = 100.0
+offset_right = 109.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="continue" type="Button" parent="controls"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.431373, 0, 0.717647, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0, 0.717647, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_t6sor")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
+text = "Continuar"
 
 [node name="start" type="Button" parent="controls"]
 layout_mode = 2
@@ -94,7 +119,7 @@ theme_override_fonts/font = ExtResource("4_t6sor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvo6o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6lxw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a3x48")
-text = "Iniciar"
+text = "Novo Jogo"
 
 [node name="controls" type="Button" parent="controls"]
 layout_mode = 2
@@ -118,6 +143,134 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ub7tm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nnowp")
 text = "Sair"
 
+[node name="DataContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_cak8c")
+
+[node name="ColorRect" type="ColorRect" parent="DataContainer"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -85.0
+offset_right = 143.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.368627)
+
+[node name="MarginContainer" type="MarginContainer" parent="DataContainer"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DataContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_vk46h")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Close" type="MarginContainer" parent="DataContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_right = -17
+
+[node name="CloseButton" type="TextureButton" parent="DataContainer/MarginContainer/Close"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("7_bi42u")
+texture_pressed = ExtResource("7_bi42u")
+texture_hover = ExtResource("8_xt070")
+
+[node name="MarginContainer" type="MarginContainer" parent="DataContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 20
+
+[node name="NewGameAndLoadTab" type="TabContainer" parent="DataContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_op68d")
+tabs_visible = false
+
+[node name="NewGameList" type="VBoxContainer" parent="DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab"]
+layout_mode = 2
+script = ExtResource("7_npjgn")
+
+[node name="Slot1" parent="DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab/NewGameList" instance=ExtResource("7_ufrab")]
+layout_mode = 2
+
+[node name="Slot2" parent="DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab/NewGameList" instance=ExtResource("7_ufrab")]
+layout_mode = 2
+
+[node name="Slot3" parent="DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab/NewGameList" instance=ExtResource("7_ufrab")]
+layout_mode = 2
+
+[node name="LoadGameList" parent="DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab" instance=ExtResource("12_qw8rd")]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="DataContainer"]
+layout_mode = 2
+offset_left = -25.0
+offset_top = -58.0
+offset_right = 71.0
+offset_bottom = -42.0
+texture = ExtResource("11_02wsg")
+
+[node name="Label" type="Label" parent="DataContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_d386x")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("14_dxmxj")]
+visible = false
+
+[connection signal="pressed" from="controls/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="controls/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="controls/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="controls/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="DataContainer/MarginContainer/Close/CloseButton" to="DataContainer" method="_on_close_button_pressed"]

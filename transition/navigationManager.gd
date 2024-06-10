@@ -11,29 +11,32 @@ signal on_trigger_player_spawn
 
 var spawn_door_tag
 
-func go_to_level(level_tag, destination_tag):
-	var scene_to_load
-	
+func match_level_tag(level_tag):
 	match level_tag:
 		"level_1":
-			scene_to_load = scene_level1
+			return scene_level1
 		"house":
-			scene_to_load = scene_house
+			return scene_house
 		"house_3_firstfloor":
-			scene_to_load = scene_house_3_firstfloor	
+			return scene_house_3_firstfloor	
 		"house_3_secondfloor":
-			scene_to_load = scene_house_3_secondfloor
+			return scene_house_3_secondfloor
 		"forest":
-			scene_to_load = scene_forest
+			return scene_forest
 		"forest_house":
-			scene_to_load = scene_forest_house	
-			
+			return scene_forest_house	
+	return null
+
+func go_to_level(level_tag, destination_tag):
+	var scene_to_load = match_level_tag(level_tag)
+	
 	if scene_to_load != null:
 		Transition.transition()
 		await Transition.on_transition_finished
 		
 		spawn_door_tag = destination_tag
 		get_tree().change_scene_to_packed(scene_to_load)
+
 
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)

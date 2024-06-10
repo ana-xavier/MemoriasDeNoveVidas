@@ -10,7 +10,7 @@ func _ready():
 	CutsceneManager.cutscene_started.connect(hide_cursor)
 	CutsceneManager.cutscene_ended.connect(show_cursor)
 
-func _process(delta):
+func _process(_delta):
 	cursor.global_position = cursor.get_global_mouse_position()
 
 func hide_cursor() -> void:

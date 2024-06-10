@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3ltu8bjem7cs"]
+
+[ext_resource type="Script" path="res://mainmenu/load_game_list.gd" id="1_yec8g"]
+
+[node name="LoadGameList" type="VBoxContainer"]
+process_mode = 3
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yec8g")

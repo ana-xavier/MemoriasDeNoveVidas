@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=30 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
@@ -15,10 +15,24 @@
 [ext_resource type="Texture2D" uid="uid://cbfs1hetggmn2" path="res://gui/icons/coin_pressed.png" id="8_bi663"]
 [ext_resource type="Texture2D" uid="uid://p0bmsfcb6t40" path="res://gui/icons/coin_hover.png" id="9_ggodq"]
 [ext_resource type="Texture2D" uid="uid://bbffl3oki18f0" path="res://gui/inventory/assets/ui_book2.png" id="10_4plao"]
+[ext_resource type="Texture2D" uid="uid://dhawf4g7xp488" path="res://gui/inventory/assets/ui_book3.png" id="10_breu0"]
+[ext_resource type="Script" path="res://gui/inventory/scripts/menu_view.gd" id="10_mlfei"]
+[ext_resource type="Script" path="res://gui/inventory/scripts/save_view.gd" id="13_c1wvs"]
+[ext_resource type="Texture2D" uid="uid://dkywe13kanqxw" path="res://gui/inventory/assets/save_container.png" id="13_c08pe"]
+[ext_resource type="Texture2D" uid="uid://lvaaeh1gg3ri" path="res://gui/inventory/assets/menu_button3.png" id="13_tf4e1"]
 [ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="15_kbfd7"]
 [ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="16_amra1"]
+[ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://mainmenu/load_game_list.tscn" id="17_a6ese"]
+[ext_resource type="Texture2D" uid="uid://cq4qrxy4qkenj" path="res://gui/icons/menu.png" id="17_rv3qr"]
+[ext_resource type="PackedScene" uid="uid://do1py0iult3ee" path="res://gui/inventory/scenes/menu_button.tscn" id="17_wt6uw"]
+[ext_resource type="Texture2D" uid="uid://c2pr8exvxey2r" path="res://gui/inventory/assets/menu_button4.png" id="18_3y338"]
+[ext_resource type="Texture2D" uid="uid://c2hbf546svt58" path="res://gui/icons/menu_pressed.png" id="18_s4n1o"]
+[ext_resource type="Texture2D" uid="uid://l68wnwb0nuy7" path="res://gui/icons/menu_hover.png" id="19_4sp11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_othad"]
 
 [node name="Inventory" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,9 +60,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 2
 tabs_visible = false
 
 [node name="ObjectivesView" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("5_jtxuc")
 
@@ -100,17 +116,6 @@ theme_override_colors/default_color = Color(0.239216, 0.2, 0.2, 1)
 theme_override_fonts/normal_font = ExtResource("7_172y3")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "Notas estranhas:
- - 2/10 notas encontradas.
-
-Buscando por ajuda:
- - 0/3 vizinhos interagidos.
-
-Um velho amigo:
- - Recupere o item perdido de Sr.Batata.
- - Entregue o item perdido.
-
-obs.: O texto de quests acima é apenas um exemplo para teste."
 
 [node name="ItemsView" type="Control" parent="TabContainer"]
 visible = false
@@ -154,10 +159,250 @@ theme_override_fonts/font = ExtResource("3_jic0x")
 theme_override_font_sizes/font_size = 12
 text = "Itens"
 
+[node name="MenuView" type="Control" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("10_mlfei")
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/MenuView"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.086
+anchor_top = 0.028
+anchor_right = 0.914
+anchor_bottom = 1.0
+offset_left = -0.0200005
+offset_top = -0.04
+offset_right = 0.019989
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/MenuView/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_breu0")
+stretch_mode = 5
+
+[node name="TabTitleCenter" type="CenterContainer" parent="TabContainer/MenuView"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.167
+anchor_right = 0.431
+anchor_bottom = 0.221
+offset_left = -0.0800018
+offset_top = -0.0600014
+offset_right = 0.0799866
+offset_bottom = 0.219997
+
+[node name="TabTitle" type="Label" parent="TabContainer/MenuView/TabTitleCenter"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jic0x")
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+
+[node name="MenuButtons" type="VBoxContainer" parent="TabContainer/MenuView"]
+layout_mode = 2
+offset_left = 54.0
+offset_top = 48.0
+offset_right = 145.0
+offset_bottom = 151.0
+theme_override_constants/separation = 2
+
+[node name="SaveButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_disabled = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/SaveButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Salvar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_disabled = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/LoadButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Carregar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" parent="TabContainer/MenuView/MenuButtons" instance=ExtResource("17_wt6uw")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_disabled = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/OptionsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/MenuView/MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 28
+
+[node name="QuitButton" parent="TabContainer/MenuView/MenuButtons/MarginContainer" instance=ExtResource("17_wt6uw")]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_disabled = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/MenuButtons/MarginContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Sair do Jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/MenuView"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 44.0
+offset_right = 250.0
+offset_bottom = 145.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_othad")
+current_tab = 2
+tabs_visible = false
+
+[node name="EmptyView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SaveView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_c1wvs")
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/MenuView/TabContainer/SaveView"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -63.5
+offset_right = 39.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_c08pe")
+
+[node name="SaveContent" type="RichTextLabel" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 69.0
+offset_bottom = 101.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_172y3")
+theme_override_font_sizes/normal_font_size = 7
+text = "Dados salvos em Slot 1
+Local: Floresta das Sombras
+Data: 09/06/2024
+Hora: 13:17 
+Progresso: 14%
+Itens Secretos: 0/23
+"
+
+[node name="SaveDataButton" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect" instance=ExtResource("17_wt6uw")]
+layout_mode = 0
+offset_top = 99.0
+offset_bottom = 115.0
+texture_normal = ExtResource("18_3y338")
+texture_pressed = ExtResource("13_tf4e1")
+
+[node name="Label" type="Label" parent="TabContainer/MenuView/TabContainer/SaveView/TextureRect/SaveDataButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 8
+text = "Salvar Progresso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+layout_mode = 2
+
+[node name="LoadGameList" parent="TabContainer/MenuView/TabContainer/LoadView" instance=ExtResource("17_a6ese")]
+layout_mode = 0
+
+[node name="OptionsView" type="Control" parent="TabContainer/MenuView/TabContainer"]
+visible = false
+layout_mode = 2
+
 [node name="Buttons" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
 
 [node name="ObjectivesButton" type="TextureButton" parent="Buttons"]
 layout_mode = 0
@@ -183,6 +428,18 @@ texture_hover = ExtResource("9_ggodq")
 texture_disabled = ExtResource("7_v5qqb")
 stretch_mode = 3
 
+[node name="MenuButton" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 69.0
+offset_right = 283.0
+offset_bottom = 85.0
+texture_normal = ExtResource("17_rv3qr")
+texture_pressed = ExtResource("18_s4n1o")
+texture_hover = ExtResource("19_4sp11")
+texture_disabled = ExtResource("17_rv3qr")
+stretch_mode = 3
+
 [node name="CloseButton" type="TextureButton" parent="Buttons"]
 layout_mode = 0
 offset_left = 240.0
@@ -195,6 +452,12 @@ texture_hover = ExtResource("16_amra1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[connection signal="pressed" from="TabContainer/MenuView/MenuButtons/SaveButton" to="TabContainer/MenuView" method="_on_save_button_pressed"]
+[connection signal="pressed" from="TabContainer/MenuView/MenuButtons/LoadButton" to="TabContainer/MenuView" method="_on_load_button_pressed"]
+[connection signal="pressed" from="TabContainer/MenuView/MenuButtons/OptionsButton" to="TabContainer/MenuView" method="_on_options_button_pressed"]
+[connection signal="pressed" from="TabContainer/MenuView/MenuButtons/MarginContainer/QuitButton" to="TabContainer/MenuView" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TabContainer/MenuView/TabContainer/SaveView/TextureRect/SaveDataButton" to="TabContainer/MenuView/TabContainer/SaveView" method="_on_save_data_button_pressed"]
 [connection signal="pressed" from="Buttons/ObjectivesButton" to="." method="_on_objectives_button_pressed"]
 [connection signal="pressed" from="Buttons/ItensButton" to="." method="_on_itens_button_pressed"]
+[connection signal="pressed" from="Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Buttons/CloseButton" to="." method="_on_texture_button_pressed"]

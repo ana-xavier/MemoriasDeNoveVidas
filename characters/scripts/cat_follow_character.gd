@@ -35,9 +35,9 @@ func _on_interact():
 	dialog_component.curr_dialog_data = quest_component.get_current_dialog_by_quest_complete()	
 	await dialog_component.manage_dialog(player_body)
 
-func _on_spawn(position: Vector2, direction):
+func _on_spawn(_position: Vector2, _direction):
 	if GlobalData.data.player_has_follower && GlobalData.data.player_followed_by == character_id:
-		global_position = position
+		global_position = _position
 		global_position.x += 10
 		visible = true
 		fsm.force_change_state("idle_follow_player_state")

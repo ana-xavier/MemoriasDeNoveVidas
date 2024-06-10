@@ -1,18 +1,32 @@
 extends Control
-var speedCloudFront : float = 0.03
-var speedCloudBack : float = 0.01
 
-var cloudFrontOne : Node2D
-var cloudFrontTwo : Node2D
-var cloudBackOne : Node2D
-var cloudBackTwo : Node2D
+@onready var data_container = $DataContainer
+@onready var new_game_list = $DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab/NewGameList
+@onready var load_game_list = $DataContainer/MarginContainer/MarginContainer/NewGameAndLoadTab/LoadGameList
+@onready var conitnue_button = $controls/continue
+
+var speedCloudFront: float = 0.03
+var speedCloudBack: float = 0.01
+
+var cloudFrontOne: Node2D
+var cloudFrontTwo: Node2D
+var cloudBackOne: Node2D
+var cloudBackTwo: Node2D
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://transition/text_scene/text_scene.tscn")
-	SaveManager.create_new_save()
-	Transition.transition_menu()
+	data_container.open_new_game_tab()
+	if new_game_list.is_slots_empty:
+		get_tree().change_scene_to_file("res://transition/text_scene/text_scene.tscn")
+		SaveManager.create_new_save(1)
+		Transition.transition_menu()
+
+func _on_continue_pressed():
+	data_container.open_load_game_tab()
 
 func _ready():
+	data_container.visible = false
+	if load_game_list.has_saved_data:
+		conitnue_button.visible = true
 	cloudFrontOne = get_node("menu/cloudFrontOne")
 	cloudFrontTwo = get_node("menu/cloudFrontTwo")
 	
@@ -46,3 +60,6 @@ func _move_clouds(delta: float):
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+
