@@ -66,9 +66,17 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Buttons"]
-layout_mode = 2
-offset_right = 174.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_right = 87.0
 offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="CancelButton" parent="MarginContainer/Buttons/HBoxContainer" instance=ExtResource("2_tdi8o")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c56guh7afpq0s"]
+[gd_scene load_steps=28 format=3 uid="uid://c56guh7afpq0s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_w2xrs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_hy1t3"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="18_ysfml"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="19_1gyf1"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="20_escal"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="21_7mvod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hif"]
 
@@ -164,6 +165,9 @@ visible = false
 visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("20_escal")]
+visible = false
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("21_7mvod")]
 visible = false
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

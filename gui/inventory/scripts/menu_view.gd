@@ -1,6 +1,7 @@
 extends Control
 
 @onready var save_view: Control = $TabContainer/SaveView
+@onready var load_view: VBoxContainer = $TabContainer/LoadView/LoadGameList
 
 @onready var tab_container: TabContainer = $TabContainer
 @onready var save_button: TextureButton = $MenuButtons/SaveButton
@@ -46,7 +47,7 @@ func open_tab_save() -> void:
 	toggle_buttons()
 
 func open_tab_load() -> void:
-	
+	load_view.open()
 	current_tab = Tab.LOAD
 	tab_container.current_tab = current_tab
 	toggle_buttons()

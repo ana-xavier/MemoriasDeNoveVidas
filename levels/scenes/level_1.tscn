@@ -565,7 +565,7 @@ id = "dig_E6"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(462.936, -384.941)
+position = Vector2(-64.0406, 191.665)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
