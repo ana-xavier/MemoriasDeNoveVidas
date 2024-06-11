@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cle4n4ik7365s"]
+[gd_scene load_steps=23 format=3 uid="uid://cle4n4ik7365s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_kh4ig"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_yaj2g"]
@@ -8,6 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="6_otloc"]
 [ext_resource type="PackedScene" uid="uid://besgvwbcau452" path="res://characters/scenes/base_character.tscn" id="7_fgh8c"]
 [ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/ghost_0.png" id="8_b3ilr"]
+[ext_resource type="Script" path="res://gui/canvas_layer.gd" id="9_rcwqy"]
+[ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="10_pmgu3"]
+[ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="11_oqsov"]
+[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="12_7x70w"]
+[ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="13_q1yqc"]
+[ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="14_o10vh"]
+[ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="15_02onp"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="16_jb3wa"]
+[ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_v3knt"]
+[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="18_o8qpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nmih"]
 size = Vector2(30, 20)
@@ -100,3 +110,55 @@ position = Vector2(167.685, 141)
 rotation = 1.5708
 scale = Vector2(0.390625, 0.527258)
 texture = SubResource("GradientTexture2D_1q345")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("9_rcwqy")
+
+[node name="InventoryButton" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_right = 40.0
+offset_bottom = 180.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 28.0
+texture_normal = ExtResource("10_pmgu3")
+texture_hover = ExtResource("11_oqsov")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 32.0
+texture = ExtResource("12_7x70w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("13_q1yqc")]
+process_mode = 3
+visible = false
+
+[node name="NotificationBox" parent="CanvasLayer" instance=ExtResource("14_o10vh")]
+visible = false
+
+[node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("15_02onp")]
+visible = false
+
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("16_jb3wa")]
+visible = false
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("17_v3knt")]
+visible = false
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("18_o8qpo")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv8khhy8mde2e"]
+[gd_scene load_steps=21 format=3 uid="uid://bv8khhy8mde2e"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_hkomc"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_bji83"]
@@ -7,6 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="5_xdleh"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="6_4uove"]
 [ext_resource type="PackedScene" uid="uid://bpraqyl448wtq" path="res://interaction/interaction_press/objects/collectable/plank.tscn" id="7_e4gdl"]
+[ext_resource type="Script" path="res://gui/canvas_layer.gd" id="8_pjpqx"]
+[ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="9_edu82"]
+[ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="10_jftly"]
+[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="11_2bqix"]
+[ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="12_rho68"]
+[ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="13_f5nh8"]
+[ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="14_1syfd"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="15_ddhol"]
+[ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="16_i2fk4"]
+[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="17_n3dfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_on72b"]
 size = Vector2(74, 20)
@@ -65,8 +75,8 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="PointLight2D" type="PointLight2D" parent="YSort/MainCharacter"]
-position = Vector2(8.85129e-06, -5)
-scale = Vector2(0.0875651, 0.0826823)
+position = Vector2(-1.43051e-06, -6.66667)
+scale = Vector2(0.147949, 0.145508)
 texture = ExtResource("6_4uove")
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("4_fnbay")]
@@ -126,3 +136,55 @@ texture_scale = 1.72
 position = Vector2(205, -10)
 scale = Vector2(0.375, 0.332031)
 texture = ExtResource("6_4uove")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("8_pjpqx")
+
+[node name="InventoryButton" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_right = 40.0
+offset_bottom = 180.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 28.0
+texture_normal = ExtResource("9_edu82")
+texture_hover = ExtResource("10_jftly")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 32.0
+texture = ExtResource("11_2bqix")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("12_rho68")]
+process_mode = 3
+visible = false
+
+[node name="NotificationBox" parent="CanvasLayer" instance=ExtResource("13_f5nh8")]
+visible = false
+
+[node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("14_1syfd")]
+visible = false
+
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("15_ddhol")]
+visible = false
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("16_i2fk4")]
+visible = false
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("17_n3dfe")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
