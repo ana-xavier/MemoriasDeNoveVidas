@@ -34,4 +34,5 @@ func get_save_content(save: SaveData) -> String:
 	return ""
 	
 func _on_slot_pressed(slot: int) -> void:
+	SignalBus.loading_level.emit()
 	SaveManager.load_save_and_level(slot)

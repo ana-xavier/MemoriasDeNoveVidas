@@ -28,6 +28,7 @@ signal closed
 
 func _ready():
 	visible = false
+	SignalBus.loading_level.connect(close)
 
 func open() -> void:
 	open_tab_objectives()
