@@ -37,6 +37,14 @@ func open() -> void:
 	audio_player.stream = popup_sound
 	audio_player.play()
 	opened.emit()
+
+func open_menu() -> void:
+	open_tab_menu()
+	visible = true
+	is_open = true
+	audio_player.stream = popup_sound
+	audio_player.play()
+	opened.emit()
 	
 func close() -> void:
 	visible = false

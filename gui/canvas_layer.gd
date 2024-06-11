@@ -16,7 +16,14 @@ func _input(event):
 			inventory.close()
 		else:
 			inventory.open()
-
+	elif event.is_action_pressed("menu"):
+		if is_another_component_open() || CutsceneManager.is_cutscene_running:
+			return
+		if !inventory.is_open:
+			inventory.open_menu()
+		else:
+			inventory.close()
+	
 func is_another_component_open() -> bool:
 	if note_popup.is_open ||  content_container.is_open:
 		return true
