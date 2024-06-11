@@ -4,6 +4,8 @@ class_name GlobalVariables
 @export var current_level: String = ""
 @export var display_level_name: String = ""
 
+@export var last_time_saved: Dictionary = {}
+
 @export var player_has_follower: bool = false
 @export var player_followed_by: String = ""
 @export var player_follower_node: String = ""

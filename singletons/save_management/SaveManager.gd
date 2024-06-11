@@ -75,6 +75,7 @@ func dispatch_data() -> void:
 func save_game_data(slot: int) -> void:
 	if !_save.already_saved:
 		_save.already_saved = true
+	_save.global_variables.last_time_saved = Time.get_datetime_dict_from_system()
 	_save.write_save_data(slot)
 
 func get_current_save_data(slot: int) -> SaveData:

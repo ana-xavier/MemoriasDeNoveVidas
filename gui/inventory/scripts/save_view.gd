@@ -9,8 +9,10 @@ func search_saved_data():
 	if save:
 		text += "Dados salvos em Slot " + str(SaveManager.current_slot) + "\n"
 		text += "Local: " + save.global_variables.display_level_name + "\n"
-		text += "Data: " + "[TO DO]\n" 
-		text += "Hora: " + "[TO DO]\n"
+		var time: Dictionary = save.global_variables.last_time_saved
+		if !time.is_empty():
+			text += "Data: " + "%02d/%02d/%d\n" % [time.day, time.month, time.year]
+			text += "Hora: " + "%02d:%02d\n" % [time.hour, time.minute]
 		text += "Progresso: " + "[TO DO]\n"
 		text += "Itens Secretos: " + "0/0"
 		save_content.text = text

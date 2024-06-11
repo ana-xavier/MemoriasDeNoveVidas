@@ -24,14 +24,18 @@ func _update_slots() -> void:
 				var button_instance = button_scene.instantiate()
 				button_instance.pressed.connect(_on_slot_pressed.bind(slot))
 				add_child(button_instance)
-				button_instance.set_text("[Slot " + str(slot) + "]")
+				button_instance.set_text(get_save_content(save))
 
 func clear_buttons() -> void:
 	for child in get_children():
 		child.queue_free()
 				
 func get_save_content(save: SaveData) -> String:
-	return ""
+	var content: String = save.global_variables.display_level_name + "\n"
+	var time: Dictionary = save.global_variables.last_time_saved
+	if !time.is_empty():
+		content += "%02d/%02d/%d - %02d:%02d" % [time.day, time.month, time.year, time.hour, time.minute]
+	return content
 	
 func _on_slot_pressed(slot: int) -> void:
 	SignalBus.loading_level.emit()
