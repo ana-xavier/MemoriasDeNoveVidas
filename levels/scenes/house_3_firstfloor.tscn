@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=43 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_xyj3p"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="21_7fu7v"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="22_732kx"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="23_houxl"]
+[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="24_sxmte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
 size = Vector2(14.3017, 10.0169)
@@ -298,6 +299,9 @@ visible = false
 visible = false
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("22_732kx")]
+visible = false
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("24_sxmte")]
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
