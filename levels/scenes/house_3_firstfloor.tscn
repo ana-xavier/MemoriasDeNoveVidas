@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=52 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_xyj3p"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="21_7fu7v"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="22_732kx"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="23_houxl"]
-[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="24_sxmte"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="24_sxmte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksr4"]
 size = Vector2(14.3017, 10.0169)
@@ -55,7 +55,52 @@ dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_x040f")])
 [sub_resource type="Resource" id="Resource_874pn"]
 script = ExtResource("7_yrwnf")
 character_type = 1
-lines = Array[String](["Diálogo 1"])
+lines = Array[String](["Ei, você! O que está fazendo na minha casa?"])
+
+[sub_resource type="Resource" id="Resource_78sib"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Não se assuste, Jujubinha! Sou a Misty, sua vizinha! O Sr.Batata me disse para vir até você!"])
+
+[sub_resource type="Resource" id="Resource_pbkji"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Ah, Misty.. É você. Eu não estava esperando ninguém, sua entrada me assustou."])
+
+[sub_resource type="Resource" id="Resource_0t2al"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Me desculpe, não era minha intenção! Eu só preciso muito da sua ajuda!"])
+
+[sub_resource type="Resource" id="Resource_pdvjx"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["O que você precisa?"])
+
+[sub_resource type="Resource" id="Resource_5mrd8"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Meus pais sumiram, e eu preciso encontrá-los! O Sr.Batata disse que você saberia me ajudar!"])
+
+[sub_resource type="Resource" id="Resource_in3ah"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Entendi... Mas para te ajudar, preciso que você me ajude antes."])
+
+[sub_resource type="Resource" id="Resource_bwg64"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Claro! Como posso ajudar?"])
+
+[sub_resource type="Resource" id="Resource_ivi18"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Eu sempre quis ir ao lago do nosso bairro, mas o Sr.Batata não pode ir muito longe devido sua idade e eu... bom, tenho medo de ir sozinho."])
+
+[sub_resource type="Resource" id="Resource_5bu34"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Você quer minha companhia? Sem problemas, é claro que podemos ir juntos!"])
 
 [sub_resource type="Resource" id="Resource_rmjpq"]
 script = ExtResource("8_yp1w8")
@@ -64,7 +109,7 @@ has_prerequisite = true
 prerequisite_quest_id = "srpotatoe_item_quest"
 release_a_quest = true
 quest_id = "jujubinha_location_1_quest"
-dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn")])
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn"), SubResource("Resource_78sib"), SubResource("Resource_pbkji"), SubResource("Resource_0t2al"), SubResource("Resource_pdvjx"), SubResource("Resource_5mrd8"), SubResource("Resource_in3ah"), SubResource("Resource_bwg64"), SubResource("Resource_ivi18"), SubResource("Resource_5bu34")])
 
 [sub_resource type="Resource" id="Resource_txar6"]
 script = ExtResource("7_yrwnf")
