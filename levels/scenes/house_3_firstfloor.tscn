@@ -118,7 +118,7 @@ lines = Array[String](["Então, o que acha?"])
 
 [sub_resource type="Resource" id="Resource_ewed6"]
 script = ExtResource("7_yrwnf")
-character_type = 0
+character_type = 1
 lines = Array[String](["É tão tranquilo. Agora eu entendo por que minha família gostava tanto de vir passear aqui."])
 
 [sub_resource type="Resource" id="Resource_f5lsc"]
