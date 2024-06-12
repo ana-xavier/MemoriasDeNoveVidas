@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ddw7faihvywvr"]
+[gd_scene load_steps=62 format=3 uid="uid://ddw7faihvywvr"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_m73c2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_xyj3p"]
@@ -113,8 +113,58 @@ dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_874pn"), SubResour
 
 [sub_resource type="Resource" id="Resource_txar6"]
 script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Então, o que acha?"])
+
+[sub_resource type="Resource" id="Resource_ewed6"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["É tão tranquilo. Agora eu entendo por que minha família gostava tanto de vir passear aqui."])
+
+[sub_resource type="Resource" id="Resource_f5lsc"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Gostava? Eles também sumiram?"])
+
+[sub_resource type="Resource" id="Resource_4j7lm"]
+script = ExtResource("7_yrwnf")
 character_type = 1
-lines = Array[String](["Diálogo 2"])
+lines = Array[String](["Já faz alguns anos desde a última vez que os vi..."])
+
+[sub_resource type="Resource" id="Resource_kvrlo"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Lembro que estávamos passeando juntos pelo bairro, e de repente quando surgiu uma moto em nossa direção eu simplesmente dormi... E depois disso, nunca mais encontrei com minha família."])
+
+[sub_resource type="Resource" id="Resource_h25vw"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Mas você nunca foi procurá-los?"])
+
+[sub_resource type="Resource" id="Resource_8pqf4"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Depois que isso aconteceu eu nunca mais tive coragem de sair de casa sozinho. Então eu espero minha familia em casa."])
+
+[sub_resource type="Resource" id="Resource_550fh"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["Você acha que eles irão voltar?"])
+
+[sub_resource type="Resource" id="Resource_74ovp"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Tenho certeza. Minha dona sempre dizia que não importasse o que aconteceria, ela sempre iria estar comigo."])
+
+[sub_resource type="Resource" id="Resource_gwlxk"]
+script = ExtResource("7_yrwnf")
+character_type = 0
+lines = Array[String](["..."])
+
+[sub_resource type="Resource" id="Resource_jj1ae"]
+script = ExtResource("7_yrwnf")
+character_type = 1
+lines = Array[String](["Muito obrigado por vir até aqui comigo, Misty! Nós podemos voltar agora."])
 
 [sub_resource type="Resource" id="Resource_jo8n8"]
 script = ExtResource("8_yp1w8")
@@ -123,7 +173,7 @@ has_prerequisite = true
 prerequisite_quest_id = "jujubinha_location_1_quest"
 release_a_quest = true
 quest_id = "jujubinha_location_2_quest"
-dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_txar6")])
+dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_txar6"), SubResource("Resource_ewed6"), SubResource("Resource_f5lsc"), SubResource("Resource_4j7lm"), SubResource("Resource_kvrlo"), SubResource("Resource_h25vw"), SubResource("Resource_8pqf4"), SubResource("Resource_550fh"), SubResource("Resource_74ovp"), SubResource("Resource_gwlxk"), SubResource("Resource_jj1ae")])
 
 [sub_resource type="Resource" id="Resource_vmhp2"]
 script = ExtResource("7_yrwnf")
