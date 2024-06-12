@@ -178,7 +178,7 @@ dialog = Array[ExtResource("7_yrwnf")]([SubResource("Resource_txar6"), SubResour
 [sub_resource type="Resource" id="Resource_vmhp2"]
 script = ExtResource("7_yrwnf")
 character_type = 1
-lines = Array[String](["Diálogo 3"])
+lines = Array[String](["Eu acho que você deveria ir atrás de algumas notas que há pelo nosso bairro, elas farão você entender melhor o que está acontecendo.", "Eu nunca pude encontrá-las, mas sei que elas estão por ai.", "Ah.. e caredito que seja importante você ir conversar com a Pedrita. Você provavelmente precisa da ajuda dela sobre a ponte."])
 
 [sub_resource type="Resource" id="Resource_wja71"]
 script = ExtResource("8_yp1w8")
