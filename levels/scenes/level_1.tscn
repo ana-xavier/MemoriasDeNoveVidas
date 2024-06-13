@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=133 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -364,8 +364,58 @@ dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_t0jxt")])
 
 [sub_resource type="Resource" id="Resource_2rl8h"]
 script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Misty, que saudade de você! Faz tanto tempo que não nos vemos!"])
+
+[sub_resource type="Resource" id="Resource_1dakr"]
+script = ExtResource("9_unws2")
 character_type = 0
-lines = Array[String](["oie"])
+lines = Array[String](["Pedrita, que bom ver você!"])
+
+[sub_resource type="Resource" id="Resource_5jjw3"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["O que está fazendo por aqui?"])
+
+[sub_resource type="Resource" id="Resource_nxrj2"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Eu estou em busca de encontrar minha familia! Eles sumiram, e preciso encontrá-los!", "Mas... a ponte está quebrada, eu não consigo ir até a cidade para procurá-los."])
+
+[sub_resource type="Resource" id="Resource_5g26x"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Ah, sério? Eles também sumiram? Todo mundo parece ter desaparecido..."])
+
+[sub_resource type="Resource" id="Resource_h1q10"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Como assim? Sua familia também sumiu?"])
+
+[sub_resource type="Resource" id="Resource_05jtq"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Sim! Assim como aconteceu com o Sr.Batata e o Jujubinha!"])
+
+[sub_resource type="Resource" id="Resource_s6tsc"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["O que será que está acontecendo..."])
+
+[sub_resource type="Resource" id="Resource_n0q3h"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Mas Misty, sobre a ponte! Eu posso te ajudar!", "Eu tenho pregos aqui comigo, mas você precisará ir em busca das tábuas!", "Na floresta você consegue encontrar algumas novinhas!"])
+
+[sub_resource type="Resource" id="Resource_t2jm0"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Sério? Que ótimo! ", "Mas... a floresta não é um pouco escuro?"])
+
+[sub_resource type="Resource" id="Resource_fiigs"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Não há nada a temer, Misty! Tenho certeza que tudo ficará tranquilo!", "Vá até lá e pegue 3 tábuas! Quando conseguir, volte para falar comigo."])
 
 [sub_resource type="Resource" id="Resource_gtf50"]
 script = ExtResource("10_x2nvm")
@@ -374,7 +424,7 @@ has_prerequisite = true
 prerequisite_quest_id = "jujubinha_location_2_quest"
 release_a_quest = true
 quest_id = "pedrita_get_wood"
-dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_2rl8h")])
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_2rl8h"), SubResource("Resource_1dakr"), SubResource("Resource_5jjw3"), SubResource("Resource_nxrj2"), SubResource("Resource_5g26x"), SubResource("Resource_h1q10"), SubResource("Resource_05jtq"), SubResource("Resource_s6tsc"), SubResource("Resource_n0q3h"), SubResource("Resource_t2jm0"), SubResource("Resource_fiigs")])
 
 [sub_resource type="Resource" id="Resource_qhbfc"]
 script = ExtResource("9_unws2")
