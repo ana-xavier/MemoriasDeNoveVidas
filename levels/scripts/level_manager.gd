@@ -4,7 +4,7 @@ extends Node2D
 @export var display_level_name: String = ""
 
 func _ready():
-	var global_data = GlobalData.get_global_var() as GlobalVariablesaaa
+	var global_data = GlobalData.get_global_var() as GlobalVariables
 	if global_data:
 		global_data.current_level = level_id
 		global_data.display_level_name = display_level_name
