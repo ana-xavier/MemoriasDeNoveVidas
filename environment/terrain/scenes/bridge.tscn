@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://biklhil27ob7k"]
+
+[ext_resource type="Texture2D" uid="uid://5jqw5t6el8rt" path="res://environment/terrain/assets/objects/bridge/bridge_horizontal_normal_and_broken.png" id="1_polck"]
+[ext_resource type="Script" path="res://environment/terrain/scenes/bridge.gd" id="1_qqqao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gym4a"]
+size = Vector2(96, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irayl"]
+size = Vector2(96, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58huy"]
+size = Vector2(30, 20.5)
+
+[node name="Bridge" type="Node2D"]
+script = ExtResource("1_qqqao")
+id = "level_1_bridge"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -8)
+texture = ExtResource("1_polck")
+centered = false
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="NorthCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(40, -2)
+shape = SubResource("RectangleShape2D_gym4a")
+
+[node name="SouthCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(40, 27)
+shape = SubResource("RectangleShape2D_irayl")
+
+[node name="BrokenBridgeCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 13.75)
+shape = SubResource("RectangleShape2D_58huy")
