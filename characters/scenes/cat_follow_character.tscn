@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://characters/scripts/cat_follow_character.gd" id="1_hsehu"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_mk2nk"]
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_4n0gm"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_ueksp"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/cat/base_cat_character.png" id="4_l4smi"]
 [ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="5_8ygnk"]
 [ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="6_5t41u"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_vw5yf"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="7_3pdch"]
-[ext_resource type="Script" path="res://characters/scripts/states/follow_player.gd" id="7_4it5e"]
 [ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="7_ipqy7"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_follow_player_state.gd" id="8_307yq"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="9_ehf7f"]
-[ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="12_14xh2"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/idle_waiting_state.gd" id="10_n8ngs"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/follow_player.gd" id="11_e4c75"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/idle_follow_player_state.gd" id="12_v1u2q"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/follow_path_state.gd" id="13_kheqi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53yte"]
 radius = 4.47903
@@ -952,7 +952,7 @@ texture = ExtResource("3_4n0gm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
-texture = ExtResource("4_ueksp")
+texture = ExtResource("4_l4smi")
 offset = Vector2(0.5, 0)
 hframes = 24
 vframes = 17
@@ -982,22 +982,22 @@ script = ExtResource("6_vw5yf")
 initial_state = NodePath("idle_waiting_state")
 
 [node name="idle_waiting_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation", "animation_tree")]
-script = ExtResource("9_ehf7f")
+script = ExtResource("10_n8ngs")
 animation = NodePath("../../Animation")
 animation_tree = NodePath("../../AnimationTree")
 
 [node name="follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("navigation", "animation_tree", "interaction_area")]
-script = ExtResource("7_4it5e")
+script = ExtResource("11_e4c75")
 navigation = NodePath("../../NavigationAgent2D")
 animation_tree = NodePath("../../AnimationTree")
 interaction_area = NodePath("../../InteractionArea")
 
 [node name="idle_follow_player_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree")]
-script = ExtResource("8_307yq")
+script = ExtResource("12_v1u2q")
 animation_tree = NodePath("../../AnimationTree")
 
 [node name="follow_path_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_tree", "path_finder_component")]
-script = ExtResource("12_14xh2")
+script = ExtResource("13_kheqi")
 animation_tree = NodePath("../../AnimationTree")
 path_finder_component = NodePath("../../PathFinderComponent")
 

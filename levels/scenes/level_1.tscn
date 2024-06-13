@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d4imf1hgjir0w" path="res://interaction/interaction_press/objects/sign/sign.tscn" id="5_ume07"]
 [ext_resource type="Script" path="res://action_scripts/scripts/jujubinha_start_follow2.gd" id="6_825sc"]
 [ext_resource type="Script" path="res://action_scripts/scripts/open_house_3_window.gd" id="7_n65ct"]
-[ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/orange_0.png" id="7_pc8ao"]
 [ext_resource type="Script" path="res://action_scripts/scripts/open_forest_entrance.gd" id="7_x2qw7"]
 [ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="8_55c6a"]
 [ext_resource type="PackedScene" uid="uid://bk53vgxrj0sj7" path="res://cutscene/scenes/cutscene_trigger.tscn" id="8_hm0xn"]
@@ -22,26 +21,27 @@
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="10_x2nvm"]
 [ext_resource type="PackedScene" uid="uid://ev2a0j2getnn" path="res://characters/scenes/dialog_character.tscn" id="12_fc5l1"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="12_ueh3g"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="13_vwdcm"]
-[ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/white_grey_0.png" id="14_r80g1"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_nsa7h"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="16_v1ynb"]
+[ext_resource type="Texture2D" uid="uid://n6vrtfypvkcq" path="res://characters/assets/cat/orange_0.png" id="17_2veqi"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="17_20po3"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="17_egkxv"]
 [ext_resource type="PackedScene" uid="uid://c6dq45vbl78hj" path="res://interaction/content_container/content_container_area.tscn" id="17_u1ylr"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_u2rkm"]
-[ext_resource type="Texture2D" uid="uid://5hyym3m613l2" path="res://characters/assets/brown_7.png" id="18_45cgb"]
 [ext_resource type="Texture2D" uid="uid://y6wqhaq4wtee" path="res://environment/buildings/exterior/assets/main_house_door.png" id="19_53t7f"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/cat/calico_0.png" id="19_lw3jw"]
 [ext_resource type="PackedScene" uid="uid://b6wo6j058enc8" path="res://characters/scenes/ghost_cat.tscn" id="20_dngk8"]
-[ext_resource type="PackedScene" uid="uid://dhkowm031d00n" path="res://characters/scenes/base_human_character.tscn" id="21_2i8lg"]
+[ext_resource type="Texture2D" uid="uid://5hyym3m613l2" path="res://characters/assets/cat/brown_7.png" id="20_qkdbl"]
+[ext_resource type="PackedScene" uid="uid://cq01q5jq60vn2" path="res://characters/scenes/human_side_character.tscn" id="21_8jnx8"]
 [ext_resource type="PackedScene" uid="uid://kn5rbt66qe5y" path="res://interaction/jump_area/jump_area.tscn" id="21_61t6c"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="22_n4vnr"]
 [ext_resource type="PackedScene" uid="uid://cunrbeghm3g3h" path="res://transition/door_press.tscn" id="22_nh6x3"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/cat/base_cat_character.png" id="23_8d5ak"]
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="23_cg20t"]
 [ext_resource type="Texture2D" uid="uid://bbvd7rfosca6g" path="res://environment/buildings/exterior/assets/house_3_window.png" id="23_r8b2l"]
+[ext_resource type="Texture2D" uid="uid://dtdefofc56cum" path="res://characters/assets/cat/white_grey_0.png" id="24_q8wwv"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="27_io8a4"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="34_gmc8r"]
-[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="35_hwvyl"]
 [ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="42_i7svl"]
 
 [sub_resource type="Gradient" id="Gradient_dsey4"]
@@ -759,7 +759,7 @@ character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_e5774"
 char_interact_quest_id = "searching_for_answers"
 character_id = "srpotatoe"
 character_name = "Sr. Batata"
-texture = ExtResource("7_pc8ao")
+texture = ExtResource("17_2veqi")
 frame = 78
 
 [node name="Jujubinha" parent="YSort" instance=ExtResource("34_gmc8r")]
@@ -769,7 +769,7 @@ character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_rmjpq"
 char_interact_quest_id = "searching_for_answers"
 character_id = "jujubinha"
 character_name = "Jujubinha"
-texture = ExtResource("35_hwvyl")
+texture = ExtResource("19_lw3jw")
 
 [node name="Pedrita" parent="YSort" instance=ExtResource("8_55c6a")]
 position = Vector2(-646, 104)
@@ -778,18 +778,18 @@ character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_gtf50"
 char_interact_quest_id = "searching_for_answers"
 character_id = "pedrita"
 character_name = "Pedrita"
-texture = ExtResource("18_45cgb")
+texture = ExtResource("20_qkdbl")
 frame = 78
 
-[node name="BaseHumanCharacter" parent="YSort" instance=ExtResource("21_2i8lg")]
-position = Vector2(377.614, 115.057)
+[node name="HumanSideCharacter" parent="YSort" instance=ExtResource("21_8jnx8")]
+position = Vector2(318.411, 92.2733)
 
 [node name="NpcCat1" parent="YSort" instance=ExtResource("12_fc5l1")]
 position = Vector2(-549, -261)
 character_idle_dialog = SubResource("Resource_dhou8")
 character_id = "elio"
 character_name = "Élio"
-texture = ExtResource("13_vwdcm")
+texture = ExtResource("23_8d5ak")
 frame = 173
 
 [node name="NpcCat2" parent="YSort" instance=ExtResource("12_fc5l1")]
@@ -797,7 +797,7 @@ position = Vector2(-559, -261)
 character_idle_dialog = SubResource("Resource_dhou8")
 character_id = "esmeralda"
 character_name = "Esmeralda"
-texture = ExtResource("14_r80g1")
+texture = ExtResource("24_q8wwv")
 frame = 223
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("12_ueh3g")]

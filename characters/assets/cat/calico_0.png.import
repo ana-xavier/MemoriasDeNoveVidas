@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be2kbcrwfyhk"
-path="res://.godot/imported/black_4.png-d986b66e54b9c1f16fc83378feede440.ctex"
+uid="uid://b2lxmvlcgu7vm"
+path="res://.godot/imported/calico_0.png-0a2bf41882e5c525c28c1c2e3592a823.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/assets/black_4.png"
-dest_files=["res://.godot/imported/black_4.png-d986b66e54b9c1f16fc83378feede440.ctex"]
+source_file="res://characters/assets/cat/calico_0.png"
+dest_files=["res://.godot/imported/calico_0.png-0a2bf41882e5c525c28c1c2e3592a823.ctex"]
 
 [params]
 

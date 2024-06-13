@@ -7,7 +7,7 @@ enum Character {
 	NPC
 }
 
-@export var character: BaseCharacter = null
+@export var character: CharacterBody2D = null
 @export_category("Dialogs")
 @export var character_idle_dialog: Dialog = null
 @export var character_dialogs: Array[Dialog] = []

@@ -1,3 +1,0 @@
-extends BaseHumanCharacter
-class_name HumanSideCharacter
-

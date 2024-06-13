@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brml2ylxiua0n"]
 
-[ext_resource type="Script" path="res://CollectableItem.gd" id="1_70xgn"]
+[ext_resource type="Script" path="res://interaction/interaction_press/objects/collectable/CollectableItem.gd" id="1_70xgn"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="2_eydya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l05jf"]

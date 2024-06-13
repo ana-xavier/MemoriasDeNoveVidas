@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="5_h3uch"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="5_xea5s"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="6_441br"]
-[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="8_x557k"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/cat/calico_0.png" id="8_x557k"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="9_1yl5b"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="10_xpjhg"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="11_l0a07"]

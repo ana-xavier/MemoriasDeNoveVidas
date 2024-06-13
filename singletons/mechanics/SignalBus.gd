@@ -1,8 +1,5 @@
 extends Node
 
-func _ready():
-	self.PROCESS_MODE_ALWAYS
-
 signal open_content_container(text: String)
 signal opened_content_container
 signal closed_content_container
