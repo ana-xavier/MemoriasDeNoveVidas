@@ -16,11 +16,12 @@ func run() -> void:
 	var character = cutscene_trigger.get_character_node("Jujubinha") as CatFollowCharacter
 	var player_cam = cutscene_trigger.get_player_camera()
 	
+	CutsceneManager.start_cutscene()
+	
 	await character.fsm.force_change_state("follow_path_state")	
 	character.path_finder_component.find_and_follow_path(Vector2(-520, -92))
 	await character.path_finder_component.arrived_at_target	
 	
-	CutsceneManager.start_cutscene()
 	CameraTransition.transition_camera2D(player_cam, destination_camera, 6.0)
 	character.path_finder_component.find_and_follow_path(Vector2(-493, -228))
 	await character.path_finder_component.arrived_at_target	

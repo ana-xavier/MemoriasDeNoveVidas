@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dkuxrcu77r7ea" path="res://gui/components/scenes/data_button.tscn" id="7_ufrab"]
 [ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="8_xt070"]
 [ext_resource type="Texture2D" uid="uid://c75lnufapalul" path="res://gui/container/title_container.png" id="11_02wsg"]
-[ext_resource type="PackedScene" path="res://mainmenu/load_game_list.tscn" id="12_qw8rd"]
+[ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://mainmenu/load_game_list.tscn" id="12_qw8rd"]
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="13_d386x"]
-[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="14_dxmxj"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="14_dxmxj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

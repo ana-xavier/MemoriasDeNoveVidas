@@ -1023,3 +1023,5 @@ parameters/Sitting/blend_position = Vector2(0, 0)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 material = SubResource("CanvasItemMaterial_s1gvs")
 occluder = SubResource("OccluderPolygon2D_r352e")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
