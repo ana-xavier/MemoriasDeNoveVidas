@@ -14,3 +14,6 @@ texture = ExtResource("3_wa4ne")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_y536v")
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0, -1)
