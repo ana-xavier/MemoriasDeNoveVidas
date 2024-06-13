@@ -20,9 +20,9 @@ func run() -> void:
 	
 	await character.fsm.force_change_state("follow_path_state")	
 	character.path_finder_component.find_and_follow_path(Vector2(-520, -92))
+	CameraTransition.transition_camera2D(player_cam, destination_camera, 6)
 	await character.path_finder_component.arrived_at_target	
 	
-	CameraTransition.transition_camera2D(player_cam, destination_camera, 6.0)
 	character.path_finder_component.find_and_follow_path(Vector2(-493, -228))
 	await character.path_finder_component.arrived_at_target	
 	character.fsm.force_change_state("idle_waiting_state")

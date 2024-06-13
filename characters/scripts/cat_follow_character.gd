@@ -55,4 +55,3 @@ func _on_spawn(_position: Vector2, _direction):
 func _on_interaction_area_body_entered(body):
 	if body is MainCharacter:
 		player_body = body
-		fsm.force_change_state("player_near_state")
