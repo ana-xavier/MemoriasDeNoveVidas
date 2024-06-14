@@ -2,7 +2,7 @@
 extends Node2D
 class_name QuestComponent
 
-@export var character: BaseCharacter = null
+@export var character: CharacterBody2D = null
 @export var dialog_component: DialogComponent = null
 @export_category("External Quests")
 @export var char_interact_quest_id: String = ""
@@ -13,9 +13,10 @@ func manage_character_quest() -> void:
 		quest.check_and_complete_quest()
 
 func manage_characters_interact_quest():
-	var quest = QuestManager.get_quest_by_id(char_interact_quest_id) as QuestCharactersInteract
-	if quest:
-		quest.add_character_interacted(character.character_id)
+	if char_interact_quest_id:
+		var quest = QuestManager.get_quest_by_id(char_interact_quest_id) as QuestCharactersInteract
+		if quest:
+			quest.add_character_interacted(character.character_id)
 
 func get_current_dialog_by_quest_complete() -> Dialog:
 	var dialogs: Array[Dialog] = dialog_component.character_dialogs

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7mtky8jlogpn"
-path="res://.godot/imported/base_cat_character.png-18c10f9669cc225b7e2b43c6f1997d0c.ctex"
+uid="uid://5hyym3m613l2"
+path="res://.godot/imported/brown_7.png-8386ae16fdadc815eea37a99846ffae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/assets/base_cat_character.png"
-dest_files=["res://.godot/imported/base_cat_character.png-18c10f9669cc225b7e2b43c6f1997d0c.ctex"]
+source_file="res://characters/assets/cat/brown_7.png"
+dest_files=["res://.godot/imported/brown_7.png-8386ae16fdadc815eea37a99846ffae0.ctex"]
 
 [params]
 

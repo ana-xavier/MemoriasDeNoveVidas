@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var item_name = $MarginContainer/ItemName
 @onready var item_sprite = $NinePatchRect/ItemFrame/ItemSprite
 @onready var audio_player = $AudioStreamPlayer
+@onready var amount_display = $Control/Label
 
 const anim_duration: float = 0.3
 const visibility_time = 4 
@@ -13,9 +14,11 @@ func _ready():
 	visible = false
 	InventoryManager.item_added.connect(self.show_notification)
 
-func show_notification(_item_name: String, _item_sprite: Texture):
+func show_notification(_item_name: String, _item_sprite: Texture, amount: int = 1):
 	item_name.text = _item_name
 	item_sprite.texture = _item_sprite
+	if amount > 1:
+		amount_display.text = "x" + str(amount)
 	visible = true
 	timer.start(visibility_time)
 	_animate()

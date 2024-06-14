@@ -1,14 +1,14 @@
 [gd_scene load_steps=55 format=3 uid="uid://b6wo6j058enc8"]
 
 [ext_resource type="Script" path="res://characters/scripts/ghost_cat.gd" id="1_ovg8n"]
-[ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/ghost_0.png" id="2_u6q5w"]
+[ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/cat/ghost_0.png" id="2_u6q5w"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="3_oa4m5"]
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="4_hyefw"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="5_1wb1t"]
 [ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="5_6kyrx"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_y8dly"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_waiting_state.gd" id="7_oj8d4"]
-[ext_resource type="Script" path="res://characters/scripts/states/follow_path_state.gd" id="8_4j5o1"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/idle_waiting_state.gd" id="7_oj8d4"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/follow_path_state.gd" id="8_4j5o1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixs7k"]
 radius = 4.47903

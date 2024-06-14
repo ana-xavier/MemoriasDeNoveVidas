@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="8_yp1w8"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="9_hhy6s"]
 [ext_resource type="Script" path="res://cutscene/levels/level_1/house_3/jujubinha_arrives_at_home.gd" id="9_th80l"]
-[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/calico_0.png" id="12_o2h4c"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/cat/calico_0.png" id="12_o2h4c"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="13_6rcye"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="14_hrynm"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_mgnkw"]

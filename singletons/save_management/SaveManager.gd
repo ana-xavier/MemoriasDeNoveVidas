@@ -1,7 +1,7 @@
 extends Node
 
 var _save: SaveData
-var current_slot: int = 1
+var current_slot: int = 3
 
 func _ready():
 	create_or_load_save(current_slot)
@@ -57,6 +57,7 @@ func create_save(slot: int) -> void:
 	_save.dialog_ready_list.add_dialog("srpotatoe", "srpotatoe_greetings")
 	_save.interactive_objects_dict.set_value_in_object("house_3_door", "door_locked", true)	
 	_save.interactive_objects_dict.set_value_in_object("house_3_window", "door_locked", true)	
+	_save.interactive_objects_dict.set_value_in_object("forest_entrance", "door_locked", true)	
 	
 	_save.global_variables.current_level = "house"
 	_save.global_variables.display_level_name = "Casa de Misty"

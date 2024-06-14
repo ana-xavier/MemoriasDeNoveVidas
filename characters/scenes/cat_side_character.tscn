@@ -5,13 +5,13 @@
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_ml6wn"]
 [ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="3_j10n0"]
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="3_ljtsp"]
-[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/base_cat_character.png" id="4_xfc7n"]
+[ext_resource type="Texture2D" uid="uid://c7mtky8jlogpn" path="res://characters/assets/cat/base_cat_character.png" id="4_xfc7n"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="5_ggjir"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="7_kv6n4"]
-[ext_resource type="Script" path="res://characters/scripts/states/idle_state.gd" id="8_1k4q6"]
-[ext_resource type="Script" path="res://characters/scripts/states/new_dir_state.gd" id="9_1iw40"]
-[ext_resource type="Script" path="res://characters/scripts/states/moving_state.gd" id="10_k3iw5"]
-[ext_resource type="Script" path="res://characters/scripts/states/player_near_state.gd" id="11_ees34"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/idle_state.gd" id="9_1jtjr"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/new_dir_state.gd" id="10_dukdi"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/moving_state.gd" id="11_wnv01"]
+[ext_resource type="Script" path="res://characters/scripts/states/cat/player_near_state.gd" id="12_54xye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aogw"]
 size = Vector2(18, 12)
@@ -629,23 +629,23 @@ script = ExtResource("7_kv6n4")
 initial_state = NodePath("idle_state")
 
 [node name="idle_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_1k4q6")
+script = ExtResource("9_1jtjr")
 animation_player = NodePath("../../Animation")
 change_state_probability = 0.7
 
 [node name="new_dir_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("9_1iw40")
+script = ExtResource("10_dukdi")
 animation_player = NodePath("../../Animation")
 animation_probability = 0.4
 change_state_probability = 0.8
 
 [node name="moving_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_k3iw5")
+script = ExtResource("11_wnv01")
 animation_player = NodePath("../../Animation")
 change_state_probability = 0.6
 
 [node name="player_near_state" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("11_ees34")
+script = ExtResource("12_54xye")
 animation_player = NodePath("../../Animation")
 
 [node name="Animation" type="AnimationPlayer" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5hyym3m613l2"
-path="res://.godot/imported/brown_7.png-4bef9d237378654cd0e71ef54ce8251e.ctex"
+uid="uid://5jqw5t6el8rt"
+path="res://.godot/imported/bridge_horizontal_normal_and_broken.png-00e4ba1e0bcc7e7434b86ce5ee758168.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/assets/brown_7.png"
-dest_files=["res://.godot/imported/brown_7.png-4bef9d237378654cd0e71ef54ce8251e.ctex"]
+source_file="res://environment/terrain/assets/objects/bridge/bridge_horizontal_normal_and_broken.png"
+dest_files=["res://.godot/imported/bridge_horizontal_normal_and_broken.png-00e4ba1e0bcc7e7434b86ce5ee758168.ctex"]
 
 [params]
 

@@ -3,12 +3,16 @@ class_name QuestFindingItem
 
 @export var required_item_id: String = ""
 @export var quantity: int = 0
+@export var reward_item_id: String = ""
+@export var reward_item_amount: int = 0
 @export var character_id: String = ""
 @export var finish_objective_display: String = ""
 
 func check_and_complete_quest() -> void:
 	if InventoryManager.has_item(required_item_id, quantity):
 		super()
+		await SignalBus.dialog_boxes_finished
+		InventoryManager.add_item(reward_item_id, reward_item_amount)
 
 func on_going_quest_tostring() -> String:
 	var result: String = ""

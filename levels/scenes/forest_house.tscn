@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="5_wu5gx"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="6_otloc"]
 [ext_resource type="PackedScene" uid="uid://besgvwbcau452" path="res://characters/scenes/base_character.tscn" id="7_fgh8c"]
-[ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/ghost_0.png" id="8_b3ilr"]
+[ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/cat/ghost_0.png" id="8_b3ilr"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="9_rcwqy"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="10_pmgu3"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="11_oqsov"]

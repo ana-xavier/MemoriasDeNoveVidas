@@ -14,7 +14,7 @@ sprite = ExtResource("2_lrgc6")
 
 [sub_resource type="Resource" id="Resource_up332"]
 script = ExtResource("1_g4cob")
-id = "nail_brigde"
+id = "nail_bridge"
 name = "Prego"
 sprite = ExtResource("3_mlop7")
 
