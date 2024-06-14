@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=34 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
@@ -26,8 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://cq4qrxy4qkenj" path="res://gui/icons/menu.png" id="17_rv3qr"]
 [ext_resource type="PackedScene" uid="uid://do1py0iult3ee" path="res://gui/inventory/scenes/menu_button.tscn" id="17_wt6uw"]
 [ext_resource type="Texture2D" uid="uid://c2pr8exvxey2r" path="res://gui/inventory/assets/menu_button4.png" id="18_3y338"]
+[ext_resource type="Texture2D" uid="uid://dftm1rp82xdkv" path="res://gui/inventory/assets/photo_background.png" id="18_bjxs5"]
 [ext_resource type="Texture2D" uid="uid://c2hbf546svt58" path="res://gui/icons/menu_pressed.png" id="18_s4n1o"]
 [ext_resource type="Texture2D" uid="uid://l68wnwb0nuy7" path="res://gui/icons/menu_hover.png" id="19_4sp11"]
+[ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="19_23ctp"]
+[ext_resource type="Texture2D" uid="uid://b2ljeqj3vrl0l" path="res://gui/inventory/assets/family_photo.png" id="20_tfu7b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irokg"]
+shader = ExtResource("19_23ctp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_othad"]
 
@@ -60,11 +66,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
 tabs_visible = false
 
 [node name="ObjectivesView" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("5_jtxuc")
 
@@ -117,6 +121,34 @@ theme_override_fonts/normal_font = ExtResource("7_172y3")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 
+[node name="TextureRect" type="TextureRect" parent="TabContainer/ObjectivesView"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 39.0
+offset_right = 250.0
+offset_bottom = 151.0
+texture = ExtResource("18_bjxs5")
+
+[node name="Photo" type="TextureRect" parent="TabContainer/ObjectivesView/TextureRect"]
+material = SubResource("ShaderMaterial_irokg")
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 74.0
+offset_bottom = 96.0
+texture = ExtResource("20_tfu7b")
+
+[node name="Label" type="Label" parent="TabContainer/ObjectivesView/TextureRect"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 75.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.686275)
+theme_override_fonts/font = ExtResource("7_172y3")
+theme_override_font_sizes/font_size = 10
+text = "Onde estão eles?"
+
 [node name="ItemsView" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -160,6 +192,7 @@ theme_override_font_sizes/font_size = 12
 text = "Itens"
 
 [node name="MenuView" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("10_mlfei")
 

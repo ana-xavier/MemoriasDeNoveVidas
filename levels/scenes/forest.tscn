@@ -1,13 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://bv8khhy8mde2e"]
+[gd_scene load_steps=25 format=3 uid="uid://bv8khhy8mde2e"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_hkomc"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_bji83"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="3_1c0tu"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="4_fnbay"]
+[ext_resource type="PackedScene" uid="uid://bk53vgxrj0sj7" path="res://cutscene/scenes/cutscene_trigger.tscn" id="4_ykwr6"]
+[ext_resource type="Script" path="res://levels/scenes/ghost_apparition_3.gd" id="5_g24hf"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="5_xdleh"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="6_4uove"]
 [ext_resource type="PackedScene" uid="uid://bpraqyl448wtq" path="res://interaction/interaction_press/objects/collectable/plank.tscn" id="7_e4gdl"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="8_pjpqx"]
+[ext_resource type="PackedScene" uid="uid://b6wo6j058enc8" path="res://characters/scenes/ghost_cat.tscn" id="8_xwgnk"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="9_edu82"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="10_jftly"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="11_2bqix"]
@@ -17,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="15_ddhol"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="16_i2fk4"]
 [ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="17_n3dfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atxhq"]
+size = Vector2(109.018, 51.9998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_on72b"]
 size = Vector2(74, 20)
@@ -71,6 +77,33 @@ position = Vector2(536, 132)
 scale = Vector2(0.308349, 0.32666)
 texture = ExtResource("6_4uove")
 
+[node name="Cutscenes" type="Node2D" parent="."]
+
+[node name="GhostApparition3" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("4_ykwr6")]
+position = Vector2(143.842, 168.59)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/GhostApparition3" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("5_g24hf")
+destination_camera = NodePath("Camera2D")
+id = "ghost_apparition_3"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/GhostApparition3/Cutscene"]
+position = Vector2(137.158, 7.40961)
+enabled = false
+zoom = Vector2(1.5, 1.5)
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/GhostApparition3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/GhostApparition3/Area2D"]
+position = Vector2(-10.3416, -20.5904)
+scale = Vector2(1.01818, 1)
+shape = SubResource("RectangleShape2D_atxhq")
+debug_color = Color(1, 1, 0, 0.419608)
+
 [node name="InteractableObjects" type="Node2D" parent="."]
 
 [node name="Plank" parent="InteractableObjects" instance=ExtResource("7_e4gdl")]
@@ -108,6 +141,10 @@ editor_draw_limits = true
 position = Vector2(-1.43051e-06, -6.66667)
 scale = Vector2(0.147949, 0.145508)
 texture = ExtResource("6_4uove")
+
+[node name="GhostCat" parent="YSort" instance=ExtResource("8_xwgnk")]
+visible = false
+position = Vector2(15.8865, 442.241)
 
 [node name="ObjectsTerrain" parent="YSort" instance=ExtResource("4_fnbay")]
 layer_0/tile_data = PackedInt32Array(10, 0, 0, 14, 0, 0, 65545, 0, 0, 65551, 0, 0, 131087, 1, 0, 131082, 1, 0, 196616, 1, 0, 262160, 2, 0, 262153, 1, 0, 327695, 0, 0, 393231, 0, 0, 393230, 0, 0, 458766, 0, 0, 458765, 0, 0, 524301, 0, 0, 524300, 0, 0, 524299, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458790, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 589864, 0, 0, 589865, 0, 0, 655401, 0, 0, 655402, 0, 0, 720938, 0, 0, 720939, 0, 0, 786475, 0, 0, 852011, 0, 0, 786438, 0, 0, 720902, 0, 0, 655365, 0, 0, 655364, 0, 0, 589828, 0, 0, 589827, 0, 0, 524291, 0, 0, 524290, 0, 0, 458754, 0, 0, 393218, 0, 0, 393219, 0, 0, 327683, 0, 0, 327684, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 196614, 0, 0, 196615, 0, 0, 851973, 0, 0, 851972, 0, 0, 851971, 0, 0, 917507, 0, 0, 917506, 0, 0, 917505, 0, 0, 983041, 0, 0, 1048577, 0, 0, 1114113, 0, 0, 1179649, 0, 0, 1245185, 0, 0, 1310722, 0, 0, 1376258, 0, 0, 1441794, 0, 0, 1507330, 0, 0, 1572866, 0, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1638405, 0, 0, 1638406, 0, 0, 1638407, 0, 0, 1638408, 0, 0, 1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0, 1638412, 0, 0, 1638413, 0, 0, 1572877, 0, 0, 1572878, 0, 0, 1572879, 0, 0, 1507343, 0, 0, 1507344, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1507348, 0, 0, 1507349, 0, 0, 1572885, 0, 0, 1572886, 0, 0, 1572887, 0, 0, 1638423, 0, 0, 1638424, 0, 0, 1638425, 0, 0, 1638426, 0, 0, 1572891, 0, 0, 1572892, 0, 0, 1572893, 0, 0, 1572894, 0, 0, 1638430, 0, 0, 1638431, 0, 0, 1638432, 0, 0, 1638433, 0, 0, 1638434, 0, 0, 1638435, 0, 0, 1638436, 0, 0, 1638437, 0, 0, 1638438, 0, 0, 1638439, 0, 0, 1638440, 0, 0, 1638441, 0, 0, 1572906, 0, 0, 1507370, 0, 0, 1507371, 0, 0, 1441835, 0, 0, 1376299, 0, 0, 1310763, 0, 0, 1245227, 0, 0, 1179691, 0, 0, 1114155, 0, 0, 1048619, 0, 0, 983083, 0, 0, 917547, 0, 0, 917546, 0, 0, 852010, 0, 0, 852009, 0, 0, 786473, 0, 0, 720937, 0, 0, 1245196, 0, 0, 1245195, 0, 0, 1179659, 0, 0, 1179658, 0, 0, 1114122, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 983055, 0, 0, 983054, 0, 0, 1048591, 0, 0, 983056, 0, 0, 1048592, 0, 0, 1114128, 0, 0, 1048588, 0, 0, 1310745, 0, 0, 1245209, 0, 0, 1179673, 0, 0, 1114136, 0, 0, 1114135, 0, 0, 1048599, 0, 0, 1048598, 0, 0, 1048597, 0, 0, 983061, 0, 0, 917525, 0, 0, 851989, 0, 0, 851990, 0, 0, 786454, 0, 0, 786455, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 851993, 0, 0, 786457, 0, 0, 851992, 0, 0, 851994, 0, 0, 786459, 0, 0, 786460, 0, 0, 786461, 0, 0, 720925, 0, 0, 720924, 0, 0, 786462, 0, 0, 786463, 0, 0, 851999, 0, 0, 851998, 0, 0, 851997, 0, 0, 393237, 0, 0, 327701, 0, 0, 262165, 0, 0, 196628, 0, 0, 131092, 0, 0, 65558, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 65564, 0, 0, 65565, 0, 0, 65566, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 65568, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0, 131107, 0, 0, 196643, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 327717, 0, 0, 196642, 0, 0, 131106, 0, 0, 131105, 0, 0, 196644, 0, 0, 393253, 0, 0, 655399, 0, 0, 720935, 0, 0, 786471, 0, 0, 786470, 0, 0, 786469, 0, 0, 852005, 0, 0, 655397, 0, 0, 1376280, 0, 0, 1441816, 0, 0, 1441815, 0, 0, 1441814, 0, 0, 1376278, 0, 0, 1310742, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1179671, 0, 0, 1507353, 0, 0, 524330, 0, 0, 458794, 0, 0, 393258, 0, 0, 327722, 0, 0, 327721, 0, 0, 262185, 0, 0, 196649, 0, 0, 131113, 0, 0, 65577, 0, 0, 65576, 0, 0, 65575, 0, 0, 65574, 0, 0, 131110, 0, 0, 131109, 0, 0, 65573, 0, 0, 65572, 0, 0, 131111, 0, 0, 196647, 0, 0, 196648, 0, 0, 262184, 0, 0, 393257, 0, 0, 393256, 0, 0, 327720, 0, 0, 327719, 0, 0, 262183, 0, 0, 196646, 0, 0, 196650, 0, 0, 131114, 0, 0, 65578, 0, 0, 1638429, 0, 0, 1638428, 0, 0, 1638427, 0, 0, 1507346, 0, 0, 1507345, 0, 0, 1572881, 0, 0, 1507347, 0, 0, 1572884, 0, 0, 1572883, 0, 0, 1638421, 0, 0, 1638422, 0, 0, 1638420, 0, 0, 1638419, 0, 0, 1638418, 0, 0, 1638417, 0, 0, 1638416, 0, 0, 1638415, 0, 0, 1638414, 0, 0, 1310721, 0, 0, 1376257, 0, 0, 1441793, 0, 0, 1507329, 0, 0, 1572865, 0, 0, 1638401, 0, 0, 1638402, 0, 0, 1638403, 0, 0, 1638404, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 0, 655361, 0, 0, 720897, 0, 0, 786433, 0, 0, 786434, 0, 0, 851970, 0, 0, 851969, 0, 0, 720899, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 131075, 0, 0, 524317, 0, 0, 524316, 0, 0, 458780, 0, 0, 524315, 0, 0, 524314, 0, 0, 589850, 0, 0, 589849, 0, 0, 655385, 0, 0, 262162, 0, 0, 327697, 0, 0, 17, 0, 0, 65554, 0, 0, 20, 0, 0, 1638443, 0, 0, 1638442, 0, 0, 8, 0, 0, 6, 0, 0, 4, 0, 0, 2, 0, 0, 1, 0, 0, 983068, 13, 0, 262152, 2, 0, 262151, 0, 0, 327686, 2, 0, 655373, 2, 0, 655374, 1, 0, 1114147, 2162697, 2)
@@ -217,4 +254,5 @@ visible = false
 [node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("17_n3dfe")]
 visible = false
 
+[connection signal="body_entered" from="Cutscenes/GhostApparition3/Area2D" to="Cutscenes/GhostApparition3" method="_on_trigger_area_entered"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
