@@ -74,7 +74,6 @@ shape = SubResource("RectangleShape2D_52hif")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="InteractableObjects" type="Node2D" parent="."]
-z_index = 1
 
 [node name="Note" parent="InteractableObjects" instance=ExtResource("5_lqppg")]
 position = Vector2(54, -59)
