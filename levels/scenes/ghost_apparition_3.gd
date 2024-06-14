@@ -38,4 +38,6 @@ func run() -> void:
 	DialogManager.start_dialog(player.global_position, lines, "", true, true)
 	await DialogManager.dialog_finished
 	
-	CutsceneManager.end_cutscene()
+	await CutsceneManager.end_cutscene()
+
+	QuestManager.set_quest_active("mysterious_apparition")
