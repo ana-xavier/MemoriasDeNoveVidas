@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cenaq8ww70xwc"
-path="res://.godot/imported/CrayonLibre.ttf-6e322dd3279a906b283fc223b23279f5.fontdata"
+uid="uid://cl5da0enx1jqj"
+path="res://.godot/imported/fibberish.ttf-3113df90f5b29f4f7ecd86ab5f1d7801.fontdata"
 
 [deps]
 
-source_file="res://gui/fonts/CrayonLibre.ttf"
-dest_files=["res://.godot/imported/CrayonLibre.ttf-6e322dd3279a906b283fc223b23279f5.fontdata"]
+source_file="res://gui/fonts/fibberish.ttf"
+dest_files=["res://.godot/imported/fibberish.ttf-3113df90f5b29f4f7ecd86ab5f1d7801.fontdata"]
 
 [params]
 
