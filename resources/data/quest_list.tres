@@ -26,6 +26,7 @@ interacted_count = 0
 to_interact = 3
 characters_already_interacted = {
 "jujubinha": false,
+"pedrita": false,
 "srpotatoe": false
 }
 id = "searching_for_answers"
@@ -85,11 +86,11 @@ character_id = "pedrita"
 finish_objective_display = "Fale com Pedrita após encontrar as tábuas."
 id = "pedrita_get_wood"
 name = "Em busca de uma passarela."
-description = null
+description = ""
 objective_display = "madeiras encontradas."
 status = 0
-has_prerequisite = null
-prerequisite_quest_id = null
+has_prerequisite = false
+prerequisite_quest_id = ""
 
 [sub_resource type="Resource" id="Resource_rechq"]
 script = ExtResource("6_cnmv4")
