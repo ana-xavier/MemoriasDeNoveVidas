@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="17_n3dfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atxhq"]
-size = Vector2(109.018, 51.9998)
+size = Vector2(95.268, 51.9998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_on72b"]
 size = Vector2(74, 20)
@@ -99,7 +99,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/GhostApparition3/Area2D"]
-position = Vector2(-10.3416, -20.5904)
+position = Vector2(-17.3416, -20.5904)
 scale = Vector2(1.01818, 1)
 shape = SubResource("RectangleShape2D_atxhq")
 debug_color = Color(1, 1, 0, 0.419608)
