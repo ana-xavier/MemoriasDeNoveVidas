@@ -60,6 +60,3 @@ func _move_clouds(delta: float):
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-
-

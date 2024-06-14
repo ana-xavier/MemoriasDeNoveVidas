@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbeeyplal6r2u"]
+[gd_scene load_steps=26 format=3 uid="uid://cbeeyplal6r2u"]
 
 [ext_resource type="Script" path="res://mainmenu/MainMenu.gd" id="1_cpemm"]
 [ext_resource type="Texture2D" uid="uid://f3pm22bb8f70" path="res://mainmenu/assets/1.png" id="2_mgy4n"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="13_d386x"]
 [ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="14_dxmxj"]
 [ext_resource type="Texture2D" uid="uid://d1vfjl85p6at6" path="res://mainmenu/assets/misty.png" id="16_imarj"]
+[ext_resource type="AudioStream" uid="uid://ccnhm1sbunrw5" path="res://resources/assets/backgroud_sounds/Till Death Do Us Part.ogg" id="18_jl0hw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvo6o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -46,6 +47,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cpemm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_jl0hw")
+volume_db = -32.582
+autoplay = true
 
 [node name="menu" type="Node2D" parent="."]
 

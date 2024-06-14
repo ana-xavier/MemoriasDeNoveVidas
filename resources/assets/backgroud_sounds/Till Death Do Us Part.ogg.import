@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccnhm1sbunrw5"
+path="res://.godot/imported/Till Death Do Us Part.ogg-3c03a9563b76d0ace54e756c7089215a.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/backgroud_sounds/Till Death Do Us Part.ogg"
+dest_files=["res://.godot/imported/Till Death Do Us Part.ogg-3c03a9563b76d0ace54e756c7089215a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
