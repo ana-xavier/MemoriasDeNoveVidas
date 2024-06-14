@@ -77,7 +77,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 z_index = 1
 
 [node name="Note" parent="InteractableObjects" instance=ExtResource("5_lqppg")]
-position = Vector2(70, 21)
+position = Vector2(54, -59)
 id = "note_1"
 quest_id = "level1_notes"
 

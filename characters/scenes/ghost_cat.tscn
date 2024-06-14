@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b6wo6j058enc8"]
+[gd_scene load_steps=74 format=3 uid="uid://b6wo6j058enc8"]
 
 [ext_resource type="Script" path="res://characters/scripts/ghost_cat.gd" id="1_ovg8n"]
 [ext_resource type="Texture2D" uid="uid://c6131iquo4pg0" path="res://characters/assets/cat/ghost_0.png" id="2_u6q5w"]
@@ -6,15 +6,96 @@
 [ext_resource type="Texture2D" uid="uid://cj54225gjvxlu" path="res://characters/shaders/entity_shadow.png" id="4_hyefw"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="5_1wb1t"]
 [ext_resource type="PackedScene" uid="uid://b10j7n10ibxiy" path="res://characters/scenes/components/path_finder_component.tscn" id="5_6kyrx"]
+[ext_resource type="PackedScene" uid="uid://l0gdjmqpna1b" path="res://characters/scenes/components/dialog_component.tscn" id="6_lxqad"]
 [ext_resource type="Script" path="res://characters/finite_state_machine.gd" id="6_y8dly"]
 [ext_resource type="Script" path="res://characters/scripts/states/cat/idle_waiting_state.gd" id="7_oj8d4"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="7_xyii1"]
 [ext_resource type="Script" path="res://characters/scripts/states/cat/follow_path_state.gd" id="8_4j5o1"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="8_7advd"]
+[ext_resource type="PackedScene" uid="uid://dy661najyo0mw" path="res://characters/scenes/components/quest_component.tscn" id="9_76nnr"]
+[ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="11_psauh"]
+
+[sub_resource type="Resource" id="Resource_opci5"]
+script = ExtResource("7_xyii1")
+character_type = 0
+lines = Array[String](["Quem... quem é você?"])
+
+[sub_resource type="Resource" id="Resource_v4acq"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["...", "O que você faz aqui?"])
+
+[sub_resource type="Resource" id="Resource_oqbt5"]
+script = ExtResource("7_xyii1")
+character_type = 0
+lines = Array[String](["Estou procurando meus pais. Eles desapareceram e eu não sei onde estão. Achei que talvez encontraria eles na cidade."])
+
+[sub_resource type="Resource" id="Resource_lfcbt"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["...", "Este lugar é muito diferente do que você imagina. Estás muito longe de seus pais."])
+
+[sub_resource type="Resource" id="Resource_bup82"]
+script = ExtResource("7_xyii1")
+character_type = 0
+lines = Array[String](["Mesmo assim, eu estava planejando ir para a cidade para procurá-los."])
+
+[sub_resource type="Resource" id="Resource_j6cko"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["Não tenha muitas esperanças... mas vá. É importante. Apenas tenha muito cuidado."])
+
+[sub_resource type="Resource" id="Resource_8x403"]
+script = ExtResource("7_xyii1")
+character_type = 0
+lines = Array[String](["Qual é o seu nome? E o que você faz aqui?"])
+
+[sub_resource type="Resource" id="Resource_r6saq"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["Não tenho um nome. Nunca me deram um, nunca tive uma família. Estou aqui há muitos anos."])
+
+[sub_resource type="Resource" id="Resource_e4p3s"]
+script = ExtResource("7_xyii1")
+character_type = 0
+lines = Array[String](["Isso é tão confuso..."])
+
+[sub_resource type="Resource" id="Resource_vnr1m"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["A cidade guarda muitos segredos e perigos. Tenha muito cuidado ao chegar lá."])
+
+[sub_resource type="Resource" id="Resource_qrc6r"]
+script = ExtResource("8_7advd")
+id = "ghost_dialog"
+has_prerequisite = true
+prerequisite_quest_id = "mysterious_apparition"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_xyii1")]([SubResource("Resource_opci5"), SubResource("Resource_v4acq"), SubResource("Resource_oqbt5"), SubResource("Resource_lfcbt"), SubResource("Resource_bup82"), SubResource("Resource_j6cko"), SubResource("Resource_8x403"), SubResource("Resource_r6saq"), SubResource("Resource_e4p3s"), SubResource("Resource_vnr1m")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixs7k"]
 radius = 4.47903
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckium"]
 shader = ExtResource("3_oa4m5")
+
+[sub_resource type="Resource" id="Resource_l11pf"]
+script = ExtResource("7_xyii1")
+character_type = 1
+lines = Array[String](["...           "])
+
+[sub_resource type="Resource" id="Resource_lhfqt"]
+script = ExtResource("8_7advd")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("7_xyii1")]([SubResource("Resource_l11pf")])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga7rq"]
+radius = 25.0555
 
 [sub_resource type="Animation" id="Animation_k2uii"]
 length = 0.001
@@ -926,6 +1007,7 @@ states/sitting_down/position = Vector2(402, 161)
 [node name="GhostCat" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ovg8n")
+character_dialogs = Array[ExtResource("8_7advd")]([SubResource("Resource_qrc6r")])
 character_id = "ghost_cat"
 character_name = "???"
 texture = ExtResource("2_u6q5w")
@@ -954,9 +1036,25 @@ hframes = 24
 vframes = 17
 frame = 50
 
+[node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_lxqad")]
+character = NodePath("..")
+character_idle_dialog = SubResource("Resource_lhfqt")
+character_dialogs = Array[ExtResource("8_7advd")]([SubResource("Resource_qrc6r")])
+
+[node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("9_76nnr")]
+character = NodePath("..")
+dialog_component = NodePath("../DialogComponent")
+
 [node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("5_6kyrx")]
 character = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
+
+[node name="InteractionArea" parent="." instance=ExtResource("11_psauh")]
+action_name = "conversar"
+
+[node name="Collision" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ga7rq")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_y8dly")
@@ -990,3 +1088,5 @@ tree_root = SubResource("AnimationNodeStateMachine_xofn3")
 anim_player = NodePath("../Animation")
 parameters/Running/blend_position = Vector2(-0.00547647, -0.00529099)
 parameters/Sitting/blend_position = Vector2(0, 0)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

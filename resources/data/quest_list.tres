@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=15 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=17 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_go_to_location.gd" id="4_4lpbj"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/finding_item_quest.gd" id="5_xove3"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_building_bridge.gd" id="6_cnmv4"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_interact_with_character.gd" id="7_bhfa2"]
 
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("1_dixrk")
@@ -108,6 +109,17 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_h23o8"]
+script = ExtResource("7_bhfa2")
+character_id = "ghost_cat"
+id = "mysterious_apparition"
+name = "Aparição Misteriosa"
+description = ""
+objective_display = "Encontre a figura felina misteriosa."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8")])
