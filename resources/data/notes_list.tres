@@ -7,31 +7,31 @@
 script = ExtResource("1_1ss4i")
 id = "note_1"
 name = "Nota 1"
-text = "texto"
+text = "Há muito tempo, um segredo foi deixado para aqueles que procuram com pureza de coração. As respostas estão escondidas nas nuances dos dias passados e nas sombras do presente. Pense nos momentos felizes e nas histórias contadas ao pé da lareira."
 
 [sub_resource type="Resource" id="Resource_4hjwn"]
 script = ExtResource("1_1ss4i")
 id = "note_2"
 name = "Nota 2"
-text = "Texto 2"
+text = "Imagine um mundo onde o tempo é maleável e as memórias são os alicerces da realidade. Este é o lugar onde você se encontra agora, um espaço criado pelo poder do amor e da saudade. Cada canto desta realidade reflete um pedaço do quebra-cabeça que é sua vida. A jornada é tão importante quanto a descoberta final."
 
 [sub_resource type="Resource" id="Resource_5fmbm"]
 script = ExtResource("1_1ss4i")
 id = "note_3"
 name = "Nota 3"
-text = "Texto 3"
+text = "A verdade está escondida em memórias que você ainda não conhece. A cidade guarda segredos, mas você tem a chave para desvendar cada um deles. Preste atenção nos detalhes e confie nos amigos que fizer pelo caminho. Às vezes o que parece um fim é apenas um novo começo. As respostas que você procura estão nos lugares mais inesperados."
 
 [sub_resource type="Resource" id="Resource_4ucjk"]
 script = ExtResource("1_1ss4i")
 id = "note_4"
 name = "Nota 4"
-text = "Texto 4"
+text = "Cada passo que dei aqui foi como caminhar em um sonho vívido. O céu alaranjado me envolveu com uma suavidade reconfortante, e as nuvens, tão serenas, me faziam sentir que estava flutuando. As memórias do meu caminho até aqui eram nebulosas, mas o ambiente parecia me dizer que estava em casa, em um lugar de descanso e reflexão."
 
 [sub_resource type="Resource" id="Resource_ig7i5"]
 script = ExtResource("1_1ss4i")
 id = "note_5"
 name = "Nota 5"
-text = "Texto 5"
+text = "Enquanto explorava a floresta tranquila, meus passos me levaram a uma cabana antiga, meio escondida entre as árvores. Apesar de sua aparência abandonada, ela exalava uma sensação de acolhimento. As portas de madeira rangiam, mas dentro havia uma lareira que, mesmo apagada, parecia prometer calor e conforto. A cabana, com suas paredes robustas, parecia o lugar perfeito para descansar e refletir."
 
 [resource]
 script = ExtResource("1_25qa7")
