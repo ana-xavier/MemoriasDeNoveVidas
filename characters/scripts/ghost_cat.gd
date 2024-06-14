@@ -1,6 +1,10 @@
 extends BaseCharacter
 class_name GhostCat
 
+@export_category("Dialog Component")
+@export var character_idle_dialog: Dialog = null
+@export var character_dialogs: Array[Dialog] = []
+
 @onready var dialog_component: DialogComponent = $DialogComponent
 @onready var quest_component: QuestComponent = $QuestComponent
 @onready var path_finder_component: PathFinderComponent = $PathFinderComponent
@@ -18,6 +22,8 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 	animation_state = $AnimationTree["parameters/playback"]
+	#dialog_component.character_idle_dialog = character_idle_dialog
+	dialog_component.character_dialogs = character_dialogs
 	super()
 
 func _on_interact():	
