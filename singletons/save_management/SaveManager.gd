@@ -1,14 +1,10 @@
 extends Node
 
 var _save: SaveData
-var current_slot: int = 3
+var current_slot: int = 1
 
 func _ready():
 	create_or_load_save(current_slot)
-
-#func select_save_slot(slot: int) -> void:
-	#current_slot = slot
-	#create_or_load_save(current_slot)
 
 func create_new_save(slot: int) -> void:
 	current_slot = slot

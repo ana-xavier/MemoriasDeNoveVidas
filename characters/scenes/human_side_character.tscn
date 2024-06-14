@@ -283,7 +283,6 @@ character = NodePath("..")
 dialog_component = NodePath("../DialogComponent")
 
 [node name="PathFinderComponent" parent="." node_paths=PackedStringArray("character", "navigation_agent") instance=ExtResource("5_f2ado")]
-scale = Vector2(1, 1)
 character = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
 
