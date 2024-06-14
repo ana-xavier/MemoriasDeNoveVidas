@@ -47,7 +47,7 @@ Use the `BLANK_README.md` to get started.
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Como Começar
 
 <!--This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.-->
@@ -55,6 +55,15 @@ To get a local copy up and running follow these simple example steps.-->
 ### Pre-requisitos:
 
 * Godot Engine - 4.2.1
+
+### Instalação
+_Abaixo, um passo a passo de como baixar e abrir o projeto no Godot._
+1. [Baixe](https://godotengine.org/download/archive/4.2.1-stable) a Godot Engine na versão 4.2.1
+2. Clone o repositório do git:
+   ```sh
+   git clone git@github.com:ana-xavier/MemoriasDeNoveVidas.git
+   ```
+3. Abra o godot e escolha a pasta onde o repositório foi clonado.
 
 [godot-shield]: https://img.shields.io/badge/godot%20engine-000000?style=for-the-badge&logo=godotengine&logoColor=blue
 [godot-url]: https://godotengine.org/
