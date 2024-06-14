@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xyrk5h76ejq3"
+path="res://.godot/imported/Silent Horror - Decrepit.ogg-12d90a893a055d25ac954dde319c4f58.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/backgroud_sounds/Silent Horror - Decrepit.ogg"
+dest_files=["res://.godot/imported/Silent Horror - Decrepit.ogg-12d90a893a055d25ac954dde319c4f58.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
