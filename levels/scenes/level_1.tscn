@@ -165,7 +165,7 @@ lines = Array[String](["Eu disse que encontraria!"])
 
 [sub_resource type="Resource" id="Resource_cpaah"]
 script = ExtResource("9_unws2")
-character_type = 0
+character_type = 1
 lines = Array[String](["Agora, pequena.. Há coisas estranhas acontecendo por aqui.", "Eu acho que você deveria se encontrar com o Jujubinha, ele é o gato mais sábio do nosso bairro, e vai te oferecer informações importantes."])
 
 [sub_resource type="Resource" id="Resource_2frwo"]
