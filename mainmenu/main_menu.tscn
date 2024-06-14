@@ -120,6 +120,11 @@ text = "vidas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Misty" type="Sprite2D" parent="menu"]
+position = Vector2(217, 95)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("16_imarj")
+
 [node name="controls" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -351,11 +356,6 @@ vertical_alignment = 1
 
 [node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("14_dxmxj")]
 visible = false
-
-[node name="Misty" type="Sprite2D" parent="."]
-position = Vector2(217, 95)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("16_imarj")
 
 [connection signal="pressed" from="controls/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="controls/start" to="." method="_on_start_pressed"]
