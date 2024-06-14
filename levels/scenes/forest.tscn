@@ -125,6 +125,7 @@ scale = Vector2(0.745, 0.745)
 id = "plank_3"
 
 [node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_1c0tu")]
 position = Vector2(204, 62)
