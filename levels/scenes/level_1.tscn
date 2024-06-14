@@ -621,7 +621,7 @@ display_level_name = "Nível 1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_j4tvg")
-volume_db = -15.0
+volume_db = 10.0
 autoplay = true
 
 [node name="Terrain" parent="." instance=ExtResource("2_wwoyh")]
