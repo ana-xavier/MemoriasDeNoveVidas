@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://0mu4e83ym175"]
+[gd_scene load_steps=7 format=3 uid="uid://0mu4e83ym175"]
 
 [ext_resource type="Script" path="res://gui/notification/scripts/item_notification_box.gd" id="1_dngtc"]
 [ext_resource type="Texture2D" uid="uid://cqnvoec8814id" path="res://gui/notification/assets/item_frame.png" id="2_0ty4x"]
 [ext_resource type="Texture2D" uid="uid://e7daui0mdg6e" path="res://gui/notification/assets/box.png" id="2_7fsn3"]
 [ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="4_3ow74"]
+[ext_resource type="FontFile" uid="uid://brkm5d1yg37hw" path="res://gui/fonts/monogram.ttf" id="5_abeft"]
 [ext_resource type="AudioStream" uid="uid://daq7q7r265px8" path="res://resources/assets/sfx/pickup_item.wav" id="5_pkund"]
 
 [node name="ItemNotificationBox" type="MarginContainer"]
@@ -65,6 +66,20 @@ theme_override_colors/font_shadow_color = Color(0.94902, 0.721569, 0.533333, 1)
 theme_override_fonts/font = ExtResource("4_3ow74")
 theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 6.33333
+offset_top = -15.0
+offset_right = 24.3333
+offset_bottom = -2.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_abeft")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

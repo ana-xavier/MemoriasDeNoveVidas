@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=142 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -457,8 +457,28 @@ dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_qhbfc"), SubResour
 
 [sub_resource type="Resource" id="Resource_s7tyn"]
 script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Meow :)"])
+
+[sub_resource type="Resource" id="Resource_ffuhr"]
+script = ExtResource("9_unws2")
 character_type = 1
-lines = Array[String](["Diálogo 1"])
+lines = Array[String](["Ei, o que você tem aí, gatinho? Tábuas e pregos? Você trouxe isso pra mim?"])
+
+[sub_resource type="Resource" id="Resource_6n22c"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Meow Meow! "])
+
+[sub_resource type="Resource" id="Resource_yaoo0"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Hmmm, parece que você quer que eu use isso para consertar a ponte, não é? Que gatinho esperto!", "Muito bem, então! Vou começar a trabalhar na ponte agora mesmo. Obrigado pela ajuda, pequeno amigo!"])
+
+[sub_resource type="Resource" id="Resource_fllea"]
+script = ExtResource("9_unws2")
+character_type = 0
+lines = Array[String](["Meow :)"])
 
 [sub_resource type="Resource" id="Resource_34hhx"]
 script = ExtResource("10_x2nvm")
@@ -467,7 +487,7 @@ has_prerequisite = true
 prerequisite_quest_id = "pedrita_get_wood"
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_s7tyn")])
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_s7tyn"), SubResource("Resource_ffuhr"), SubResource("Resource_6n22c"), SubResource("Resource_yaoo0"), SubResource("Resource_fllea")])
 
 [sub_resource type="Resource" id="Resource_ii6ib"]
 script = ExtResource("9_unws2")

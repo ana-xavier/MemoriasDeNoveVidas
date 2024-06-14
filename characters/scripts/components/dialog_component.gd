@@ -36,6 +36,7 @@ func manage_dialog(player_body: CharacterBody2D) -> void:
 		DialogManager.start_dialog(curr_position, curr_lines, curr_character)
 		await DialogManager.dialog_finished
 
+	SignalBus.dialog_boxes_finished.emit()
 	DialogData.set_dialog_already_done(curr_dialog_data.id)
 	search_quest_in_dialog()
 	curr_dialog_data = null

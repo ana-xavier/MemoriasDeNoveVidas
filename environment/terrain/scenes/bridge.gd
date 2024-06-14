@@ -11,6 +11,7 @@ enum Frame {
 }
 
 func _ready():
+	SignalBus.rebuilt_bridge.connect(open_bridge)
 	if is_bridge_rebuilt():
 		open_bridge()
 

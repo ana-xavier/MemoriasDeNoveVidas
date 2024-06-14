@@ -79,15 +79,17 @@ prerequisite_quest_id = ""
 script = ExtResource("5_xove3")
 required_item_id = "new_plank"
 quantity = 3
+reward_item_id = "nail_bridge"
+reward_item_amount = 12
 character_id = "pedrita"
 finish_objective_display = "Fale com Pedrita após encontrar as tábuas."
 id = "pedrita_get_wood"
 name = "Em busca de uma passarela."
-description = ""
+description = null
 objective_display = "madeiras encontradas."
 status = 0
-has_prerequisite = false
-prerequisite_quest_id = ""
+has_prerequisite = null
+prerequisite_quest_id = null
 
 [sub_resource type="Resource" id="Resource_rechq"]
 script = ExtResource("6_cnmv4")

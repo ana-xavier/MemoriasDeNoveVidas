@@ -23,6 +23,8 @@ func run() -> void:
 	await character.path_finder_component.arrived_at_target	
 	
 	# lógica para mudar a ponte
+	SignalBus.rebuilt_bridge.emit()
+	InteractiveObjectsData.set_value_in_object("level_1_bridge", "bridge_rebuilt", true)
 	
 	cutscene_trigger.set_character_target_path(character, char_start_pos)
 	await CutsceneManager.full_screen_fade_in(2)

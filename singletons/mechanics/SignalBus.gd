@@ -10,3 +10,7 @@ signal feedback_returned(message: String)
 signal loading_level
 
 signal start_cutscene_by_id(id: String)
+
+signal rebuilt_bridge
+
+signal dialog_boxes_finished
