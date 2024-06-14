@@ -356,7 +356,6 @@ process_mode = 3
 script = ExtResource("15_mgnkw")
 
 [node name="InventoryButton" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 140.0

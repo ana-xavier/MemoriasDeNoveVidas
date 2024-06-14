@@ -742,7 +742,7 @@ enabled = false
 [node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
 
 [node name="Note2" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
-position = Vector2(-25, -329)
+position = Vector2(-229, -115)
 id = "note_2"
 quest_id = "level1_notes"
 
@@ -752,7 +752,7 @@ id = "note_3"
 quest_id = "level1_notes"
 
 [node name="Note4" parent="InteractableObjects/NotesInstances" instance=ExtResource("3_itqjh")]
-position = Vector2(387, -364)
+position = Vector2(692, -314)
 id = "note_4"
 quest_id = "level1_notes"
 

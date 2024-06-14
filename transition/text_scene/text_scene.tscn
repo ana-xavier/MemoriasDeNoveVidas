@@ -96,6 +96,6 @@ sprite_frames = SubResource("SpriteFrames_2whq3")
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("1_dixrk")
 notes_count = 0
-notes_to_get = 3
+notes_to_get = 5
 id = "level1_notes"
 name = "Notas Estranhas"
 description = ""

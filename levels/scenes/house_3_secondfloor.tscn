@@ -346,7 +346,6 @@ process_mode = 3
 script = ExtResource("11_l0a07")
 
 [node name="InventoryButton" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 140.0
