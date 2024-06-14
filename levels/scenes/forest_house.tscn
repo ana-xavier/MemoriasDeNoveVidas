@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cle4n4ik7365s"]
+[gd_scene load_steps=24 format=3 uid="uid://cle4n4ik7365s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_kh4ig"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_yaj2g"]
@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="15_02onp"]
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="16_jb3wa"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="17_v3knt"]
-[ext_resource type="PackedScene" path="res://gui/container/wait_feedback_container.tscn" id="18_o8qpo"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="18_o8qpo"]
+[ext_resource type="PackedScene" uid="uid://dmrgh0autf267" path="res://interaction/interaction_press/objects/note/note.tscn" id="19_cc07r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nmih"]
 size = Vector2(30, 20)
@@ -160,5 +161,15 @@ visible = false
 
 [node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("18_o8qpo")]
 visible = false
+
+[node name="InteractableObjects" type="Node2D" parent="."]
+
+[node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
+position = Vector2(-4, 4)
+
+[node name="Note5" parent="InteractableObjects/NotesInstances" instance=ExtResource("19_cc07r")]
+position = Vector2(81, 110)
+id = "note_5"
+quest_id = "level1_notes"
 
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
