@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=13 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=15 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_deliver_item.gd" id="3_4fqly"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_go_to_location.gd" id="4_4lpbj"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/finding_item_quest.gd" id="5_xove3"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_building_bridge.gd" id="6_cnmv4"]
 
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("1_dixrk")
@@ -88,6 +89,22 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_rechq"]
+script = ExtResource("6_cnmv4")
+cutscene_id = "george_repairs_bridge"
+item_id_1 = "new_plank"
+item_amount_1 = 3
+item_id_2 = "nail_bridge"
+item_amount_2 = 12
+character_id = "george"
+id = "repairing_bridge"
+name = "O caminho para a Cidade"
+description = ""
+objective_display = "Entregue as tábuas e os pregos para o humano George."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq")])

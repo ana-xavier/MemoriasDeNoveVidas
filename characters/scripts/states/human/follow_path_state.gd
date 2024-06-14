@@ -11,7 +11,6 @@ func update(_delta: float):
 	if path_finder_component.is_following_path:
 		var direction = path_finder_component.direction
 		
-		print(direction)
 		if direction != Vector2.ZERO:
 			if direction.x < 0:
 				animation_player.play("walking_left")

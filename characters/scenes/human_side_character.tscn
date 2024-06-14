@@ -276,6 +276,7 @@ frame = 8
 
 [node name="DialogComponent" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_5t5ho")]
 character = NodePath("..")
+text_box_y_offset = -12.0
 
 [node name="QuestComponent" parent="." node_paths=PackedStringArray("character", "dialog_component") instance=ExtResource("4_2wjjp")]
 character = NodePath("..")
@@ -288,6 +289,7 @@ navigation_agent = NodePath("../NavigationAgent2D")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_52586")]
 action_name = "conversar"
+label_offset_y = -14.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_awsuv")

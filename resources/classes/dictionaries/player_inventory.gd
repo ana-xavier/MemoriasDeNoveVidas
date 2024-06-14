@@ -17,12 +17,13 @@ func remove_item(id: String, amount: int = 1) -> void:
 	if items[id] <= 0:
 		items.erase(id)
 
-func has_item(id: String, quantity: int) -> bool:
+func has_item(id: String, amount: int) -> bool:
 	if items.has(id):
-		var current_quantity: int = items.get(id)
-		if quantity <= current_quantity:
+		var current_amount: int = items.get(id)
+		if amount <= current_amount:
 			return true
-		return false
+		else:
+			return false
 	return false
 
 func get_quantity(id: String) -> int:

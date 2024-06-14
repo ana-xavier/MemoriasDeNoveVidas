@@ -55,18 +55,18 @@ func end_cutscene() -> void:
 	is_cutscene_running = false
 	cutscene_ended.emit()
 	
-func full_screen_fade_in() -> void:
+func full_screen_fade_in(duration: float = 1.0) -> void:
 	var tween = create_tween()
 	tween.tween_property(
-		full_screen_fade, "color:a", 0, ANIMATION_DURATION
+		full_screen_fade, "color:a", 0, duration
 	).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished
 	full_screen_fade.visible = false
 	
-func full_screen_fade_out() -> void:
+func full_screen_fade_out(duration: float = 1.0) -> void:
 	full_screen_fade.visible = true
 	var tween = create_tween()
 	tween.tween_property(
-		full_screen_fade, "color:a", 1, ANIMATION_DURATION
+		full_screen_fade, "color:a", 1, duration
 	).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished

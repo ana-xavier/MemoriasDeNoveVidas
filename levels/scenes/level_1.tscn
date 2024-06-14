@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://ceqcsqu3gfivl"]
+[gd_scene load_steps=138 format=3 uid="uid://ceqcsqu3gfivl"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_2o1h2"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_wwoyh"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_y8j6t"]
 [ext_resource type="Script" path="res://cutscene/levels/level_1/ghost_apparition_1.gd" id="10_7unv4"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="10_x2nvm"]
+[ext_resource type="Script" path="res://cutscene/levels/level_1/george_repair_bridge.gd" id="11_rb0wu"]
 [ext_resource type="PackedScene" uid="uid://ev2a0j2getnn" path="res://characters/scenes/dialog_character.tscn" id="12_fc5l1"]
 [ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="12_ueh3g"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="15_nsa7h"]
@@ -450,9 +451,23 @@ script = ExtResource("10_x2nvm")
 id = "pedrita_finishing"
 has_prerequisite = true
 prerequisite_quest_id = "pedrita_get_wood"
+release_a_quest = true
+quest_id = "repairing_bridge"
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_qhbfc"), SubResource("Resource_n4h5r"), SubResource("Resource_tlkv6")])
+
+[sub_resource type="Resource" id="Resource_s7tyn"]
+script = ExtResource("9_unws2")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_34hhx"]
+script = ExtResource("10_x2nvm")
+id = "george_helping"
+has_prerequisite = true
+prerequisite_quest_id = "pedrita_get_wood"
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_qhbfc"), SubResource("Resource_n4h5r"), SubResource("Resource_tlkv6")])
+dialog = Array[ExtResource("9_unws2")]([SubResource("Resource_s7tyn")])
 
 [sub_resource type="Resource" id="Resource_ii6ib"]
 script = ExtResource("9_unws2")
@@ -688,6 +703,20 @@ scale = Vector2(1.01818, 1)
 shape = SubResource("RectangleShape2D_7j110")
 debug_color = Color(1, 1, 0, 0.419608)
 
+[node name="GeorgeRepairBridge" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_hm0xn")]
+position = Vector2(371.88, 129.366)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/GeorgeRepairBridge" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("11_rb0wu")
+destination_camera = NodePath("Camera2D")
+id = "george_repairs_bridge"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/GeorgeRepairBridge/Cutscene"]
+position = Vector2(76.1202, 10.6339)
+enabled = false
+
 [node name="InteractableObjects" type="Node2D" parent="."]
 
 [node name="NotesInstances" type="Node2D" parent="InteractableObjects"]
@@ -741,7 +770,7 @@ id = "dig_E6"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(324.718, 133.278)
+position = Vector2(267, 130)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
@@ -781,8 +810,11 @@ character_name = "Pedrita"
 texture = ExtResource("20_qkdbl")
 frame = 78
 
-[node name="HumanSideCharacter" parent="YSort" instance=ExtResource("21_8jnx8")]
-position = Vector2(318.411, 92.2733)
+[node name="George" parent="YSort" instance=ExtResource("21_8jnx8")]
+position = Vector2(324, 100)
+character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_34hhx")])
+character_id = "george"
+character_name = "George"
 
 [node name="NpcCat1" parent="YSort" instance=ExtResource("12_fc5l1")]
 position = Vector2(-549, -261)

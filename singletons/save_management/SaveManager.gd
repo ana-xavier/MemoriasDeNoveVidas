@@ -1,7 +1,7 @@
 extends Node
 
 var _save: SaveData
-var current_slot: int = 1
+var current_slot: int = 3
 
 func _ready():
 	create_or_load_save(current_slot)
