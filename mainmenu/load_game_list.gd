@@ -34,7 +34,8 @@ func get_save_content(save: SaveData) -> String:
 	var content: String = save.global_variables.display_level_name + "\n"
 	var time: Dictionary = save.global_variables.last_time_saved
 	if !time.is_empty():
-		content += "%02d/%02d/%d - %02d:%02d" % [time.day, time.month, time.year, time.hour, time.minute]
+		content += "%02d/%02d/%d - %02d:%02d\n" % [time.day, time.month, time.year, time.hour, time.minute]
+	content += QuestManager.get_progress_by_save(save)
 	return content
 	
 func _on_slot_pressed(slot: int) -> void:

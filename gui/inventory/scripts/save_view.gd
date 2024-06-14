@@ -13,10 +13,10 @@ func search_saved_data():
 		if !time.is_empty():
 			text += "Data: " + "%02d/%02d/%d\n" % [time.day, time.month, time.year]
 			text += "Hora: " + "%02d:%02d\n" % [time.hour, time.minute]
-		text += "Progresso: " + "[TO DO]\n"
+		text += "Progresso: " + QuestManager.get_progress_by_save(save) + "\n"
 		text += "Itens Secretos: " + "0/0"
 		save_content.text = text
-		
+
 func save_progress():
 	SaveManager.save_game_data(SaveManager.current_slot)	
 	
