@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://biklhil27ob7k"]
+[gd_scene load_steps=8 format=3 uid="uid://biklhil27ob7k"]
 
 [ext_resource type="Texture2D" uid="uid://5jqw5t6el8rt" path="res://environment/terrain/assets/objects/bridge/bridge_horizontal_normal_and_broken.png" id="1_polck"]
 [ext_resource type="Script" path="res://environment/terrain/scenes/bridge.gd" id="1_qqqao"]
+[ext_resource type="Shader" path="res://environment/shaders/shadow.gdshader" id="2_6xltk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd8ux"]
+shader = ExtResource("2_6xltk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gym4a"]
 size = Vector2(96, 11)
@@ -17,6 +21,7 @@ script = ExtResource("1_qqqao")
 id = "level_1_bridge"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rd8ux")
 position = Vector2(-8, -8)
 texture = ExtResource("1_polck")
 centered = false

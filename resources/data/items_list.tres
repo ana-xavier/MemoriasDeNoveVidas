@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/classes/lists/items_list.gd" id="2_hu5u6"]
 [ext_resource type="Texture2D" uid="uid://bdea6ndihk0bp" path="res://resources/assets/sprites/rubber_duck.png" id="2_lrgc6"]
 [ext_resource type="Texture2D" uid="uid://c4ndwmjxm7idt" path="res://resources/assets/sprites/spr_nail.png" id="3_mlop7"]
-[ext_resource type="Texture2D" uid="uid://fp82mu5g5mp1" path="res://resources/assets/sprites/spr_wood.png" id="4_8u71g"]
+[ext_resource type="Texture2D" uid="uid://rhfiemwnta23" path="res://resources/assets/sprites/new_plank.png" id="4_hp72c"]
 
 [sub_resource type="Resource" id="Resource_8ffbd"]
 script = ExtResource("1_g4cob")
@@ -22,7 +22,7 @@ sprite = ExtResource("3_mlop7")
 script = ExtResource("1_g4cob")
 id = "new_plank"
 name = "Tábua"
-sprite = ExtResource("4_8u71g")
+sprite = ExtResource("4_hp72c")
 
 [resource]
 script = ExtResource("2_hu5u6")
