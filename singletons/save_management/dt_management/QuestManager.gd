@@ -39,3 +39,15 @@ func on_active_quest():
 
 func on_complete_quest():
 	quest_complete.emit()
+
+func get_progress_by_save(save: SaveData) -> String:
+	var quest_complete_count: float = 0
+	var quests: Array[Quest] = save.quest_list.quests
+	for quest in quests:
+		if quest.status == Quest.Status.COMPLETE:
+			quest_complete_count += 1
+	if quest_complete_count == 0:
+		return "0%"
+
+	var progress = (quest_complete_count / quests.size()) * 100
+	return str(round(progress * 100) / 100.0) + "%"
