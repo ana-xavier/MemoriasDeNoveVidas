@@ -8,7 +8,6 @@ func prerequisites() -> bool:
 	return true
 	
 func run() -> void:
-	var player = cutscene_trigger.get_player_node()
 	var player_cam = cutscene_trigger.get_player_camera()
 	var character = cutscene_trigger.get_character_node("George")
 	var char_start_pos: Vector2 = character.global_position

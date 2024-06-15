@@ -11,7 +11,7 @@ func _ready():
 			has_saved_data = true
 
 func open() -> void:
-	await _update_slots()
+	_update_slots()
 
 func _update_slots() -> void:
 	clear_buttons()

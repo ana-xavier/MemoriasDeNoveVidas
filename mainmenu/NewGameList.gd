@@ -10,7 +10,7 @@ func _ready():
 		button.pressed.connect(_on_slot_pressed.bind(slot))
 
 func open() -> void:
-	await _update_slots()
+	_update_slots()
 
 func _update_slots() -> void:
 	for slot in range(1, 4):  
