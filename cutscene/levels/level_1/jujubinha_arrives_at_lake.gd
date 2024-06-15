@@ -26,7 +26,7 @@ func run() -> void:
 	character.path_finder_component.find_and_follow_path(Vector2(-493, -228))
 	await character.path_finder_component.arrived_at_target	
 	character.fsm.force_change_state("idle_waiting_state")
-	await CameraTransition.transitioning_complete
+	await get_tree().create_timer(0.5).timeout
 	character.animation.play("idle_down")
 	await character.animation.animation_finished
 	character.animation.play("surprised")
