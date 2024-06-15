@@ -6,11 +6,14 @@ extends State
 @export var interaction_area: InteractionArea
 @export var speed: float = 50.0
 
+var curr_speed: float = 0
+
 var player: MainCharacter
 
 func enter():
 	player = get_tree().get_first_node_in_group("player")
 	body.set_collision_layer_value(1, false)
+	curr_speed = speed
 	interaction_area.monitoring = false
 	
 func update(_delta: float):
@@ -32,12 +35,14 @@ func move():
 	if direction != Vector2.ZERO:
 		animation_tree["parameters/Running/blend_position"] = direction
 	
-	body.velocity = direction.normalized() * speed
+	body.velocity = direction.normalized() * curr_speed
 	
 	if to_player_dir.length() < 25:
 		state_transition.emit(self, "idle_follow_player_state")
+	elif to_player_dir.length() < 50:	
+		curr_speed = speed
 	elif to_player_dir.length() > 150:
-		body.global_position = player.global_position
+		curr_speed = player._move_speed + 5
 		
 	
 func exit():
