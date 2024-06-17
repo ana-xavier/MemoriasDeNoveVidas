@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://cle4n4ik7365s"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_kh4ig"]
-[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/terrain.tscn" id="2_yaj2g"]
+[ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/level_1/terrain.tscn" id="2_w2sr7"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="3_und5r"]
-[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/objects_terrain.tscn" id="4_ns4f8"]
-[ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/door.tscn" id="5_wu5gx"]
 [ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="6_otloc"]
 [ext_resource type="PackedScene" uid="uid://b6wo6j058enc8" path="res://characters/scenes/ghost_cat.tscn" id="6_qjfcw"]
+[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/level_1/objects_terrain.tscn" id="7_nu1gb"]
+[ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/scenes/door.tscn" id="8_2xdo1"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="9_rcwqy"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="10_pmgu3"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="11_oqsov"]
@@ -41,7 +41,7 @@ script = ExtResource("1_kh4ig")
 level_id = "forest_house"
 display_level_name = "Casa - Floresta das Sombras"
 
-[node name="Terrain" parent="." instance=ExtResource("2_yaj2g")]
+[node name="Terrain" parent="." instance=ExtResource("2_w2sr7")]
 layer_0/tile_data = PackedInt32Array(458764, 786433, 7, 393228, 786433, 6, 327692, 786433, 6, 262156, 786433, 6, 196620, 786433, 5, 524299, 786433, 7, 458763, 720897, 6, 393227, 720897, 6, 327691, 720897, 6, 262155, 655361, 6, 196619, 655361, 6, 131083, 786433, 5, 524298, 720897, 6, 458762, 655361, 6, 393226, 655361, 6, 327690, 720897, 6, 262154, 655361, 6, 196618, 720897, 6, 131082, 655361, 5, 524297, 720897, 7, 458761, 655361, 6, 393225, 720897, 6, 327689, 655361, 6, 262153, 720897, 6, 196617, 720897, 6, 131081, 720897, 5, 524296, 720897, 7, 458760, 720897, 6, 393224, 655361, 6, 327688, 655361, 6, 262152, 655361, 6, 196616, 655361, 6, 131080, 720897, 5, 524295, 655361, 7, 458759, 655361, 6, 393223, 655361, 6, 327687, 655361, 6, 262151, 720897, 6, 196615, 655361, 6, 131079, 655361, 5, 524294, 720897, 7, 458758, 720897, 6, 393222, 655361, 6, 327686, 655361, 6, 262150, 720897, 6, 196614, 720897, 6, 131078, 720897, 5, 524293, 589825, 7, 458757, 720897, 6, 393221, 720897, 6, 327685, 720897, 6, 262149, 655361, 6, 196613, 655361, 6, 131077, 589825, 5, 196612, 589825, 5, 262148, 589825, 6, 327684, 589825, 6, 393220, 589825, 6, 458756, 589825, 7, -65531, 327681, 1, 5, 327681, 2, 65541, 327681, 3, -65530, 458753, 1, 6, 393217, 2, 65542, 393217, 3, -65529, 458753, 1, 7, 458753, 2, 65543, 458753, 3, -65528, 458753, 1, 8, 458753, 2, 65544, 524289, 3, -65527, 458753, 1, 9, 458753, 2, 65545, 393217, 3, -65526, 458753, 1, 10, 458753, 2, 65546, 458753, 3, -65525, 524289, 1, 11, 524289, 2, 65547, 524289, 3, 131084, 524289, 3, 65548, 524289, 2, 12, 524289, 1, 65540, 327681, 2, 131076, 327681, 3, 4, 327681, 1, -131067, 65537, 0, -131066, 65537, 0, -131065, 65537, 0, -131064, 65537, 0, -131063, 65537, 0, -131062, 65537, 0, -131061, 65537, 0, -131060, 1114113, 0, -65524, 1114113, 1, 13, 1114113, 1, 65549, 1114113, 1, 131085, 1114113, 1, 196621, 1114113, 1, 262157, 1114113, 1, 458765, 1114113, 1, 393229, 1114113, 1, 327693, 1114113, 1, 458755, 1114113, 268435457, 393219, 1114113, 268435457, 327683, 1114113, 268435457, 262147, 1114113, 268435457, 196611, 1114113, 268435457, 131075, 1114113, 268435457, 65539, 1114113, 268435457, 3, 1114113, 268435457, -65532, 1114113, 268435457, -131068, 1, 0, 589832, 65537, 8, 589831, 65537, 8, 589834, 1, 1610612742, 589835, 1048577, 8, 589830, 1048577, 8, 589829, 1048577, 8, 524300, 1048577, 8, 524301, 1114113, 8, 524292, 1048577, 268435464, 524291, 1114113, 268435464, 589833, 65537, 8)
 layer_1/tile_data = PackedInt32Array(-65532, 65537, 0, -65533, 1, 0, -65524, 65537, 0, -65523, 1114113, 0, 589833, 1, 1610612743, 589831, 1, 1610612743, 589832, 65537, 8, 589836, 1114113, 536870912, 524300, 1114113, 536870913, 524292, 1114113, 805306369, 589828, 1114113, 805306368)
 
@@ -70,12 +70,12 @@ position = Vector2(168, 135)
 [node name="GhostCat" parent="YSort" instance=ExtResource("6_qjfcw")]
 position = Vector2(136.466, 63.4209)
 
-[node name="ObjectsTerrain" parent="YSort" instance=ExtResource("4_ns4f8")]
+[node name="ObjectsTerrain" parent="YSort" instance=ExtResource("7_nu1gb")]
 layer_0/tile_data = PackedInt32Array(65544, 589839, 7, 131083, 393232, 2, 131082, 458768, 2, 65542, 14, 10, 262152, 655374, 2, 524298, 524303, 2)
 
 [node name="Doors" type="Node2D" parent="YSort"]
 
-[node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("5_wu5gx")]
+[node name="Door_INSIDE" parent="YSort/Doors" instance=ExtResource("8_2xdo1")]
 position = Vector2(167, 136)
 door_id = "forest_house_door"
 destination_level_tag = "forest"

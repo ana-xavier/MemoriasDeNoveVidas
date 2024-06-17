@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bif8o84inl151"
-path="res://.godot/imported/Summer8.png-9bad0c5c430003067709718fd734a25b.ctex"
+uid="uid://d1vfjl85p6at6"
+path="res://.godot/imported/misty.png-bfc58bb3c965357a3fd07de4d35b658b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mainmenu/assets/Summer8.png"
-dest_files=["res://.godot/imported/Summer8.png-9bad0c5c430003067709718fd734a25b.ctex"]
+source_file="res://gui/mainmenu/assets/misty.png"
+dest_files=["res://.godot/imported/misty.png-bfc58bb3c965357a3fd07de4d35b658b.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cunrbeghm3g3h"]
 
-[ext_resource type="Script" path="res://transition/door_press.gd" id="1_55tdi"]
+[ext_resource type="Script" path="res://transition/scripts/door_press.gd" id="1_55tdi"]
 [ext_resource type="PackedScene" uid="uid://uffj84nvj2aj" path="res://interaction/interaction_area/interaction_area.tscn" id="2_w6rac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1ly"]

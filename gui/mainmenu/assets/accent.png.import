@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0k82223adg0h"
-path="res://.godot/imported/2.png-79b2d652e7d31d51b0286b44f50b7453.ctex"
+uid="uid://cjm1e1yp5ux4n"
+path="res://.godot/imported/accent.png-50e72e8f174efa3cb5b438ec4864bb35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mainmenu/assets/2.png"
-dest_files=["res://.godot/imported/2.png-79b2d652e7d31d51b0286b44f50b7453.ctex"]
+source_file="res://gui/mainmenu/assets/accent.png"
+dest_files=["res://.godot/imported/accent.png-50e72e8f174efa3cb5b438ec4864bb35.ctex"]
 
 [params]
 
