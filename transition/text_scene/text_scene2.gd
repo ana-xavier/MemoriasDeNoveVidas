@@ -3,7 +3,7 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var color_rect: ColorRect = $ColorRect
 
-const scene_menu = preload("res://mainmenu/main_menu.tscn")
+const scene_menu = preload("res://gui/mainmenu/main_menu.tscn")
 
 func _ready():
 	timer.start()

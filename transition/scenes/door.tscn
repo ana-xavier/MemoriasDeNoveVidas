@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxagbjrrw7m88"]
 
-[ext_resource type="Script" path="res://transition/door.gd" id="1_r4ry7"]
+[ext_resource type="Script" path="res://transition/scripts/door.gd" id="1_r4ry7"]
 
 [node name="Door" type="Area2D"]
 collision_layer = 0

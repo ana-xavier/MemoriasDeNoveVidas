@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6j6k30u18c8s"]
 
-[ext_resource type="Texture2D" uid="uid://bif8o84inl151" path="res://mainmenu/assets/Summer8.png" id="1_l562s"]
+[ext_resource type="Texture2D" uid="uid://bif8o84inl151" path="res://gui/mainmenu/assets/Summer8.png" id="1_l562s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0xfi"]
 animations = [{

@@ -50,6 +50,7 @@ grow_vertical = 2
 texture = ExtResource("1_xg737")
 
 [node name="CloseButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 45.0
 offset_top = -13.0
 offset_right = 61.0

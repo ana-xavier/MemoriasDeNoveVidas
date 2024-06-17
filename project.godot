@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Memórias de Nove Vidas"
 config/version="alpha-4.0"
-run/main_scene="res://mainmenu/main_menu.tscn"
+run/main_scene="res://gui/mainmenu/main_menu.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
@@ -29,8 +29,8 @@ NotesData="*res://singletons/read_only_data/NotesData.gd"
 DialogManager="*res://singletons/mechanics/DialogManager.gd"
 InteractionManager="*res://interaction/interaction_press/interaction_manager.tscn"
 InteractionHoldManager="*res://interaction/interaction_hold/interaction_hold_manager.tscn"
-Transition="*res://transition/transition.tscn"
-NavigationManager="*res://transition/navigationManager.gd"
+Transition="*res://transition/scenes/transition.tscn"
+NavigationManager="*res://transition/scripts/navigationManager.gd"
 SignalBus="*res://singletons/mechanics/SignalBus.gd"
 CursorManager="*res://gui/cursor/cursor_manager.tscn"
 CutsceneManager="*res://cutscene/scenes/cutscene_manager.tscn"
@@ -48,10 +48,12 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://action_scripts/": "blue",
 "res://characters/": "yellow",
 "res://cutscene/": "orange",
 "res://environment/": "green",
 "res://gui/": "pink",
+"res://interaction/": "purple",
 "res://levels/": "teal",
 "res://resources/": "red",
 "res://singletons/": "gray"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bts32wuh5ww2l"
-path="res://.godot/imported/spr_wooden_bridge_horizontal_broken.png-7c1e8e30f06a776955a90278ac333b34.ctex"
+uid="uid://f3pm22bb8f70"
+path="res://.godot/imported/1.png-0cf774d871d583e623c6c1f8cc8c3739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/terrain/assets/objects/bridge/spr_wooden_bridge_horizontal_broken.png"
-dest_files=["res://.godot/imported/spr_wooden_bridge_horizontal_broken.png-7c1e8e30f06a776955a90278ac333b34.ctex"]
+source_file="res://gui/mainmenu/assets/1.png"
+dest_files=["res://.godot/imported/1.png-0cf774d871d583e623c6c1f8cc8c3739.ctex"]
 
 [params]
 

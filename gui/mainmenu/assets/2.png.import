@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1vfjl85p6at6"
-path="res://.godot/imported/misty.png-41f7bc1b9eac7106db1877693c63b117.ctex"
+uid="uid://c0k82223adg0h"
+path="res://.godot/imported/2.png-9f3390e27d2f5c521f38b07db9bccf76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mainmenu/assets/misty.png"
-dest_files=["res://.godot/imported/misty.png-41f7bc1b9eac7106db1877693c63b117.ctex"]
+source_file="res://gui/mainmenu/assets/2.png"
+dest_files=["res://.godot/imported/2.png-9f3390e27d2f5c521f38b07db9bccf76.ctex"]
 
 [params]
 

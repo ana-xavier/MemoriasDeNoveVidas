@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://lvaaeh1gg3ri" path="res://gui/inventory/assets/menu_button3.png" id="13_tf4e1"]
 [ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="15_kbfd7"]
 [ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="16_amra1"]
-[ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://mainmenu/load_game_list.tscn" id="17_a6ese"]
+[ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://gui/mainmenu/load_game_list.tscn" id="17_a6ese"]
 [ext_resource type="Texture2D" uid="uid://cq4qrxy4qkenj" path="res://gui/icons/menu.png" id="17_rv3qr"]
 [ext_resource type="PackedScene" uid="uid://do1py0iult3ee" path="res://gui/inventory/scenes/menu_button.tscn" id="17_wt6uw"]
 [ext_resource type="Texture2D" uid="uid://c2pr8exvxey2r" path="res://gui/inventory/assets/menu_button4.png" id="18_3y338"]
