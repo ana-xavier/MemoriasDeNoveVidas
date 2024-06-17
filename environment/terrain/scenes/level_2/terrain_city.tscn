@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbl6qd0wbcead"]
+
+[sub_resource type="TileSet" id="TileSet_po6pf"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "grass"
+terrain_set_0/terrain_0/color = Color(0.501961, 1, 0.25098, 1)
+navigation_layer_0/layers = 1
+
+[node name="Terrain" type="TileMap"]
+tile_set = SubResource("TileSet_po6pf")
+format = 2
+layer_0/name = "base_terrain"
+layer_1/name = "cliff_terrain"
+layer_1/tile_data = PackedInt32Array()

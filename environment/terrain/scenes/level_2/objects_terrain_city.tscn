@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://k4ywsuilrwd"]
+
+[sub_resource type="TileSet" id="TileSet_egy14"]
+
+[node name="ObjectsTerrainCity" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_egy14")
+format = 2
+layer_0/y_sort_enabled = true
