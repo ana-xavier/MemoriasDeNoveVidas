@@ -25,4 +25,4 @@ func _ready() -> void:
 		Idle.DOWN: animation.play("idle_down")
 		Idle.UP : animation.play("idle_up")
 		Idle.LEFT: animation.play("idle_left")
-		Idle.RIGHT: animation.pllay("idle_right")
+		Idle.RIGHT: animation.play("idle_right")

@@ -15,7 +15,7 @@ func get_quest_by_character_id(character_id: String) -> Quest:
 			or quest is QuestGoToLocation 
 			or quest is QuestFindingItem
 			or quest is QuestBuildingBridge
-			or quest is QuestInteractWithCharacter):
+			or quest is QuestCharacter):
 			if (quest.character_id == character_id && quest.status == Quest.Status.ACTIVE):
 				return quest
 	return null
