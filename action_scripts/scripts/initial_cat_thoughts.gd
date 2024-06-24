@@ -5,5 +5,5 @@ const lines: Array[String] = ["Onde estão meus pais? Eles nunca ficaram fora po
 							]
 
 func run(_trigger_node: Node2D, body: CharacterBody2D) -> bool:
-	await DialogManager.start_dialog(body.global_position, lines, GlobalData.main_character_name)
+	await DialogManager.start_dialog(body.global_position, lines, GlobalData.main_character_name, false, false, "[color=purple]")
 	return true

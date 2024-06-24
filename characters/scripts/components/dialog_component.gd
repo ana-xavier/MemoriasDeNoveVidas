@@ -12,7 +12,9 @@ enum Character {
 @export var character_idle_dialog: Dialog = null
 @export var character_dialogs: Array[Dialog] = []
 @export var text_box_y_offset: float = 0
+@export var character_color_name: String = ""
 
+const main_character_name_color: String = "[color=purple]"
 var curr_dialog_data: Dialog = null
 
 
@@ -25,15 +27,18 @@ func manage_dialog(player_body: CharacterBody2D) -> void:
 	for dialog in dialog_boxes:
 		var curr_lines: Array[String] =  dialog.lines
 		var curr_character = character.character_name if dialog.character_type == Character.NPC else GlobalData.main_character_name
+		var name_color: String = ""
 		
 		var curr_position: Vector2
 		if dialog.character_type == Character.NPC:
+			name_color = character_color_name
 			curr_position =  character.global_position
 			curr_position.y += text_box_y_offset
 		else: 
 			curr_position = player_body.global_position
+			name_color = main_character_name_color
 	
-		DialogManager.start_dialog(curr_position, curr_lines, curr_character)
+		DialogManager.start_dialog(curr_position, curr_lines, curr_character, false, false, name_color)
 		await DialogManager.dialog_finished
 
 	SignalBus.dialog_boxes_finished.emit()

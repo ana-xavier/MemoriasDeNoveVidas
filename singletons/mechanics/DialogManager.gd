@@ -14,11 +14,12 @@ var is_dialog_active: bool = false
 var can_advance_line: bool = false
 var is_dialog_automatic: bool = false
 var is_name_hided: bool = false
+var name_character_color: String = ""
 
 #signal dialog_started()
 signal dialog_finished()
 
-func start_dialog(position: Vector2, lines, _name: String, hide_name:bool = false, automatic: bool = false):
+func start_dialog(position: Vector2, lines, _name: String, hide_name:bool = false, automatic: bool = false, name_color: String = ""):
 	if is_dialog_active:
 		return
 	
@@ -27,6 +28,8 @@ func start_dialog(position: Vector2, lines, _name: String, hide_name:bool = fals
 	character_name = _name
 	is_name_hided = hide_name
 	is_dialog_automatic = automatic
+	name_character_color = name_color
+	
 	_show_text_box()
 	
 	is_dialog_active = true
@@ -37,7 +40,7 @@ func _show_text_box():
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position
-	text_box.display_text(dialog_lines[current_line_index])
+	text_box.display_text(dialog_lines[current_line_index], name_character_color)
 	can_advance_line = false
 	
 func _on_text_box_finished_displaying():

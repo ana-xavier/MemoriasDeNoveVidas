@@ -4,6 +4,7 @@ class_name HumanSideCharacter
 @export_category("Dialog Component")
 @export var character_idle_dialog: Dialog = null
 @export var character_dialogs: Array[Dialog] = []
+@export var character_color_name: String = ""
 
 @export_subgroup("States")
 @export var player_near_state: State = null
@@ -21,6 +22,7 @@ func _ready():
 	
 	dialog_component.character_idle_dialog = character_idle_dialog
 	dialog_component.character_dialogs = character_dialogs
+	dialog_component.character_color_name = character_color_name
 	super()
 
 func _on_interact():

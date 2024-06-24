@@ -818,7 +818,7 @@ editor_draw_limits = true
 position = Vector2(283, -32)
 character_idle_dialog = SubResource("Resource_pc5wt")
 character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_e5774"), SubResource("Resource_1inx0")])
-character_color_name = "[color=orange]"
+character_color_name = "orange"
 char_interact_quest_id = "searching_for_answers"
 character_id = "srpotatoe"
 character_name = "Sr. Batata"
@@ -829,7 +829,7 @@ frame = 78
 position = Vector2(-846, -549)
 character_idle_dialog = SubResource("Resource_emud4")
 character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_rmjpq"), SubResource("Resource_jo8n8"), SubResource("Resource_wja71")])
-character_color_name = "[color=#00688B]"
+character_color_name = "#87CEEB"
 char_interact_quest_id = "searching_for_answers"
 character_id = "jujubinha"
 character_name = "Jujubinha"
@@ -839,7 +839,7 @@ texture = ExtResource("19_lw3jw")
 position = Vector2(-646, 104)
 character_idle_dialog = SubResource("Resource_k5mip")
 character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_gtf50"), SubResource("Resource_v8711")])
-character_color_name = "[color=#FF82AB]"
+character_color_name = "#FF82AB"
 char_interact_quest_id = "searching_for_answers"
 character_id = "pedrita"
 character_name = "Pedrita"
@@ -849,7 +849,7 @@ frame = 78
 [node name="George" parent="YSort" instance=ExtResource("21_8jnx8")]
 position = Vector2(324, 100)
 character_dialogs = Array[ExtResource("10_x2nvm")]([SubResource("Resource_34hhx")])
-character_color_name = "[color=#43CD80]"
+character_color_name = "#43CD80"
 character_id = "george"
 character_name = "George"
 

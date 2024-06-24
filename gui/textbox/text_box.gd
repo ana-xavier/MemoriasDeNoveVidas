@@ -7,7 +7,7 @@ extends MarginContainer
 
 const MAX_WIDTH = 256
 const TIME_PER_CHARACTER = 0.02
-const DISPLAY_NAME_COLOR = "[color=purple]"
+const DISPLAY_NAME_COLOR = "[color=black]"
 
 var initial_scale: Vector2 
 
@@ -33,7 +33,10 @@ func _ready():
 func set_character_name(_name: String):
 	character_name = _name
 
-func display_text(text_to_display: String):
+func display_text(text_to_display: String, name_color: String = ""):
+	if !name_color:
+		name_color = DISPLAY_NAME_COLOR
+	
 	text = text_to_display
 	label.text = text_to_display
 	
@@ -52,7 +55,7 @@ func display_text(text_to_display: String):
 	if DialogManager.is_name_hided:
 		label.text = ""
 	else:
-		label.text = DISPLAY_NAME_COLOR + character_name + "[/color]"
+		label.text = name_color + character_name + "[/color]"
 		label.text += ":\n"
 	
 	#pivot_offset = Vector2((size.x / 2) * 0.5, size.y * 0.5)

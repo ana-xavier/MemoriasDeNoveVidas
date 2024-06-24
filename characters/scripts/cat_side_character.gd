@@ -4,6 +4,7 @@ class_name CatSideCharacter
 @export_category("Dialog Component")
 @export var character_idle_dialog: Dialog = null
 @export var character_dialogs: Array[Dialog] = []
+@export var character_color_name: String = ""
 
 @export_category("Quest Component")
 @export var char_interact_quest_id: String = ""
@@ -31,6 +32,7 @@ func _ready() -> void:
 	dialog_component.character_idle_dialog = character_idle_dialog
 	dialog_component.character_dialogs = character_dialogs
 	quest_component.char_interact_quest_id = char_interact_quest_id
+	dialog_component.character_color_name = character_color_name
 	super()
 
 func _on_interact():	

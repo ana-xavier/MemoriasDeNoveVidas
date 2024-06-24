@@ -298,6 +298,7 @@ visible = false
 position = Vector2(-29, -198)
 character_idle_dialog = SubResource("Resource_nf6ed")
 character_dialogs = Array[ExtResource("6_441br")]([SubResource("Resource_rmjpq"), SubResource("Resource_jo8n8"), SubResource("Resource_wja71")])
+character_color_name = "[color=#00688B]"
 char_interact_quest_id = "searching_for_answers"
 character_id = "jujubinha"
 character_name = "Jujubinha"
