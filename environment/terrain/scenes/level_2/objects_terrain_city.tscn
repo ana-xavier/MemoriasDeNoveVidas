@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://k4ywsuilrwd"]
+[gd_scene load_steps=9 format=3 uid="uid://k4ywsuilrwd"]
 
 [ext_resource type="Texture2D" uid="uid://drwgvyblhka3l" path="res://environment/terrain/assets/city_terrain_tileset.png" id="1_ese0p"]
 [ext_resource type="Texture2D" uid="uid://cb2t3weptseri" path="res://environment/terrain/assets/objects/TX Props.png" id="2_d3ly6"]
+[ext_resource type="PackedScene" uid="uid://bek1memmwxwxu" path="res://environment/terrain/scenes/level_2/to_right_light_pole.tscn" id="3_yrgqk"]
+[ext_resource type="PackedScene" uid="uid://cm1a73usy6hdd" path="res://environment/terrain/scenes/level_2/to_left_light_pole.tscn" id="4_knifn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nud61"]
 texture = ExtResource("1_ese0p")
@@ -1590,6 +1592,7 @@ texture_region_size = Vector2i(32, 32)
 36:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 36:3/0/physics_layer_0/angular_velocity = 0.0
 36:5/0 = 0
+36:5/0/y_sort_origin = 16
 36:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 36:5/0/physics_layer_0/angular_velocity = 0.0
 35:5/0 = 0
@@ -1636,6 +1639,11 @@ texture_region_size = Vector2i(32, 32)
 13:0/0/physics_layer_0/angular_velocity = 0.0
 13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 22.4, 16, 22.4, 16, 44.8, -16, 44.8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8d8q2"]
+resource_name = "objects"
+scenes/1/scene = ExtResource("3_yrgqk")
+scenes/2/scene = ExtResource("4_knifn")
+
 [sub_resource type="TileSet" id="TileSet_egy14"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -1644,6 +1652,7 @@ terrain_set_0/terrain_0/name = "roof_top"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_nud61")
 sources/1 = SubResource("TileSetAtlasSource_n4d1n")
+sources/2 = SubResource("TileSetScenesCollectionSource_8d8q2")
 
 [node name="ObjectsTerrainCity" type="TileMap"]
 y_sort_enabled = true

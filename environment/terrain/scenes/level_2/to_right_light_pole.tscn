@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bek1memmwxwxu"]
+
+[ext_resource type="Texture2D" uid="uid://d2axy2ctij6a1" path="res://environment/terrain/assets/objects/city_objects/light_pole.png" id="1_t6jwp"]
+[ext_resource type="Texture2D" uid="uid://cvkst26nhbu1o" path="res://environment/shaders/light.png" id="2_hxg3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opq5e"]
+radius = 4.0
+
+[node name="ToRightLightPole" type="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(3, 0)
+texture = ExtResource("1_t6jwp")
+offset = Vector2(0, -32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, -6)
+shape = SubResource("CircleShape2D_opq5e")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8, -5)
+scale = Vector2(0.5, 0.5)
+color = Color(1, 1, 0.439216, 1)
+texture = ExtResource("2_hxg3a")
