@@ -8,18 +8,18 @@ radius = 4.0
 
 [node name="ToRightLightPole" type="Sprite2D"]
 y_sort_enabled = true
-position = Vector2(3, 0)
+position = Vector2(12, -16)
 texture = ExtResource("1_t6jwp")
-offset = Vector2(0, -32)
+offset = Vector2(0, -24)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-3.06137, 2.03922)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-3, -6)
 shape = SubResource("CircleShape2D_opq5e")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(8, -5)
+position = Vector2(7, -26)
 scale = Vector2(0.5, 0.5)
 color = Color(1, 1, 0.439216, 1)
 texture = ExtResource("2_hxg3a")
