@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=46 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -11,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://dbx7hw0k8d604" path="res://characters/assets/cat/brown_5.png" id="7_5ttnr"]
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
+[ext_resource type="Script" path="res://gui/canvas_layer.gd" id="12_05luy"]
+[ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="13_ldm4a"]
+[ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="14_m1w0h"]
+[ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="15_2858d"]
+[ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="16_kha6w"]
+[ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="17_d8qkd"]
+[ext_resource type="PackedScene" uid="uid://0mu4e83ym175" path="res://gui/notification/scenes/item_notification_box.tscn" id="18_12bfj"]
+[ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="19_ev10h"]
+[ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="20_s87jy"]
+[ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="21_hnhsr"]
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("5_wuwmt")
@@ -214,3 +224,55 @@ idle_animation = 2
 
 [node name="BaseHumanCharacter2" parent="YSort" instance=ExtResource("5_pyj7w")]
 position = Vector2(-16.5384, 40.9315)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("12_05luy")
+
+[node name="InventoryButton" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_right = 40.0
+offset_bottom = 180.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 28.0
+texture_normal = ExtResource("13_ldm4a")
+texture_hover = ExtResource("14_m1w0h")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryButton"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 32.0
+texture = ExtResource("15_2858d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotePopup" parent="CanvasLayer" groups=["NotePopup"] instance=ExtResource("16_kha6w")]
+process_mode = 3
+visible = false
+
+[node name="NotificationBox" parent="CanvasLayer" instance=ExtResource("17_d8qkd")]
+visible = false
+
+[node name="ItemNotificationBox" parent="CanvasLayer" instance=ExtResource("18_12bfj")]
+visible = false
+
+[node name="ContentContainer" parent="CanvasLayer" instance=ExtResource("19_ev10h")]
+visible = false
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("20_s87jy")]
+visible = false
+
+[node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("21_hnhsr")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]
