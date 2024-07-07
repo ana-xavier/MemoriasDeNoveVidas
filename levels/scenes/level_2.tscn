@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=62 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -35,6 +35,94 @@ prerequisite_quest_id = ""
 release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_r20sx")])
+
+[sub_resource type="Resource" id="Resource_c0dm6"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Olá! Parece que você está bastante ocupado. Precisa de alguma ajuda?"])
+
+[sub_resource type="Resource" id="Resource_l56nv"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Ah, olá! Sim, estou muito atarefado hoje. Tenho algumas cartas importantes que precisam ser entregues, mas estou sem tempo para sair do correio."])
+
+[sub_resource type="Resource" id="Resource_j0doo"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Eu posso ajudar! Para onde essas cartas precisam ir?"])
+
+[sub_resource type="Resource" id="Resource_pqdds"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Isso seria ótimo! Eu tenho duas cartas que precisam ser entregues.", "A primeira é para o Gatinho chamado Choco, que costuma ficar perto do restaurante da cidade, é ao lado esquerdo da praça."])
+
+[sub_resource type="Resource" id="Resource_mccrr"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Entendi! Onde preciso entregar a última?"])
+
+[sub_resource type="Resource" id="Resource_nqowm"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["A segunda carta é para a Gatinha Safira! Ela geralmente está na loja de departamento ao lado direito da praça."])
+
+[sub_resource type="Resource" id="Resource_ldmkq"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Acho que conseguir entender bem! Vou entregar essas cartas para você!"])
+
+[sub_resource type="Resource" id="Resource_5tehv"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Muito obrigado! Você é de grande ajuda!", "Se conseguir entregar todas as cartas, eu terei uma informação interessante para te contar sobre esta cidade. Vejo que você parece ser nova por aqui."])
+
+[sub_resource type="Resource" id="Resource_gqubg"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Pode deixar comigo! Vou entregar todas as cartas o mais rápido possível!"])
+
+[sub_resource type="Resource" id="Resource_x2hni"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Boa sorte! E mais uma coisa, cada gatinho pode ter algo importante para compartilhar com você também. Fique atenta!"])
+
+[sub_resource type="Resource" id="Resource_2brex"]
+script = ExtResource("6_08abj")
+id = ""
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = true
+quest_id = "deliver_letters"
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_c0dm6"), SubResource("Resource_l56nv"), SubResource("Resource_j0doo"), SubResource("Resource_pqdds"), SubResource("Resource_mccrr"), SubResource("Resource_nqowm"), SubResource("Resource_ldmkq"), SubResource("Resource_5tehv"), SubResource("Resource_gqubg"), SubResource("Resource_x2hni")])
+
+[sub_resource type="Resource" id="Resource_m1nri"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Entreguei todas as cartas como você pediu!"])
+
+[sub_resource type="Resource" id="Resource_6hk4w"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Excelente! Muito obrigado por sua ajuda!", "Há rumores de que existe uma outra realidade além dessa cidade.", "Dizem que pistas para entender estão espalhadas em diferentes locais, o restaurante e a loja de departamento.", "Mas parece que você já começou a descobrir algumas dessas pistas."])
+
+[sub_resource type="Resource" id="Resource_3i6yb"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Conversando com os donos das cartas, eles me contaram algumas coisas...", "Este lugar todo parece ser um mistério."])
+
+[sub_resource type="Resource" id="Resource_bkbvp"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Espero ter conseguido te ajudar! E mais uma vez, obrigado pela ajuda!"])
+
+[sub_resource type="Resource" id="Resource_8einm"]
+script = ExtResource("6_08abj")
+id = "finish_deliver_letters"
+has_prerequisite = true
+prerequisite_quest_id = "deliver_letters"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_m1nri"), SubResource("Resource_6hk4w"), SubResource("Resource_3i6yb"), SubResource("Resource_bkbvp")])
 
 [sub_resource type="Resource" id="Resource_og3p2"]
 script = ExtResource("5_wuwmt")
@@ -180,7 +268,7 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="Choco" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
-position = Vector2(448, 268)
+position = Vector2(-51, 400)
 character_idle_dialog = SubResource("Resource_8jqkn")
 character_color_name = "[color=brown]"
 char_interact_quest_id = "searching_for_answers"
@@ -193,7 +281,8 @@ frame = 78
 [node name="Roma" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
 position = Vector2(854, 67)
 character_idle_dialog = SubResource("Resource_8jqkn")
-character_color_name = "[color=pink]"
+character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_2brex"), SubResource("Resource_8einm")])
+character_color_name = "[color=red]"
 char_interact_quest_id = "searching_for_answers"
 player_near_state = NodePath("")
 character_id = "roma"
@@ -202,7 +291,7 @@ texture = ExtResource("8_tkfn6")
 frame = 78
 
 [node name="Safira" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
-position = Vector2(494, 40)
+position = Vector2(766, 369)
 character_idle_dialog = SubResource("Resource_8jqkn")
 character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_e5774"), SubResource("Resource_1inx0")])
 character_color_name = "[color=blue]"
