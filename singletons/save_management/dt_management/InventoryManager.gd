@@ -18,3 +18,6 @@ func has_item(id: String, amount: int = 1) -> bool:
 	
 func get_quantity(id: String) -> int:
 	return data.get_quantity(id)
+
+func get_all() -> Dictionary:
+	return data.get_all()

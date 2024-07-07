@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2m6dxtevb3up"]
+[gd_scene load_steps=37 format=3 uid="uid://d2m6dxtevb3up"]
 
 [ext_resource type="Script" path="res://gui/inventory/scripts/inventory.gd" id="1_gdg5o"]
 [ext_resource type="Texture2D" uid="uid://e11ba5kw30cv" path="res://gui/inventory/assets/ui_book.png" id="2_gu4hg"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bbffl3oki18f0" path="res://gui/inventory/assets/ui_book2.png" id="10_4plao"]
 [ext_resource type="Texture2D" uid="uid://dhawf4g7xp488" path="res://gui/inventory/assets/ui_book3.png" id="10_breu0"]
 [ext_resource type="Script" path="res://gui/inventory/scripts/menu_view.gd" id="10_mlfei"]
+[ext_resource type="Script" path="res://gui/inventory/scripts/items_view.gd" id="12_6qqp3"]
 [ext_resource type="Script" path="res://gui/inventory/scripts/save_view.gd" id="13_c1wvs"]
 [ext_resource type="Texture2D" uid="uid://dkywe13kanqxw" path="res://gui/inventory/assets/save_container.png" id="13_c08pe"]
+[ext_resource type="PackedScene" uid="uid://s345v7x5p2r4" path="res://gui/inventory/scenes/inventory_slot.tscn" id="13_eifra"]
 [ext_resource type="Texture2D" uid="uid://lvaaeh1gg3ri" path="res://gui/inventory/assets/menu_button3.png" id="13_tf4e1"]
+[ext_resource type="Texture2D" uid="uid://bbhbdxtm57alj" path="res://gui/inventory/assets/secret_items_container.png" id="15_axbpw"]
 [ext_resource type="Texture2D" uid="uid://chldqwltwer54" path="res://gui/icons/cancel.png" id="15_kbfd7"]
 [ext_resource type="Texture2D" uid="uid://bby6wthndsly1" path="res://gui/icons/cancel_up.png" id="16_amra1"]
 [ext_resource type="PackedScene" uid="uid://b3ltu8bjem7cs" path="res://gui/mainmenu/load_game_list.tscn" id="17_a6ese"]
@@ -66,9 +69,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 tabs_visible = false
 
 [node name="ObjectivesView" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("5_jtxuc")
 
@@ -150,8 +155,8 @@ theme_override_font_sizes/font_size = 10
 text = "Onde estão eles?"
 
 [node name="ItemsView" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
+script = ExtResource("12_6qqp3")
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/ItemsView"]
 layout_mode = 1
@@ -190,6 +195,101 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_jic0x")
 theme_override_font_sizes/font_size = 12
 text = "Itens"
+
+[node name="SlotsGrid" type="GridContainer" parent="TabContainer/ItemsView"]
+layout_mode = 2
+offset_left = 59.0
+offset_top = 46.0
+offset_right = 139.0
+offset_bottom = 148.0
+columns = 4
+
+[node name="InventorySlot1" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="TabContainer/ItemsView/SlotsGrid" instance=ExtResource("13_eifra")]
+layout_mode = 2
+
+[node name="SecretItems" type="TextureRect" parent="TabContainer/ItemsView"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 38.0
+offset_right = 250.0
+offset_bottom = 150.0
+texture = ExtResource("15_axbpw")
+
+[node name="Label" type="Label" parent="TabContainer/ItemsView/SecretItems"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 66.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_jic0x")
+theme_override_font_sizes/font_size = 10
+text = "Itens Secretos
+"
+
+[node name="SecretItemsGrid" type="GridContainer" parent="TabContainer/ItemsView/SecretItems"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 70.0
+offset_bottom = 102.0
+columns = 3
 
 [node name="MenuView" type="Control" parent="TabContainer"]
 visible = false

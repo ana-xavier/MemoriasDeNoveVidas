@@ -30,3 +30,6 @@ func get_quantity(id: String) -> int:
 	if items.has(id):
 		return items.get(id)
 	return 0
+
+func get_all() -> Dictionary:
+	return items

@@ -693,9 +693,11 @@ shape = SubResource("RectangleShape2D_2l5dc")
 position = Vector2(-519.556, -92.4853)
 cutscene = NodePath("Cutscene")
 
-[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtLake"]
+[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaArrivesAtLake" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
 script = ExtResource("9_wbuyn")
+destination_camera = NodePath("Camera2D")
 id = "jujubinha_arrives_at_lake"
+cutscene_trigger = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Cutscenes/JujubinhaArrivesAtLake/Cutscene"]
 position = Vector2(25.556, -130.515)
@@ -796,6 +798,12 @@ id = "dig_E5"
 [node name="DiggingArea_E6" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
 position = Vector2(441, -254)
 id = "dig_E6"
+
+[node name="DiggingArea_E7" parent="InteractableObjects/DiggingAreasInstances" instance=ExtResource("4_0v4bx")]
+position = Vector2(457, 328)
+id = "dig_E7"
+can_give_item = true
+item_id = "golden_duck"
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
