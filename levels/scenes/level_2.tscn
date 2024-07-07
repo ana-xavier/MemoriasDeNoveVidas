@@ -1,10 +1,148 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=36 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="3_rykhb"]
 [ext_resource type="PackedScene" uid="uid://k4ywsuilrwd" path="res://environment/terrain/scenes/level_2/objects_terrain_city.tscn" id="4_hik4j"]
+[ext_resource type="PackedScene" uid="uid://div4dnbux4t4w" path="res://characters/scenes/cat_side_character.tscn" id="4_l5vgl"]
 [ext_resource type="PackedScene" uid="uid://dhkowm031d00n" path="res://characters/scenes/base_human_character.tscn" id="5_pyj7w"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="5_wuwmt"]
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="6_08abj"]
+[ext_resource type="Texture2D" uid="uid://dbx7hw0k8d604" path="res://characters/assets/cat/brown_5.png" id="7_5ttnr"]
+[ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
+[ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
+
+[sub_resource type="Resource" id="Resource_r20sx"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Meow!      "])
+
+[sub_resource type="Resource" id="Resource_8jqkn"]
+script = ExtResource("6_08abj")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_r20sx")])
+
+[sub_resource type="Resource" id="Resource_og3p2"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Sr. Batata? Não acredito! É você mesmo?"])
+
+[sub_resource type="Resource" id="Resource_xxvbo"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Sim, pequena! Faz tanto tempo. Você parece bem."])
+
+[sub_resource type="Resource" id="Resource_54nky"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["A última vez que te vi, você estava bem doente. Como está agora?"])
+
+[sub_resource type="Resource" id="Resource_y2sma"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Estou ótimo! Melhorei em um piscar de olhos..."])
+
+[sub_resource type="Resource" id="Resource_5thuj"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Que bom ouvir isso! Mas... eu tenho um problema.", "Meus pais desapareceram. Eu não sei onde eles estão, e estou tentando encontrá-los."])
+
+[sub_resource type="Resource" id="Resource_kifb2"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Isso é terrível! Você já procurou por todo nosso bairro?"])
+
+[sub_resource type="Resource" id="Resource_sgmtu"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Ainda estou procurando, e se não achá-los, vou até a cidade! A mamãe trabalha lá."])
+
+[sub_resource type="Resource" id="Resource_8x8mo"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Ótima ideia. Mas a ponte para a cidade está bloqueada. Você não conseguirá sair agora. "])
+
+[sub_resource type="Resource" id="Resource_ue0ya"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Bloqueada? Então, o que eu devo fazer? Eu preciso encontrá-los!"])
+
+[sub_resource type="Resource" id="Resource_e1c5u"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Talvez eu possa te ajudar. Mas antes, eu preciso de um favor seu.", "Perdi um item muito importante para mim, um Patinho de Borracha.", "Se você puder encontrá-lo e trazê-lo de volta para mim, eu lhe darei mais informações que podem te ajudar."])
+
+[sub_resource type="Resource" id="Resource_oycya"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Claro, Sr. Batata! Eu vou encontrar para você"])
+
+[sub_resource type="Resource" id="Resource_78lw2"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Você pode encontrar na Montanha dos Sonhos, a entrada fica à direita de minha casa.", "Tome cuidado, pequena. E volte assim que encontrar."])
+
+[sub_resource type="Resource" id="Resource_7dicy"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Obrigada, Sr. Batata. Voltarei Logo!"])
+
+[sub_resource type="Resource" id="Resource_e5774"]
+script = ExtResource("6_08abj")
+id = "srpotatoe_greetings"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = true
+quest_id = "srpotatoe_item_quest"
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_og3p2"), SubResource("Resource_xxvbo"), SubResource("Resource_54nky"), SubResource("Resource_y2sma"), SubResource("Resource_5thuj"), SubResource("Resource_kifb2"), SubResource("Resource_sgmtu"), SubResource("Resource_8x8mo"), SubResource("Resource_ue0ya"), SubResource("Resource_e1c5u"), SubResource("Resource_oycya"), SubResource("Resource_78lw2"), SubResource("Resource_7dicy")])
+
+[sub_resource type="Resource" id="Resource_vinx3"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Você encontrou, não acredito! Muito obrigado, pequena."])
+
+[sub_resource type="Resource" id="Resource_c8xtm"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Eu disse que encontraria!"])
+
+[sub_resource type="Resource" id="Resource_cpaah"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Agora, pequena.. Há coisas estranhas acontecendo por aqui.", "Eu acho que você deveria se encontrar com o Jujubinha, ele é o gato mais sábio do nosso bairro, e vai te oferecer informações importantes."])
+
+[sub_resource type="Resource" id="Resource_2frwo"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Jujubinha? Mas.. Ele nunca está em sua casa."])
+
+[sub_resource type="Resource" id="Resource_kp7ml"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Esta é minha informação que tenho a te oferecer: Jujubinha sempre está em casa, mas ele não gosta muito de sair. "])
+
+[sub_resource type="Resource" id="Resource_sk237"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Muito obrigada, Sr. Batata!"])
+
+[sub_resource type="Resource" id="Resource_bqrim"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Ah, e não esqueça de ser cautelosa, Jujubinha é muito assustado."])
+
+[sub_resource type="Resource" id="Resource_1inx0"]
+script = ExtResource("6_08abj")
+id = "srpotatoe_quest_finished"
+has_prerequisite = true
+prerequisite_quest_id = "srpotatoe_item_quest"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_vinx3"), SubResource("Resource_c8xtm"), SubResource("Resource_cpaah"), SubResource("Resource_2frwo"), SubResource("Resource_kp7ml"), SubResource("Resource_sk237"), SubResource("Resource_bqrim")])
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ofcyb")
@@ -30,6 +168,40 @@ limit_right = 1008
 limit_bottom = 508
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Choco" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+position = Vector2(448, 268)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_color_name = "[color=brown]"
+char_interact_quest_id = "searching_for_answers"
+player_near_state = NodePath("")
+character_id = "choco"
+character_name = "Choco"
+texture = ExtResource("7_5ttnr")
+frame = 78
+
+[node name="Roma" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+position = Vector2(854, 67)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_color_name = "[color=pink]"
+char_interact_quest_id = "searching_for_answers"
+player_near_state = NodePath("")
+character_id = "roma"
+character_name = "Roma"
+texture = ExtResource("8_tkfn6")
+frame = 78
+
+[node name="Safira" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+position = Vector2(494, 40)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_e5774"), SubResource("Resource_1inx0")])
+character_color_name = "[color=blue]"
+char_interact_quest_id = "searching_for_answers"
+player_near_state = NodePath("")
+character_id = "safira"
+character_name = "Safira"
+texture = ExtResource("9_x05se")
+frame = 78
 
 [node name="ObjectsTerrainCity" parent="YSort" instance=ExtResource("4_hik4j")]
 layer_0/tile_data = PackedInt32Array(65539, 0, 18, 65538, 0, 17, -131072, 720896, 13, 0, 720896, 15, 65535, 655360, 15, 65534, 589824, 15, -2, 589824, 14, 262142, 1507328, 15, 262141, 1507328, 15, 262140, 1507328, 15, 196616, 1507328, 15, 196617, 1507328, 15, 196618, 1507328, 15, 65536, 1376256, 15, 131070, 1441792, 15, 65533, 917504, 12, -3, 917504, 11, -65539, 917504, 8, -131075, 1900544, 12, -196611, 1900544, 9, -65540, 655360, 7, -65541, 524288, 7, 65532, 655360, 10, 65531, 524288, 10, -4, 655360, 8, -5, 524288, 8, -196613, 1638400, 9, -131077, 1638400, 11, -196612, 1769472, 9, -131076, 1769472, 11, -196614, 983040, 8, -131078, 983040, 9, -65542, 983040, 10, -327686, 1638400, 9, -327685, 1769472, 9, -262150, 1638400, 11, -262149, 1769472, 11, -327673, 1638400, 9, -262137, 1638400, 11, -196601, 524288, 4, -131065, 524288, 5, -65529, 524288, 6, 7, 1376256, 11, 65543, 1507328, 14, -327672, 1703936, 9, -262136, 1703936, 11, -196600, 589824, 4, -131064, 589824, 5, -65528, 589824, 6, 8, 1441792, 11, -327671, 1769472, 9, -262135, 1769472, 11, -196599, 655360, 4, -131063, 655360, 5, -65527, 655360, 6, 9, 1114112, 16, 65545, 1376256, 10, -65530, 1310720, 12, -262146, 917504, 8, -262147, 589824, 8, -262148, 524288, 8, -327684, 524288, 7, -327683, 589824, 7, -327682, 1900544, 12, -393218, 1900544, 11, -393219, 1703936, 11, -393220, 1638400, 11, -458756, 1638400, 9, -458755, 1703936, 9, -458754, 1900544, 9, -393217, 1703936, 11, -458753, 1703936, 9, -524288, 1769472, 9, -458752, 1769472, 11, -393216, 655360, 7, -327681, 589824, 7, -262145, 589824, 8, -327680, 655360, 8, -196615, 1769472, 9, -196616, 1638400, 9, -131080, 1638400, 11, -131079, 1769472, 11, 65528, 524288, 9, 65529, 655360, 10, -7, 655360, 8, -8, 524288, 8, -65543, 655360, 7, -65544, 524288, 7, 327682, 1769472, 9, 327681, 1638400, 9, 393217, 1638400, 10, 393218, 1769472, 10, 458754, 1638400, 14, 458753, 1638400, 11, 393214, 1769472, 9, 458750, 1769472, 10, 458749, 1638400, 10, 393213, 1638400, 9, 393210, 1638400, 9, 458746, 1638400, 10, 524282, 1638400, 11, 393211, 1703936, 9, 458747, 1703936, 10, 524283, 1703936, 11, 393212, 1769472, 9, 458748, 1769472, 10, 524284, 1769472, 11, 393215, 1900544, 9, 524286, 1769472, 11, 524285, 1638400, 11, 458751, 1900544, 12, 524287, 983040, 8, 589823, 983040, 10, 655359, 983040, 10, 589818, 524288, 0, 589819, 589824, 0, 589820, 655360, 0, 655354, 524288, 1, 655355, 589824, 1, 655356, 655360, 1, 720890, 524288, 2, 720891, 589824, 2, 720892, 655360, 2, 786426, 524288, 3, 786427, 589824, 3, 786428, 655360, 3, 524290, 393216, 9, 524289, 262144, 9, 589826, 393216, 10, 589825, 262144, 10, 655362, 393216, 11, 720898, 393216, 13, 655361, 262144, 11, 720897, 327680, 13, -196610, 589824, 11, -131074, 589824, 12, -65538, 589824, 13, -196609, 655360, 11, -131073, 655360, 12, -65537, 655360, 13, -1, 655360, 14, -262144, 720896, 11, -196608, 720896, 12, -65536, 720896, 14, -262143, 720896, 11, -196607, 720896, 12, -131071, 786432, 13, -65535, 786432, 14, 1, 786432, 15, -262142, 851968, 11, -196606, 851968, 12, -131070, 851968, 13, -65534, 851968, 14, 2, 851968, 15, 262139, 2424832, 4, 131065, 2293760, 2, 131066, 2359296, 2, 327673, 2293760, 5, 327674, 2359296, 5, 458763, 851969, 0, 393216, 1114112, 16, 786429, 655360, 15, 786430, 720896, 15, 720893, 589824, 14, 720894, 589824, 268435470, 655358, 786432, 14, 655357, 589824, 14, 589822, 589824, 268435470, 589821, 786432, 268435470, 786424, 1114112, 16, 655352, 1114112, 16, 524280, 1114112, 16, 393208, 1114112, 16, 786431, 1376256, 10, -327670, 720896, 15, -393206, 786432, 14, -393207, 655360, 14, -393208, 589824, 14, -458744, 327680, 14, -458743, 393216, 14, -458742, 458752, 14, -65523, 327680, 13, -65525, 262144, 13, -65521, 393216, 13, -65522, 458752, 13, -65524, 458752, 13, -131057, 393216, 12, -131061, 262144, 12, -131060, 327680, 12, -131058, 327680, 12, -131059, 458752, 12, -196596, 327680, 11, -196595, 327680, 11, -196594, 327680, 11, -196597, 262144, 11, -196593, 393216, 11, -262129, 1769472, 11, -262130, 1703936, 11, -262131, 1703936, 11, -262132, 1703936, 11, -262133, 1572864, 14, -327669, 1638400, 10, -393205, 1638400, 9, -393204, 1769472, 9, -327668, 1769472, 13, -327667, 1703936, 9, -327666, 1703936, 9, -327665, 1769472, 9, -327658, 589824, 15, -327657, 655360, 15, -327656, 720896, 15, -327655, 786432, 15, -393194, 589824, 14, -393193, 655360, 14, -393192, 720896, 14, -393191, 786432, 14, -458731, 1507328, 14, -458732, 1507328, 14, -458733, 1507328, 10, -327660, 1114112, 16, 65556, 524288, 3, 65557, 589824, 3, 65558, 655360, 3, 20, 524288, 2, 21, 589824, 2, 22, 655360, 2, -65516, 524288, 1, -65515, 589824, 1, -65514, 655360, 1, -131052, 524288, 0, -131051, 589824, 0, -131050, 655360, 0, -196586, 1769472, 11, -196587, 1703936, 11, -196588, 1572864, 14, -262124, 1638400, 9, -262123, 1703936, 9, -262122, 1703936, 14, -262121, 2031616, 10, -196585, 983040, 8, -131049, 983040, 9, -65513, 983040, 9, 23, 983040, 10, 11, 1376256, 15, 15, 1376256, 15, -196582, 196608, 0, -131046, 196608, 1, -65510, 0, 2, 26, 0, 6, -196581, 262144, 0, -131045, 262144, 1, -65509, 65536, 2, 27, 65536, 6, -196580, 327680, 0, -131044, 327680, 1, -65508, 131072, 2, 28, 131072, 6, 65564, 1376256, 13, 65562, 1310720, 16, -65511, 1114112, 16, 131097, 1114112, 16, 131100, 1507328, 15, 131099, 1507328, 15, 131094, 1441792, 11, 655380, 196608, 5, 720916, 196608, 6, 655381, 262144, 5, 720917, 262144, 6, 655382, 327680, 5, 720918, 327680, 6, 393236, 196608, 0, 458772, 196608, 1, 524308, 196608, 2, 589844, 196608, 3, 393237, 262144, 0, 458773, 262144, 1, 524309, 262144, 2, 589845, 262144, 3, 393238, 327680, 0, 458774, 327680, 1, 524310, 327680, 2, 589846, 327680, 3, 589834, 1310720, 15, 589836, 1310720, 15, 720911, 1114112, 16, 720903, 1114112, 16, 327687, 1114112, 16, 327695, 1114112, 16, 524295, 1114112, 16, 524303, 1114112, 16, 327691, 1114112, 16, 720907, 1114112, 16, 393223, 1376256, 15, 589839, 1376256, 15, 720905, 1310720, 15, 720904, 1310720, 15, 327694, 1310720, 15, 327693, 1310720, 15, 589835, 1376256, 13, 327680, 1507328, 14, 262145, 1114112, 16, 327679, 2, 65536, 393222, 2, 131072, 524291, 2, 65536, 655366, 2, 131072, -131069, 2, 65536, -262138, 2, 131072, 393232, 2, 65536, 655376, 2, 65536, 786441, 2, 131072, 786445, 2, 131072, 262157, 2, 65536, 262153, 2, 65536, 786435, 2, 65536, 720887, 2, 131072, 458743, 2, 131072, 65537, 2, 131072)
