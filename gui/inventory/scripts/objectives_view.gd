@@ -9,6 +9,3 @@ func update_displayed_objectives() -> void:
 		if quest.status ==  Quest.Status.ACTIVE:
 			objectives_text.text += quest.on_going_quest_tostring()
 
-
-func _on_save_button_mouse_entered():
-	pass # Replace with function body.
