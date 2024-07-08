@@ -250,7 +250,7 @@ layer_1/tile_data = PackedInt32Array(-458744, 1245185, 8, -458743, 1245185, 8, -
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_rykhb")]
-position = Vector2(245, 404)
+position = Vector2(-255, 100)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 scale = Vector2(1.66667, 1.66667)
