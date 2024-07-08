@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=65 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -12,8 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="12_05luy"]
+[ext_resource type="Texture2D" uid="uid://ryqecib4bc2y" path="res://characters/assets/cat/hairless_1.png" id="12_nff46"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="13_ldm4a"]
+[ext_resource type="Texture2D" uid="uid://ct6ogw6u4xx1v" path="res://characters/assets/cat/orange_1.png" id="13_t0ac4"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="14_m1w0h"]
+[ext_resource type="Texture2D" uid="uid://d4kbd0tu33se2" path="res://characters/assets/cat/seal_point_0.png" id="14_shr8f"]
+[ext_resource type="Texture2D" uid="uid://s36qfabeqq4e" path="res://characters/assets/cat/white_grey_1.png" id="15_6lvey"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="15_2858d"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="16_kha6w"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="17_d8qkd"]
@@ -306,6 +310,34 @@ idle_animation = 2
 
 [node name="BaseHumanCharacter2" parent="YSort" instance=ExtResource("5_pyj7w")]
 position = Vector2(-16.5384, 40.9315)
+
+[node name="CatNpc1" parent="YSort" instance=ExtResource("4_l5vgl")]
+position = Vector2(306, 185)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_id = "Gatinha"
+texture = ExtResource("12_nff46")
+frame = 78
+
+[node name="CatNpc2" parent="YSort" instance=ExtResource("4_l5vgl")]
+position = Vector2(579, -34)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_id = "Gatinho"
+texture = ExtResource("13_t0ac4")
+frame = 78
+
+[node name="CatNpc3" parent="YSort" instance=ExtResource("4_l5vgl")]
+position = Vector2(509, 406)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_id = "Gatinho"
+texture = ExtResource("14_shr8f")
+frame = 78
+
+[node name="CatNpc4" parent="YSort" instance=ExtResource("4_l5vgl")]
+position = Vector2(110, 17)
+character_idle_dialog = SubResource("Resource_8jqkn")
+character_id = "Gatinha"
+texture = ExtResource("15_6lvey")
+frame = 78
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
