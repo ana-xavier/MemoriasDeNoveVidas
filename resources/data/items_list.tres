@@ -1,29 +1,40 @@
-[gd_resource type="Resource" script_class="ItemsList" load_steps=9 format=3 uid="uid://in5a2rq154km"]
+[gd_resource type="Resource" script_class="ItemsList" load_steps=11 format=3 uid="uid://in5a2rq154km"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/item.gd" id="1_g4cob"]
 [ext_resource type="Script" path="res://resources/classes/lists/items_list.gd" id="2_hu5u6"]
 [ext_resource type="Texture2D" uid="uid://bdea6ndihk0bp" path="res://resources/assets/sprites/rubber_duck.png" id="2_lrgc6"]
 [ext_resource type="Texture2D" uid="uid://c4ndwmjxm7idt" path="res://resources/assets/sprites/spr_nail.png" id="3_mlop7"]
 [ext_resource type="Texture2D" uid="uid://rhfiemwnta23" path="res://resources/assets/sprites/new_plank.png" id="4_hp72c"]
+[ext_resource type="Texture2D" uid="uid://c1b0ee21h1yu8" path="res://resources/assets/sprites/golden_duck.png" id="5_dwmdj"]
 
 [sub_resource type="Resource" id="Resource_8ffbd"]
 script = ExtResource("1_g4cob")
 id = "rubber_duck"
 name = "Patinho de Borracha"
 sprite = ExtResource("2_lrgc6")
+category = 0
 
 [sub_resource type="Resource" id="Resource_up332"]
 script = ExtResource("1_g4cob")
 id = "nail_bridge"
 name = "Prego"
 sprite = ExtResource("3_mlop7")
+category = 0
 
 [sub_resource type="Resource" id="Resource_332ub"]
 script = ExtResource("1_g4cob")
 id = "new_plank"
 name = "Tábua"
 sprite = ExtResource("4_hp72c")
+category = 0
+
+[sub_resource type="Resource" id="Resource_w2rqe"]
+script = ExtResource("1_g4cob")
+id = "golden_duck"
+name = "Patinho Dourado"
+sprite = ExtResource("5_dwmdj")
+category = 1
 
 [resource]
 script = ExtResource("2_hu5u6")
-items = Array[ExtResource("1_g4cob")]([SubResource("Resource_8ffbd"), SubResource("Resource_up332"), SubResource("Resource_332ub")])
+items = Array[ExtResource("1_g4cob")]([SubResource("Resource_8ffbd"), SubResource("Resource_up332"), SubResource("Resource_332ub"), SubResource("Resource_w2rqe")])

@@ -8,7 +8,6 @@ const BAR_SIZE = Vector2(320, 22.5)
 const DEFAULT_BAR_SIZE = Vector2(320, 0)
 const ANIMATION_DURATION = 0.8
 
-var player: MainCharacter = null
 var is_cutscene_running: bool = false
 
 signal cutscene_started
@@ -22,8 +21,6 @@ func _ready():
 
 func start_cutscene() -> void:
 	cutscene_started.emit()
-	player = get_tree().get_first_node_in_group("player") as MainCharacter
-	player.lock_player_movement()
 	visible = true
 	is_cutscene_running = true
 	
@@ -50,12 +47,12 @@ func end_cutscene() -> void:
 	).set_trans(Tween.TRANS_LINEAR)
 	
 	await  tween_bottom.finished
-	player.unlock_player_movement()
 	visible = false
 	is_cutscene_running = false
 	cutscene_ended.emit()
 	
-func full_screen_fade_in(duration: float = 1.0) -> void:
+func full_screen_fade_in(duration: float = 1.0, wait_time: float = 0.0) -> void:
+	await get_tree().create_timer(wait_time).timeout
 	var tween = create_tween()
 	tween.tween_property(
 		full_screen_fade, "color:a", 0, duration
@@ -63,10 +60,11 @@ func full_screen_fade_in(duration: float = 1.0) -> void:
 	await tween.finished
 	full_screen_fade.visible = false
 	
-func full_screen_fade_out(duration: float = 1.0) -> void:
+func full_screen_fade_out(duration: float = 1.0, wait_time: float = 0.0) -> void:
 	full_screen_fade.visible = true
 	var tween = create_tween()
 	tween.tween_property(
 		full_screen_fade, "color:a", 1, duration
 	).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished
+	await get_tree().create_timer(wait_time).timeout
