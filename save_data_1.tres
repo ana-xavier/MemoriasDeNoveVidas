@@ -1,0 +1,291 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=37 format=3]
+
+[ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_ready.gd" id="1_3c5cw"]
+[ext_resource type="Script" path="res://resources/classes/lists/dialog_ready_list.gd" id="2_fwh5r"]
+[ext_resource type="Script" path="res://resources/classes/objects/global_variables.gd" id="3_jshaj"]
+[ext_resource type="Script" path="res://resources/classes/dictionaries/interactive_objects_dict.gd" id="4_earkn"]
+[ext_resource type="Script" path="res://resources/classes/dictionaries/player_inventory.gd" id="5_6dpe6"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="6_8crtg"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_characters_interact.gd" id="7_wuu07"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_deliver_item.gd" id="8_6dpom"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_go_to_location.gd" id="9_2ceg1"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/finding_item_quest.gd" id="10_3v4mr"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_building_bridge.gd" id="11_57rjm"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_interact_with_character.gd" id="12_p7bus"]
+[ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="13_5nn6t"]
+[ext_resource type="Script" path="res://resources/save/save_data.gd" id="14_fcaqs"]
+
+[sub_resource type="Resource" id="Resource_eak6t"]
+script = ExtResource("1_3c5cw")
+character_id = "srpotatoe"
+dialog_id = "srpotatoe_greetings"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_5r57e"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "srpotatoe_quest_finished"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_2ugr0"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "jujubinha_greetings"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_h0045"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "jujubinha_arrives_at_lake"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_u3or8"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "jujubinha_arrives_at_home"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_0e42j"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "pedrita_greetings"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_rb7kg"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "pedrita_finishing"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_evbc8"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "ghost_dialog"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_cuhcn"]
+script = ExtResource("1_3c5cw")
+character_id = ""
+dialog_id = "idle"
+is_already_done = true
+
+[sub_resource type="Resource" id="Resource_1ynpe"]
+script = ExtResource("2_fwh5r")
+dialogs_ready = Array[ExtResource("1_3c5cw")]([SubResource("Resource_eak6t"), SubResource("Resource_5r57e"), SubResource("Resource_2ugr0"), SubResource("Resource_h0045"), SubResource("Resource_u3or8"), SubResource("Resource_0e42j"), SubResource("Resource_rb7kg"), SubResource("Resource_evbc8"), SubResource("Resource_cuhcn")])
+
+[sub_resource type="Resource" id="Resource_to7tq"]
+script = ExtResource("3_jshaj")
+current_level = "level_1"
+display_level_name = "Nível 1"
+last_time_saved = {
+"day": 8,
+"dst": false,
+"hour": 15,
+"minute": 57,
+"month": 7,
+"second": 52,
+"weekday": 1,
+"year": 2024
+}
+player_has_follower = false
+player_followed_by = ""
+player_follower_node = ""
+characters_pos = {
+"jujubinha": {
+"level": "house_3_secondfloor",
+"position": Vector2(89, 11)
+}
+}
+
+[sub_resource type="Resource" id="Resource_rv2ye"]
+script = ExtResource("4_earkn")
+objects_states = {
+"dig_E1": {
+"already_interacted": true
+},
+"forest_entrance": {
+"door_locked": false
+},
+"ghost_apparition_1": {
+"already_interacted": true
+},
+"ghost_apparition_3": {
+"already_interacted": true
+},
+"house_3_door": {
+"door_locked": false
+},
+"house_3_window": {
+"door_locked": false
+},
+"initial_cat_thoughts": {
+"already_interacted": true
+},
+"jujubinha_arrives_at_home": {
+"already_interacted": true
+},
+"jujubinha_arrives_at_lake": {
+"already_interacted": true
+},
+"jujubinha_start_follow1": {
+"already_interacted": true
+},
+"jujubinha_start_follow2": {
+"already_interacted": true
+},
+"jujubinha_surprised": {
+"already_interacted": true
+},
+"note_5": {
+"already_interacted": true
+},
+"open_forest_entrance": {
+"already_interacted": true
+},
+"open_house_3_window": {
+"already_interacted": true
+},
+"plank_1": {
+"already_interacted": true
+},
+"plank_2": {
+"already_interacted": true
+},
+"plank_3": {
+"already_interacted": true
+},
+"set_active_searching_for_help": {
+"already_interacted": true
+}
+}
+
+[sub_resource type="Resource" id="Resource_34sg5"]
+script = ExtResource("5_6dpe6")
+items = {
+"nail_bridge": 12,
+"new_plank": 3
+}
+
+[sub_resource type="Resource" id="Resource_es8e0"]
+script = ExtResource("6_8crtg")
+notes_count = 1
+notes_to_get = 5
+id = "level1_notes"
+name = "Notas Misteriosas"
+description = ""
+objective_display = "notas encontradas."
+status = 1
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_usyv1"]
+script = ExtResource("7_wuu07")
+interacted_count = 3
+to_interact = 3
+characters_already_interacted = {
+"jujubinha": true,
+"pedrita": true,
+"srpotatoe": true
+}
+id = "searching_for_answers"
+name = "Buscando por Respostas"
+description = ""
+objective_display = "vizinhos interagidos."
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_6qb6v"]
+script = ExtResource("8_6dpom")
+required_item_id = "rubber_duck"
+character_id = "srpotatoe"
+finish_objective_display = "Entregue o item perdido."
+id = "srpotatoe_item_quest"
+name = "Um Velho Amigo"
+description = "Ajude Sr.Batata a recuperar seu item perdido."
+objective_display = "Recupere o item perdido de Sr. Batata."
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_0ow7q"]
+script = ExtResource("9_2ceg1")
+character_id = "jujubinha"
+finish_objective_display = "Converse com Jujubinha."
+arrived_at_location = true
+id = "jujubinha_location_1_quest"
+name = "Caminho da Coragem - Parte 1"
+description = "Ajude Jujubinha a perder seu medo levando ele para dar uma volta."
+objective_display = "Leve Jujubinha até o Lago da Colina."
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_op3le"]
+script = ExtResource("9_2ceg1")
+character_id = "jujubinha"
+finish_objective_display = "Converse com Jujubinha."
+arrived_at_location = true
+id = "jujubinha_location_2_quest"
+name = "Caminho da Coragem - Parte 2"
+description = "Acompanhe Jujubinha de volta à sua casa"
+objective_display = "Acompanhe Jujubinha de volta à sua casa"
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_go1c1"]
+script = ExtResource("10_3v4mr")
+required_item_id = "new_plank"
+quantity = 3
+reward_item_id = "nail_bridge"
+reward_item_amount = 12
+character_id = "pedrita"
+finish_objective_display = "Fale com Pedrita após encontrar as tábuas."
+id = "pedrita_get_wood"
+name = "Em busca de uma passarela."
+description = ""
+objective_display = "madeiras encontradas."
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_rechq"]
+script = ExtResource("11_57rjm")
+cutscene_id = "george_repairs_bridge"
+item_id_1 = "new_plank"
+item_amount_1 = 3
+item_id_2 = "nail_bridge"
+item_amount_2 = 12
+character_id = "george"
+id = "repairing_bridge"
+name = "O Caminho para a Cidade"
+description = ""
+objective_display = "Entregue as tábuas e os pregos para o humano George."
+status = 1
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_h23o8"]
+script = ExtResource("12_p7bus")
+character_id = "ghost_cat"
+id = "mysterious_apparition"
+name = "Aparição Misteriosa"
+description = ""
+objective_display = "Encontre a figura felina misteriosa."
+status = 2
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_68v4b"]
+script = ExtResource("13_5nn6t")
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8")])
+
+[resource]
+script = ExtResource("14_fcaqs")
+already_saved = true
+global_variables = SubResource("Resource_to7tq")
+player_inventory = SubResource("Resource_34sg5")
+interactive_objects_dict = SubResource("Resource_rv2ye")
+dialog_ready_list = SubResource("Resource_1ynpe")
+quest_list = SubResource("Resource_68v4b")
