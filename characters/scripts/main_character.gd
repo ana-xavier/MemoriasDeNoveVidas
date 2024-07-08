@@ -22,6 +22,8 @@ func _ready() -> void:
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	SignalBus.opened_content_container.connect(lock_player_movement)
 	SignalBus.closed_content_container.connect(unlock_player_movement)
+	CutsceneManager.cutscene_started.connect(lock_player_movement)
+	CutsceneManager.cutscene_ended.connect(unlock_player_movement)
 	
 	_state_machine = _animation_tree["parameters/playback"]
 	

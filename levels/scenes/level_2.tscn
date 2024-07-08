@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=68 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="12_05luy"]
+[ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/scenes/door.tscn" id="12_cjx2m"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="13_ldm4a"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="14_m1w0h"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="15_2858d"]
@@ -243,6 +244,9 @@ release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_vinx3"), SubResource("Resource_c8xtm"), SubResource("Resource_cpaah"), SubResource("Resource_2frwo"), SubResource("Resource_kp7ml"), SubResource("Resource_sk237"), SubResource("Resource_bqrim")])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkjs"]
+size = Vector2(18.5486, 47)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nkv2o"]
 noise_type = 0
 frequency = 0.0075
@@ -273,7 +277,7 @@ layer_1/tile_data = PackedInt32Array(-458744, 1245185, 8, -458743, 1245185, 8, -
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_rykhb")]
-position = Vector2(245, 404)
+position = Vector2(-252, 97.5)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 scale = Vector2(1.66667, 1.66667)
@@ -328,6 +332,22 @@ idle_animation = 2
 
 [node name="BaseHumanCharacter2" parent="YSort" instance=ExtResource("5_pyj7w")]
 position = Vector2(-16.5384, 40.9315)
+
+[node name="Doors" type="Node2D" parent="YSort"]
+
+[node name="Door_ENTRANCE" parent="YSort/Doors" instance=ExtResource("12_cjx2m")]
+position = Vector2(-278, 97)
+door_id = "level_2_entrance"
+destination_level_tag = "level_1_transition"
+destination_door_tag = "TO_LEVEL1"
+spawn_direction = "right"
+
+[node name="Collision" type="CollisionShape2D" parent="YSort/Doors/Door_ENTRANCE"]
+position = Vector2(-1.27432, -0.0635605)
+shape = SubResource("RectangleShape2D_cnkjs")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_ENTRANCE"]
+position = Vector2(26, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = 2
