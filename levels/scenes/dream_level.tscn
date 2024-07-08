@@ -1,12 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://byq0shdld46iy"]
+[gd_scene load_steps=19 format=3 uid="uid://byq0shdld46iy"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_j8pjs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/level_1/terrain.tscn" id="2_l2led"]
 [ext_resource type="PackedScene" uid="uid://bgljvnge160or" path="res://characters/scenes/main_character.tscn" id="3_f0xsh"]
 [ext_resource type="Texture2D" uid="uid://4eyg637xnmkw" path="res://gui/container/white_frame.png" id="4_eyljx"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="4_t7c4u"]
+[ext_resource type="PackedScene" uid="uid://cq01q5jq60vn2" path="res://characters/scenes/human_side_character.tscn" id="4_ttwmy"]
+[ext_resource type="Texture2D" uid="uid://bjc2gfimey5sa" path="res://characters/assets/human/misty_mom.png" id="5_j0ies"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="6_2iar7"]
+[ext_resource type="Texture2D" uid="uid://ba0j7142xxbsm" path="res://characters/assets/human/misty_dad.png" id="6_giecl"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="7_ehx6u"]
+[ext_resource type="PackedScene" uid="uid://rggrvhlodlv7" path="res://environment/terrain/scenes/level_1/objects_terrain.tscn" id="7_ymu4m"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="8_kn5sk"]
 [ext_resource type="PackedScene" uid="uid://b3rjyjxfyd2bv" path="res://interaction/popup/note/note_popup.tscn" id="9_mxf0c"]
 [ext_resource type="PackedScene" uid="uid://lou1cctl4ij" path="res://gui/notification/scenes/notification_box.tscn" id="10_g73uw"]
@@ -28,7 +32,7 @@ layer_5/tile_data = PackedInt32Array(0, 65539, 17, 1, 65539, 17, 2, 65539, 17, 3
 [node name="YSort" type="Node2D" parent="."]
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_f0xsh")]
-position = Vector2(224.929, 203.472)
+position = Vector2(247, 213)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 scale = Vector2(1.66667, 1.66667)
@@ -39,6 +43,19 @@ limit_right = 1008
 limit_bottom = 508
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="HumanSideCharacter" parent="YSort" instance=ExtResource("4_ttwmy")]
+position = Vector2(241, 17)
+texture = ExtResource("5_j0ies")
+idle_animation = 1
+
+[node name="HumanSideCharacter2" parent="YSort" instance=ExtResource("4_ttwmy")]
+position = Vector2(260, 17)
+texture = ExtResource("6_giecl")
+idle_animation = 1
+
+[node name="ObjectsTerrain" parent="YSort" instance=ExtResource("7_ymu4m")]
+layer_0/tile_data = PackedInt32Array(786442, 11, 0, 720903, 11, 0, 720898, 11, 0, 786436, 11, 0, 458756, 11, 0, 524296, 11, 0, 524299, 11, 0, 589829, 11, 0, 458754, 11, 0, 327686, 11, 0, 327689, 11, 0, 786453, 11, 0, 655379, 11, 0, 458772, 11, 0, 327703, 11, 0, 589846, 11, 0, 458776, 11, 0, 720920, 11, 0, 786459, 11, 0, 786462, 11, 0, 589852, 11, 0, 393245, 11, 0, 524314, 11, 0, 327706, 11, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
