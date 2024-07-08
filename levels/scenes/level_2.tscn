@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=68 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="12_05luy"]
+[ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/scenes/door.tscn" id="12_cjx2m"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="13_ldm4a"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="14_m1w0h"]
 [ext_resource type="Texture2D" uid="uid://dlhrcw2eqt5ni" path="res://gui/icons/tab_button.png" id="15_2858d"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://n7p07evg8r3o" path="res://gui/container/content_container.tscn" id="19_ev10h"]
 [ext_resource type="PackedScene" uid="uid://d2m6dxtevb3up" path="res://gui/inventory/scenes/inventory.tscn" id="20_s87jy"]
 [ext_resource type="PackedScene" uid="uid://cpjsffmqikpi2" path="res://gui/container/wait_feedback_container.tscn" id="21_hnhsr"]
+[ext_resource type="Shader" path="res://levels/scripts/fog.gdshader" id="22_2pnds"]
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("5_wuwmt")
@@ -242,6 +244,26 @@ release_a_quest = false
 quest_id = ""
 dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_vinx3"), SubResource("Resource_c8xtm"), SubResource("Resource_cpaah"), SubResource("Resource_2frwo"), SubResource("Resource_kp7ml"), SubResource("Resource_sk237"), SubResource("Resource_bqrim")])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkjs"]
+size = Vector2(18.5486, 47)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nkv2o"]
+noise_type = 0
+frequency = 0.0075
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4lht6"]
+width = 320
+height = 180
+seamless = true
+seamless_blend_skirt = 0.75
+noise = SubResource("FastNoiseLite_nkv2o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymqmc"]
+shader = ExtResource("22_2pnds")
+shader_parameter/density = 0.5
+shader_parameter/speed = Vector2(0.02, 0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_4lht6")
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ofcyb")
 level_id = "level_2"
@@ -255,7 +277,7 @@ layer_1/tile_data = PackedInt32Array(-458744, 1245185, 8, -458743, 1245185, 8, -
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_rykhb")]
-position = Vector2(245, 404)
+position = Vector2(-252, 97.5)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 scale = Vector2(1.66667, 1.66667)
@@ -267,36 +289,33 @@ limit_bottom = 508
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="Choco" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+[node name="Choco" parent="YSort" instance=ExtResource("4_l5vgl")]
 position = Vector2(-51, 400)
 character_idle_dialog = SubResource("Resource_8jqkn")
 character_color_name = "[color=brown]"
 char_interact_quest_id = "searching_for_answers"
-player_near_state = NodePath("")
 character_id = "choco"
 character_name = "Choco"
 texture = ExtResource("7_5ttnr")
 frame = 78
 
-[node name="Roma" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+[node name="Roma" parent="YSort" instance=ExtResource("4_l5vgl")]
 position = Vector2(854, 67)
 character_idle_dialog = SubResource("Resource_8jqkn")
 character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_2brex"), SubResource("Resource_8einm")])
 character_color_name = "[color=red]"
 char_interact_quest_id = "searching_for_answers"
-player_near_state = NodePath("")
 character_id = "roma"
 character_name = "Roma"
 texture = ExtResource("8_tkfn6")
 frame = 78
 
-[node name="Safira" parent="YSort" node_paths=PackedStringArray("player_near_state") instance=ExtResource("4_l5vgl")]
+[node name="Safira" parent="YSort" instance=ExtResource("4_l5vgl")]
 position = Vector2(766, 369)
 character_idle_dialog = SubResource("Resource_8jqkn")
 character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_e5774"), SubResource("Resource_1inx0")])
 character_color_name = "[color=blue]"
 char_interact_quest_id = "searching_for_answers"
-player_near_state = NodePath("")
 character_id = "safira"
 character_name = "Safira"
 texture = ExtResource("9_x05se")
@@ -314,8 +333,36 @@ idle_animation = 2
 [node name="BaseHumanCharacter2" parent="YSort" instance=ExtResource("5_pyj7w")]
 position = Vector2(-16.5384, 40.9315)
 
+[node name="Doors" type="Node2D" parent="YSort"]
+
+[node name="Door_ENTRANCE" parent="YSort/Doors" instance=ExtResource("12_cjx2m")]
+position = Vector2(-278, 97)
+door_id = "level_2_entrance"
+destination_level_tag = "level_1_transition"
+destination_door_tag = "TO_LEVEL1"
+spawn_direction = "right"
+
+[node name="Collision" type="CollisionShape2D" parent="YSort/Doors/Door_ENTRANCE"]
+position = Vector2(-1.27432, -0.0635605)
+shape = SubResource("RectangleShape2D_cnkjs")
+
+[node name="Spawn" type="Marker2D" parent="YSort/Doors/Door_ENTRANCE"]
+position = Vector2(26, 0)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 180)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_ymqmc")
+offset_right = 320.0
+offset_bottom = 180.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 2
 script = ExtResource("12_05luy")
 
 [node name="InventoryButton" type="Control" parent="CanvasLayer"]

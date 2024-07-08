@@ -7,6 +7,9 @@ const scene_house_3_secondfloor = preload("res://levels/scenes/house_3_secondflo
 const scene_forest = preload("res://levels/scenes/forest.tscn")
 const scene_forest_house = preload("res://levels/scenes/forest_house.tscn")
 
+const scene_level1_transition = preload("res://levels/scenes/level_1_transition.tscn")
+const scene_level2 = preload("res://levels/scenes/level_2.tscn")
+
 signal on_trigger_player_spawn
 
 var spawn_door_tag
@@ -25,6 +28,10 @@ func match_level_tag(level_tag):
 			return scene_forest
 		"forest_house":
 			return scene_forest_house	
+		"level_1_transition":
+			return scene_level1_transition
+		"level_2":
+			return scene_level2
 	return null
 
 func go_to_level(level_tag, destination_tag):
