@@ -798,7 +798,7 @@ item_id = "golden_duck"
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("5_5sdho")]
-position = Vector2(-191.894, -107.882)
+position = Vector2(72, -364)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 zoom = Vector2(1.3, 1.3)
