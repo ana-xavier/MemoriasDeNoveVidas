@@ -21,7 +21,11 @@ func _ready() -> void:
 	if texture != null:
 		sprite.texture = texture
 		
-	match idle_animation:
+	play_idle_animation(idle_animation)
+
+func play_idle_animation(_idle_animation: Idle):
+	animation.stop()
+	match _idle_animation:
 		Idle.DOWN: animation.play("idle_down")
 		Idle.UP : animation.play("idle_up")
 		Idle.LEFT: animation.play("idle_left")

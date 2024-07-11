@@ -6,6 +6,7 @@ const lines3: Array[String] = ["Mamãe? Papai? Vocês estão aqui???"]
 
 @export var destination_camera: Camera2D = null
 @export var white_screen: ColorRect = null
+@export var music: AudioStreamPlayer = null
 
 func prerequisites() -> bool:
 	return true
@@ -35,6 +36,7 @@ func run() -> void:
 	CameraTransition.transition_camera2D(player_camera, destination_camera, 2.5)
 	await CameraTransition.transitioning_complete
 	
+	music.play()
 	CameraTransition.transition_camera2D(destination_camera, player_camera, 2.0)
 	await CameraTransition.transitioning_complete
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://rggrvhlodlv7"]
+[gd_scene load_steps=81 format=3 uid="uid://rggrvhlodlv7"]
 
 [ext_resource type="Texture2D" uid="uid://bsjdivmtk738x" path="res://environment/terrain/assets/vegetation/spr_tree1.png" id="1_fx48q"]
 [ext_resource type="Texture2D" uid="uid://b5nlurjuqmy4y" path="res://environment/terrain/assets/vegetation/spr_tree2.png" id="2_wjxgj"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://biklhil27ob7k" path="res://environment/terrain/scenes/level_1/bridge.tscn" id="21_rmwhx"]
 [ext_resource type="Texture2D" uid="uid://c1p8ha6x2pgo4" path="res://environment/terrain/assets/terrain_tileset.png" id="22_40usc"]
 [ext_resource type="Texture2D" uid="uid://lymw7p72e5y7" path="res://environment/terrain/assets/japanese_city_tileset.png" id="22_8355c"]
+[ext_resource type="Texture2D" uid="uid://1i8ebqlnl1lu" path="res://environment/terrain/assets/objects/vehicles/Brown_SUV.png" id="23_fo3ba"]
 [ext_resource type="Texture2D" uid="uid://mf4dxbb6x1bx" path="res://environment/terrain/assets/objects/bridge/spr_wooden_bridge_vertical.png" id="23_kdopt"]
 [ext_resource type="Texture2D" uid="uid://b4sum4ueycbxu" path="res://environment/terrain/assets/objects/bridge/spr_wooden_bridge_horizontal.png" id="24_fjcxy"]
 [ext_resource type="Texture2D" uid="uid://c40v0s1ot25bs" path="res://environment/terrain/assets/rocks/spr_smallrock2.png" id="25_6ici4"]
@@ -13678,6 +13679,17 @@ texture = ExtResource("22_8355c")
 27:16/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 27:16/0/physics_layer_1/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ep5tg"]
+texture = ExtResource("23_fo3ba")
+0:1/size_in_atlas = Vector2i(6, 4)
+0:1/0 = 0
+0:1/0/y_sort_origin = 20
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34, -10, 42, -10, 42, 24, -34, 24)
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_51dbq"]
 shader = ExtResource("10_jopbl")
 
@@ -14315,6 +14327,7 @@ sources/24 = SubResource("TileSetAtlasSource_ts8e6")
 sources/25 = SubResource("TileSetAtlasSource_u2cqc")
 sources/26 = SubResource("TileSetScenesCollectionSource_cbg4o")
 sources/27 = SubResource("TileSetAtlasSource_cu3aq")
+sources/28 = SubResource("TileSetAtlasSource_ep5tg")
 
 [node name="ObjectsTerrain" type="TileMap"]
 y_sort_enabled = true
