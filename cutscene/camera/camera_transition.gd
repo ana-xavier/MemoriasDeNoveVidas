@@ -23,6 +23,7 @@ func transition_camera2D(from: Camera2D, to: Camera2D, duration: float = 1.0) ->
 	
 	# Enable transitioning camera
 	from.enabled = false
+	to.position_smoothing_enabled = false
 	camera2D.enabled = true
 	transitioning = true
 	
@@ -42,6 +43,7 @@ func transition_camera2D(from: Camera2D, to: Camera2D, duration: float = 1.0) ->
 	# Enable target camera
 	camera2D.enabled = false
 	to.enabled = true
+	to.position_smoothing_enabled = true
 	transitioning = false
 	
 	transitioning_complete.emit()

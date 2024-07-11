@@ -50,3 +50,12 @@ func get_player_camera() -> Camera2D:
 func set_character_target_path(character: CharacterBody2D, target: Vector2) -> void:
 	await character.fsm.force_change_state("follow_path_state")	
 	character.path_finder_component.find_and_follow_path(target)
+
+func start_and_wait_dialog(character: CharacterBody2D, lines: Array[String]) -> void:
+	var offset_y = 0
+	if character is BaseHumanCharacter:
+		offset_y = -12
+	var pos: Vector2 = 	character.global_position
+	pos.y += offset_y
+	DialogManager.start_dialog(pos, lines, "", true, true)
+	await DialogManager.dialog_finished

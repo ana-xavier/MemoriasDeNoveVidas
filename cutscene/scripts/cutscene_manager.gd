@@ -9,6 +9,7 @@ const DEFAULT_BAR_SIZE = Vector2(320, 0)
 const ANIMATION_DURATION = 0.8
 
 var is_cutscene_running: bool = false
+var hided_bars: bool = false
 
 signal cutscene_started
 signal cutscene_ended
@@ -19,11 +20,15 @@ func _ready():
 	top_bar.size.y = 0
 	bottom_bar.size.y = 0
 
-func start_cutscene() -> void:
+func start_cutscene(hide_bars: bool = false) -> void:
 	cutscene_started.emit()
-	visible = true
 	is_cutscene_running = true
 	
+	if hide_bars:
+		hided_bars = true
+		return
+	
+	visible = true
 	var tween_top = get_tree().create_tween()
 	tween_top.tween_property(
 		top_bar, "size", BAR_SIZE, ANIMATION_DURATION
@@ -36,17 +41,20 @@ func start_cutscene() -> void:
 	
 	
 func end_cutscene() -> void:
-	var tween_top = get_tree().create_tween()
-	tween_top.tween_property(
-		top_bar, "size", DEFAULT_BAR_SIZE, ANIMATION_DURATION
-	).set_trans(Tween.TRANS_LINEAR)
 	
-	var tween_bottom = get_tree().create_tween()
-	tween_bottom.tween_property(
-		bottom_bar, "size", DEFAULT_BAR_SIZE, ANIMATION_DURATION
-	).set_trans(Tween.TRANS_LINEAR)
-	
-	await  tween_bottom.finished
+	if !hided_bars:
+		var tween_top = get_tree().create_tween()
+		tween_top.tween_property(
+			top_bar, "size", DEFAULT_BAR_SIZE, ANIMATION_DURATION
+		).set_trans(Tween.TRANS_LINEAR)
+		
+		var tween_bottom = get_tree().create_tween()
+		tween_bottom.tween_property(
+			bottom_bar, "size", DEFAULT_BAR_SIZE, ANIMATION_DURATION
+		).set_trans(Tween.TRANS_LINEAR)
+		await  tween_bottom.finished
+		
+	hided_bars = false	
 	visible = false
 	is_cutscene_running = false
 	cutscene_ended.emit()
