@@ -12,5 +12,5 @@ func animate():
 		game_logo_and_info, "modulate:a", 1.0, 3.0
 	)
 	await tween.finished
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(15.0).timeout
 	get_tree().change_scene_to_packed(scene_to_load)

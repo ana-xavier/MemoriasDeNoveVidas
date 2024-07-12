@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemsList" load_steps=13 format=3 uid="uid://in5a2rq154km"]
+[gd_resource type="Resource" script_class="ItemsList" load_steps=14 format=3 uid="uid://in5a2rq154km"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/item.gd" id="1_g4cob"]
 [ext_resource type="Script" path="res://resources/classes/lists/items_list.gd" id="2_hu5u6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ndwmjxm7idt" path="res://resources/assets/sprites/spr_nail.png" id="3_mlop7"]
 [ext_resource type="Texture2D" uid="uid://rhfiemwnta23" path="res://resources/assets/sprites/new_plank.png" id="4_hp72c"]
 [ext_resource type="Texture2D" uid="uid://c1b0ee21h1yu8" path="res://resources/assets/sprites/golden_duck.png" id="5_dwmdj"]
+[ext_resource type="Texture2D" uid="uid://b57u3ujthsxob" path="res://resources/assets/sprites/letter.png" id="6_httc0"]
 
 [sub_resource type="Resource" id="Resource_8ffbd"]
 script = ExtResource("1_g4cob")
@@ -39,14 +40,14 @@ category = 1
 script = ExtResource("1_g4cob")
 id = "choco_letter"
 name = "Carta para Choco"
-sprite = ExtResource("4_hp72c")
+sprite = ExtResource("6_httc0")
 category = 0
 
 [sub_resource type="Resource" id="Resource_r3hc4"]
 script = ExtResource("1_g4cob")
 id = "safira_letter"
 name = "Carta para Safira"
-sprite = ExtResource("4_hp72c")
+sprite = ExtResource("6_httc0")
 category = 0
 
 [resource]
