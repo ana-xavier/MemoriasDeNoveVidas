@@ -41,6 +41,8 @@ func load_save_and_level(slot: int) -> void:
 			door_tag = "INSIDE"
 		"forest_house":
 			door_tag = "INSIDE"	
+		"level_2":
+			door_tag = "ENTRANCE"
 			
 	dispatch_data()
 	if door_tag:

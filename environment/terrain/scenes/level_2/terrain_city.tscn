@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbl6qd0wbcead"]
+[gd_scene load_steps=17 format=3 uid="uid://bbl6qd0wbcead"]
 
 [ext_resource type="Texture2D" uid="uid://lymw7p72e5y7" path="res://environment/terrain/assets/japanese_city_tileset.png" id="1_kjd8s"]
 [ext_resource type="Texture2D" uid="uid://drwgvyblhka3l" path="res://environment/terrain/assets/city_terrain_tileset.png" id="2_5l44q"]
@@ -271,6 +271,13 @@ texture_region_size = Vector2i(32, 32)
 17:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:13/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_h0t8p"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kp3o8"]
 texture = ExtResource("3_10oqs")
 texture_region_size = Vector2i(32, 32)
@@ -292,6 +299,7 @@ texture_region_size = Vector2i(32, 32)
 3:3/0/terrains_peering_bit/bottom_side = 0
 3:3/0/terrains_peering_bit/left_side = 0
 3:3/0/terrains_peering_bit/top_side = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_h0t8p")
 
 [sub_resource type="TileSet" id="TileSet_po6pf"]
 tile_size = Vector2i(32, 32)

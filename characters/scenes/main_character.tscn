@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bgljvnge160or"]
+[gd_scene load_steps=70 format=3 uid="uid://bgljvnge160or"]
 
 [ext_resource type="Script" path="res://characters/scripts/main_character.gd" id="1_heig3"]
 [ext_resource type="Shader" path="res://characters/shaders/entity_shadow.gdshader" id="2_n3e5k"]
@@ -878,6 +878,46 @@ tracks/2/keys = {
 "values": [Vector2(1, -10)]
 }
 
+[sub_resource type="Animation" id="Animation_a4v38"]
+resource_name = "laying_down"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 83, 104, 105, 106, 107]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -10)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_weba1"]
 _data = {
 "RESET": SubResource("Animation_c5br6"),
@@ -890,6 +930,7 @@ _data = {
 "digging_right": SubResource("Animation_ma4n2"),
 "jumping_left": SubResource("Animation_hapne"),
 "jumping_right": SubResource("Animation_sbjup"),
+"laying_down": SubResource("Animation_a4v38"),
 "running_down": SubResource("Animation_mpcwn"),
 "running_down_left": SubResource("Animation_1n1gw"),
 "running_down_right": SubResource("Animation_3a3wn"),
@@ -1060,6 +1101,9 @@ animation = &"jumping_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5xdiq"]
 animation = &"jumping_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wquxn"]
+animation = &"laying_down"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_16ltr"]
 states/Digging/node = SubResource("AnimationNodeBlendSpace2D_1afje")
 states/Digging/position = Vector2(587, 60)
@@ -1075,6 +1119,8 @@ states/jumping_left/node = SubResource("AnimationNodeAnimation_5up3j")
 states/jumping_left/position = Vector2(479, 202)
 states/jumping_right/node = SubResource("AnimationNodeAnimation_5xdiq")
 states/jumping_right/position = Vector2(625, 202)
+states/laying_down/node = SubResource("AnimationNodeAnimation_wquxn")
+states/laying_down/position = Vector2(733, 143)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slcpb"]
 radius = 1.66667

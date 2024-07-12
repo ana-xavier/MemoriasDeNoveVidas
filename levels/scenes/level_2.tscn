@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=88 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://cutscene/levels/level_2/roma_zoom.gd" id="7_va4sj"]
 [ext_resource type="Script" path="res://cutscene/levels/level_2/jujubinha_dialog.gd" id="8_8gweg"]
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
+[ext_resource type="Script" path="res://cutscene/levels/level_2/misty_sleeps.gd" id="9_lkhyj"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="10_jx25a"]
 [ext_resource type="Texture2D" uid="uid://be2kbcrwfyhk" path="res://characters/assets/cat/black_4.png" id="11_f1cq4"]
@@ -47,6 +48,34 @@ size = Vector2(253, 138)
 size = Vector2(407, 308)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf6nm"]
+
+[sub_resource type="Resource" id="Resource_t3f5g"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Meow!   "])
+
+[sub_resource type="Resource" id="Resource_mr7iw"]
+script = ExtResource("6_08abj")
+id = "idle"
+has_prerequisite = false
+prerequisite_quest_id = ""
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_t3f5g")])
+
+[sub_resource type="Resource" id="Resource_hpwcg"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Diálogo 1"])
+
+[sub_resource type="Resource" id="Resource_hpoec"]
+script = ExtResource("6_08abj")
+id = "jujubinha_square"
+has_prerequisite = true
+prerequisite_quest_id = "misty_and_jujubinha_talk"
+release_a_quest = false
+quest_id = ""
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_hpwcg")])
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("5_wuwmt")
@@ -146,8 +175,8 @@ script = ExtResource("6_08abj")
 id = "finish_deliver_letters"
 has_prerequisite = true
 prerequisite_quest_id = "deliver_letters"
-release_a_quest = false
-quest_id = ""
+release_a_quest = true
+quest_id = "misty_and_jujubinha_talk"
 dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_m1nri"), SubResource("Resource_6hk4w"), SubResource("Resource_3i6yb"), SubResource("Resource_bkbvp")])
 
 [sub_resource type="Resource" id="Resource_svu31"]
@@ -357,11 +386,26 @@ position = Vector2(-11.429, 6.68369)
 shape = SubResource("RectangleShape2D_kf6nm")
 debug_color = Color(1, 1, 0, 0.419608)
 
+[node name="MistySleeps" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("6_dqv8s")]
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/MistySleeps" node_paths=PackedStringArray("white_screen", "destination_camera", "cutscene_trigger")]
+script = ExtResource("9_lkhyj")
+white_screen = NodePath("../../../ScreenEffects/WhiteScreen")
+destination_camera = NodePath("Camera2D")
+id = "misty_sleeps"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/MistySleeps/Cutscene"]
+position = Vector2(400, 262)
+enabled = false
+zoom = Vector2(1.6, 1.6)
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_e755j")]
-position = Vector2(-252, 97)
+position = Vector2(385.974, 206.668)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 position = Vector2(-0.108967, -0.0525079)
@@ -377,6 +421,16 @@ editor_draw_limits = true
 [node name="Misty" parent="YSort" instance=ExtResource("10_jx25a")]
 position = Vector2(-240, -337)
 texture = ExtResource("11_f1cq4")
+
+[node name="Jujubinha" parent="YSort" instance=ExtResource("4_l5vgl")]
+position = Vector2(444, 271)
+character_idle_dialog = SubResource("Resource_mr7iw")
+character_dialogs = Array[ExtResource("6_08abj")]([SubResource("Resource_hpoec")])
+character_color_name = "[color=#00688B]"
+max_distance_from_start = 10.0
+character_id = "jujubinha"
+character_name = "Jujubinha"
+texture = ExtResource("12_ceo4m")
 
 [node name="JujubinhaFollow" parent="YSort" instance=ExtResource("10_jx25a")]
 position = Vector2(-272.369, -337.999)
@@ -519,6 +573,17 @@ visible = false
 
 [node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("21_hnhsr")]
 visible = false
+
+[node name="ScreenEffects" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="WhiteScreen" type="ColorRect" parent="ScreenEffects"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="body_entered" from="Cutscenes/RomaZoom/Area2D" to="Cutscenes/RomaZoom" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="Cutscenes/JujubinhaDialog/Area2D" to="Cutscenes/JujubinhaDialog" method="_on_trigger_area_entered"]
