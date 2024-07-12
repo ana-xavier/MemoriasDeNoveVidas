@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=83 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -11,11 +11,17 @@
 [ext_resource type="Script" path="res://action_scripts/scripts/set_active_safira_letter_quest.gd" id="5_w5gkm"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_box.gd" id="5_wuwmt"]
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog.gd" id="6_08abj"]
+[ext_resource type="PackedScene" uid="uid://bk53vgxrj0sj7" path="res://cutscene/scenes/cutscene_trigger.tscn" id="6_dqv8s"]
 [ext_resource type="Texture2D" uid="uid://dbx7hw0k8d604" path="res://characters/assets/cat/brown_5.png" id="7_5ttnr"]
+[ext_resource type="Script" path="res://cutscene/levels/level_2/roma_zoom.gd" id="7_va4sj"]
+[ext_resource type="Script" path="res://cutscene/levels/level_2/jujubinha_dialog.gd" id="8_8gweg"]
 [ext_resource type="Texture2D" uid="uid://s5l55ieedkvd" path="res://characters/assets/cat/creme_1.png" id="8_tkfn6"]
 [ext_resource type="Texture2D" uid="uid://bbp5uagu4y8tw" path="res://characters/assets/cat/blue_2.png" id="9_x05se"]
+[ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="10_jx25a"]
+[ext_resource type="Texture2D" uid="uid://be2kbcrwfyhk" path="res://characters/assets/cat/black_4.png" id="11_f1cq4"]
 [ext_resource type="Texture2D" uid="uid://df0qkunihx41p" path="res://characters/assets/human/man6.png" id="12_4ue8s"]
 [ext_resource type="Script" path="res://gui/canvas_layer.gd" id="12_05luy"]
+[ext_resource type="Texture2D" uid="uid://b2lxmvlcgu7vm" path="res://characters/assets/cat/calico_0.png" id="12_ceo4m"]
 [ext_resource type="PackedScene" uid="uid://dxagbjrrw7m88" path="res://transition/scenes/door.tscn" id="12_cjx2m"]
 [ext_resource type="Texture2D" uid="uid://bndln4vcn3afd" path="res://characters/assets/human/woman2.png" id="12_h2cgv"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="13_ldm4a"]
@@ -36,6 +42,11 @@ size = Vector2(357, 162.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3roa"]
 size = Vector2(253, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jb8x"]
+size = Vector2(407, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf6nm"]
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("5_wuwmt")
@@ -296,11 +307,61 @@ position = Vector2(-24.0427, 5.50504)
 shape = SubResource("RectangleShape2D_w3roa")
 debug_color = Color(1, 0, 0, 0.482353)
 
+[node name="Cutscenes" type="Node2D" parent="."]
+
+[node name="RomaZoom" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("6_dqv8s")]
+position = Vector2(782.236, 83.198)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/RomaZoom" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("7_va4sj")
+destination_camera = NodePath("Camera2D")
+id = "roma_zoom"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/RomaZoom/Cutscene"]
+position = Vector2(87.7643, -20.198)
+enabled = false
+zoom = Vector2(1.6, 1.6)
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/RomaZoom"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/RomaZoom/Area2D"]
+position = Vector2(-1.73566, -9.19797)
+shape = SubResource("RectangleShape2D_0jb8x")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="JujubinhaDialog" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("6_dqv8s")]
+position = Vector2(-240.571, 90.3163)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/JujubinhaDialog" node_paths=PackedStringArray("destination_camera", "cutscene_trigger")]
+script = ExtResource("8_8gweg")
+destination_camera = NodePath("Camera2D")
+id = "jujubinha_city_dialog"
+cutscene_trigger = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Cutscenes/JujubinhaDialog/Cutscene"]
+position = Vector2(193.571, 18.6837)
+enabled = false
+zoom = Vector2(1.3, 1.3)
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/JujubinhaDialog"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/JujubinhaDialog/Area2D"]
+position = Vector2(-11.429, 6.68369)
+shape = SubResource("RectangleShape2D_kf6nm")
+debug_color = Color(1, 1, 0, 0.419608)
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="MainCharacter" parent="YSort" instance=ExtResource("3_e755j")]
-position = Vector2(451, 314)
+position = Vector2(-252, 97)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/MainCharacter"]
 position = Vector2(-0.108967, -0.0525079)
@@ -312,6 +373,14 @@ limit_right = 1008
 limit_bottom = 508
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Misty" parent="YSort" instance=ExtResource("10_jx25a")]
+position = Vector2(-240, -337)
+texture = ExtResource("11_f1cq4")
+
+[node name="JujubinhaFollow" parent="YSort" instance=ExtResource("10_jx25a")]
+position = Vector2(-272.369, -337.999)
+texture = ExtResource("12_ceo4m")
 
 [node name="Roma" parent="YSort" instance=ExtResource("4_l5vgl")]
 position = Vector2(870, 65)
@@ -451,4 +520,6 @@ visible = false
 [node name="WaitFeedbackContainer" parent="CanvasLayer" instance=ExtResource("21_hnhsr")]
 visible = false
 
+[connection signal="body_entered" from="Cutscenes/RomaZoom/Area2D" to="Cutscenes/RomaZoom" method="_on_trigger_area_entered"]
+[connection signal="body_entered" from="Cutscenes/JujubinhaDialog/Area2D" to="Cutscenes/JujubinhaDialog" method="_on_trigger_area_entered"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

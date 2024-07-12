@@ -20,6 +20,7 @@ func transition_camera2D(from: Camera2D, to: Camera2D, duration: float = 1.0) ->
 	camera2D.offset = from.offset
 	camera2D.light_mask = from.light_mask
 	camera2D.global_position = from.global_position
+	camera2D.limit_left = from.limit_left
 	
 	# Enable transitioning camera
 	from.enabled = false
