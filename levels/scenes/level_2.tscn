@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bxj2lwnpwuh7r"]
+[gd_scene load_steps=97 format=3 uid="uid://bxj2lwnpwuh7r"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_ofcyb"]
 [ext_resource type="PackedScene" uid="uid://bbl6qd0wbcead" path="res://environment/terrain/scenes/level_2/terrain_city.tscn" id="2_vot5w"]
@@ -65,8 +65,53 @@ dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_t3f5g")])
 
 [sub_resource type="Resource" id="Resource_hpwcg"]
 script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Esse lugar... há algo que preciso te contar, Jujubinha. Eu acho que finalmente descobri onde estamos."])
+
+[sub_resource type="Resource" id="Resource_al4ra"]
+script = ExtResource("5_wuwmt")
 character_type = 1
-lines = Array[String](["Diálogo 1"])
+lines = Array[String](["O que você quer dizer, Misty?"])
+
+[sub_resource type="Resource" id="Resource_h44q3"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Este lugar, Jujubinha, não é exatamente o que parece.", "É um mundo paralelo ao que conhecíamos antes.", "Quando um gatinho... vai pro céu, bem, ele não vai pro céu ainda, ele vem para cá."])
+
+[sub_resource type="Resource" id="Resource_v6ck7"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Um mundo paralelo? Mas por quê?"])
+
+[sub_resource type="Resource" id="Resource_udmbm"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["Porque estamos esperando, Jujubinha. Estamos esperando nossos donos.", "Quando eles também irem para o céu, virão para cá, e então poderemos ficar juntos em paz. Esse é o verdadeiro propósito deste lugar."])
+
+[sub_resource type="Resource" id="Resource_wyg1j"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Então, todos esses gatinhos aqui, inclusive eu... estão esperando suas famílias? "])
+
+[sub_resource type="Resource" id="Resource_qy1bp"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["im, todos nós. Cada um de nós está aqui, aguardando o momento de reencontrar aqueles que amamos.", "Por isso este lugar está repleto de gatinhos. É uma cidade de esperança e amor. "])
+
+[sub_resource type="Resource" id="Resource_mt2qq"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Isso faz sentido, de alguma forma... E não parece tão assustador quando você explica assim, Misty. Parece até... bonito. "])
+
+[sub_resource type="Resource" id="Resource_evpq2"]
+script = ExtResource("5_wuwmt")
+character_type = 0
+lines = Array[String](["É bonito, Jujubinha. Saber que o amor que temos pelos nossos donos é tão forte que podemos esperar por eles aqui, juntos."])
+
+[sub_resource type="Resource" id="Resource_r8mfq"]
+script = ExtResource("5_wuwmt")
+character_type = 1
+lines = Array[String](["Então, Misty, você pode finalmente descansar agora, por ter descoberto a verdade que tanto buscava! Obrigado por compartilhar isso comigo!"])
 
 [sub_resource type="Resource" id="Resource_hpoec"]
 script = ExtResource("6_08abj")
@@ -75,7 +120,7 @@ has_prerequisite = true
 prerequisite_quest_id = "misty_and_jujubinha_talk"
 release_a_quest = false
 quest_id = ""
-dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_hpwcg")])
+dialog = Array[ExtResource("5_wuwmt")]([SubResource("Resource_hpwcg"), SubResource("Resource_al4ra"), SubResource("Resource_h44q3"), SubResource("Resource_v6ck7"), SubResource("Resource_udmbm"), SubResource("Resource_wyg1j"), SubResource("Resource_qy1bp"), SubResource("Resource_mt2qq"), SubResource("Resource_evpq2"), SubResource("Resource_r8mfq")])
 
 [sub_resource type="Resource" id="Resource_r20sx"]
 script = ExtResource("5_wuwmt")
