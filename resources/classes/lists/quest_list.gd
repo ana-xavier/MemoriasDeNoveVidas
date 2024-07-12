@@ -24,6 +24,8 @@ func set_quest_active(quest_id: String) -> void:
 	for quest in quests:
 		if (quest.id == quest_id):
 			quest.status = Quest.Status.ACTIVE
+			if quest.has_method("on_quest_active"):
+				quest.on_quest_active()
 	
 func set_quest_complete(quest_id: String) -> void:
 	for quest in quests:

@@ -51,6 +51,7 @@ func create_save(slot: int) -> void:
 	# Add below all the data that have to come with the creation of the save.
 	_save.quest_list.quests = QuestManager.load_quests_resource()
 	_save.dialog_ready_list.add_dialog("srpotatoe", "srpotatoe_greetings")
+	_save.dialog_ready_list.add_dialog("roma", "roma_greetings")
 	_save.interactive_objects_dict.set_value_in_object("house_3_door", "door_locked", true)	
 	_save.interactive_objects_dict.set_value_in_object("house_3_window", "door_locked", true)	
 	_save.interactive_objects_dict.set_value_in_object("forest_entrance", "door_locked", true)	
