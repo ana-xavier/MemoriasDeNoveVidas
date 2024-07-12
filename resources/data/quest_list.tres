@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestList" load_steps=17 format=3 uid="uid://bk2kg3ybjr0uv"]
+[gd_resource type="Resource" script_class="QuestList" load_steps=23 format=3 uid="uid://bk2kg3ybjr0uv"]
 
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_notes.gd" id="1_dixrk"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="1_vjdbq"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://resources/classes/objects/quests/finding_item_quest.gd" id="5_xove3"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_building_bridge.gd" id="6_cnmv4"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_interact_with_character.gd" id="7_bhfa2"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_letters.gd" id="8_2gsx8"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_final_cats_talk.gd" id="9_hy2d2"]
 
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("1_dixrk")
@@ -120,6 +122,62 @@ status = 0
 has_prerequisite = false
 prerequisite_quest_id = ""
 
+[sub_resource type="Resource" id="Resource_v3spc"]
+script = ExtResource("8_2gsx8")
+character_trigger_id = "roma"
+letters_id = Array[String](["choco_letter", "safira_letter"])
+finish_objective_display = "Fale com Roma após entregar as cartas."
+interacted_count = 0
+to_interact = 2
+characters_already_interacted = {
+"choco": false,
+"safira": false
+}
+id = "deliver_letters"
+name = "Correio dos Gatinhos"
+description = ""
+objective_display = "encontre os destinatários e entregue as cartas."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_b4xbh"]
+script = ExtResource("3_4fqly")
+required_item_id = "choco_letter"
+character_id = "choco"
+finish_objective_display = "Entregue a carta para Choco."
+id = "choco_letter_quest"
+name = "Mensagem para Choco"
+description = ""
+objective_display = "Encontre Choco."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_gfoep"]
+script = ExtResource("3_4fqly")
+required_item_id = "safira_letter"
+character_id = "safira"
+finish_objective_display = "Entregue a carta para Safira."
+id = "safira_letter_quest"
+name = "Mensagem para Safira"
+description = ""
+objective_display = "Encontre Safira."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_tou1j"]
+script = ExtResource("9_hy2d2")
+character_id = "jujubinha"
+id = "misty_and_jujubinha_talk"
+name = "Ponto de Descanso"
+description = ""
+objective_display = "Converse com Jujubinha na praça."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
 [resource]
 script = ExtResource("1_vjdbq")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8"), SubResource("Resource_v3spc"), SubResource("Resource_b4xbh"), SubResource("Resource_gfoep"), SubResource("Resource_tou1j")])

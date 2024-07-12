@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://byq0shdld46iy"]
+[gd_scene load_steps=33 format=3 uid="uid://byq0shdld46iy"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_manager.gd" id="1_j8pjs"]
 [ext_resource type="PackedScene" uid="uid://cgpf1lec1exwb" path="res://environment/terrain/scenes/level_1/terrain.tscn" id="2_l2led"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjc2gfimey5sa" path="res://characters/assets/human/misty_mom.png" id="5_j0ies"]
 [ext_resource type="Script" path="res://levels/scenes/dream_dialog.gd" id="5_kkcy6"]
 [ext_resource type="Texture2D" uid="uid://cabnn175nnut8" path="res://gui/icons/book.png" id="6_2iar7"]
+[ext_resource type="Script" path="res://cutscene/levels/dream_level/end_game.gd" id="6_dyfrr"]
 [ext_resource type="Texture2D" uid="uid://ba0j7142xxbsm" path="res://characters/assets/human/misty_dad.png" id="6_giecl"]
 [ext_resource type="Texture2D" uid="uid://dof5vqg1x6m5i" path="res://gui/icons/book_hover.png" id="7_ehx6u"]
 [ext_resource type="PackedScene" uid="uid://cr8x3nvrj27ky" path="res://characters/scenes/cat_follow_character.tscn" id="7_reqdc"]
@@ -30,6 +31,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1qgt"]
 size = Vector2(136, 80.7718)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wgou"]
+size = Vector2(20, 48.5838)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a32nc"]
 size = Vector2(511, 39.1998)
@@ -104,6 +108,26 @@ position = Vector2(1.03073, -13.8423)
 shape = SubResource("RectangleShape2D_s1qgt")
 debug_color = Color(1, 1, 0, 0.419608)
 
+[node name="EndGame" parent="Cutscenes" node_paths=PackedStringArray("cutscene") instance=ExtResource("3_h0q80")]
+position = Vector2(495, 44)
+cutscene = NodePath("Cutscene")
+
+[node name="Cutscene" type="Node2D" parent="Cutscenes/EndGame" node_paths=PackedStringArray("white_screen", "music", "cutscene_trigger")]
+script = ExtResource("6_dyfrr")
+white_screen = NodePath("../../../ScreenEffects/WhiteScreen")
+music = NodePath("../../../AudioStreamPlayer")
+id = "end_game"
+cutscene_trigger = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/EndGame"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/EndGame/Area2D"]
+position = Vector2(0, 14.2919)
+shape = SubResource("RectangleShape2D_1wgou")
+debug_color = Color(1, 1, 0, 0.419608)
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -136,6 +160,7 @@ idle_animation = 1
 layer_0/tile_data = PackedInt32Array(786441, 0, 0, 655371, 0, 0, 720903, 0, 0, 786437, 0, 0, 786434, 0, 0, 655363, 0, 0, 589829, 0, 0, 589832, 0, 0, 524290, 0, 0, 393220, 0, 0, 393223, 0, 0, 458762, 0, 0, 262145, 0, 0, 786452, 0, 0, 589844, 0, 0, 458771, 0, 0, 720918, 0, 0, 786456, 0, 0, 786459, 0, 0, 655386, 0, 0, 589847, 0, 0, 393218, 0, 0, 720926, 0, 0, 589853, 0, 0, 458777, 0, 0, 393238, 0, 0, 393244, 0, 0, 458782, 0, 0, 524315, 0, 0, 65545, 28, 268435457, 30, 11, 0, 65564, 11, 0, 26, 11, 0, 65559, 11, 0, 65567, 589827, 24, 65566, 720899, 24, 65565, 524291, 24, 65562, 589827, 24, 65561, 524291, 24)
 
 [node name="ScreenEffects" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="WhiteFrame" type="TextureRect" parent="ScreenEffects"]
 anchors_preset = 15
@@ -238,4 +263,5 @@ shape = SubResource("RectangleShape2D_5gcng")
 
 [connection signal="body_entered" from="Cutscenes/ArriveAtDream/Area2D" to="Cutscenes/ArriveAtDream" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="Cutscenes/DreamDialog/Area2D" to="Cutscenes/DreamDialog" method="_on_trigger_area_entered"]
+[connection signal="body_entered" from="Cutscenes/EndGame/Area2D" to="Cutscenes/EndGame" method="_on_trigger_area_entered"]
 [connection signal="pressed" from="CanvasLayer/InventoryButton/TextureButton" to="CanvasLayer" method="_on_inventory_button_pressed"]

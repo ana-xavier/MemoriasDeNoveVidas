@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://b78nd0m2ulvk5"]
+
+[ext_resource type="Script" path="res://gui/credits.gd" id="1_28wcm"]
+[ext_resource type="FontFile" uid="uid://cl5da0enx1jqj" path="res://gui/fonts/fibberish.ttf" id="1_l1hkm"]
+[ext_resource type="Texture2D" uid="uid://cjm1e1yp5ux4n" path="res://gui/mainmenu/assets/accent.png" id="2_bgvoy"]
+[ext_resource type="Texture2D" uid="uid://d1vfjl85p6at6" path="res://gui/mainmenu/assets/misty.png" id="3_c8e16"]
+[ext_resource type="FontFile" uid="uid://bne18jd4oxf25" path="res://gui/fonts/monogram-extended.ttf" id="4_nvv6y"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28wcm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameLogoAndInfo" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="title" type="Label" parent="ColorRect/GameLogoAndInfo"]
+offset_left = 71.0
+offset_top = 32.0
+offset_right = 261.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.764706, 0.333333, 0.337255, 1)
+theme_override_colors/font_shadow_color = Color(0.45098, 0.164706, 0.172549, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_l1hkm")
+theme_override_font_sizes/font_size = 38
+text = "Memorias de
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title2" type="Label" parent="ColorRect/GameLogoAndInfo"]
+offset_left = 27.0
+offset_top = 53.0
+offset_right = 214.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.576471, 0.439216, 0.858824, 1)
+theme_override_colors/font_shadow_color = Color(0.25098, 0.145098, 0.427451, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_l1hkm")
+theme_override_font_sizes/font_size = 45
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title3" type="Label" parent="ColorRect/GameLogoAndInfo"]
+offset_left = 83.0
+offset_top = 53.0
+offset_right = 270.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.847059, 0.407843, 0.403922, 1)
+theme_override_colors/font_shadow_color = Color(0.45098, 0.164706, 0.172549, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_l1hkm")
+theme_override_font_sizes/font_size = 40
+text = "vidas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accent" type="Sprite2D" parent="ColorRect/GameLogoAndInfo"]
+position = Vector2(156, 80)
+scale = Vector2(0.132813, 0.113889)
+texture = ExtResource("2_bgvoy")
+
+[node name="Misty" type="Sprite2D" parent="ColorRect/GameLogoAndInfo"]
+texture_filter = 2
+position = Vector2(217, 95)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_c8e16")
+
+[node name="Label" type="Label" parent="ColorRect/GameLogoAndInfo"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 127.0
+offset_right = 297.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_nvv6y")
+theme_override_font_sizes/font_size = 12
+text = "Criado por: Ana Carolina Xavier, Érico Bis e Rubens Montanha."
