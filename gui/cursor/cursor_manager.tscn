@@ -6,7 +6,7 @@
 
 [node name="CursorManager" type="CanvasLayer"]
 process_mode = 3
-layer = 3
+layer = 20
 script = ExtResource("1_2kgne")
 empty_cursor = ExtResource("2_kemua")
 default_cursor = ExtResource("1_w20ja")
