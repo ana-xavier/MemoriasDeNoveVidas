@@ -570,7 +570,7 @@ offset_bottom = 180.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-layer = 2
+layer = 10
 script = ExtResource("12_05luy")
 
 [node name="InventoryButton" type="Control" parent="CanvasLayer"]
