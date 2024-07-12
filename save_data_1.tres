@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=37 format=3]
+[gd_resource type="Resource" script_class="SaveData" load_steps=43 format=3]
 
 [ext_resource type="Script" path="res://resources/classes/objects/dialog/dialog_ready.gd" id="1_3c5cw"]
 [ext_resource type="Script" path="res://resources/classes/lists/dialog_ready_list.gd" id="2_fwh5r"]
@@ -13,78 +13,80 @@
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_building_bridge.gd" id="11_57rjm"]
 [ext_resource type="Script" path="res://resources/classes/objects/quests/quest_interact_with_character.gd" id="12_p7bus"]
 [ext_resource type="Script" path="res://resources/classes/lists/quest_list.gd" id="13_5nn6t"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_letters.gd" id="13_md054"]
 [ext_resource type="Script" path="res://resources/save/save_data.gd" id="14_fcaqs"]
+[ext_resource type="Script" path="res://resources/classes/objects/quests/quest_final_cats_talk.gd" id="14_msfag"]
 
-[sub_resource type="Resource" id="Resource_eak6t"]
+[sub_resource type="Resource" id="Resource_ot20p"]
 script = ExtResource("1_3c5cw")
 character_id = "srpotatoe"
 dialog_id = "srpotatoe_greetings"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_5r57e"]
+[sub_resource type="Resource" id="Resource_lieop"]
+script = ExtResource("1_3c5cw")
+character_id = "roma"
+dialog_id = "roma_greetings"
+is_already_done = false
+
+[sub_resource type="Resource" id="Resource_dd6s3"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "srpotatoe_quest_finished"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_2ugr0"]
+[sub_resource type="Resource" id="Resource_0buc1"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "jujubinha_greetings"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_h0045"]
+[sub_resource type="Resource" id="Resource_oi24x"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "jujubinha_arrives_at_lake"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_u3or8"]
+[sub_resource type="Resource" id="Resource_7uaex"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "jujubinha_arrives_at_home"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_0e42j"]
+[sub_resource type="Resource" id="Resource_uwvty"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "pedrita_greetings"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_rb7kg"]
-script = ExtResource("1_3c5cw")
-character_id = ""
-dialog_id = "pedrita_finishing"
-is_already_done = true
-
-[sub_resource type="Resource" id="Resource_evbc8"]
+[sub_resource type="Resource" id="Resource_3yqa3"]
 script = ExtResource("1_3c5cw")
 character_id = ""
 dialog_id = "ghost_dialog"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_cuhcn"]
+[sub_resource type="Resource" id="Resource_2lmaj"]
 script = ExtResource("1_3c5cw")
 character_id = ""
-dialog_id = "idle"
+dialog_id = "pedrita_finishing"
 is_already_done = true
 
-[sub_resource type="Resource" id="Resource_1ynpe"]
+[sub_resource type="Resource" id="Resource_v8k4j"]
 script = ExtResource("2_fwh5r")
-dialogs_ready = Array[ExtResource("1_3c5cw")]([SubResource("Resource_eak6t"), SubResource("Resource_5r57e"), SubResource("Resource_2ugr0"), SubResource("Resource_h0045"), SubResource("Resource_u3or8"), SubResource("Resource_0e42j"), SubResource("Resource_rb7kg"), SubResource("Resource_evbc8"), SubResource("Resource_cuhcn")])
+dialogs_ready = Array[ExtResource("1_3c5cw")]([SubResource("Resource_ot20p"), SubResource("Resource_lieop"), SubResource("Resource_dd6s3"), SubResource("Resource_0buc1"), SubResource("Resource_oi24x"), SubResource("Resource_7uaex"), SubResource("Resource_uwvty"), SubResource("Resource_3yqa3"), SubResource("Resource_2lmaj")])
 
-[sub_resource type="Resource" id="Resource_to7tq"]
+[sub_resource type="Resource" id="Resource_6sfm7"]
 script = ExtResource("3_jshaj")
 current_level = "level_1"
 display_level_name = "Nível 1"
 last_time_saved = {
-"day": 8,
+"day": 12,
 "dst": false,
-"hour": 15,
-"minute": 57,
+"hour": 16,
+"minute": 17,
 "month": 7,
-"second": 52,
-"weekday": 1,
+"second": 26,
+"weekday": 5,
 "year": 2024
 }
 player_has_follower = false
@@ -97,7 +99,7 @@ characters_pos = {
 }
 }
 
-[sub_resource type="Resource" id="Resource_rv2ye"]
+[sub_resource type="Resource" id="Resource_kwyev"]
 script = ExtResource("4_earkn")
 objects_states = {
 "dig_E1": {
@@ -136,6 +138,15 @@ objects_states = {
 "jujubinha_surprised": {
 "already_interacted": true
 },
+"note_1": {
+"already_interacted": true
+},
+"note_2": {
+"already_interacted": true
+},
+"note_4": {
+"already_interacted": true
+},
 "note_5": {
 "already_interacted": true
 },
@@ -159,7 +170,7 @@ objects_states = {
 }
 }
 
-[sub_resource type="Resource" id="Resource_34sg5"]
+[sub_resource type="Resource" id="Resource_ddrjj"]
 script = ExtResource("5_6dpe6")
 items = {
 "nail_bridge": 12,
@@ -168,7 +179,7 @@ items = {
 
 [sub_resource type="Resource" id="Resource_es8e0"]
 script = ExtResource("6_8crtg")
-notes_count = 1
+notes_count = 4
 notes_to_get = 5
 id = "level1_notes"
 name = "Notas Misteriosas"
@@ -277,15 +288,71 @@ status = 2
 has_prerequisite = false
 prerequisite_quest_id = ""
 
-[sub_resource type="Resource" id="Resource_68v4b"]
+[sub_resource type="Resource" id="Resource_v3spc"]
+script = ExtResource("13_md054")
+character_trigger_id = "roma"
+letters_id = Array[String](["choco_letter", "safira_letter"])
+finish_objective_display = "Fale com Roma após entregar as cartas."
+interacted_count = 0
+to_interact = 2
+characters_already_interacted = {
+"choco": false,
+"safira": false
+}
+id = "deliver_letters"
+name = "Correio dos Gatinhos"
+description = ""
+objective_display = "encontre os destinatários e entregue as cartas."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_b4xbh"]
+script = ExtResource("8_6dpom")
+required_item_id = "choco_letter"
+character_id = "choco"
+finish_objective_display = "Entregue a carta para Choco."
+id = "choco_letter_quest"
+name = "Mensagem para Choco"
+description = ""
+objective_display = "Encontre Choco."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_gfoep"]
+script = ExtResource("8_6dpom")
+required_item_id = "safira_letter"
+character_id = "safira"
+finish_objective_display = "Entregue a carta para Safira."
+id = "safira_letter_quest"
+name = "Mensagem para Safira"
+description = ""
+objective_display = "Encontre Safira."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_tou1j"]
+script = ExtResource("14_msfag")
+character_id = "jujubinha"
+id = "misty_and_jujubinha_talk"
+name = "Ponto de Descanso"
+description = ""
+objective_display = "Converse com Jujubinha na praça."
+status = 0
+has_prerequisite = false
+prerequisite_quest_id = ""
+
+[sub_resource type="Resource" id="Resource_qptfa"]
 script = ExtResource("13_5nn6t")
-quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8")])
+quests = Array[Resource("res://resources/classes/objects/quests/quest.gd")]([SubResource("Resource_es8e0"), SubResource("Resource_usyv1"), SubResource("Resource_6qb6v"), SubResource("Resource_0ow7q"), SubResource("Resource_op3le"), SubResource("Resource_go1c1"), SubResource("Resource_rechq"), SubResource("Resource_h23o8"), SubResource("Resource_v3spc"), SubResource("Resource_b4xbh"), SubResource("Resource_gfoep"), SubResource("Resource_tou1j")])
 
 [resource]
 script = ExtResource("14_fcaqs")
 already_saved = true
-global_variables = SubResource("Resource_to7tq")
-player_inventory = SubResource("Resource_34sg5")
-interactive_objects_dict = SubResource("Resource_rv2ye")
-dialog_ready_list = SubResource("Resource_1ynpe")
-quest_list = SubResource("Resource_68v4b")
+global_variables = SubResource("Resource_6sfm7")
+player_inventory = SubResource("Resource_ddrjj")
+interactive_objects_dict = SubResource("Resource_kwyev")
+dialog_ready_list = SubResource("Resource_v8k4j")
+quest_list = SubResource("Resource_qptfa")
